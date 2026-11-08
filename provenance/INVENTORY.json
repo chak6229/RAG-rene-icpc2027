@@ -1,7 +1,7 @@
 {
   "version": "2026.11.08",
-  "files_excluding_inventory_and_checksum": 674,
-  "total_bytes_excluding_inventory_and_checksum": 33938628,
+  "files_excluding_inventory_and_checksum": 675,
+  "total_bytes_excluding_inventory_and_checksum": 33942637,
   "max_file_bytes": 6766133,
   "includes_paper": false,
   "includes_english_supplement": true,
@@ -319,6 +319,10 @@
     {
       "path": "docs/PUBLICATION.md",
       "bytes": 1095
+    },
+    {
+      "path": "docs/REFERENCE_CORRECTIONS_20261108.md",
+      "bytes": 3222
     },
     {
       "path": "docs/RENE_REQUIREMENTS.md",
@@ -1770,7 +1774,7 @@
     },
     {
       "path": "provenance/MANUSCRIPT_ALIGNMENT_20261108.json",
-      "bytes": 1224
+      "bytes": 1560
     },
     {
       "path": "provenance/README.md",
@@ -1778,7 +1782,7 @@
     },
     {
       "path": "provenance/RELEASE_STATUS.json",
-      "bytes": 1751
+      "bytes": 1765
     },
     {
       "path": "provenance/review_fixes/anchor_stage_risk_clean_20261016_DESIGN.md",
@@ -2062,7 +2066,7 @@
     },
     {
       "path": "README.md",
-      "bytes": 4636
+      "bytes": 4858
     },
     {
       "path": "requirements.txt",
@@ -2650,7 +2654,7 @@
     },
     {
       "path": "supplementary/README.md",
-      "bytes": 1386
+      "bytes": 1601
     },
     {
       "path": "supplementary/SSQR_Supplementary_S1-S25_EN.docx",

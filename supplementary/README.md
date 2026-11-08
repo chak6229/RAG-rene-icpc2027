@@ -9,3 +9,7 @@ See the [English appendix index](../docs/APPENDIX_INDEX.md) for reports referenc
 ## AI use disclosure
 
 The manuscript acknowledgment covers assistance with these materials. The approved statement is available in [AI use disclosure](../docs/AI_USE_DISCLOSURE.md). The S1–S25 documents and their scientific content are unchanged by this documentation update.
+
+## Manuscript reference corrections
+
+See the [reference correction record](../docs/REFERENCE_CORRECTIONS_20261108.md) for entries [8], [9], [13], and [22]. The supplementary scientific documents are unchanged.
