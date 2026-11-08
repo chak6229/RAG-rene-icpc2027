@@ -37,7 +37,8 @@
   },
   "supplement_pdf_pages": 27,
   "core_statistics_tolerance": 1e-11,
-  "uploaded_to_github": false,
-  "publication_pending": "New repository address from author",
-  "new_model_experiments": false
+  "new_model_experiments": false,
+  "repository": "https://github.com/chak6229/RAG-rene-icpc2027",
+  "model_attachments_remote_verified": true,
+  "publication_receipt": "Final remote verification is recorded in release notes and the author delivery receipt."
 }

@@ -1,7 +1,7 @@
 {
   "version": "2026.11.08",
   "files_excluding_inventory_and_checksum": 673,
-  "total_bytes_excluding_inventory_and_checksum": 33934942,
+  "total_bytes_excluding_inventory_and_checksum": 33936377,
   "max_file_bytes": 6766133,
   "includes_paper": false,
   "includes_english_supplement": true,
@@ -258,7 +258,7 @@
     },
     {
       "path": "docs/assets/STUDY_ASSETS.json",
-      "bytes": 7142
+      "bytes": 7155
     },
     {
       "path": "docs/CHANGELOG_20261108.md",
@@ -1774,7 +1774,7 @@
     },
     {
       "path": "provenance/RELEASE_STATUS.json",
-      "bytes": 341
+      "bytes": 1630
     },
     {
       "path": "provenance/review_fixes/anchor_stage_risk_clean_20261016_DESIGN.md",
@@ -2050,7 +2050,7 @@
     },
     {
       "path": "provenance/validation/RELEASE_VALIDATION.json",
-      "bytes": 1336
+      "bytes": 1469
     },
     {
       "path": "provenance/validation/ROOT_ACCEPTANCE.json",

@@ -4,6 +4,31 @@
   "repository_private": true,
   "release_tag": "rene-review-20261108",
   "release_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108",
-  "status": "publication_in_progress",
-  "paper_uploaded": false
+  "status": "release_2026.11.08",
+  "model_assets_verified_online": true,
+  "model_assets": [
+    {
+      "name": "SSQR_RENE_W1_CQC_T5_20261031.zip",
+      "id": 723554799,
+      "bytes": 895679380,
+      "sha256": "c30b796808b512a1d7ebf4d8e6babfab6756878f95a5ce827dd0b29b3f37b097",
+      "url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261108/SSQR_RENE_W1_CQC_T5_20261031.zip"
+    },
+    {
+      "name": "SSQR_RENE_W5_CrossEncoder_20261031.zip",
+      "id": 723577059,
+      "bytes": 500010650,
+      "sha256": "b67389496bf49bb867315c73d2b78955be628530de5005c1f123307f22ca8a7c",
+      "url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261108/SSQR_RENE_W5_CrossEncoder_20261031.zip"
+    },
+    {
+      "name": "SSQR_RENE_W3_CodeBERT_20261031.zip",
+      "id": 723576958,
+      "bytes": 503428077,
+      "sha256": "b2e696ea88b54e916eedc20349fc536da82d29e37ceeefbe6b21a0d1e6bf76bd",
+      "url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261108/SSQR_RENE_W3_CodeBERT_20261031.zip"
+    }
+  ],
+  "paper_uploaded": false,
+  "verification": "Model attachments match server-computed SHA-256 and byte sizes. The release tag identifies the separately verified source commit; release notes record final Git and ZIP identities."
 }
