@@ -1,0 +1,264 @@
+{
+  "source_to_export_checks": [
+    {
+      "study": "development_source_CodeBERT",
+      "records": 2048,
+      "source_numeric_cells_checked": 79872,
+      "full_position_pools": true,
+      "group_order_preserved": true
+    },
+    {
+      "study": "development_source_BM25",
+      "records": 2048,
+      "source_numeric_cells_checked": 79872,
+      "full_position_pools": true,
+      "group_order_preserved": true
+    },
+    {
+      "study": "development_cosqa_CodeBERT",
+      "records": 1490,
+      "source_numeric_cells_checked": 58110,
+      "full_position_pools": true,
+      "group_order_preserved": true
+    },
+    {
+      "study": "development_cosqa_BM25",
+      "records": 1490,
+      "source_numeric_cells_checked": 58110,
+      "full_position_pools": true,
+      "group_order_preserved": true
+    },
+    {
+      "study": "staqc_confirmation_CodeBERT",
+      "records": 13312,
+      "source_numeric_cells_checked": 519168,
+      "full_position_pools": true,
+      "group_order_preserved": true
+    },
+    {
+      "study": "staqc_confirmation_BM25",
+      "records": 13312,
+      "source_numeric_cells_checked": 519168,
+      "full_position_pools": true,
+      "group_order_preserved": true
+    },
+    {
+      "study": "third_retriever_cosqa",
+      "records": 1490,
+      "source_numeric_cells_checked": 174330,
+      "full_position_pools": true,
+      "group_order_preserved": true
+    },
+    {
+      "study": "third_retriever_staqc",
+      "records": 13312,
+      "source_numeric_cells_checked": 1557504,
+      "full_position_pools": true,
+      "group_order_preserved": true
+    },
+    {
+      "study": "matched_weights_source",
+      "records": 512,
+      "source_numeric_cells_checked": 40960,
+      "full_position_pools": true,
+      "group_order_preserved": true
+    },
+    {
+      "study": "matched_weights_cosqa",
+      "records": 512,
+      "source_numeric_cells_checked": 40960,
+      "full_position_pools": true,
+      "group_order_preserved": true
+    },
+    {
+      "study": "matched_weights_staqc_unused",
+      "records": 25600,
+      "source_numeric_cells_checked": 2048000,
+      "full_position_pools": true,
+      "group_order_preserved": true
+    },
+    {
+      "study": "full_H_stages_CodeBERT",
+      "records": 8530,
+      "source_numeric_cells_checked": 0,
+      "full_position_pools": false,
+      "group_order_preserved": true
+    },
+    {
+      "study": "cosqa_primary",
+      "records": 7718,
+      "source_numeric_cells_checked": 0,
+      "full_position_pools": false,
+      "group_order_preserved": true
+    },
+    {
+      "study": "full_H_stages_BM25",
+      "records": 8530,
+      "source_numeric_cells_checked": 0,
+      "full_position_pools": false,
+      "group_order_preserved": true
+    }
+  ],
+  "sources": [
+    {
+      "path": "results/rene_budget_aggregation_20261020/per_query.jsonl",
+      "sha256": "ac4111c47ccd80e1f4c12ad325fe23bca127663e1efc7ce8a0e01b8c1b53ef2b"
+    },
+    {
+      "path": "results/rene_budget_aggregation_20261020/ACTIONS.jsonl",
+      "sha256": "59b63645ec9a3ef29d204a1b9dbcb17efadad5ed775fef012ef0ee6a6287c1af"
+    },
+    {
+      "path": "results/rene_core_step_a_20261020/per_query.jsonl",
+      "sha256": "9c3d41738a8cab0c80192edc7f474561a5beea83b7dde9e4164f59fc62e36394"
+    },
+    {
+      "path": "results/rene_budget_aggregation_20261020/RESULTS.json",
+      "sha256": "da61be1ad9085de2144a09a6918419b54725274c712bb2e3c9d12106473496fc"
+    },
+    {
+      "path": "results/rene_factor_confirmation_20261020/per_query.jsonl",
+      "sha256": "a819b9d4d5d2e719fc524ff177d71e72930aa4f9002e5cee85669c4f6726d623"
+    },
+    {
+      "path": "results/rene_factor_confirmation_20261020/actions.jsonl",
+      "sha256": "cdbb99e185f016cf20abaefe13fe7bcc22fb9ddbd2dc1494b0329c78c2ca346e"
+    },
+    {
+      "path": "results/rene_factor_confirmation_20261020/RESULTS.json",
+      "sha256": "c9ddea0e949088c52a67848084b62091a71fe0ae2be9f472127be40134baa9e1"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/per_query.jsonl",
+      "sha256": "521fef4e4eb7bb32bb5942af18ea33c5a73db0834d52a7414ff1f6a62f64fb18"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/RESULTS.json",
+      "sha256": "fee5eccca889cc7418c7fc450a009348d3aae75696b27f16ce42ec065f124dee"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/public/cosqa_actions.jsonl",
+      "sha256": "3a1302b4a2e2ec7b395dbff43980a73bd017f8d696db7cc0c638c6f69f70f933"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/public/staqc_actions.jsonl",
+      "sha256": "61c4b9fbddf86a171d1b6d527db6502241a6314d7f9239c95ed9853a3b217cc0"
+    },
+    {
+      "path": "results/rene_t5_weight_factors_20261020/per_query.jsonl",
+      "sha256": "a9778cf95d254542deac0b5cb3c24462a4551e0b472fae13d6d4f9aa5410ed5b"
+    },
+    {
+      "path": "results/rene_t5_weight_factors_20261020/RESULTS.json",
+      "sha256": "cdcbc0ff2e311a0066a37c7e9b33abe8262c4352afe936ac1659939cca6c9006"
+    },
+    {
+      "path": "results/rene_envelope_completion_20261020/candidate_RR.jsonl",
+      "sha256": "18ab028653de818052b0a596eda3d98f342597079ef834d1ba138c5ebab91fae"
+    },
+    {
+      "path": "results/rene_weight_confirmation_20261021/per_query.jsonl",
+      "sha256": "7970692ce1852602986c3b8bbd0bd7f58f98ef1ab0583616f64f3cf81ef5b5db"
+    },
+    {
+      "path": "results/rene_weight_confirmation_20261021/RESULTS.json",
+      "sha256": "bff8ba1555c6b4fce3da07e64b24a8ea20eab1c0bcb771c9b57c9c26a597cb6b"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/PRIMARY_SAMPLE.json",
+      "sha256": "9ee86440bd32b2ea17bcfe5ef88f1bb5b8ad6aed1b7843e82ce49ca05ba07b0b"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_per_query.jsonl",
+      "sha256": "74de1cbbdaf80230184b44dfbb44cc0f5348bf0d40c1ae1d235729b5a5e602df"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "sha256": "1e6e5fc0691804fedde0680f43005aa8161a8f852569a050e5b3a9649ce4a88b"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
+      "sha256": "bc7e6e69ced0627612f13676c040d1fd025ab2712874e071731fb376126668ea"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/metrics/BM25_per_query.jsonl",
+      "sha256": "c8d7bccb16eb0adadf423077b737664074749e52fe3fe511bf5d01da8586abea"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "sha256": "2b7859c0e65a8a3aaa1bd2a3ef5a726cb1ea4a32f757bfb3dd0876b7f3085de6"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T10_third_retriever.csv",
+      "sha256": "dcdf0ba5c032880177a1c5a5fe68e117d40a39841a3a7abae0072f18a9af7831"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T11_matched_weight_factors.csv",
+      "sha256": "58d373fcee5d4dc8ec822d1cf7d830f5dbc9bd44697b5d68ac6c1f1dd9005361"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T12_review_agreement.csv",
+      "sha256": "65feeee797277171555bbc2456aafd88e071a4c8b88c8a775b0cd0c86bbad6c1"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T13_weighted_review_events.csv",
+      "sha256": "651d2d3607cac7b7b9df9985e760d96cf701b6d47558893afaa1f8e6811ed618"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T14_weighted_issue_types.csv",
+      "sha256": "30f814bab1e60b2679c5f6cff3caed2e927d6dbf2e564ffed507fb1de3c74e8e"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T15_training_sensitivity.csv",
+      "sha256": "0a8e132fa746c52649d69a326985180f26dea278dca99ef5a0b01dd9cea5ce3d"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T1_confirmation.csv",
+      "sha256": "6195cd58ed99742bb0076987f34a163f38dd38efa60b762213a250ee94879dea"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T2_same_pool_contracts.csv",
+      "sha256": "5dd66a3fb23b02f715e7989b8dacef5be6831acd3a2e211d82f93d4569bd7fba"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T3_adoption_fixed20.csv",
+      "sha256": "74474b272c032cc131ad009f804c2a0b67f860ab3038597f1775e483a03867be"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T4_multicandidate_fusion.csv",
+      "sha256": "8cebba81f0d698c61046397c4b09924d48dc2bf1d7d78b4813c8ef06d2d2d5de"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T5_frozen_H_stages.csv",
+      "sha256": "911c692cdf3f81bb25edf22b21d964b33b4f0de4ec18583b800656538a8f75f3"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T6_two_T5_weights.csv",
+      "sha256": "ae019d85d71a299658828e9990c3558b3a469d69b120b3433081933a3b9cee73"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T7_previous_seed_UQ.csv",
+      "sha256": "ed74a101118be2f7152205bbea8f8499e97312c35b47080e946733be581612d2"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T8_count_aggregation.csv",
+      "sha256": "0aff651bb224c839ddac94879c899831d1b313286903b7ec7f81200672f9e8a5"
+    },
+    {
+      "path": "results/rene_public_release_candidate_20261021/results/tables/T9_StaQC_confirmation.csv",
+      "sha256": "15654f0ccadeec3f9fe1cb5af28ad03286dd404a010a0d748e93663507eb7b6e"
+    },
+    {
+      "path": "results/rene_weight_confirmation_20261021/PRIMARY_RESULTS.csv",
+      "sha256": "07f27214c6fbe0a35ccecb7ad07f7c1d554efafa99f1d226a7f4f0005dd1fd0b"
+    },
+    {
+      "path": "results/rene_weight_confirmation_20261021/COMPLETE_CURVES.csv",
+      "sha256": "967a7b7d61e84ca01f90461bf5eec69782ba093de06fb9882726a29e24c0f757"
+    }
+  ],
+  "raw_query_or_code_text_exported": false,
+  "original_identifiers_exported": false,
+  "human_individual_labels_exported": false,
+  "model_or_training_files_exported": false
+}

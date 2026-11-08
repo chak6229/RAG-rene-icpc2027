@@ -1,0 +1,11 @@
+retriever,policy,queries,groups,role,delta,ci95,adopted,harmful,positive_gain_retention,CE_pairs
+CodeBERT,ENTR_top1,8530,1963,predefined descriptive full-H stage estimate; not an extra confirmatory test,-0.021104667733802204,"[-0.025139425118155964, -0.017046881223317413]",8530,2328,0.4251858888021191,0
+CodeBERT,HGB_gain_control,8530,1963,predefined descriptive full-H stage estimate; not an extra confirmatory test,-0.002876101727053951,"[-0.005663321055473195, -5.520426479213472e-05]",5305,1277,0.27017403687302455,0
+CodeBERT,RIDGE_gain,8530,1963,predefined descriptive full-H stage estimate; not an extra confirmatory test,7.864058884024954e-05,"[-0.002245257024612571, 0.0024101501576805177]",6034,1317,0.23043068038408024,0
+CodeBERT,RIDGE_verified,8530,1963,predefined descriptive full-H stage estimate; not an extra confirmatory test,0.0008470509605318511,"[-0.0015859511647492543, 0.0032649325993236063]",5890,1280,0.24348540941110947,17056
+CodeBERT,RIDGE_risk,8530,1963,predefined descriptive full-H stage estimate; not an extra confirmatory test,-0.0001777709092614271,"[-0.0005510607141544759, 0.00019457275126158517]",1006,60,0.00769090895465412,17056
+BM25,ENTR_top1,8530,1963,predefined descriptive full-H stage estimate; not an extra confirmatory test,-0.014435099115947004,"[-0.016920089739388834, -0.012048550735066775]",7955,2929,0.3910461612554606,0
+BM25,HGB_gain_control,8530,1963,predefined descriptive full-H stage estimate; not an extra confirmatory test,-0.002714963530394169,"[-0.003929638748382946, -0.0015431730177068973]",2615,853,0.11797752868912496,0
+BM25,RIDGE_gain,8530,1963,predefined descriptive full-H stage estimate; not an extra confirmatory test,-0.002079432331256027,"[-0.002771194646960858, -0.001403062954189902]",3559,1072,0.05630484829285594,0
+BM25,RIDGE_verified,8530,1963,predefined descriptive full-H stage estimate; not an extra confirmatory test,-0.0017168071252001303,"[-0.0022813407795633494, -0.0011538519600744273]",2926,906,0.04425327202552932,17056
+BM25,RIDGE_risk,8530,1963,predefined descriptive full-H stage estimate; not an extra confirmatory test,0.0,"[0.0, 0.0]",0,0,0.0,17056

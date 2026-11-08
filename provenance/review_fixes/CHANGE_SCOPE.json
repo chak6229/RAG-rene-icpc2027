@@ -1,0 +1,13 @@
+{
+  "version": "2026.10.31",
+  "base_version": "2026.10.27",
+  "changes": [
+    "model attachment manifests and installer",
+    "CODEnn raw/prepared input mapping",
+    "original/reconstruction/automatic-extension correspondence",
+    "risk working-point provenance"
+  ],
+  "scientific_numeric_inputs_changed": false,
+  "human_labels_or_rationales_changed": false,
+  "manuscript_included": false
+}

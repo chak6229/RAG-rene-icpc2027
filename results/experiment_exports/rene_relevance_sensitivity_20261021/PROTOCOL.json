@@ -1,0 +1,113 @@
+{
+  "created_utc": "2026-10-20T17:33:47.897985+00:00",
+  "role": "posthoc_relevance_sensitivity_with_existing_reviews_visible",
+  "old_results_and_labels_known": true,
+  "external_preregistration": false,
+  "sample": "original stratified 128 queries / 120 groups from H8530",
+  "pool": "union of original and fixed ENTR3 Top-3; exact-text shared judgments",
+  "primary_diagnostic": {
+    "policy": "RIDGE_verified",
+    "cutoff": 3,
+    "human_relevance_threshold": 2
+  },
+  "inference": "weighted descriptive sample identification bounds, not confidence intervals",
+  "bound_inputs_and_design": [
+    {
+      "path": "experiments/rene_relevance_sensitivity_20261021/DESIGN.md",
+      "sha256": "0d3a34bb9900176ebbcf369278fefbd21d344d9f92260d503cbc1abd35c7ba0e"
+    },
+    {
+      "path": "results/rene_mechanism_review_20261020/private/sample_manifest.jsonl",
+      "sha256": "57e19659f04ab5ccc276f23a85e8b5dcdeaa9744c46b701f652b175dbcdad771"
+    },
+    {
+      "path": "results/rene_mechanism_review_20261020/private/CodeBERT_stage_rows.jsonl",
+      "sha256": "63e10249719adfe27e2d348cbb3960b7175b48f9ac5eac663cdd3501e2c39f2c"
+    },
+    {
+      "path": "results/rene_review_returns_20261020/item_labels.jsonl",
+      "sha256": "1afe81052f973dd8317c379160962b7dc232b6596c8cedec6e8a1f9aa25f7f98"
+    },
+    {
+      "path": "results/rene_review_returns_20261020/RESULTS.json",
+      "sha256": "c703b1c544a61e3f8272c4df9dfe4bba51288d0e1f1484b490185dd433cf8262"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/rankings/CodeBERT.jsonl",
+      "sha256": "4978dd71bce0a998fc0aed779e1cb0e55fce4212e0b6b8c0da95a34a71cad65f"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/private/H_qrels.jsonl",
+      "sha256": "6e3d47196d18b34d8b659647d1f7267dafdd1edf13bef27d581e50c88b3d7a8b"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/public/H_queries.jsonl",
+      "sha256": "0fc53c4fa419d12c106db5bfa768e1c03f4d85cb8daad15eca83fff85a977239"
+    },
+    {
+      "path": "results/rene_cosqa_ssqr_audit_20261019/selected_source/coclr/data/search/code_idx_map.txt",
+      "sha256": "be8a910ca03cb9f1b38a0eba6dc8109eeb8040a40aaba1a467a7b8426d261f3f"
+    },
+    {
+      "path": "results/rene_ssqr_alignment_20261019/cosqa_adapter/public/corpus.jsonl",
+      "sha256": "4e48d0ded5f5591002040faac69e9ece984cd2b340a6164fcc9d93c4b5009f68"
+    },
+    {
+      "path": "imports/CodeXGLUE-main/Text-Code/NL-code-search-WebQuery/CoSQA/cosqa-all.json",
+      "sha256": "4d1a227fe3652992d1e98f43fa9dc1b8f54a6c27a1a24b9d182bdfb8cbc3274c"
+    },
+    {
+      "path": "results/rene_manuscript_integration_20261021/TABLES.json",
+      "sha256": "a58858d64d12372e4ca973f2b1b25b686daa3a703dda8d0cf0e186c1f52dab12"
+    },
+    {
+      "path": "configs/vac_mqr_gain_model/CURRENT.json",
+      "sha256": "74eb0553c9d489f25f82408ed2cc0521a5d3fab92159d59700d5c8496c52d371"
+    },
+    {
+      "path": "configs/vac_mqr_verification_policy/CURRENT.json",
+      "sha256": "ca9c157954527fbcfee44ea34010131ab0143ec74d0778c081409d28507315e1"
+    },
+    {
+      "path": "configs/vac_mqr_risk_module/CURRENT.json",
+      "sha256": "436c367c8f8e15d1723064e9edb780dc3544180821d03fcac61d7c3724f50693"
+    },
+    {
+      "path": "configs/uq_candidate_selection/CURRENT.json",
+      "sha256": "5bd37f87e468a878f37f8356e298e15b3517bd5acb58ced03e24e3c923d6ef27"
+    },
+    {
+      "path": "results/vac_mqr_v5/STABLE.json",
+      "sha256": "ea43301dd61510d8415391e5b5182f286e736589a0e870f79630a92320f69a72"
+    },
+    {
+      "path": "experiments/rene_relevance_sensitivity_20261021/analyze.py",
+      "sha256": "0b1f495157b1b9c107d86873916100a8028978e851bb8328c49fb85c5a072c8c"
+    },
+    {
+      "path": "experiments/rene_relevance_sensitivity_20261021/build.py",
+      "sha256": "51ba665bb602cf568e7e07bda73609dbb761d24a7c66292d2e3ab1a96ef4fcc4"
+    },
+    {
+      "path": "experiments/rene_relevance_sensitivity_20261021/collect.py",
+      "sha256": "b519d5c26a4c8d91c2d57c566459c86484539a85d63c968847d7d07a83d54056"
+    },
+    {
+      "path": "experiments/rene_relevance_sensitivity_20261021/common.py",
+      "sha256": "c9d096507981b9db37b6116a9e0f4859a8bfcdbf3e81755318e88e7ad4e0870d"
+    },
+    {
+      "path": "experiments/rene_relevance_sensitivity_20261021/pages.py",
+      "sha256": "a865f23576eb039456e4624064e816d197b983640c73a7a622561766c1a6299a"
+    },
+    {
+      "path": "experiments/rene_relevance_sensitivity_20261021/test_contract.py",
+      "sha256": "fd717a40af8ee83f231d8017189a10ce79c2b44aef9a29ee50e2c2c5d35f53f9"
+    },
+    {
+      "path": "experiments/rene_relevance_sensitivity_20261021/validate.py",
+      "sha256": "99ae7e04fe18c4bcf2517ecb4a24e69090581f48d692af2752efc50c1ade764a"
+    }
+  ],
+  "risk_certified": false
+}

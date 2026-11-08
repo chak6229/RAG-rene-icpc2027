@@ -1,0 +1,688 @@
+{"reviewer": "A", "query_ref": "Q0001", "panel_ref": "P0254", "judgment": {"relevance": "0", "note": "输入 idx 后取列表值，是按索引找元素，不是按元素找索引。"}}
+{"reviewer": "A", "query_ref": "Q0002", "panel_ref": "P0592", "judgment": {"relevance": "0", "note": "用 astype 转换元素类型，不判断输入对象是否为数组。"}}
+{"reviewer": "A", "query_ref": "Q0002", "panel_ref": "P0594", "judgment": {"relevance": "0", "note": "假定输入已经是记录数组并转换记录，没有检查输入是不是数组。"}}
+{"reviewer": "A", "query_ref": "Q0002", "panel_ref": "P0591", "judgment": {"relevance": "u", "note": "整数 dtype 的限制可见，但数组类型检测依赖缺失的 is_np_array；无法确认完整判断。"}}
+{"reviewer": "A", "query_ref": "Q0002", "panel_ref": "P0593", "judgment": {"relevance": "1", "note": "isinstance(x, np.ndarray) 是需要的类型判断，但函数先把列表转成数组，再限制为一维，未直接返回原对象是否为数组。"}}
+{"reviewer": "A", "query_ref": "Q0003", "panel_ref": "P0098", "judgment": {"relevance": "0", "note": "设置的是 response header，原文问 request header，作用对象不同。"}}
+{"reviewer": "A", "query_ref": "Q0003", "panel_ref": "P0097", "judgment": {"relevance": "0", "note": "把配置写进响应头，没有给发出的请求设置头字段。"}}
+{"reviewer": "A", "query_ref": "Q0004", "panel_ref": "P0423", "judgment": {"relevance": "1", "note": "返回带 ANSI 颜色控制码的字符串，可用于彩色显示，但没有输出步骤，也不从字符串内容解析颜色。"}}
+{"reviewer": "A", "query_ref": "Q0004", "panel_ref": "P0421", "judgment": {"relevance": "1", "note": "格式化文本并包上颜色码，没有实际写到终端。"}}
+{"reviewer": "A", "query_ref": "Q0004", "panel_ref": "P0422", "judgment": {"relevance": "1", "note": "给文本包 ANSI 序列，具备着色步骤；颜色表未展示，也没有执行输出。"}}
+{"reviewer": "A", "query_ref": "Q0004", "panel_ref": "P0424", "judgment": {"relevance": "1", "note": "能在特定条件下为序列化文本加语法颜色，但输入是数据对象，返回文本而非输出，适用范围较窄。"}}
+{"reviewer": "A", "query_ref": "Q0005", "panel_ref": "P0054", "judgment": {"relevance": "0", "note": "把字符串中的数字全部拼成一个数，既会丢掉小数点和符号，也不解决 linspace 的整数类型。"}}
+{"reviewer": "A", "query_ref": "Q0005", "panel_ref": "P0052", "judgment": {"relevance": "0", "note": "从字符串拼出所有数字，未操作 linspace，也不是把样本数组转成整数。"}}
+{"reviewer": "A", "query_ref": "Q0006", "panel_ref": "P0463", "judgment": {"relevance": "2", "note": "遍历 dir(obj)，用 getattr 取出公开的非可调用属性，直接给出属性名和值。"}}
+{"reviewer": "A", "query_ref": "Q0006", "panel_ref": "P0466", "judgment": {"relevance": "2", "note": "用 dir 获取属性名，过滤双下划线成员后返回，满足查看对象属性的基本需求。"}}
+{"reviewer": "A", "query_ref": "Q0006", "panel_ref": "P0464", "judgment": {"relevance": "0", "note": "把 GUI 控件设为可见，不显示对象属性。"}}
+{"reviewer": "A", "query_ref": "Q0006", "panel_ref": "P0465", "judgment": {"relevance": "2", "note": "vars(self) 取得实例属性并组成字典，能查看公开的实例字段；不包含继承属性和私有字段。"}}
+{"reviewer": "A", "query_ref": "Q0006", "panel_ref": "P0467", "judgment": {"relevance": "0", "note": "只返回对象名或类名，未列举属性。"}}
+{"reviewer": "A", "query_ref": "Q0007", "panel_ref": "P0126", "judgment": {"relevance": "u", "note": "全部验证工作转交同名 assert_list，没有被调用函数的定义，看不出是否拒绝空列表。"}}
+{"reviewer": "A", "query_ref": "Q0007", "panel_ref": "P0127", "judgment": {"relevance": "0", "note": "要求长度恰好等于 expected_length；至少一个应允许任意正长度。"}}
+{"reviewer": "A", "query_ref": "Q0007", "panel_ref": "P0125", "judgment": {"relevance": "1", "note": "len(item) 确实排除空容器，但还要求首元素是列表或元组，会拒绝普通非空列表。"}}
+{"reviewer": "A", "query_ref": "Q0008", "panel_ref": "P0028", "judgment": {"relevance": "u", "note": "merge_range 的列界限来自 self.hdrs，缺少实际行号、表头长度和报错调用，不能判断索引故障。"}}
+{"reviewer": "A", "query_ref": "Q0008", "panel_ref": "P0027", "judgment": {"relevance": "0", "note": "把整数索引转换为 Excel 列字母，输出反而是字符串，未修复要求整数列号的调用。"}}
+{"reviewer": "A", "query_ref": "Q0009", "panel_ref": "P0427", "judgment": {"relevance": "2", "note": "把 encoding 传给 codecs.open，能按指定编码打开文件；未指定时才使用地区默认编码。"}}
+{"reviewer": "A", "query_ref": "Q0009", "panel_ref": "P0428", "judgment": {"relevance": "2", "note": "文本模式打开文件，Python 3 下显式设置 encoding 和 errors，也允许调用者覆盖默认值。"}}
+{"reviewer": "A", "query_ref": "Q0010", "panel_ref": "P0547", "judgment": {"relevance": "1", "note": "target 可以传 sys.stderr 来输出，但默认是 stdout，且前后颜色管理依赖未展示的 _color_manager。"}}
+{"reviewer": "A", "query_ref": "Q0011", "panel_ref": "P0195", "judgment": {"relevance": "0", "note": "累加对象大小，没有处理 resource.getpagesize 缺失。"}}
+{"reviewer": "A", "query_ref": "Q0011", "panel_ref": "P0196", "judgment": {"relevance": "0", "note": "读取 PDF 页面的宽高，与 resource 模块的内存页大小接口无关。"}}
+{"reviewer": "A", "query_ref": "Q0012", "panel_ref": "P0002", "judgment": {"relevance": "0", "note": "返回键值迭代接口，没有添加元素。"}}
+{"reviewer": "A", "query_ref": "Q0012", "panel_ref": "P0003", "judgment": {"relevance": "1", "note": "seen.add 展示集合添加，函数整体是去重生成器，没有更新输入对象。"}}
+{"reviewer": "A", "query_ref": "Q0012", "panel_ref": "P0006", "judgment": {"relevance": "1", "note": "用 append 把元素加入新列表，展示了添加方法；整体功能却是去重，不能把指定新元素加到给定对象。"}}
+{"reviewer": "A", "query_ref": "Q0012", "panel_ref": "P0007", "judgment": {"relevance": "2", "note": "检查列表元素为字符串后逐项 list.append，直接实现向列表对象添加多个元素，适用于它声明的字符串列表。"}}
+{"reviewer": "A", "query_ref": "Q0013", "panel_ref": "P0364", "judgment": {"relevance": "0", "note": "只去掉 Windows 扩展路径前缀，路径中的其他反斜杠不会变成正斜杠。"}}
+{"reviewer": "A", "query_ref": "Q0013", "panel_ref": "P0365", "judgment": {"relevance": "0", "note": "修补 URL 协议后缺失的冒号，没有替换反斜杠。"}}
+{"reviewer": "A", "query_ref": "Q0014", "panel_ref": "P0074", "judgment": {"relevance": "1", "note": "展示了 textwrap.wrap 的调用和长单词选项，但没有原来的输入与错误，不能据此认定已经修好。"}}
+{"reviewer": "A", "query_ref": "Q0014", "panel_ref": "P0075", "judgment": {"relevance": "0", "note": "这是给 Zotero 清理函数用的装饰器，wrap 指函数包装，不是文本换行。"}}
+{"reviewer": "A", "query_ref": "Q0015", "panel_ref": "P0344", "judgment": {"relevance": "1", "note": "startswith 检查当前位置的前缀，既区分大小写，也没有搜索整个字符串。"}}
+{"reviewer": "A", "query_ref": "Q0015", "panel_ref": "P0342", "judgment": {"relevance": "1", "note": "case_sensitive 为假时的 lower 后包含判断可满足需求；但默认配置未给出，正则分支也由外部正则标志决定大小写。"}}
+{"reviewer": "A", "query_ref": "Q0015", "panel_ref": "P0343", "judgment": {"relevance": "0", "note": "按小写键检查字典成员，判断的是完整键，不是字符串里的子串。"}}
+{"reviewer": "A", "query_ref": "Q0016", "panel_ref": "P0164", "judgment": {"relevance": "0", "note": "将指定标量类型包成列表，其他对象原样返回，没有 list/matrix 类型区分。"}}
+{"reviewer": "A", "query_ref": "Q0016", "panel_ref": "P0165", "judgment": {"relevance": "0", "note": "把输入展平后检查每个元素的类型，不判断外层变量是 list 还是 matrix。"}}
+{"reviewer": "A", "query_ref": "Q0017", "panel_ref": "P0039", "judgment": {"relevance": "1", "note": "yaml.dump 确实把对象写到文件，但 file() 是 Python 2 接口，Python 3 需改 open，且文件未显式关闭。"}}
+{"reviewer": "A", "query_ref": "Q0017", "panel_ref": "P0038", "judgment": {"relevance": "1", "note": "写出的是 JSON；对于常规可序列化数据，它可被 YAML 1.2 读取，但不是一般的 YAML 序列化实现，也不能处理任意 Python 对象。"}}
+{"reviewer": "A", "query_ref": "Q0018", "panel_ref": "P0265", "judgment": {"relevance": "u", "note": "清理自定义双向映射及哨兵节点，需要类定义；原查询也没说明 clear 的对象。"}}
+{"reviewer": "A", "query_ref": "Q0018", "panel_ref": "P0266", "judgment": {"relevance": "u", "note": "遍历键后调用 delete，但存储类和待清除对象都不明确。"}}
+{"reviewer": "A", "query_ref": "Q0018", "panel_ref": "P0267", "judgment": {"relevance": "u", "note": "清除的是 Jinja2 两类缓存，原文没有说明要清屏、清变量还是清容器，无法确定目标是否一致。"}}
+{"reviewer": "A", "query_ref": "Q0019", "panel_ref": "P0319", "judgment": {"relevance": "1", "note": "生成表头和数据重排函数，涉及列名与行值对应；尚未读取行或输出键值对。"}}
+{"reviewer": "A", "query_ref": "Q0019", "panel_ref": "P0318", "judgment": {"relevance": "u", "note": "查询后返回整个 key_table 对象列表，缺少表模型，无法确定其中有没有所需的键和值。"}}
+{"reviewer": "A", "query_ref": "Q0019", "panel_ref": "P0321", "judgment": {"relevance": "1", "note": "遍历数据库游标，却把 value 丢弃，只返回键。"}}
+{"reviewer": "A", "query_ref": "Q0019", "panel_ref": "P0320", "judgment": {"relevance": "1", "note": "按给定列取得行中的值，但结果没有同时携带列键。"}}
+{"reviewer": "A", "query_ref": "Q0020", "panel_ref": "P0544", "judgment": {"relevance": "1", "note": "一次 read() 可以完成文本读取，但没体现特定的快速读取方法或性能条件。"}}
+{"reviewer": "A", "query_ref": "Q0020", "panel_ref": "P0543", "judgment": {"relevance": "1", "note": "按行迭代读取文本，适合避免一次装入整份文件；没有足够依据判定读取速度，还会删去行首尾空白。"}}
+{"reviewer": "A", "query_ref": "Q0021", "panel_ref": "P0213", "judgment": {"relevance": "0", "note": "setText 把内容写入剪贴板，原文要读取。"}}
+{"reviewer": "A", "query_ref": "Q0021", "panel_ref": "P0212", "judgment": {"relevance": "0", "note": "clear 和 append 都是修改剪贴板，没有返回已有内容。"}}
+{"reviewer": "A", "query_ref": "Q0022", "panel_ref": "P0069", "judgment": {"relevance": "0", "note": "把 datetime 转成 UTC 表示，没有返回原 datetime 的 UTC 偏移量。"}}
+{"reviewer": "A", "query_ref": "Q0022", "panel_ref": "P0070", "judgment": {"relevance": "0", "note": "用已有 LOCAL_UTC_OFFSET 转换时间，没有计算或返回 datetime 的 UTC 偏移。"}}
+{"reviewer": "A", "query_ref": "Q0022", "panel_ref": "P0068", "judgment": {"relevance": "0", "note": "获取不带时区信息的 UTC 当前时间，没有取得 offset。"}}
+{"reviewer": "A", "query_ref": "Q0022", "panel_ref": "P0071", "judgment": {"relevance": "0", "note": "计算相对纪元的微秒数，不是时区偏移。"}}
+{"reviewer": "A", "query_ref": "Q0023", "panel_ref": "P0024", "judgment": {"relevance": "0", "note": "读取两个 UI 控件的范围值，没有从 NumPy 数组中筛选正数或求其范围。"}}
+{"reviewer": "A", "query_ref": "Q0024", "panel_ref": "P0302", "judgment": {"relevance": "0", "note": "返回变量网格的宽和高，没有计算任何点的对应位置。"}}
+{"reviewer": "A", "query_ref": "Q0024", "panel_ref": "P0300", "judgment": {"relevance": "u", "note": "屏幕坐标转经纬度依赖 num2deg、缩放级别和瓦片定义，原查询也未指定这种映射。"}}
+{"reviewer": "A", "query_ref": "Q0024", "panel_ref": "P0299", "judgment": {"relevance": "u", "note": "生成了像素网格，但坐标转换交给 pixelToMap；缺少这个函数，也没说明原查询要映射到哪种坐标。"}}
+{"reviewer": "A", "query_ref": "Q0024", "panel_ref": "P0301", "judgment": {"relevance": "0", "note": "只调整表格行列数，把索引层数算进尺寸，与网格点映射无关。"}}
+{"reviewer": "A", "query_ref": "Q0024", "panel_ref": "P0303", "judgment": {"relevance": "0", "note": "算的是线段上参数 t 对应的插值点，没有建立网格点之间的映射。"}}
+{"reviewer": "A", "query_ref": "Q0025", "panel_ref": "P0041", "judgment": {"relevance": "1", "note": "能连接元素，但写死用竖线分隔，character 参数被忽略，传换行符也不会生效。"}}
+{"reviewer": "A", "query_ref": "Q0025", "panel_ref": "P0042", "judgment": {"relevance": "1", "note": "用空格连接并返回单元素列表，既不是换行分隔，也不是直接返回字符串。"}}
+{"reviewer": "A", "query_ref": "Q0026", "panel_ref": "P0450", "judgment": {"relevance": "0", "note": "临时改写 stdout 后恢复，没有处理 logger 的关闭义务。"}}
+{"reviewer": "A", "query_ref": "Q0026", "panel_ref": "P0449", "judgment": {"relevance": "0", "note": "只移除 handler，没 close 或 flush；还混用了 self._file_logger 和未定义的 _file_logger，不能据此回答退出前是否需要关闭。"}}
+{"reviewer": "A", "query_ref": "Q0027", "panel_ref": "P0092", "judgment": {"relevance": "0", "note": "从 date 生成毫秒时间戳，转换方向相反。"}}
+{"reviewer": "A", "query_ref": "Q0027", "panel_ref": "P0091", "judgment": {"relevance": "0", "note": "把现有日期时间格式化为字符串，不从 timestamp 得到 date。"}}
+{"reviewer": "A", "query_ref": "Q0027", "panel_ref": "P0093", "judgment": {"relevance": "0", "note": "只检查对象是否可能表示时间戳，不转换成日期。"}}
+{"reviewer": "A", "query_ref": "Q0028", "panel_ref": "P0205", "judgment": {"relevance": "u", "note": "成功退出上下文时调用 commit，但上下文中如何登记多项修改、commit 如何实现都没给出。"}}
+{"reviewer": "A", "query_ref": "Q0028", "panel_ref": "P0203", "judgment": {"relevance": "u", "note": "父事务和仓库提交分别交给缺失的辅助方法，无法确认多项修改是否在同一次事务中提交。"}}
+{"reviewer": "A", "query_ref": "Q0028", "panel_ref": "P0204", "judgment": {"relevance": "0", "note": "读取并检查已有 Git 提交消息，不进行多项提交。"}}
+{"reviewer": "A", "query_ref": "Q0029", "panel_ref": "P0581", "judgment": {"relevance": "0", "note": "PRAGMA table_info 是 SQLite 的列信息查询，不适用于 MySQL。"}}
+{"reviewer": "A", "query_ref": "Q0029", "panel_ref": "P0583", "judgment": {"relevance": "0", "note": "返回 SQLite 表名列表，不是 MySQL 的列名列表。"}}
+{"reviewer": "A", "query_ref": "Q0029", "panel_ref": "P0582", "judgment": {"relevance": "0", "note": "查 SQLite 的 sqlite_master 得到表名，数据库和所求对象都不对。"}}
+{"reviewer": "A", "query_ref": "Q0030", "panel_ref": "P0154", "judgment": {"relevance": "u", "note": "给函数加抽象方法标记和自定义属性，但没有原类定义及报错，不能确认方法不被识别的原因。"}}
+{"reviewer": "A", "query_ref": "Q0030", "panel_ref": "P0155", "judgment": {"relevance": "u", "note": "包装函数后传入 Pascal 风格名称，依赖 to_pascal_case；没有原调用语境，无法确认与故障有关。"}}
+{"reviewer": "A", "query_ref": "Q0031", "panel_ref": "P0536", "judgment": {"relevance": "0", "note": "将给定常量集合转换成 AST 节点，不是从 Python 环境中取得常量清单。"}}
+{"reviewer": "A", "query_ref": "Q0031", "panel_ref": "P0535", "judgment": {"relevance": "0", "note": "返回参数是否全为静态值的布尔判断，不返回常量列表。"}}
+{"reviewer": "A", "query_ref": "Q0032", "panel_ref": "P0171", "judgment": {"relevance": "0", "note": "reverse=True 后取首项得到最大值所在行，与最小值相反。"}}
+{"reviewer": "A", "query_ref": "Q0032", "panel_ref": "P0173", "judgment": {"relevance": "0", "note": "取得的是列名，不是列中最小值。"}}
+{"reviewer": "A", "query_ref": "Q0032", "panel_ref": "P0172", "judgment": {"relevance": "1", "note": "能取出指定列，剩下还要对该列求 min。"}}
+{"reviewer": "A", "query_ref": "Q0033", "panel_ref": "P0227", "judgment": {"relevance": "1", "note": "随机范围部分存在，但只生成单个整数，没有构造元组。"}}
+{"reviewer": "A", "query_ref": "Q0033", "panel_ref": "P0226", "judgment": {"relevance": "1", "note": "uniform 可生成界内浮点样本，但返回标量或 NumPy 数组，不是 tuple。"}}
+{"reviewer": "A", "query_ref": "Q0034", "panel_ref": "P0438", "judgment": {"relevance": "0", "note": "仅删开头的注释行，不跳过空行或全空格行。"}}
+{"reviewer": "A", "query_ref": "Q0034", "panel_ref": "P0436", "judgment": {"relevance": "u", "note": "跳过的是词法单元 TT.lbreak，空格行如何分词、_increment 如何推进均未展示。"}}
+{"reviewer": "A", "query_ref": "Q0034", "panel_ref": "P0434", "judgment": {"relevance": "2", "note": "if line.strip() 直接过滤空行和全空白行，保留其他行后重组文本；另会去掉行尾空白。"}}
+{"reviewer": "A", "query_ref": "Q0034", "panel_ref": "P0437", "judgment": {"relevance": "1", "note": "strip 后的真假判断能跳过空行和全空白行，但还会删注释并改动保留行，超出了原要求。"}}
+{"reviewer": "A", "query_ref": "Q0035", "panel_ref": "P0443", "judgment": {"relevance": "u", "note": "缩进输出取决于 whitespace、_indent 和打开元素状态，没有定义，无法确定填充位置及目标宽度。"}}
+{"reviewer": "A", "query_ref": "Q0035", "panel_ref": "P0444", "judgment": {"relevance": "1", "note": "Formatter 可以接收右对齐和宽度格式来实现左填充，但这段没有给出具体格式，只提供通用格式化入口。"}}
+{"reviewer": "A", "query_ref": "Q0035", "panel_ref": "P0441", "judgment": {"relevance": "0", "note": "美化 Python 对象表示，不是把字符串左侧填充到指定宽度。"}}
+{"reviewer": "A", "query_ref": "Q0036", "panel_ref": "P0556", "judgment": {"relevance": "0", "note": "检查的是美元符号与 dollars 等词的重复用法，不是 Python 语法。"}}
+{"reviewer": "A", "query_ref": "Q0036", "panel_ref": "P0558", "judgment": {"relevance": "0", "note": "删去文本标点没有诊断 Python 语法，直接用在程序上还可能删掉必要符号。"}}
+{"reviewer": "A", "query_ref": "Q0036", "panel_ref": "P0557", "judgment": {"relevance": "u", "note": "只把 nonlocal 检查交给 check_py。缺少检查器和出错单词，无法判断是否对应原来的语法错误。"}}
+{"reviewer": "A", "query_ref": "Q0036", "panel_ref": "P0560", "judgment": {"relevance": "0", "note": "对自然语言词语做词形还原，不处理 Python 的 SyntaxError。"}}
+{"reviewer": "A", "query_ref": "Q0036", "panel_ref": "P0555", "judgment": {"relevance": "0", "note": "清理的是指标名称，连字符仍允许保留，并不保证结果是合法 Python 标识符。"}}
+{"reviewer": "A", "query_ref": "Q0036", "panel_ref": "P0559", "judgment": {"relevance": "0", "note": "把分词标注结果构造成 Text 对象，不是检查程序中单词的语法。"}}
+{"reviewer": "A", "query_ref": "Q0036", "panel_ref": "P0554", "judgment": {"relevance": "0", "note": "只按 alphabet 过滤字符，没有判断或修复 Python 语法。"}}
+{"reviewer": "A", "query_ref": "Q0037", "panel_ref": "P0392", "judgment": {"relevance": "0", "note": "从缓存取得文本行，没有 MAT 格式解析或 MATLAB 数据载入。"}}
+{"reviewer": "A", "query_ref": "Q0038", "panel_ref": "P0387", "judgment": {"relevance": "1", "note": "尝试提取函数声明中的默认参数，并未在参数缺失时应用默认值；defaults 为 None 时还会失败。"}}
+{"reviewer": "A", "query_ref": "Q0038", "panel_ref": "P0389", "judgment": {"relevance": "1", "note": "字典 setdefault 能在属性不存在时补默认值，但操作的是实例属性，不是函数参数。"}}
+{"reviewer": "A", "query_ref": "Q0038", "panel_ref": "P0388", "judgment": {"relevance": "1", "note": "argparse 中可省略选项会有默认结果，但本段只是添加两个固定选项，没有展示通用的未定义参数回退。"}}
+{"reviewer": "A", "query_ref": "Q0039", "panel_ref": "P0382", "judgment": {"relevance": "u", "note": "process.kill 的具体行为和是否发送信号取决于进程类及平台，片段没有给出这两项信息。"}}
+{"reviewer": "A", "query_ref": "Q0040", "panel_ref": "P0589", "judgment": {"relevance": "1", "note": "有强度缩放意图，但分母用了 mat.max() 而非 max-min；最小值不为零时，最大输出达不到 255，全零图还会除零。"}}
+{"reviewer": "A", "query_ref": "Q0041", "panel_ref": "P0562", "judgment": {"relevance": "1", "note": "Python 3 下识别字节类对象，但把 memoryview 和 bytearray 也算入，且没有给出 str 的判定结果。"}}
+{"reviewer": "A", "query_ref": "Q0041", "panel_ref": "P0565", "judgment": {"relevance": "0", "note": "识别数学表达式中的数字和运算符，不检查 str/bytes 类型。"}}
+{"reviewer": "A", "query_ref": "Q0041", "panel_ref": "P0566", "judgment": {"relevance": "1", "note": "内部有 str 和 bytes 的 isinstance 判断，但最终返回的是可迭代且非字符串，不能直接用来区分两者。"}}
+{"reviewer": "A", "query_ref": "Q0042", "panel_ref": "P0453", "judgment": {"relevance": "0", "note": "校验数字卡号及校验位，不区分普通字符串和十六进制数。"}}
+{"reviewer": "A", "query_ref": "Q0042", "panel_ref": "P0454", "judgment": {"relevance": "1", "note": "有十六进制字符判断，但正则只匹配开头；例如 Axyz 也会通过，不能验证完整字符串。"}}
+{"reviewer": "A", "query_ref": "Q0043", "panel_ref": "P0293", "judgment": {"relevance": "1", "note": "etree.parse 会检查 XML 是否可解析，但随后还做 XSD 验证，良构却不符合模式的文档也会失败。"}}
+{"reviewer": "A", "query_ref": "Q0043", "panel_ref": "P0291", "judgment": {"relevance": "0", "note": "运行通用测试命令，没有 XML 良构检查。"}}
+{"reviewer": "A", "query_ref": "Q0043", "panel_ref": "P0295", "judgment": {"relevance": "2", "note": "parseString 解析 XML，格式不合法会抛解析异常；成功后才美化输出，可据是否解析成功检查良构性。"}}
+{"reviewer": "A", "query_ref": "Q0043", "panel_ref": "P0297", "judgment": {"relevance": "0", "note": "自定义 Python 异常显示方式，没有解析 XML。"}}
+{"reviewer": "A", "query_ref": "Q0043", "panel_ref": "P0296", "judgment": {"relevance": "u", "note": "lint 函数和 check 的定义缺失，无法确认检查的是 XML 良构错误。"}}
+{"reviewer": "A", "query_ref": "Q0043", "panel_ref": "P0294", "judgment": {"relevance": "0", "note": "解析的是 XSD 模式定义，没有检查待审 XML 文档的良构性。"}}
+{"reviewer": "A", "query_ref": "Q0044", "panel_ref": "P0484", "judgment": {"relevance": "0", "note": "这是高精度点积，点积和笛卡尔积是不同运算。"}}
+{"reviewer": "A", "query_ref": "Q0044", "panel_ref": "P0485", "judgment": {"relevance": "0", "note": "计算累积乘积，没有列举不同数组之间的元素组合。"}}
+{"reviewer": "A", "query_ref": "Q0044", "panel_ref": "P0483", "judgment": {"relevance": "0", "note": "构造对角张量，不做笛卡尔积，也没有处理巨大组合结果。"}}
+{"reviewer": "A", "query_ref": "Q0044", "panel_ref": "P0482", "judgment": {"relevance": "0", "note": "计算最大公约量，不生成数组元素的笛卡尔组合。"}}
+{"reviewer": "A", "query_ref": "Q0045", "panel_ref": "P0335", "judgment": {"relevance": "0", "note": "用 zlib 压缩整段数据，不把连续空白改为一个空格。"}}
+{"reviewer": "A", "query_ref": "Q0045", "panel_ref": "P0334", "judgment": {"relevance": "0", "note": "生成 gzip 压缩字节流，未修改文本中的空白序列。"}}
+{"reviewer": "A", "query_ref": "Q0046", "panel_ref": "P0016", "judgment": {"relevance": "1", "note": "列出了 coverage run/report/html 的完整命令顺序，但测试脚本和启动辅助函数未给出，是否运行单元测试仍需查看配置。"}}
+{"reviewer": "A", "query_ref": "Q0047", "panel_ref": "P0509", "judgment": {"relevance": "0", "note": "读取 XML 节点的 type 属性，不是 POST 的 Content-Type 请求头。"}}
+{"reviewer": "A", "query_ref": "Q0047", "panel_ref": "P0510", "judgment": {"relevance": "0", "note": "检查响应头来决定如何解码响应，没有读取 POST 请求的内容类型。"}}
+{"reviewer": "A", "query_ref": "Q0048", "panel_ref": "P0376", "judgment": {"relevance": "1", "note": "seen = set() 展示了集合去重用法，但返回的仍是保序列表。"}}
+{"reviewer": "A", "query_ref": "Q0048", "panel_ref": "P0375", "judgment": {"relevance": "0", "note": "获取数据库表的唯一约束元数据，不是表示一组唯一元素。"}}
+{"reviewer": "A", "query_ref": "Q0049", "panel_ref": "P0524", "judgment": {"relevance": "0", "note": "gzip_mode=0 明确选择 zlib 容器，不能当作 gzip 响应体。"}}
+{"reviewer": "A", "query_ref": "Q0049", "panel_ref": "P0525", "judgment": {"relevance": "0", "note": "zlib.compress 返回 zlib 格式，不是 gzip 包装格式，也没有 HTTP 响应处理。"}}
+{"reviewer": "A", "query_ref": "Q0049", "panel_ref": "P0526", "judgment": {"relevance": "0", "note": "解析 XML-RPC 响应，没有展示 HTML 或 gzip 处理。"}}
+{"reviewer": "A", "query_ref": "Q0049", "panel_ref": "P0527", "judgment": {"relevance": "1", "note": "构造了 gzip 解压读取对象，但没有 read 得到内容，StringIO 还需确认是否为可接受 bytes 的实现。"}}
+{"reviewer": "A", "query_ref": "Q0051", "panel_ref": "P0288", "judgment": {"relevance": "0", "note": "计算并行任务的分块大小，不生成整数分拆或排列。"}}
+{"reviewer": "A", "query_ref": "Q0051", "panel_ref": "P0287", "judgment": {"relevance": "0", "note": "无限产生 0..N-1 的随机排列，不做整数加法分拆，也不能保证枚举全部指定长度排列。"}}
+{"reviewer": "A", "query_ref": "Q0052", "panel_ref": "P0332", "judgment": {"relevance": "u", "note": "拼接 parent/item 后交给 TensorFlow 判断目录；没有原路径、文件系统和失败现象，无法确定它解决的是哪一种 isdir 问题。"}}
+{"reviewer": "A", "query_ref": "Q0053", "panel_ref": "P0108", "judgment": {"relevance": "1", "note": "能列出 schema 中的列类型，但范围是带模式的表，不能用于任意 Python 对象。"}}
+{"reviewer": "A", "query_ref": "Q0053", "panel_ref": "P0109", "judgment": {"relevance": "u", "note": "实际类型信息来自 var.types() 和 has_value()，缺少变量类定义，不能判断结果代表什么。"}}
+{"reviewer": "A", "query_ref": "Q0053", "panel_ref": "P0107", "judgment": {"relevance": "u", "note": "用 isinstance 检查某个映射中的类型，但 DATA_TYPES 没有定义，无法确定检查了哪些数据类型。"}}
+{"reviewer": "A", "query_ref": "Q0054", "panel_ref": "P0605", "judgment": {"relevance": "u", "note": "same space 可能指间隔或等大小分块；这里调用 blockshaped 分块，但辅助函数和原需求都不够明确。"}}
+{"reviewer": "A", "query_ref": "Q0054", "panel_ref": "P0606", "judgment": {"relevance": "0", "note": "做列表转数组和向量形状变换，没有生成等间距数值。"}}
+{"reviewer": "A", "query_ref": "Q0054", "panel_ref": "P0604", "judgment": {"relevance": "0", "note": "把稀疏向量转为稠密数组，没有等间距生成逻辑。"}}
+{"reviewer": "A", "query_ref": "Q0054", "panel_ref": "P0607", "judgment": {"relevance": "0", "note": "把数组重塑为二维，不改变数值间距。"}}
+{"reviewer": "A", "query_ref": "Q0055", "panel_ref": "P0248", "judgment": {"relevance": "1", "note": "从 parent 开始查指定类型祖先，适用于有 parent 链的对象；不能回答一般对象的父关系。"}}
+{"reviewer": "A", "query_ref": "Q0055", "panel_ref": "P0251", "judgment": {"relevance": "0", "note": "复制 XML 元素并挂上子元素，没有查找父对象。"}}
+{"reviewer": "A", "query_ref": "Q0055", "panel_ref": "P0249", "judgment": {"relevance": "1", "note": "沿 parent 向上查找指定类型，但从自身开始且可能返回更高祖先，不一定是直接父对象。"}}
+{"reviewer": "A", "query_ref": "Q0056", "panel_ref": "P0600", "judgment": {"relevance": "2", "note": "打开指定路径后 safe_load 文件流，完整覆盖 YAML 文件读取和反序列化。"}}
+{"reviewer": "A", "query_ref": "Q0056", "panel_ref": "P0601", "judgment": {"relevance": "2", "note": "将打开的文件流传给 PyYAML 加载器即可反序列化，按版本选择 full_load；若传的是路径字符串，还需先打开文件。"}}
+{"reviewer": "A", "query_ref": "Q0056", "panel_ref": "P0602", "judgment": {"relevance": "u", "note": "读取文本后调用 yaml.Parse；这不是通常的 PyYAML 接口，缺少 yaml 的来源和 Parse 实现。"}}
+{"reviewer": "A", "query_ref": "Q0057", "panel_ref": "P0499", "judgment": {"relevance": "u", "note": "打开文件后交给 Json.parse，既缺少解析器实现，也不知道输入文本是不是对象格式，不能确认返回字典。"}}
+{"reviewer": "A", "query_ref": "Q0057", "panel_ref": "P0500", "judgment": {"relevance": "1", "note": "能读取 UTF-8 文本，但返回的是字符串，没有把内容解析成字典。"}}
+{"reviewer": "A", "query_ref": "Q0058", "panel_ref": "P0224", "judgment": {"relevance": "0", "note": "创建 HTTP 路由，不模拟客户端请求。"}}
+{"reviewer": "A", "query_ref": "Q0058", "panel_ref": "P0221", "judgment": {"relevance": "0", "note": "通过 FuturesSession 真正发送异步请求，没有 mock。"}}
+{"reviewer": "A", "query_ref": "Q0058", "panel_ref": "P0220", "judgment": {"relevance": "u", "note": "请求行为取决于缺失的 Session 类，片段本身没有明确的模拟或补丁机制。"}}
+{"reviewer": "A", "query_ref": "Q0058", "panel_ref": "P0222", "judgment": {"relevance": "1", "note": "提供检查 mock 调用次数的断言，可用于请求测试，但没有创建或注入 requests mock。"}}
+{"reviewer": "A", "query_ref": "Q0058", "panel_ref": "P0223", "judgment": {"relevance": "0", "note": "模拟的是装饰器，未替换 requests 方法或提供假 HTTP 响应。"}}
+{"reviewer": "A", "query_ref": "Q0059", "panel_ref": "P0175", "judgment": {"relevance": "0", "note": "写的是 lal cache 文本，和 Excel 查询导出无关。"}}
+{"reviewer": "A", "query_ref": "Q0059", "panel_ref": "P0176", "judgment": {"relevance": "0", "note": "pprint 写出 Python 数据表示，不生成 Excel 文件。"}}
+{"reviewer": "A", "query_ref": "Q0060", "panel_ref": "P0192", "judgment": {"relevance": "1", "note": "确实画了直方图，但 density=True 是概率密度，不等于每个分箱的百分比。"}}
+{"reviewer": "A", "query_ref": "Q0060", "panel_ref": "P0191", "judgment": {"relevance": "u", "note": "plot 函数、histogram 内容和 kwargs 都未给出，无法确认是否绘制百分比直方图。"}}
+{"reviewer": "A", "query_ref": "Q0061", "panel_ref": "P0019", "judgment": {"relevance": "u", "note": "表格构建依赖 table.prettytable() 和 format_output，缺少实现，不能确认输出内容和结构。"}}
+{"reviewer": "A", "query_ref": "Q0061", "panel_ref": "P0020", "judgment": {"relevance": "u", "note": "只调用 format_table 后 echo，实际表格排版函数未展示；注释中的代码不会执行。"}}
+{"reviewer": "A", "query_ref": "Q0061", "panel_ref": "P0021", "judgment": {"relevance": "1", "note": "展示了读取 CSV 后交给 shellish.tabulate 的用法，但 csvfile 注解在定义时要先有绑定，本片段未提供，直接加载可能失败。"}}
+{"reviewer": "A", "query_ref": "Q0062", "panel_ref": "P0130", "judgment": {"relevance": "1", "note": "正确给出指定月份第一天，但没有月末；默认日期还在函数定义时就固定了。"}}
+{"reviewer": "A", "query_ref": "Q0062", "panel_ref": "P0132", "judgment": {"relevance": "0", "note": "返回当年一月一日，不是目标月份的起止日期。"}}
+{"reviewer": "A", "query_ref": "Q0062", "panel_ref": "P0131", "judgment": {"relevance": "1", "note": "replace(day=1) 提供月初的核心操作，但没有月末，输入还经过未展示的 add_timezone。"}}
+{"reviewer": "A", "query_ref": "Q0062", "panel_ref": "P0133", "judgment": {"relevance": "0", "note": "给出整年范围的首尾日期，不是某个月的首尾。"}}
+{"reviewer": "A", "query_ref": "Q0062", "panel_ref": "P0129", "judgment": {"relevance": "1", "note": "能返回当前月月初，没有月末，也不能指定其他月份。"}}
+{"reviewer": "A", "query_ref": "Q0063", "panel_ref": "P0180", "judgment": {"relevance": "0", "note": "调整浮点数指数表示，没有处理百分号。"}}
+{"reviewer": "A", "query_ref": "Q0063", "panel_ref": "P0183", "judgment": {"relevance": "0", "note": "处理 ANSI 颜色转义序列，不是百分号格式化。"}}
+{"reviewer": "A", "query_ref": "Q0063", "panel_ref": "P0181", "judgment": {"relevance": "1", "note": "展示了 .format 中可直接使用字面百分号的写法，但没有解决 % 格式操作符下的 %% 转义。"}}
+{"reviewer": "A", "query_ref": "Q0064", "panel_ref": "P0168", "judgment": {"relevance": "u", "note": "过滤条件全在 self._filter_order 的回调中，没看到字典、键条件或回调实现。"}}
+{"reviewer": "A", "query_ref": "Q0064", "panel_ref": "P0169", "judgment": {"relevance": "0", "note": "给查询 DSL 加过滤器，不是按键条件生成过滤后的 Python 字典。"}}
+{"reviewer": "A", "query_ref": "Q0065", "panel_ref": "P0283", "judgment": {"relevance": "2", "note": "随机拼接字母数字字符串，可以直接作为随机文件名；是否需要扩展名由使用处决定。"}}
+{"reviewer": "A", "query_ref": "Q0065", "panel_ref": "P0284", "judgment": {"relevance": "1", "note": "mkstemp 确实生成临时文件和名字，但函数返回的是 File 对象，并额外写入内容，没有直接返回文件名。"}}
+{"reviewer": "A", "query_ref": "Q0065", "panel_ref": "P0282", "judgment": {"relevance": "2", "note": "默认生成六位字母数字名称，可以用作普通文件名；不保证无碰撞，原查询也没有要求创建文件。"}}
+{"reviewer": "A", "query_ref": "Q0066", "panel_ref": "P0146", "judgment": {"relevance": "u", "note": "每次读取属性文件并构造 PushDb；缺少类实现和要加载的具体对象，无法确认是否存在只加载一次的行为。"}}
+{"reviewer": "A", "query_ref": "Q0066", "panel_ref": "P0142", "judgment": {"relevance": "u", "note": "import_module 会使用模块缓存，但 cls.load 每次都被调用；缺少 load 的定义及原文所指加载对象。"}}
+{"reviewer": "A", "query_ref": "Q0066", "panel_ref": "P0141", "judgment": {"relevance": "1", "note": "逐个加载执行脚本，但再次调用还会再次执行，没有缓存或已加载标记。"}}
+{"reviewer": "A", "query_ref": "Q0066", "panel_ref": "P0147", "judgment": {"relevance": "0", "note": "删除并重建数据库结构，没有一次性加载保护。"}}
+{"reviewer": "A", "query_ref": "Q0066", "panel_ref": "P0144", "judgment": {"relevance": "0", "note": "检查 Django 与 Python 版本兼容性，不控制加载次数。"}}
+{"reviewer": "A", "query_ref": "Q0066", "panel_ref": "P0143", "judgment": {"relevance": "0", "note": "转发管理命令，未体现 load once 的控制。"}}
+{"reviewer": "A", "query_ref": "Q0067", "panel_ref": "P0049", "judgment": {"relevance": "1", "note": "把上下界写进图表配置，表达了目标 y 范围；配置由何种绘图库读取及如何刷新没有给出。"}}
+{"reviewer": "A", "query_ref": "Q0067", "panel_ref": "P0048", "judgment": {"relevance": "1", "note": "将颜色映射值线性变换到给定范围，不是设置绘图坐标轴；常量数组还会出现零分母。"}}
+{"reviewer": "A", "query_ref": "Q0067", "panel_ref": "P0046", "judgment": {"relevance": "1", "note": "按 x/y 比例缩放图像，但比例因子并不直接指定坐标轴的目标区间，scale_to 也未展示。"}}
+{"reviewer": "A", "query_ref": "Q0067", "panel_ref": "P0047", "judgment": {"relevance": "u", "note": "接口接收 y 轴上下界，但实际操作交给自定义 subplot.set_ylimits，缺少子图类实现。"}}
+{"reviewer": "A", "query_ref": "Q0068", "panel_ref": "P0400", "judgment": {"relevance": "u", "note": "sys.exit 不会按线程标识结束其他线程，缺少调用所在的线程，无法判断是否是所需的自退出。"}}
+{"reviewer": "A", "query_ref": "Q0068", "panel_ref": "P0403", "judgment": {"relevance": "0", "note": "进行数值舍入，与终止线程无关。"}}
+{"reviewer": "A", "query_ref": "Q0068", "panel_ref": "P0404", "judgment": {"relevance": "0", "note": "计算重试等待时长，不停止线程。"}}
+{"reviewer": "A", "query_ref": "Q0068", "panel_ref": "P0401", "judgment": {"relevance": "0", "note": "有多个线程时直接 os._exit，结束整个进程，并非单独终止目标线程。"}}
+{"reviewer": "A", "query_ref": "Q0068", "panel_ref": "P0399", "judgment": {"relevance": "u", "note": "sys.exit 作用于执行它的线程；这里是 SIGTERM 处理函数，没有目标线程或调用方式，不能确认实现线程终止。"}}
+{"reviewer": "A", "query_ref": "Q0069", "panel_ref": "P0339", "judgment": {"relevance": "u", "note": "字典迭代时会连接键，但原文也可能指合并字典或连接值；分隔符还经过未给出的 _ 函数。"}}
+{"reviewer": "A", "query_ref": "Q0070", "panel_ref": "P0246", "judgment": {"relevance": "0", "note": "读取并反汇编 Python 字节码文件，不实现多文件并行加载。"}}
+{"reviewer": "A", "query_ref": "Q0070", "panel_ref": "P0244", "judgment": {"relevance": "1", "note": "能加载一个 pickle 文件，但没有多文件或并行调度。"}}
+{"reviewer": "A", "query_ref": "Q0070", "panel_ref": "P0243", "judgment": {"relevance": "1", "note": "取得单个文件的缓存行，没有并行处理不同文件。"}}
+{"reviewer": "A", "query_ref": "Q0070", "panel_ref": "P0245", "judgment": {"relevance": "u", "note": "并发和任务内容取决于 multithread 与 run_process，未给出定义，不能确认这些任务会加载文件。"}}
+{"reviewer": "A", "query_ref": "Q0070", "panel_ref": "P0242", "judgment": {"relevance": "1", "note": "读取单个 pickle 文件，临时换目录不等于并行加载。"}}
+{"reviewer": "A", "query_ref": "Q0071", "panel_ref": "P0513", "judgment": {"relevance": "0", "note": "从现有日期时间中取年月日，把时分秒清零，没有随机生成日期时间。"}}
+{"reviewer": "A", "query_ref": "Q0072", "panel_ref": "P0385", "judgment": {"relevance": "u", "note": "只显示菜单，尺寸和条目由未给出的 update_menu 决定；size 1 的含义也缺少说明。"}}
+{"reviewer": "A", "query_ref": "Q0073", "panel_ref": "P0360", "judgment": {"relevance": "0", "note": "关闭两个端口文件描述符，没有结束当前进程。"}}
+{"reviewer": "A", "query_ref": "Q0073", "panel_ref": "P0361", "judgment": {"relevance": "0", "note": "恢复 stdout 并关闭 devnull，不会让进程自行退出。"}}
+{"reviewer": "A", "query_ref": "Q0074", "panel_ref": "P0520", "judgment": {"relevance": "0", "note": "返回两个区间的重叠长度，不返回并集。"}}
+{"reviewer": "A", "query_ref": "Q0074", "panel_ref": "P0521", "judgment": {"relevance": "0", "note": "取最小起点和最大终点会填入两个不相交区间之间的空隙，得到包络区间而非真实并集。"}}
+{"reviewer": "A", "query_ref": "Q0075", "panel_ref": "P0610", "judgment": {"relevance": "1", "note": "给出了 m*exp(-t*x)+b 指数模型，没有用数据估计 m、t、b 的拟合步骤。"}}
+{"reviewer": "A", "query_ref": "Q0076", "panel_ref": "P0324", "judgment": {"relevance": "0", "note": "strftime 把日期时间转成字符串，方向与列转 datetime 相反。"}}
+{"reviewer": "A", "query_ref": "Q0076", "panel_ref": "P0325", "judgment": {"relevance": "0", "note": "把 date 转成 ISO 字符串，没有解析不同格式的日期列。"}}
+{"reviewer": "A", "query_ref": "Q0077", "panel_ref": "P0418", "judgment": {"relevance": "1", "note": "只检查列出的整数和浮点类型，complex、Decimal、Fraction 等不在其中。"}}
+{"reviewer": "A", "query_ref": "Q0077", "panel_ref": "P0419", "judgment": {"relevance": "0", "note": "检查 RDF 字面量的四种 XSD 数据类型，不是 Python 对象的通用数值类型判断。"}}
+{"reviewer": "A", "query_ref": "Q0077", "panel_ref": "P0415", "judgment": {"relevance": "1", "note": "列出了多种 int/float 类型，但漏掉复数、无符号 NumPy 整数等，type 精确比较也不接受子类。"}}
+{"reviewer": "A", "query_ref": "Q0078", "panel_ref": "P0277", "judgment": {"relevance": "1", "note": "包含 prop in response 的存在性检查，但请求抛异常后 response 未赋值，会另报错；目标也仅限该服务响应。"}}
+{"reviewer": "A", "query_ref": "Q0078", "panel_ref": "P0280", "judgment": {"relevance": "0", "note": "判断序列化协议或 _asdict，未检查指定模型属性。"}}
+{"reviewer": "A", "query_ref": "Q0078", "panel_ref": "P0276", "judgment": {"relevance": "1", "note": "检查模型配置中的 key_attribute 和 label_attribute 是否登记，但没有接受任意待查属性名。"}}
+{"reviewer": "A", "query_ref": "Q0078", "panel_ref": "P0279", "judgment": {"relevance": "1", "note": "可按名称在 pif.properties 中查找，找不到返回 None；仅适用于这种模型结构，不是通用属性检查。"}}
+{"reviewer": "A", "query_ref": "Q0078", "panel_ref": "P0278", "judgment": {"relevance": "1", "note": "按名称查属性对象，未找到时返回 None；弃用警告不影响这个局部用途，但适用范围限于 pif.properties。"}}
+{"reviewer": "A", "query_ref": "Q0079", "panel_ref": "P0475", "judgment": {"relevance": "0", "note": "通过 PIL 保存 PNG/JPG 图像，没有构造或写入 FITS 文件。"}}
+{"reviewer": "A", "query_ref": "Q0080", "panel_ref": "P0550", "judgment": {"relevance": "u", "note": "找不到属性时返回 None 的分支明确，但 find_property/get_value 未展示，无法确认属性查找与取值行为。"}}
+{"reviewer": "A", "query_ref": "Q0080", "panel_ref": "P0552", "judgment": {"relevance": "1", "note": "next(..., None) 给出了属性不存在时的默认返回，不过返回的是属性对象，不是其值，也不能指定其他默认值。"}}
+{"reviewer": "A", "query_ref": "Q0080", "panel_ref": "P0551", "judgment": {"relevance": "u", "note": "只包装 self._get 为 property；默认值是否存在取决于缺失的 _get 实现。"}}
+{"reviewer": "A", "query_ref": "Q0081", "panel_ref": "P0460", "judgment": {"relevance": "0", "note": "计算数组读取区间，不设置排序函数的范围。"}}
+{"reviewer": "A", "query_ref": "Q0081", "panel_ref": "P0457", "judgment": {"relevance": "0", "note": "对整个 RDD 按键排序，没有指定只排序其中一个范围。"}}
+{"reviewer": "A", "query_ref": "Q0081", "panel_ref": "P0458", "judgment": {"relevance": "0", "note": "重设颜色映射的数值范围，没有排序操作。"}}
+{"reviewer": "A", "query_ref": "Q0082", "panel_ref": "P0135", "judgment": {"relevance": "u", "note": "分隔符可以传逗号，但 makestr 未给出，string.join 还依赖旧版运行环境，不能确认当前片段的完整行为。"}}
+{"reviewer": "A", "query_ref": "Q0082", "panel_ref": "P0139", "judgment": {"relevance": "2", "note": "列表元素转字符串后用逗号 join，直接得到所需单个字符串。"}}
+{"reviewer": "A", "query_ref": "Q0082", "panel_ref": "P0137", "judgment": {"relevance": "0", "note": "把输入转为字符串列表，未把列表连接为一个字符串。"}}
+{"reviewer": "A", "query_ref": "Q0082", "panel_ref": "P0136", "judgment": {"relevance": "0", "note": "把逗号分隔字符串拆成列表，方向反了。"}}
+{"reviewer": "A", "query_ref": "Q0083", "panel_ref": "P0517", "judgment": {"relevance": "0", "note": "连接的是 MySQL，未使用 Oracle 或 ODBC。"}}
+{"reviewer": "A", "query_ref": "Q0083", "panel_ref": "P0516", "judgment": {"relevance": "0", "note": "连接 PostgreSQL，数据库和连接接口都不符合要求。"}}
+{"reviewer": "A", "query_ref": "Q0084", "panel_ref": "P0152", "judgment": {"relevance": "0", "note": "只尝试转 float，失败返回 NaN，不检查小数部分。"}}
+{"reviewer": "A", "query_ref": "Q0084", "panel_ref": "P0151", "judgment": {"relevance": "0", "note": "删除逗号再转换为 float，不判断是否没有小数部分。"}}
+{"reviewer": "A", "query_ref": "Q0084", "panel_ref": "P0149", "judgment": {"relevance": "0", "note": "比较两个浮点数近似相等，没有把某个数与它的整数部分比较。"}}
+{"reviewer": "A", "query_ref": "Q0084", "panel_ref": "P0150", "judgment": {"relevance": "0", "note": "检查数值类型并转 float，1.5 也会通过，无法判断是否为整数值。"}}
+{"reviewer": "A", "query_ref": "Q0085", "panel_ref": "P0504", "judgment": {"relevance": "0", "note": "设置线程停止标记，没有 Fibonacci 递推。"}}
+{"reviewer": "A", "query_ref": "Q0085", "panel_ref": "P0506", "judgment": {"relevance": "0", "note": "逐行执行传入代码，不包含所需的数列或哨兵条件。"}}
+{"reviewer": "A", "query_ref": "Q0085", "panel_ref": "P0503", "judgment": {"relevance": "0", "note": "无限休眠循环没有 Fibonacci 运算，也没有哨兵值控制结束。"}}
+{"reviewer": "A", "query_ref": "Q0085", "panel_ref": "P0505", "judgment": {"relevance": "0", "note": "收到 SIGTERM 后退出，没有 Fibonacci 计算或哨兵循环。"}}
+{"reviewer": "A", "query_ref": "Q0086", "panel_ref": "P0059", "judgment": {"relevance": "1", "note": "能判断拼接路径是否为目录，但 False 仍可能是文件、不存在或其他类型，未区分这些情况。"}}
+{"reviewer": "A", "query_ref": "Q0086", "panel_ref": "P0058", "judgment": {"relevance": "0", "note": "比较路径前缀来判断包含关系，不检查文件类型；字符前缀也不等于目录边界。"}}
+{"reviewer": "A", "query_ref": "Q0086", "panel_ref": "P0057", "judgment": {"relevance": "0", "note": "exists 只判断路径是否存在，不能区分文件和目录。"}}
+{"reviewer": "A", "query_ref": "Q0087", "panel_ref": "P0372", "judgment": {"relevance": "2", "note": "已有 read 方法的流直接返回，否则打开路径；传入 sys.stdin 或文件路径均可使用。"}}
+{"reviewer": "A", "query_ref": "Q0087", "panel_ref": "P0368", "judgment": {"relevance": "0", "note": "重定向的是标准输出，与打开文件或 stdin 读取无关。"}}
+{"reviewer": "A", "query_ref": "Q0087", "panel_ref": "P0369", "judgment": {"relevance": "0", "note": "向输出文件打印对象，不选择文件或标准输入作为输入源。"}}
+{"reviewer": "A", "query_ref": "Q0087", "panel_ref": "P0371", "judgment": {"relevance": "1", "note": "提供异步打开文件的框架，没有标准输入选择逻辑，包装函数也未展示。"}}
+{"reviewer": "A", "query_ref": "Q0087", "panel_ref": "P0370", "judgment": {"relevance": "1", "note": "读取标准输入的单行内容，但没有文件路径分支，版本判断还误用 is。"}}
+{"reviewer": "A", "query_ref": "Q0088", "panel_ref": "P0573", "judgment": {"relevance": "0", "note": "格式化内存用量字符串，不设置使用上限。"}}
+{"reviewer": "A", "query_ref": "Q0088", "panel_ref": "P0570", "judgment": {"relevance": "0", "note": "读取系统内存使用比例，没有执行限制。"}}
+{"reviewer": "A", "query_ref": "Q0088", "panel_ref": "P0571", "judgment": {"relevance": "u", "note": "只见父类调用和调度参数赋值，是否真的限制进程内存取决于父类及调度器实现。"}}
+{"reviewer": "A", "query_ref": "Q0089", "panel_ref": "P0598", "judgment": {"relevance": "u", "note": "类型解析委托数据库 introspection.get_field_type，缺少后端和字段描述，不能确认实际列类型查询结果。"}}
+{"reviewer": "A", "query_ref": "Q0090", "panel_ref": "P0209", "judgment": {"relevance": "0", "note": "无限生成随机排列，既没有指定重复次数，也不保持原序列顺序。"}}
+{"reviewer": "A", "query_ref": "Q0090", "panel_ref": "P0208", "judgment": {"relevance": "0", "note": "每次从序列随机取一个元素，不是把整个序列重复 n 遍。"}}
+{"reviewer": "A", "query_ref": "Q0091", "panel_ref": "P0409", "judgment": {"relevance": "0", "note": "读取的是 SQL 文件，没有调用 Python 脚本或使用 argparse。"}}
+{"reviewer": "A", "query_ref": "Q0091", "panel_ref": "P0410", "judgment": {"relevance": "0", "note": "美化打印数据，不处理脚本调用参数。"}}
+{"reviewer": "A", "query_ref": "Q0091", "panel_ref": "P0412", "judgment": {"relevance": "1", "note": "执行已有代码对象，缺少从文件读取及 argparse 传参，并且使用 Python 2 语法。"}}
+{"reviewer": "A", "query_ref": "Q0091", "panel_ref": "P0413", "judgment": {"relevance": "1", "note": "可以临时替换 sys.argv，为命令行解析准备参数，但没有调用 Python 文件或配置 argparse；作为上下文管理器还缺装饰器。"}}
+{"reviewer": "A", "query_ref": "Q0091", "panel_ref": "P0407", "judgment": {"relevance": "1", "note": "生成文件或 stdin 的解析函数，可辅助参数转换，但没有添加 argparse 参数或执行 Python 文件。"}}
+{"reviewer": "A", "query_ref": "Q0091", "panel_ref": "P0406", "judgment": {"relevance": "1", "note": "把 Python 文件编译成 code 对象，但没有执行，也没有接入 argparse 参数。"}}
+{"reviewer": "A", "query_ref": "Q0092", "panel_ref": "P0036", "judgment": {"relevance": "1", "note": "输出提示并读取命令行，没有退出逻辑。"}}
+{"reviewer": "A", "query_ref": "Q0092", "panel_ref": "P0034", "judgment": {"relevance": "1", "note": "从标准输入持续产出行，没有退出命令分支，EOF 时也未 break。"}}
+{"reviewer": "A", "query_ref": "Q0092", "panel_ref": "P0035", "judgment": {"relevance": "1", "note": "异步读取用户一行输入，但没有判断退出指令或结束程序。"}}
+{"reviewer": "A", "query_ref": "Q0093", "panel_ref": "P0113", "judgment": {"relevance": "0", "note": "将文本映射成布尔值，未演示 and/or/not 的组合规则。"}}
+{"reviewer": "A", "query_ref": "Q0093", "panel_ref": "P0111", "judgment": {"relevance": "1", "note": "循环遇到真值就返回 True，表现了逻辑或的短路思路，但没有 and、not，转换规则还依赖辅助函数。"}}
+{"reviewer": "A", "query_ref": "Q0093", "panel_ref": "P0114", "judgment": {"relevance": "0", "note": "是布尔类型转换，不是三种逻辑运算的说明或实现。"}}
+{"reviewer": "A", "query_ref": "Q0094", "panel_ref": "P0263", "judgment": {"relevance": "0", "note": "Redis hexists 检查哈希字段键是否存在，不查存储的值。"}}
+{"reviewer": "A", "query_ref": "Q0095", "panel_ref": "P0235", "judgment": {"relevance": "0", "note": "读取字典值后转 float，失败时返回 0；没有涉及 getvalue 调用或这个属性错误的原因。"}}
+{"reviewer": "A", "query_ref": "Q0096", "panel_ref": "P0356", "judgment": {"relevance": "1", "note": "能从字节串构造数组，但未截取 40 字节，字节序调整还依赖 fix_byteorder。"}}
+{"reviewer": "A", "query_ref": "Q0096", "panel_ref": "P0355", "judgment": {"relevance": "0", "note": "估算数组占用多少字节，没有读取 40 字节。"}}
+{"reviewer": "A", "query_ref": "Q0097", "panel_ref": "P0084", "judgment": {"relevance": "0", "note": "返回时长的秒数，没有修改 datetime。"}}
+{"reviewer": "A", "query_ref": "Q0097", "panel_ref": "P0082", "judgment": {"relevance": "1", "note": "展示了 datetime 加 timedelta，但输入是 ARF 时间戳，增量单位为微秒；毫秒需求还需要乘以 1000 或改参数。"}}
+{"reviewer": "A", "query_ref": "Q0097", "panel_ref": "P0083", "judgment": {"relevance": "0", "note": "把 timedelta 换算成毫秒数，没有把毫秒加到 datetime 上。"}}
+{"reviewer": "A", "query_ref": "Q0097", "panel_ref": "P0081", "judgment": {"relevance": "0", "note": "把 datetime 转成秒级 UNIX 时间，不是日期时间加法。"}}
+{"reviewer": "A", "query_ref": "Q0098", "panel_ref": "P0230", "judgment": {"relevance": "1", "note": "拼接虚拟环境内的解释器路径，但没有检查该文件存在，也不返回当前运行解释器或模块搜索路径。"}}
+{"reviewer": "A", "query_ref": "Q0098", "panel_ref": "P0232", "judgment": {"relevance": "1", "note": "能检测给定文件是否可执行，但没有定位 Python 的实际路径。"}}
+{"reviewer": "A", "query_ref": "Q0099", "panel_ref": "P0478", "judgment": {"relevance": "0", "note": "统计包含某个词的文档数量，不是一个文档内的对象数量。"}}
+{"reviewer": "A", "query_ref": "Q0099", "panel_ref": "P0479", "judgment": {"relevance": "0", "note": "统计队列中等于 elem 的元素，没有读取文档对象。"}}
+{"reviewer": "A", "query_ref": "Q0100", "panel_ref": "P0160", "judgment": {"relevance": "0", "note": "把颜色十六进制码转为三个归一化 RGB 值，不输出有符号整数。"}}
+{"reviewer": "A", "query_ref": "Q0100", "panel_ref": "P0159", "judgment": {"relevance": "u", "note": "可指定进制，但正负号或补码规则全在 NumConv 中，没有该实现无法判断 signed int 转换。"}}
+{"reviewer": "A", "query_ref": "Q0101", "panel_ref": "P0216", "judgment": {"relevance": "0", "note": "隐藏终端窗口，不是禁用关闭按钮。"}}
+{"reviewer": "A", "query_ref": "Q0101", "panel_ref": "P0218", "judgment": {"relevance": "0", "note": "设置 Qt 窗口置顶标志，框架和操作都不对应。"}}
+{"reviewer": "A", "query_ref": "Q0101", "panel_ref": "P0215", "judgment": {"relevance": "0", "note": "withdraw 隐藏 Tk 窗口，没有禁用 wxPython 的关闭按钮。"}}
+{"reviewer": "A", "query_ref": "Q0101", "panel_ref": "P0217", "judgment": {"relevance": "0", "note": "关闭其他浏览器窗口，没有操作 wx.Frame 关闭按钮。"}}
+{"reviewer": "A", "query_ref": "Q0102", "panel_ref": "P0432", "judgment": {"relevance": "0", "note": "处理 JsonObj 或解码字符串，没有检查 BigQuery 的字段模式或返回类型。"}}
+{"reviewer": "A", "query_ref": "Q0102", "panel_ref": "P0430", "judgment": {"relevance": "0", "note": "处理 MongoEngine 的查询结果，不涉及 BigQuery 字段为什么变为 object。"}}
+{"reviewer": "A", "query_ref": "Q0102", "panel_ref": "P0431", "judgment": {"relevance": "0", "note": "把 GraphQL 查询对象写成字符串，与 BigQuery 返回字段类型无关。"}}
+{"reviewer": "A", "query_ref": "Q0103", "panel_ref": "P0576", "judgment": {"relevance": "1", "note": "正向越界时会返回 default，但负索引小于 -len(mylist) 时仍抛 IndexError，边界处理不全。"}}
+{"reviewer": "A", "query_ref": "Q0103", "panel_ref": "P0577", "judgment": {"relevance": "0", "note": "按行列索引直接取元素，越界会抛异常，没有默认值回退。"}}
+{"reviewer": "A", "query_ref": "Q0103", "panel_ref": "P0578", "judgment": {"relevance": "0", "note": "按值找索引，没提供默认返回值。"}}
+{"reviewer": "A", "query_ref": "Q0104", "panel_ref": "P0272", "judgment": {"relevance": "0", "note": "事件循环运行异步函数一次，没有按休眠间隔重复调用。"}}
+{"reviewer": "A", "query_ref": "Q0104", "panel_ref": "P0274", "judgment": {"relevance": "1", "note": "有循环调用函数的结构，不过只在 EINTR 时重试，且没有 sleep 间隔。"}}
+{"reviewer": "A", "query_ref": "Q0104", "panel_ref": "P0269", "judgment": {"relevance": "1", "note": "把函数放入 GTK 空闲回调，可按返回值继续调度，但没有固定休眠时间。"}}
+{"reviewer": "A", "query_ref": "Q0105", "panel_ref": "P0306", "judgment": {"relevance": "0", "note": "取得底层 SSL socket 对象，不检查或补充 ssl.SSLContext，也没有解释属性缺失原因。"}}
+{"reviewer": "A", "query_ref": "Q0106", "panel_ref": "P0496", "judgment": {"relevance": "0", "note": "按间隔打印迭代编号并加一，没有实现跳转到循环中的下一命令。"}}
+{"reviewer": "A", "query_ref": "Q0106", "panel_ref": "P0495", "judgment": {"relevance": "0", "note": "更新文本游标的行号和列偏移，不改变 for 循环的执行位置。"}}
+{"reviewer": "A", "query_ref": "Q0106", "panel_ref": "P0494", "judgment": {"relevance": "u", "note": "这是自定义迭代器的下一元素方法，推进方式在 _fill 中；原文也没说明要下一元素还是下一条语句。"}}
+{"reviewer": "A", "query_ref": "Q0107", "panel_ref": "P0471", "judgment": {"relevance": "0", "note": "psycopg2.connect 连接 PostgreSQL 数据库，不连接 FTP 服务器。"}}
+{"reviewer": "A", "query_ref": "Q0108", "panel_ref": "P0311", "judgment": {"relevance": "u", "note": "只计算 PDF 文件大小，原文没说明 pdf values 是文件属性、文档内容还是概率密度，不能确定目标。"}}
+{"reviewer": "A", "query_ref": "Q0108", "panel_ref": "P0308", "judgment": {"relevance": "u", "note": "调用 pdf2txt.py 取文本，但 self.run 未展示，原查询要什么 values 也不明确。"}}
+{"reviewer": "A", "query_ref": "Q0108", "panel_ref": "P0309", "judgment": {"relevance": "0", "note": "读取 SPSS 的 .sav 文件，不读取 PDF，也不计算概率密度。"}}
+{"reviewer": "A", "query_ref": "Q0108", "panel_ref": "P0312", "judgment": {"relevance": "u", "note": "公式能计算正态分布密度，但原查询没说明 pdf 是否为概率密度，也没指定分布。"}}
+{"reviewer": "A", "query_ref": "Q0109", "panel_ref": "P0585", "judgment": {"relevance": "0", "note": "根据外部映射排序后返回 codes 本身，不返回这些元素的索引。"}}
+{"reviewer": "A", "query_ref": "Q0110", "panel_ref": "P0314", "judgment": {"relevance": "1", "note": "逐行添加前缀可以缩进已有文本，但没有说明 Python 冒号后如何形成语句块，spaces 还必须是字符串。"}}
+{"reviewer": "A", "query_ref": "Q0110", "panel_ref": "P0315", "judgment": {"relevance": "1", "note": "给代码行加缩进后输出，能辅助生成缩进文本；没有建立完整的控制语句块，并使用 Python 2 打印语法。"}}
+{"reviewer": "A", "query_ref": "Q0111", "panel_ref": "P0532", "judgment": {"relevance": "0", "note": "用 wave 和 struct 读 WAV 并返回 Python 列表，不使用 NumPy 读取数组。"}}
+{"reviewer": "A", "query_ref": "Q0111", "panel_ref": "P0531", "judgment": {"relevance": "2", "note": "对 .npy 文件调用 np.load，返回 NumPy 数组，也支持内存映射读取。"}}
+{"reviewer": "A", "query_ref": "Q0111", "panel_ref": "P0530", "judgment": {"relevance": "1", "note": "完成普通文件的文本读取，但没有解析成 NumPy 数组。"}}
+{"reviewer": "A", "query_ref": "Q0112", "panel_ref": "P0351", "judgment": {"relevance": "2", "note": "Popen 用 shell=True 执行命令，合并标准错误后读取并返回输出行；适用于指定 shell 存在的环境。"}}
+{"reviewer": "A", "query_ref": "Q0112", "panel_ref": "P0350", "judgment": {"relevance": "1", "note": "pexpect.run 展示了 shell 执行与输出获取；但未指定文本编码，Python 3 下返回 bytes 时不能用字符串参数 replace。"}}
+{"reviewer": "A", "query_ref": "Q0112", "panel_ref": "P0352", "judgment": {"relevance": "1", "note": "能执行外部程序并返回退出码和标准输出，但 shell=False 不处理管道、重定向等 shell 语法。"}}
+{"reviewer": "A", "query_ref": "Q0113", "panel_ref": "P0329", "judgment": {"relevance": "0", "note": "处理操作系统 SIGINT 后退出程序，不是 Qt 对话框信号。"}}
+{"reviewer": "A", "query_ref": "Q0113", "panel_ref": "P0328", "judgment": {"relevance": "0", "note": "关闭插件对话框和解释器，没有展示 QDialog 的关闭信号。"}}
+{"reviewer": "A", "query_ref": "Q0114", "panel_ref": "P0087", "judgment": {"relevance": "0", "note": "估计显示所需的小数位数，不生成随机数。"}}
+{"reviewer": "A", "query_ref": "Q0114", "panel_ref": "P0089", "judgment": {"relevance": "2", "note": "np.random.rand(size) 直接生成随机浮点数组，满足生成随机小数；不过 seed() 的返回值不是旧状态，后面的恢复写法有问题。"}}
+{"reviewer": "A", "query_ref": "Q0114", "panel_ref": "P0088", "judgment": {"relevance": "0", "note": "randrange 生成整数，没有小数部分。"}}
+{"reviewer": "A", "query_ref": "Q0115", "panel_ref": "P0120", "judgment": {"relevance": "0", "note": "读取终端宽高，不查看数据矩阵。"}}
+{"reviewer": "A", "query_ref": "Q0115", "panel_ref": "P0121", "judgment": {"relevance": "0", "note": "检查矩阵乘法语法的 Python 版本要求，不展示矩阵。"}}
+{"reviewer": "A", "query_ref": "Q0115", "panel_ref": "P0119", "judgment": {"relevance": "0", "note": "取得终端的行列尺寸，不是矩阵内容。"}}
+{"reviewer": "A", "query_ref": "Q0115", "panel_ref": "P0116", "judgment": {"relevance": "1", "note": "把各行组装成 NumPy 数组，提供了矩阵数据，但没有显示，行内容依赖外部方法。"}}
+{"reviewer": "A", "query_ref": "Q0115", "panel_ref": "P0117", "judgment": {"relevance": "0", "note": "把图像重排成矩阵，没有显示或打印。"}}
+{"reviewer": "A", "query_ref": "Q0115", "panel_ref": "P0122", "judgment": {"relevance": "2", "note": "按行列取值并生成逗号及换行分隔的可读文本，能用来查看矩阵内容；返回文本而非直接打印。"}}
+{"reviewer": "A", "query_ref": "Q0116", "panel_ref": "P0540", "judgment": {"relevance": "1", "note": "能调整一个一维切片的边界，但没有对指定行和列实施二维切片。"}}
+{"reviewer": "A", "query_ref": "Q0116", "panel_ref": "P0539", "judgment": {"relevance": "1", "note": "构造了各轴的 slice，但把切片列表直接用于 NumPy 索引，现代 NumPy 不接受这种写法，末尾逗号还会把结果包成元组。"}}
+{"reviewer": "A", "query_ref": "Q0117", "panel_ref": "P0491", "judgment": {"relevance": "1", "note": "只过滤空格和空串，列表里的单引号会保留；不过没有处理句子字符串或引号转义问题。"}}
+{"reviewer": "A", "query_ref": "Q0118", "panel_ref": "P0010", "judgment": {"relevance": "1", "note": "按 id 去掉同一对象的重复引用，两个值相等但不同实例的对象仍会保留，结果也是列表。"}}
+{"reviewer": "A", "query_ref": "Q0118", "panel_ref": "P0012", "judgment": {"relevance": "1", "note": "按相等比较去重能留下唯一对象，但返回的是列表，不是 set。"}}
+{"reviewer": "A", "query_ref": "Q0119", "panel_ref": "P0102", "judgment": {"relevance": "0", "note": "把空格换成下划线，还替换多种标点，没有把空白删除。"}}
+{"reviewer": "A", "query_ref": "Q0119", "panel_ref": "P0101", "judgment": {"relevance": "1", "note": "去掉多余普通空格后再用一个空格连接，内部空格仍然存在，制表符等也未处理。"}}
+{"reviewer": "A", "query_ref": "Q0119", "panel_ref": "P0103", "judgment": {"relevance": "1", "note": "只删除每行末尾空白，行首和行内空白都还在。"}}
+{"reviewer": "A", "query_ref": "Q0120", "panel_ref": "P0259", "judgment": {"relevance": "0", "note": "启动 pytest，不包含地区设置示例。"}}
+{"reviewer": "A", "query_ref": "Q0120", "panel_ref": "P0257", "judgment": {"relevance": "1", "note": "给出了从用户设置或语言请求头选择 locale 的办法，但没有注册选择器或调用设置接口。"}}
+{"reviewer": "A", "query_ref": "Q0120", "panel_ref": "P0260", "judgment": {"relevance": "0", "note": "运行终端演示会话，没有 locale 设置。"}}
+{"reviewer": "A", "query_ref": "Q0121", "panel_ref": "P0186", "judgment": {"relevance": "2", "note": "把随机字母数字拼成字符串，已具备随机文件名的基本功能。"}}
+{"reviewer": "A", "query_ref": "Q0121", "panel_ref": "P0185", "judgment": {"relevance": "2", "note": "生成随机字母数字名称，可用作文件名；没有保证唯一性，但原查询未要求唯一。"}}
+{"reviewer": "A", "query_ref": "Q0122", "panel_ref": "P0488", "judgment": {"relevance": "1", "note": "返回或创建当前对象关联的一个 logger，没有枚举已有 loggers，初始化过程也在外部函数中。"}}
+{"reviewer": "A", "query_ref": "Q0123", "panel_ref": "P0239", "judgment": {"relevance": "2", "note": "逐行用 \\w+ 提取词项并 yield，能从文档文本行中得到词序列；标点会被忽略。"}}
+{"reviewer": "A", "query_ref": "Q0123", "panel_ref": "P0240", "judgment": {"relevance": "u", "note": "按空格拆分可见，但实际单词清理依赖 strip_punctuation；未展示它如何处理标点和空项。"}}
+{"reviewer": "A", "query_ref": "Q0124", "panel_ref": "P0201", "judgment": {"relevance": "1", "note": "布尔数组分支通过 nonzero 提取坐标，但整数 0/1 数组只转成列表，没有还原类别索引。"}}
+{"reviewer": "A", "query_ref": "Q0124", "panel_ref": "P0200", "judgment": {"relevance": "1", "note": "一维 one-hot 传 val=1 能得到非零位置；二维输入却只取 np.where 的行索引，得不到各行的类别索引。"}}
+{"reviewer": "A", "query_ref": "Q0125", "panel_ref": "P0189", "judgment": {"relevance": "0", "note": "用 globals 删除已有名称，动作是删除，不是设置变量值。"}}
+{"reviewer": "A", "query_ref": "Q0125", "panel_ref": "P0188", "judgment": {"relevance": "0", "note": "沿调用栈读取局部变量，没有按名称设置全局变量。"}}
+{"reviewer": "A", "query_ref": "Q0126", "panel_ref": "P0062", "judgment": {"relevance": "0", "note": "把列表或元组转成数组，和数组转表格的方向不同。"}}
+{"reviewer": "A", "query_ref": "Q0126", "panel_ref": "P0066", "judgment": {"relevance": "1", "note": "把记录数组转换成行元组迭代器，接近表格行表示，但没有表头或 Table 构造，pyify 的转换规则也未提供。"}}
+{"reviewer": "A", "query_ref": "Q0126", "panel_ref": "P0065", "judgment": {"relevance": "0", "note": "计算场景里实体桌面的高度坐标，table 不是数据表。"}}
+{"reviewer": "A", "query_ref": "Q0126", "panel_ref": "P0064", "judgment": {"relevance": "0", "note": "清空数据库表，未将数组转成表格。"}}
+{"reviewer": "A", "query_ref": "Q0126", "panel_ref": "P0061", "judgment": {"relevance": "1", "note": "转置二维输入并返回嵌套列表，能形成行列结构，但未做通常的表格对象构建或显示。"}}
+{"reviewer": "A", "query_ref": "Q0127", "panel_ref": "P0394", "judgment": {"relevance": "0", "note": "启动不同 Python 版本的测试套件，不检查输入数据类型。"}}
+{"reviewer": "A", "query_ref": "Q0127", "panel_ref": "P0396", "judgment": {"relevance": "1", "note": "能判断输入对象是否为文本，但只覆盖这一类，不返回其他输入类型。"}}
+{"reviewer": "A", "query_ref": "Q0127", "panel_ref": "P0397", "judgment": {"relevance": "1", "note": "isinstance 区分若干类型，不过 int/float 合并为 number，未知类型又被归为 text，结果不是精确 Python 类型。"}}
+{"reviewer": "B", "query_ref": "Q0001", "panel_ref": "P0254", "judgment": {"relevance": "1", "note": "按下标取值带默认，不是按元素取索引。"}}
+{"reviewer": "B", "query_ref": "Q0002", "panel_ref": "P0592", "judgment": {"relevance": "0", "note": "按另一数组转 dtype，无关。"}}
+{"reviewer": "B", "query_ref": "Q0002", "panel_ref": "P0594", "judgment": {"relevance": "0", "note": "recarray 转记录列表，跟类型判断无关。"}}
+{"reviewer": "B", "query_ref": "Q0002", "panel_ref": "P0591", "judgment": {"relevance": "2", "note": "判 numpy 整数数组，能判数组类型。"}}
+{"reviewer": "B", "query_ref": "Q0002", "panel_ref": "P0593", "judgment": {"relevance": "1", "note": "isinstance 判 ndarray，判得不全。"}}
+{"reviewer": "B", "query_ref": "Q0003", "panel_ref": "P0098", "judgment": {"relevance": "1", "note": "设响应头，不是请求头。"}}
+{"reviewer": "B", "query_ref": "Q0003", "panel_ref": "P0097", "judgment": {"relevance": "1", "note": "配置里的 HTTP 头加到响应上，还是响应头。"}}
+{"reviewer": "B", "query_ref": "Q0004", "panel_ref": "P0423", "judgment": {"relevance": "2", "note": "ANSI 码包字符串，能出颜色。"}}
+{"reviewer": "B", "query_ref": "Q0004", "panel_ref": "P0421", "judgment": {"relevance": "2", "note": "colorama 前景色包字符串再输出，对上了。"}}
+{"reviewer": "B", "query_ref": "Q0004", "panel_ref": "P0422", "judgment": {"relevance": "2", "note": "文本套 ANSI 转义，能出颜色。"}}
+{"reviewer": "B", "query_ref": "Q0004", "panel_ref": "P0424", "judgment": {"relevance": "1", "note": "pygments 给 JSON 上色，是彩色输出，不是把字符串输出成颜色。"}}
+{"reviewer": "B", "query_ref": "Q0005", "panel_ref": "P0054", "judgment": {"relevance": "0", "note": "字符串数字拼整数，无关。"}}
+{"reviewer": "B", "query_ref": "Q0005", "panel_ref": "P0052", "judgment": {"relevance": "0", "note": "从字符串抠数字转整数，跟 linspace 无关。"}}
+{"reviewer": "B", "query_ref": "Q0006", "panel_ref": "P0463", "judgment": {"relevance": "2", "note": "dir 取公开成员和值，能展示。"}}
+{"reviewer": "B", "query_ref": "Q0006", "panel_ref": "P0466", "judgment": {"relevance": "2", "note": "dir 取属性去双下划线，能用。"}}
+{"reviewer": "B", "query_ref": "Q0006", "panel_ref": "P0464", "judgment": {"relevance": "0", "note": "显示控件，跟属性无关。"}}
+{"reviewer": "B", "query_ref": "Q0006", "panel_ref": "P0465", "judgment": {"relevance": "2", "note": "vars 取公开属性拼字典，能展示。"}}
+{"reviewer": "B", "query_ref": "Q0006", "panel_ref": "P0467", "judgment": {"relevance": "1", "note": "取名表示，不是列属性。"}}
+{"reviewer": "B", "query_ref": "Q0007", "panel_ref": "P0126", "judgment": {"relevance": "1", "note": "断言是列表且元素类型对，没查非空。"}}
+{"reviewer": "B", "query_ref": "Q0007", "panel_ref": "P0127", "judgment": {"relevance": "1", "note": "校验长度等于期望值，能发现空列表，但不是“至少一个”。"}}
+{"reviewer": "B", "query_ref": "Q0007", "panel_ref": "P0125", "judgment": {"relevance": "2", "note": "查非空，还看首元素类型，含至少一个的校验。"}}
+{"reviewer": "B", "query_ref": "Q0008", "panel_ref": "P0028", "judgment": {"relevance": "0", "note": "合并单元格，无关。"}}
+{"reviewer": "B", "query_ref": "Q0008", "panel_ref": "P0027", "judgment": {"relevance": "1", "note": "列索引转 Excel 列名，不是范围报错。"}}
+{"reviewer": "B", "query_ref": "Q0009", "panel_ref": "P0427", "judgment": {"relevance": "2", "note": "codecs.open 指定编码，能用。"}}
+{"reviewer": "B", "query_ref": "Q0009", "panel_ref": "P0428", "judgment": {"relevance": "2", "note": "Py3 下带 encoding 开文本，能用。"}}
+{"reviewer": "B", "query_ref": "Q0010", "panel_ref": "P0547", "judgment": {"relevance": "1", "note": "往指定句柄打印，默认 stdout，没往 cerr 输出。"}}
+{"reviewer": "B", "query_ref": "Q0011", "panel_ref": "P0195", "judgment": {"relevance": "0", "note": "统计对象总大小，跟 getpagesize 无关。"}}
+{"reviewer": "B", "query_ref": "Q0011", "panel_ref": "P0196", "judgment": {"relevance": "0", "note": "读 PDF 页面尺寸，跟 resource 无关。"}}
+{"reviewer": "B", "query_ref": "Q0012", "panel_ref": "P0002", "judgment": {"relevance": "0", "note": "统一字典迭代方式，不加元素。"}}
+{"reviewer": "B", "query_ref": "Q0012", "panel_ref": "P0003", "judgment": {"relevance": "0", "note": "按序去重，不加元素。"}}
+{"reviewer": "B", "query_ref": "Q0012", "panel_ref": "P0006", "judgment": {"relevance": "0", "note": "去重，不加元素。"}}
+{"reviewer": "B", "query_ref": "Q0012", "panel_ref": "P0007", "judgment": {"relevance": "2", "note": "extend 把另一个列表的元素逐个加进去，能用。"}}
+{"reviewer": "B", "query_ref": "Q0013", "panel_ref": "P0364", "judgment": {"relevance": "1", "note": "去掉 \\\\?\\ 前缀，没换成斜杠。"}}
+{"reviewer": "B", "query_ref": "Q0013", "panel_ref": "P0365", "judgment": {"relevance": "0", "note": "修 URL 缺冒号，无关。"}}
+{"reviewer": "B", "query_ref": "Q0014", "panel_ref": "P0074", "judgment": {"relevance": "2", "note": "textwrap.wrap 按宽度换行，写法可用。"}}
+{"reviewer": "B", "query_ref": "Q0014", "panel_ref": "P0075", "judgment": {"relevance": "0", "note": "包 Zotero 清理函数，跟 textwrap 无关。"}}
+{"reviewer": "B", "query_ref": "Q0015", "panel_ref": "P0344", "judgment": {"relevance": "0", "note": "判断前缀，没大小写。"}}
+{"reviewer": "B", "query_ref": "Q0015", "panel_ref": "P0342", "judgment": {"relevance": "2", "note": "按选项用 lower 匹配子串或正则，能用。"}}
+{"reviewer": "B", "query_ref": "Q0015", "panel_ref": "P0343", "judgment": {"relevance": "1", "note": "小写键判包含，是等值不是子串。"}}
+{"reviewer": "B", "query_ref": "Q0016", "panel_ref": "P0164", "judgment": {"relevance": "1", "note": "isinstance 把标量包成列表，不是 list/matrix。"}}
+{"reviewer": "B", "query_ref": "Q0016", "panel_ref": "P0165", "judgment": {"relevance": "1", "note": "查数组元素类型，不是 list/matrix。"}}
+{"reviewer": "B", "query_ref": "Q0017", "panel_ref": "P0039", "judgment": {"relevance": "2", "note": "yaml.dump 写文件，能用。"}}
+{"reviewer": "B", "query_ref": "Q0017", "panel_ref": "P0038", "judgment": {"relevance": "0", "note": "写的是 JSON。"}}
+{"reviewer": "B", "query_ref": "Q0018", "panel_ref": "P0265", "judgment": {"relevance": "2", "note": "clear() 删全部条目，正好对上。"}}
+{"reviewer": "B", "query_ref": "Q0018", "panel_ref": "P0266", "judgment": {"relevance": "1", "note": "逐个删键清空存储，不是 clear 方法。"}}
+{"reviewer": "B", "query_ref": "Q0018", "panel_ref": "P0267", "judgment": {"relevance": "1", "note": "清 jinja2 缓存，clear 的一种用法。"}}
+{"reviewer": "B", "query_ref": "Q0019", "panel_ref": "P0319", "judgment": {"relevance": "1", "note": "生成行列头映射，不是直接取。"}}
+{"reviewer": "B", "query_ref": "Q0019", "panel_ref": "P0318", "judgment": {"relevance": "1", "note": "返回键表的键，没值。"}}
+{"reviewer": "B", "query_ref": "Q0019", "panel_ref": "P0321", "judgment": {"relevance": "1", "note": "返回键列表，没值。"}}
+{"reviewer": "B", "query_ref": "Q0019", "panel_ref": "P0320", "judgment": {"relevance": "1", "note": "按列名从行取值，不是表键值对。"}}
+{"reviewer": "B", "query_ref": "Q0020", "panel_ref": "P0544", "judgment": {"relevance": "1", "note": "一次读完，没提速。"}}
+{"reviewer": "B", "query_ref": "Q0020", "panel_ref": "P0543", "judgment": {"relevance": "1", "note": "逐行迭代，没提速。"}}
+{"reviewer": "B", "query_ref": "Q0021", "panel_ref": "P0213", "judgment": {"relevance": "1", "note": "选中文本写剪贴板，还是写。"}}
+{"reviewer": "B", "query_ref": "Q0021", "panel_ref": "P0212", "judgment": {"relevance": "1", "note": "Tk 写剪贴板，是写不是读。"}}
+{"reviewer": "B", "query_ref": "Q0022", "panel_ref": "P0069", "judgment": {"relevance": "1", "note": "转成 UTC 时间，返回的是时间本身，不是偏移量。"}}
+{"reviewer": "B", "query_ref": "Q0022", "panel_ref": "P0070", "judgment": {"relevance": "1", "note": "拿本地偏移常量算，没调用 utcoffset。"}}
+{"reviewer": "B", "query_ref": "Q0022", "panel_ref": "P0068", "judgment": {"relevance": "0", "note": "取当前 UTC 时间，跟偏移无关。"}}
+{"reviewer": "B", "query_ref": "Q0022", "panel_ref": "P0071", "judgment": {"relevance": "0", "note": "datetime 转 epoch 微秒，不是取偏移。"}}
+{"reviewer": "B", "query_ref": "Q0023", "panel_ref": "P0024", "judgment": {"relevance": "1", "note": "取输入框上下限，不是 numpy 正值。"}}
+{"reviewer": "B", "query_ref": "Q0024", "panel_ref": "P0302", "judgment": {"relevance": "0", "note": "取网格变量的尺寸，没把点映射上去。"}}
+{"reviewer": "B", "query_ref": "Q0024", "panel_ref": "P0300", "judgment": {"relevance": "1", "note": "屏幕点转经纬度，带着瓦片网格，但不是网格点映射。"}}
+{"reviewer": "B", "query_ref": "Q0024", "panel_ref": "P0299", "judgment": {"relevance": "2", "note": "meshgrid 出网格点，再转地图坐标，正是要做的事。"}}
+{"reviewer": "B", "query_ref": "Q0024", "panel_ref": "P0301", "judgment": {"relevance": "0", "note": "算表格形状，跟网格映射无关。"}}
+{"reviewer": "B", "query_ref": "Q0024", "panel_ref": "P0303", "judgment": {"relevance": "1", "note": "线上按比例取点，不是网格。"}}
+{"reviewer": "B", "query_ref": "Q0025", "panel_ref": "P0041", "judgment": {"relevance": "1", "note": "竖线连接，也不是换行。"}}
+{"reviewer": "B", "query_ref": "Q0025", "panel_ref": "P0042", "judgment": {"relevance": "1", "note": "空格连接，分隔符不是换行。"}}
+{"reviewer": "B", "query_ref": "Q0026", "panel_ref": "P0450", "judgment": {"relevance": "0", "note": "重定向 stdout，跟 logger 无关。"}}
+{"reviewer": "B", "query_ref": "Q0026", "panel_ref": "P0449", "judgment": {"relevance": "1", "note": "移除日志 handler 停记录，退出前必须关这点没说。"}}
+{"reviewer": "B", "query_ref": "Q0027", "panel_ref": "P0092", "judgment": {"relevance": "1", "note": "日期转毫秒时间戳，方向反了。"}}
+{"reviewer": "B", "query_ref": "Q0027", "panel_ref": "P0091", "judgment": {"relevance": "0", "note": "datetime 转字符串，不是时间戳转日期。"}}
+{"reviewer": "B", "query_ref": "Q0027", "panel_ref": "P0093", "judgment": {"relevance": "0", "note": "判时间戳类型，不转换。"}}
+{"reviewer": "B", "query_ref": "Q0028", "panel_ref": "P0205", "judgment": {"relevance": "1", "note": "退出上下文提交整个事务，一次提交，对象是事务。"}}
+{"reviewer": "B", "query_ref": "Q0028", "panel_ref": "P0203", "judgment": {"relevance": "1", "note": "提交事务对象，一次多项没体现。"}}
+{"reviewer": "B", "query_ref": "Q0028", "panel_ref": "P0204", "judgment": {"relevance": "0", "note": "查 git 提交信息，无关。"}}
+{"reviewer": "B", "query_ref": "Q0029", "panel_ref": "P0581", "judgment": {"relevance": "1", "note": "PRAGMA 取列名，SQLite 语法，MySQL 不认。"}}
+{"reviewer": "B", "query_ref": "Q0029", "panel_ref": "P0583", "judgment": {"relevance": "0", "note": "取表名，不是列。"}}
+{"reviewer": "B", "query_ref": "Q0029", "panel_ref": "P0582", "judgment": {"relevance": "0", "note": "还是表名，不是列。"}}
+{"reviewer": "B", "query_ref": "Q0030", "panel_ref": "P0154", "judgment": {"relevance": "1", "note": "把函数包成方法加标记，不是识别失败。"}}
+{"reviewer": "B", "query_ref": "Q0030", "panel_ref": "P0155", "judgment": {"relevance": "1", "note": "方法名转 Pascal 传参，不是识别。"}}
+{"reviewer": "B", "query_ref": "Q0031", "panel_ref": "P0536", "judgment": {"relevance": "0", "note": "常量字面量转 AST，不是列常量。"}}
+{"reviewer": "B", "query_ref": "Q0031", "panel_ref": "P0535", "judgment": {"relevance": "0", "note": "判编译期常量，不是列常量。"}}
+{"reviewer": "B", "query_ref": "Q0032", "panel_ref": "P0171", "judgment": {"relevance": "0", "note": "取最大值那行，方向反了。"}}
+{"reviewer": "B", "query_ref": "Q0032", "panel_ref": "P0173", "judgment": {"relevance": "0", "note": "取列名，不是最小值。"}}
+{"reviewer": "B", "query_ref": "Q0032", "panel_ref": "P0172", "judgment": {"relevance": "0", "note": "取一列，不碰最值。"}}
+{"reviewer": "B", "query_ref": "Q0033", "panel_ref": "P0227", "judgment": {"relevance": "1", "note": "取的是区间里的随机整数，单个值，不是元组。"}}
+{"reviewer": "B", "query_ref": "Q0033", "panel_ref": "P0226", "judgment": {"relevance": "1", "note": "均匀分布随机浮点，还是单个数。"}}
+{"reviewer": "B", "query_ref": "Q0034", "panel_ref": "P0438", "judgment": {"relevance": "0", "note": "去文件顶部的注释行，不是空行。"}}
+{"reviewer": "B", "query_ref": "Q0034", "panel_ref": "P0436", "judgment": {"relevance": "1", "note": "跳换行 token，是词法分析器内部的事。"}}
+{"reviewer": "B", "query_ref": "Q0034", "panel_ref": "P0434", "judgment": {"relevance": "2", "note": "line.strip() 过滤空行和纯空白行，顺手去掉行尾空白。"}}
+{"reviewer": "B", "query_ref": "Q0034", "panel_ref": "P0437", "judgment": {"relevance": "1", "note": "空行去了，注释也一起去了。"}}
+{"reviewer": "B", "query_ref": "Q0035", "panel_ref": "P0443", "judgment": {"relevance": "1", "note": "按嵌套层级缩进，算左填充，但不是字符串格式化。"}}
+{"reviewer": "B", "query_ref": "Q0035", "panel_ref": "P0444", "judgment": {"relevance": "0", "note": "安全格式化，没左填充。"}}
+{"reviewer": "B", "query_ref": "Q0035", "panel_ref": "P0441", "judgment": {"relevance": "0", "note": "美化打印，跟左填充无关。"}}
+{"reviewer": "B", "query_ref": "Q0036", "panel_ref": "P0556", "judgment": {"relevance": "0", "note": "查货币符号写法，无关。"}}
+{"reviewer": "B", "query_ref": "Q0036", "panel_ref": "P0558", "judgment": {"relevance": "0", "note": "去标点，无关。"}}
+{"reviewer": "B", "query_ref": "Q0036", "panel_ref": "P0557", "judgment": {"relevance": "1", "note": "nonlocal 的 AST 节点查得到，非法语法报错不管。"}}
+{"reviewer": "B", "query_ref": "Q0036", "panel_ref": "P0560", "judgment": {"relevance": "0", "note": "词形还原，跟语法错误无关。"}}
+{"reviewer": "B", "query_ref": "Q0036", "panel_ref": "P0555", "judgment": {"relevance": "0", "note": "清洗非字母数字字符，无关。"}}
+{"reviewer": "B", "query_ref": "Q0036", "panel_ref": "P0559", "judgment": {"relevance": "0", "note": "解析结果转 Text，无关。"}}
+{"reviewer": "B", "query_ref": "Q0036", "panel_ref": "P0554", "judgment": {"relevance": "0", "note": "按字母表筛字符，无关。"}}
+{"reviewer": "B", "query_ref": "Q0037", "panel_ref": "P0392", "judgment": {"relevance": "0", "note": "从缓存取文件行，跟 mat 无关。"}}
+{"reviewer": "B", "query_ref": "Q0038", "panel_ref": "P0387", "judgment": {"relevance": "1", "note": "把函数默认值取出来，是读不是用。"}}
+{"reviewer": "B", "query_ref": "Q0038", "panel_ref": "P0389", "judgment": {"relevance": "2", "note": "dict.setdefault，缺了就写默认值，能用。"}}
+{"reviewer": "B", "query_ref": "Q0038", "panel_ref": "P0388", "judgment": {"relevance": "1", "note": "给 argparse 加参数定义，不是取默认值。"}}
+{"reviewer": "B", "query_ref": "Q0039", "panel_ref": "P0382", "judgment": {"relevance": "1", "note": "调子进程 kill，走 subprocess，不是 signal。"}}
+{"reviewer": "B", "query_ref": "Q0040", "panel_ref": "P0589", "judgment": {"relevance": "2", "note": "矩阵缩到 0-255，图像强度归一化，能用。"}}
+{"reviewer": "B", "query_ref": "Q0041", "panel_ref": "P0562", "judgment": {"relevance": "2", "note": "判 bytes，还分 Py2/Py3，能用。"}}
+{"reviewer": "B", "query_ref": "Q0041", "panel_ref": "P0565", "judgment": {"relevance": "0", "note": "判数学符号，跟 str/bytes 无关。"}}
+{"reviewer": "B", "query_ref": "Q0041", "panel_ref": "P0566", "judgment": {"relevance": "1", "note": "判可迭代且非 str/bytes，目的不一样。"}}
+{"reviewer": "B", "query_ref": "Q0042", "panel_ref": "P0453", "judgment": {"relevance": "0", "note": "校验银行卡号，无关。"}}
+{"reviewer": "B", "query_ref": "Q0042", "panel_ref": "P0454", "judgment": {"relevance": "2", "note": "正则判十六进制字符，能用。"}}
+{"reviewer": "B", "query_ref": "Q0043", "panel_ref": "P0293", "judgment": {"relevance": "1", "note": "schema 校验 XML，良构不是。"}}
+{"reviewer": "B", "query_ref": "Q0043", "panel_ref": "P0291", "judgment": {"relevance": "0", "note": "跑测试，无关。"}}
+{"reviewer": "B", "query_ref": "Q0043", "panel_ref": "P0295", "judgment": {"relevance": "1", "note": "minidom 解析美化，解析成功间接反映良构。"}}
+{"reviewer": "B", "query_ref": "Q0043", "panel_ref": "P0297", "judgment": {"relevance": "0", "note": "自定义异常钩子，跟 XML 无关。"}}
+{"reviewer": "B", "query_ref": "Q0043", "panel_ref": "P0296", "judgment": {"relevance": "0", "note": "断言 lint 错误，无关。"}}
+{"reviewer": "B", "query_ref": "Q0043", "panel_ref": "P0294", "judgment": {"relevance": "1", "note": "解析 XSD，良构不是。"}}
+{"reviewer": "B", "query_ref": "Q0044", "panel_ref": "P0484", "judgment": {"relevance": "0", "note": "高精度点积，不是。"}}
+{"reviewer": "B", "query_ref": "Q0044", "panel_ref": "P0485", "judgment": {"relevance": "0", "note": "列表累乘，不是。"}}
+{"reviewer": "B", "query_ref": "Q0044", "panel_ref": "P0483", "judgment": {"relevance": "0", "note": "造对角矩阵，不是。"}}
+{"reviewer": "B", "query_ref": "Q0044", "panel_ref": "P0482", "judgment": {"relevance": "0", "note": "求最大公约数，不是笛卡尔积。"}}
+{"reviewer": "B", "query_ref": "Q0045", "panel_ref": "P0335", "judgment": {"relevance": "0", "note": "zlib 压数据，跟压空白无关。"}}
+{"reviewer": "B", "query_ref": "Q0045", "panel_ref": "P0334", "judgment": {"relevance": "0", "note": "gzip 压缓冲，无关。"}}
+{"reviewer": "B", "query_ref": "Q0046", "panel_ref": "P0016", "judgment": {"relevance": "2", "note": "coverage run/report/html 一条龙，还开报告，能用。"}}
+{"reviewer": "B", "query_ref": "Q0047", "panel_ref": "P0509", "judgment": {"relevance": "0", "note": "取 XML 节点的 type，跟 POST 无关。"}}
+{"reviewer": "B", "query_ref": "Q0047", "panel_ref": "P0510", "judgment": {"relevance": "2", "note": "按 Content-Type 头判类型并解析，能用。"}}
+{"reviewer": "B", "query_ref": "Q0048", "panel_ref": "P0376", "judgment": {"relevance": "1", "note": "集合记已见元素去重，返回列表，不是集合。"}}
+{"reviewer": "B", "query_ref": "Q0048", "panel_ref": "P0375", "judgment": {"relevance": "0", "note": "读数据库唯一约束，跟表示唯一集合无关。"}}
+{"reviewer": "B", "query_ref": "Q0049", "panel_ref": "P0524", "judgment": {"relevance": "0", "note": "zopfli 压缩，无关。"}}
+{"reviewer": "B", "query_ref": "Q0049", "panel_ref": "P0525", "judgment": {"relevance": "1", "note": "zlib 压缩，跟 gzip 响应体不一样。"}}
+{"reviewer": "B", "query_ref": "Q0049", "panel_ref": "P0526", "judgment": {"relevance": "0", "note": "解析 xmlrpc 响应，无关。"}}
+{"reviewer": "B", "query_ref": "Q0049", "panel_ref": "P0527", "judgment": {"relevance": "2", "note": "gzip 解压，能用。"}}
+{"reviewer": "B", "query_ref": "Q0051", "panel_ref": "P0288", "judgment": {"relevance": "1", "note": "算分片大小，不是整数划分。"}}
+{"reviewer": "B", "query_ref": "Q0051", "panel_ref": "P0287", "judgment": {"relevance": "1", "note": "随机排列，不是整数划分。"}}
+{"reviewer": "B", "query_ref": "Q0052", "panel_ref": "P0332", "judgment": {"relevance": "2", "note": "tf.io.gfile.isdir 判目录，虚拟文件系统下这么写能用。"}}
+{"reviewer": "B", "query_ref": "Q0053", "panel_ref": "P0108", "judgment": {"relevance": "2", "note": "返回列名和类型，能定类型。"}}
+{"reviewer": "B", "query_ref": "Q0053", "panel_ref": "P0109", "judgment": {"relevance": "1", "note": "收集变量里的类型集合，不是判值的类型。"}}
+{"reviewer": "B", "query_ref": "Q0053", "panel_ref": "P0107", "judgment": {"relevance": "1", "note": "判 DATE 一种类型。"}}
+{"reviewer": "B", "query_ref": "Q0054", "panel_ref": "P0605", "judgment": {"relevance": "0", "note": "切成块，不碰等间距。"}}
+{"reviewer": "B", "query_ref": "Q0054", "panel_ref": "P0606", "judgment": {"relevance": "0", "note": "转成行列向量，不碰等间距。"}}
+{"reviewer": "B", "query_ref": "Q0054", "panel_ref": "P0604", "judgment": {"relevance": "0", "note": "稀疏向量转数组，不碰等间距。"}}
+{"reviewer": "B", "query_ref": "Q0054", "panel_ref": "P0607", "judgment": {"relevance": "0", "note": "数组重塑成二维，不碰等间距。"}}
+{"reviewer": "B", "query_ref": "Q0055", "panel_ref": "P0248", "judgment": {"relevance": "2", "note": "沿 parent 链找指定类的父对象，能用。"}}
+{"reviewer": "B", "query_ref": "Q0055", "panel_ref": "P0251", "judgment": {"relevance": "0", "note": "复制 XML 元素，无关。"}}
+{"reviewer": "B", "query_ref": "Q0055", "panel_ref": "P0249", "judgment": {"relevance": "2", "note": "沿 parent 链找指定类型的父对象，能用。"}}
+{"reviewer": "B", "query_ref": "Q0056", "panel_ref": "P0600", "judgment": {"relevance": "2", "note": "safe_load 从路径加载，能用。"}}
+{"reviewer": "B", "query_ref": "Q0056", "panel_ref": "P0601", "judgment": {"relevance": "2", "note": "yaml.full_load 反序列化，能用。"}}
+{"reviewer": "B", "query_ref": "Q0056", "panel_ref": "P0602", "judgment": {"relevance": "2", "note": "读文件再 yaml.Parse，能反序列化。"}}
+{"reviewer": "B", "query_ref": "Q0057", "panel_ref": "P0499", "judgment": {"relevance": "2", "note": "JSON 文件读成字典，对上了。"}}
+{"reviewer": "B", "query_ref": "Q0057", "panel_ref": "P0500", "judgment": {"relevance": "1", "note": "把文本读出来，没解析成字典。"}}
+{"reviewer": "B", "query_ref": "Q0058", "panel_ref": "P0224", "judgment": {"relevance": "0", "note": "建 HTTP 路由，无关。"}}
+{"reviewer": "B", "query_ref": "Q0058", "panel_ref": "P0221", "judgment": {"relevance": "0", "note": "并发发真请求，没 mock。"}}
+{"reviewer": "B", "query_ref": "Q0058", "panel_ref": "P0220", "judgment": {"relevance": "0", "note": "requests.request 加重试，没 mock。"}}
+{"reviewer": "B", "query_ref": "Q0058", "panel_ref": "P0222", "judgment": {"relevance": "1", "note": "断言 mock 只调一次，工具是 mock 的，没用 requests。"}}
+{"reviewer": "B", "query_ref": "Q0058", "panel_ref": "P0223", "judgment": {"relevance": "1", "note": "mock 装饰器，跟 requests 测试不搭。"}}
+{"reviewer": "B", "query_ref": "Q0059", "panel_ref": "P0175", "judgment": {"relevance": "0", "note": "写文本缓存，跟 excel 无关。"}}
+{"reviewer": "B", "query_ref": "Q0059", "panel_ref": "P0176", "judgment": {"relevance": "0", "note": "pprint 打印，跟 excel 无关。"}}
+{"reviewer": "B", "query_ref": "Q0060", "panel_ref": "P0192", "judgment": {"relevance": "2", "note": "density=True 画归一化直方图，百分比密度。"}}
+{"reviewer": "B", "query_ref": "Q0060", "panel_ref": "P0191", "judgment": {"relevance": "1", "note": "直方图交给绘图器，没百分比。"}}
+{"reviewer": "B", "query_ref": "Q0061", "panel_ref": "P0019", "judgment": {"relevance": "2", "note": "转 PrettyTable，边框也设了，能出表格。"}}
+{"reviewer": "B", "query_ref": "Q0061", "panel_ref": "P0020", "judgment": {"relevance": "2", "note": "PrettyTable 打印表格，可以。"}}
+{"reviewer": "B", "query_ref": "Q0061", "panel_ref": "P0021", "judgment": {"relevance": "2", "note": "tabulate 美化 CSV，也是表格输出。"}}
+{"reviewer": "B", "query_ref": "Q0062", "panel_ref": "P0130", "judgment": {"relevance": "1", "note": "只给当月第一天，结束日期没有。"}}
+{"reviewer": "B", "query_ref": "Q0062", "panel_ref": "P0132", "judgment": {"relevance": "0", "note": "给 1 月 1 日，跟当月无关。"}}
+{"reviewer": "B", "query_ref": "Q0062", "panel_ref": "P0131", "judgment": {"relevance": "1", "note": "只给当月第一天。"}}
+{"reviewer": "B", "query_ref": "Q0062", "panel_ref": "P0133", "judgment": {"relevance": "0", "note": "年份范围转日期范围，不是当月。"}}
+{"reviewer": "B", "query_ref": "Q0062", "panel_ref": "P0129", "judgment": {"relevance": "1", "note": "同样只有当月第一天。"}}
+{"reviewer": "B", "query_ref": "Q0063", "panel_ref": "P0180", "judgment": {"relevance": "0", "note": "格式化浮点显示，跟转义无关。"}}
+{"reviewer": "B", "query_ref": "Q0063", "panel_ref": "P0183", "judgment": {"relevance": "0", "note": "ANSI 着色，跟百分号无关。"}}
+{"reviewer": "B", "query_ref": "Q0063", "panel_ref": "P0181", "judgment": {"relevance": "0", "note": "生成百分数字符串，不是转义。"}}
+{"reviewer": "B", "query_ref": "Q0064", "panel_ref": "P0168", "judgment": {"relevance": "1", "note": "过滤链处理对象，不是按键过字典。"}}
+{"reviewer": "B", "query_ref": "Q0064", "panel_ref": "P0169", "judgment": {"relevance": "0", "note": "给查询加过滤，不碰字典。"}}
+{"reviewer": "B", "query_ref": "Q0065", "panel_ref": "P0283", "judgment": {"relevance": "1", "note": "随机字符串，拼一下能当文件名，但没生成文件名。"}}
+{"reviewer": "B", "query_ref": "Q0065", "panel_ref": "P0284", "judgment": {"relevance": "1", "note": "tempfile 建临时文件，名字随机，但不是只生成文件名。"}}
+{"reviewer": "B", "query_ref": "Q0065", "panel_ref": "P0282", "judgment": {"relevance": "1", "note": "随机属性名，形态像文件名，本身不是。"}}
+{"reviewer": "B", "query_ref": "Q0066", "panel_ref": "P0146", "judgment": {"relevance": "1", "note": "从属性文件加载，只一次没管。"}}
+{"reviewer": "B", "query_ref": "Q0066", "panel_ref": "P0142", "judgment": {"relevance": "1", "note": "从包加载模型，没管是不是只加载一次。"}}
+{"reviewer": "B", "query_ref": "Q0066", "panel_ref": "P0141", "judgment": {"relevance": "1", "note": "执行 py 文件，只一次没管。"}}
+{"reviewer": "B", "query_ref": "Q0066", "panel_ref": "P0147", "judgment": {"relevance": "0", "note": "重建数据库表，无关。"}}
+{"reviewer": "B", "query_ref": "Q0066", "panel_ref": "P0144", "judgment": {"relevance": "0", "note": "查 Django 版本兼容，无关。"}}
+{"reviewer": "B", "query_ref": "Q0066", "panel_ref": "P0143", "judgment": {"relevance": "0", "note": "跑 manage.py，跟加载无关。"}}
+{"reviewer": "B", "query_ref": "Q0067", "panel_ref": "P0049", "judgment": {"relevance": "2", "note": "设 y 轴上下限，图就落到指定范围。"}}
+{"reviewer": "B", "query_ref": "Q0067", "panel_ref": "P0048", "judgment": {"relevance": "1", "note": "色图数值缩到区间，是颜色映射，不是图。"}}
+{"reviewer": "B", "query_ref": "Q0067", "panel_ref": "P0046", "judgment": {"relevance": "1", "note": "按因子缩放图像，没设范围。"}}
+{"reviewer": "B", "query_ref": "Q0067", "panel_ref": "P0047", "judgment": {"relevance": "2", "note": "设子图 y 轴上下限，能用。"}}
+{"reviewer": "B", "query_ref": "Q0068", "panel_ref": "P0400", "judgment": {"relevance": "0", "note": "直接退出程序，无关。"}}
+{"reviewer": "B", "query_ref": "Q0068", "panel_ref": "P0403", "judgment": {"relevance": "0", "note": "浮点四舍五入，跟线程无关。"}}
+{"reviewer": "B", "query_ref": "Q0068", "panel_ref": "P0404", "judgment": {"relevance": "0", "note": "算退避等待时间，无关。"}}
+{"reviewer": "B", "query_ref": "Q0068", "panel_ref": "P0401", "judgment": {"relevance": "1", "note": "os._exit 结束进程，为了绕开僵尸线程，杀的还是进程。"}}
+{"reviewer": "B", "query_ref": "Q0068", "panel_ref": "P0399", "judgment": {"relevance": "1", "note": "收到 SIGTERM 就 sys.exit，退的是进程，不是线程。"}}
+{"reviewer": "B", "query_ref": "Q0069", "panel_ref": "P0339", "judgment": {"relevance": "1", "note": "逗号连接可迭代对象，字典没处理。"}}
+{"reviewer": "B", "query_ref": "Q0070", "panel_ref": "P0246", "judgment": {"relevance": "0", "note": "反汇编 pyc，无关。"}}
+{"reviewer": "B", "query_ref": "Q0070", "panel_ref": "P0244", "judgment": {"relevance": "0", "note": "同样是读单个 pickle。"}}
+{"reviewer": "B", "query_ref": "Q0070", "panel_ref": "P0243", "judgment": {"relevance": "0", "note": "从缓存取文件行，没并行。"}}
+{"reviewer": "B", "query_ref": "Q0070", "panel_ref": "P0245", "judgment": {"relevance": "1", "note": "线程池跑多个任务，框架是并行的，但没落到读不同文件上。"}}
+{"reviewer": "B", "query_ref": "Q0070", "panel_ref": "P0242", "judgment": {"relevance": "0", "note": "读一个 pickle，单文件。"}}
+{"reviewer": "B", "query_ref": "Q0071", "panel_ref": "P0513", "judgment": {"relevance": "0", "note": "截日期部分，不是随机生成。"}}
+{"reviewer": "B", "query_ref": "Q0072", "panel_ref": "P0385", "judgment": {"relevance": "1", "note": "弹上下文菜单，尺寸没设。"}}
+{"reviewer": "B", "query_ref": "Q0073", "panel_ref": "P0360", "judgment": {"relevance": "0", "note": "关端口描述符，不是退进程。"}}
+{"reviewer": "B", "query_ref": "Q0073", "panel_ref": "P0361", "judgment": {"relevance": "0", "note": "关的是 devnull 句柄，顺手恢复 stdout，跟进程自关无关。"}}
+{"reviewer": "B", "query_ref": "Q0074", "panel_ref": "P0520", "judgment": {"relevance": "0", "note": "算的是两个区间的重叠长度，不是并集。"}}
+{"reviewer": "B", "query_ref": "Q0074", "panel_ref": "P0521", "judgment": {"relevance": "1", "note": "两个 Range 合成一个大区间，中间的缝被填掉，跟并集不是一回事。"}}
+{"reviewer": "B", "query_ref": "Q0075", "panel_ref": "P0610", "judgment": {"relevance": "1", "note": "定义单指数函数，给拟合用，本身不拟合。"}}
+{"reviewer": "B", "query_ref": "Q0076", "panel_ref": "P0324", "judgment": {"relevance": "0", "note": "datetime 序列化成字符串，不是列转 datetime。"}}
+{"reviewer": "B", "query_ref": "Q0076", "panel_ref": "P0325", "judgment": {"relevance": "0", "note": "日期转 isoformat 字符串，方向反了。"}}
+{"reviewer": "B", "query_ref": "Q0077", "panel_ref": "P0418", "judgment": {"relevance": "2", "note": "isinstance 判 int/float 和 numpy 类型，能用。"}}
+{"reviewer": "B", "query_ref": "Q0077", "panel_ref": "P0419", "judgment": {"relevance": "1", "note": "按 XSD 类型判数值字面量，那是 RDF 的语境，不是 Python 数值类型。"}}
+{"reviewer": "B", "query_ref": "Q0077", "panel_ref": "P0415", "judgment": {"relevance": "2", "note": "int、float 加几种 numpy 数值类型都列了，覆盖够用。"}}
+{"reviewer": "B", "query_ref": "Q0078", "panel_ref": "P0277", "judgment": {"relevance": "2", "note": "看属性在不在任务返回的 JSON 里，是存在性检查。"}}
+{"reviewer": "B", "query_ref": "Q0078", "panel_ref": "P0280", "judgment": {"relevance": "0", "note": "判对象能否序列化，跟属性存在无关。"}}
+{"reviewer": "B", "query_ref": "Q0078", "panel_ref": "P0276", "judgment": {"relevance": "2", "note": "查维度模型的 key/label 属性在不在，正是存在性检查。"}}
+{"reviewer": "B", "query_ref": "Q0078", "panel_ref": "P0279", "judgment": {"relevance": "1", "note": "同上，取不到返回 None，算间接判断。"}}
+{"reviewer": "B", "query_ref": "Q0078", "panel_ref": "P0278", "judgment": {"relevance": "1", "note": "按名取属性，取不到给 None，能拿来判存在，但不是专门做检查。"}}
+{"reviewer": "B", "query_ref": "Q0079", "panel_ref": "P0475", "judgment": {"relevance": "0", "note": "写 PNG/JPG，不是 FITS。"}}
+{"reviewer": "B", "query_ref": "Q0080", "panel_ref": "P0550", "judgment": {"relevance": "1", "note": "取值失败给 None，同样是写死的。"}}
+{"reviewer": "B", "query_ref": "Q0080", "panel_ref": "P0552", "judgment": {"relevance": "1", "note": "按名字取属性，找不到给 None，兜底写死，不能自己指定默认值。"}}
+{"reviewer": "B", "query_ref": "Q0080", "panel_ref": "P0551", "judgment": {"relevance": "1", "note": "造 property 描述符，没管默认值。"}}
+{"reviewer": "B", "query_ref": "Q0081", "panel_ref": "P0460", "judgment": {"relevance": "0", "note": "返回读 ndarray 的下标范围，跟排序无关。"}}
+{"reviewer": "B", "query_ref": "Q0081", "panel_ref": "P0457", "judgment": {"relevance": "1", "note": "按 key 排 RDD，范围没设。"}}
+{"reviewer": "B", "query_ref": "Q0081", "panel_ref": "P0458", "judgment": {"relevance": "0", "note": "设色图数值范围，跟排序无关。"}}
+{"reviewer": "B", "query_ref": "Q0082", "panel_ref": "P0135", "judgment": {"relevance": "1", "note": "列表拼字符串，默认空格不是逗号。"}}
+{"reviewer": "B", "query_ref": "Q0082", "panel_ref": "P0139", "judgment": {"relevance": "2", "note": "逗号 join，能用。"}}
+{"reviewer": "B", "query_ref": "Q0082", "panel_ref": "P0137", "judgment": {"relevance": "0", "note": "逗号串转列表，方向反了。"}}
+{"reviewer": "B", "query_ref": "Q0082", "panel_ref": "P0136", "judgment": {"relevance": "0", "note": "逗号串拆列表，方向反了。"}}
+{"reviewer": "B", "query_ref": "Q0083", "panel_ref": "P0517", "judgment": {"relevance": "0", "note": "连的 MySQL，不是 Oracle 的 ODBC。"}}
+{"reviewer": "B", "query_ref": "Q0083", "panel_ref": "P0516", "judgment": {"relevance": "0", "note": "PostgreSQL，照样不是。"}}
+{"reviewer": "B", "query_ref": "Q0084", "panel_ref": "P0152", "judgment": {"relevance": "0", "note": "强转浮点，跟小数部分无关。"}}
+{"reviewer": "B", "query_ref": "Q0084", "panel_ref": "P0151", "judgment": {"relevance": "0", "note": "去逗号转浮点，无关。"}}
+{"reviewer": "B", "query_ref": "Q0084", "panel_ref": "P0149", "judgment": {"relevance": "1", "note": "比两个浮点近似相等，不是判整数。"}}
+{"reviewer": "B", "query_ref": "Q0084", "panel_ref": "P0150", "judgment": {"relevance": "1", "note": "判 float/int 再转浮点，无小数没判。"}}
+{"reviewer": "B", "query_ref": "Q0085", "panel_ref": "P0504", "judgment": {"relevance": "0", "note": "停播放线程，跟斐波那契无关。"}}
+{"reviewer": "B", "query_ref": "Q0085", "panel_ref": "P0506", "judgment": {"relevance": "0", "note": "逐行执行代码，无关。"}}
+{"reviewer": "B", "query_ref": "Q0085", "panel_ref": "P0503", "judgment": {"relevance": "0", "note": "带 sleep 的死循环，不是斐波那契，也没哨兵。"}}
+{"reviewer": "B", "query_ref": "Q0085", "panel_ref": "P0505", "judgment": {"relevance": "0", "note": "收 SIGTERM 退出，无关。"}}
+{"reviewer": "B", "query_ref": "Q0086", "panel_ref": "P0059", "judgment": {"relevance": "1", "note": "只判目录，文件那边没判。"}}
+{"reviewer": "B", "query_ref": "Q0086", "panel_ref": "P0058", "judgment": {"relevance": "0", "note": "判断文件在不在目录里，不是判类型。"}}
+{"reviewer": "B", "query_ref": "Q0086", "panel_ref": "P0057", "judgment": {"relevance": "1", "note": "只看路径存不存在，没分文件和目录。"}}
+{"reviewer": "B", "query_ref": "Q0087", "panel_ref": "P0372", "judgment": {"relevance": "1", "note": "打开路径或现成文件对象，stdin 没管。"}}
+{"reviewer": "B", "query_ref": "Q0087", "panel_ref": "P0368", "judgment": {"relevance": "0", "note": "stdout 重定向到文件，方向反了。"}}
+{"reviewer": "B", "query_ref": "Q0087", "panel_ref": "P0369", "judgment": {"relevance": "0", "note": "美化打印，无关。"}}
+{"reviewer": "B", "query_ref": "Q0087", "panel_ref": "P0371", "judgment": {"relevance": "0", "note": "异步开文件，跟 stdin 无关。"}}
+{"reviewer": "B", "query_ref": "Q0087", "panel_ref": "P0370", "judgment": {"relevance": "1", "note": "从 stdin 读输入，只覆盖一侧。"}}
+{"reviewer": "B", "query_ref": "Q0088", "panel_ref": "P0573", "judgment": {"relevance": "0", "note": "格式化内存显示，不限制。"}}
+{"reviewer": "B", "query_ref": "Q0088", "panel_ref": "P0570", "judgment": {"relevance": "0", "note": "读内存使用率，不限制。"}}
+{"reviewer": "B", "query_ref": "Q0088", "panel_ref": "P0571", "judgment": {"relevance": "1", "note": "设进程内存配额，只是配额。"}}
+{"reviewer": "B", "query_ref": "Q0089", "panel_ref": "P0598", "judgment": {"relevance": "1", "note": "数据库字段类型转字符串，只一个列，不是列出各列类型。"}}
+{"reviewer": "B", "query_ref": "Q0090", "panel_ref": "P0209", "judgment": {"relevance": "1", "note": "随机排列，不是重复。"}}
+{"reviewer": "B", "query_ref": "Q0090", "panel_ref": "P0208", "judgment": {"relevance": "2", "note": "itertools.repeat 重复序列 n 次，能用。"}}
+{"reviewer": "B", "query_ref": "Q0091", "panel_ref": "P0409", "judgment": {"relevance": "0", "note": "读 sql 文件，跟 argparse 无关。"}}
+{"reviewer": "B", "query_ref": "Q0091", "panel_ref": "P0410", "judgment": {"relevance": "0", "note": "按 Python 结构打印，无关。"}}
+{"reviewer": "B", "query_ref": "Q0091", "panel_ref": "P0412", "judgment": {"relevance": "0", "note": "在给定环境执行代码对象，无关。"}}
+{"reviewer": "B", "query_ref": "Q0091", "panel_ref": "P0413", "judgment": {"relevance": "1", "note": "临时换 sys.argv 方便导入，命令行参数靠点谱，argparse 不是。"}}
+{"reviewer": "B", "query_ref": "Q0091", "panel_ref": "P0407", "judgment": {"relevance": "0", "note": "返回读文件或 stdin 的函数，无关。"}}
+{"reviewer": "B", "query_ref": "Q0091", "panel_ref": "P0406", "judgment": {"relevance": "1", "note": "编译 py 文件成代码对象，argparse 参数没碰。"}}
+{"reviewer": "B", "query_ref": "Q0092", "panel_ref": "P0036", "judgment": {"relevance": "1", "note": "读命令行输入，没退出。"}}
+{"reviewer": "B", "query_ref": "Q0092", "panel_ref": "P0034", "judgment": {"relevance": "1", "note": "逐行读 stdin，没退出。"}}
+{"reviewer": "B", "query_ref": "Q0092", "panel_ref": "P0035", "judgment": {"relevance": "1", "note": "异步读一行，没退出。"}}
+{"reviewer": "B", "query_ref": "Q0093", "panel_ref": "P0113", "judgment": {"relevance": "1", "note": "配置值转布尔，没逻辑运算。"}}
+{"reviewer": "B", "query_ref": "Q0093", "panel_ref": "P0111", "judgment": {"relevance": "2", "note": "实现了 or 的求值，对上一个运算符。"}}
+{"reviewer": "B", "query_ref": "Q0093", "panel_ref": "P0114", "judgment": {"relevance": "1", "note": "值转布尔，逻辑运算符没碰。"}}
+{"reviewer": "B", "query_ref": "Q0094", "panel_ref": "P0263", "judgment": {"relevance": "2", "note": "redis.hexists 判键在不在，能用。"}}
+{"reviewer": "B", "query_ref": "Q0095", "panel_ref": "P0235", "judgment": {"relevance": "0", "note": "读浮点值，跟 getvalue 报错无关。"}}
+{"reviewer": "B", "query_ref": "Q0096", "panel_ref": "P0356", "judgment": {"relevance": "1", "note": "array.array 把字节串转数组，没按 40 字节取。"}}
+{"reviewer": "B", "query_ref": "Q0096", "panel_ref": "P0355", "judgment": {"relevance": "0", "note": "估算数组占多少字节，不是读内容。"}}
+{"reviewer": "B", "query_ref": "Q0097", "panel_ref": "P0084", "judgment": {"relevance": "1", "note": "timedelta 转秒，不是加毫秒。"}}
+{"reviewer": "B", "query_ref": "Q0097", "panel_ref": "P0082", "judgment": {"relevance": "1", "note": "时间戳转 datetime 加微秒，不是毫秒。"}}
+{"reviewer": "B", "query_ref": "Q0097", "panel_ref": "P0083", "judgment": {"relevance": "1", "note": "timedelta 转毫秒，没往 datetime 上加。"}}
+{"reviewer": "B", "query_ref": "Q0097", "panel_ref": "P0081", "judgment": {"relevance": "1", "note": "datetime 转 Unix 时间，毫秒没加。"}}
+{"reviewer": "B", "query_ref": "Q0098", "panel_ref": "P0230", "judgment": {"relevance": "1", "note": "拼出虚拟环境里 python 的路径，不是查当前用的那个。"}}
+{"reviewer": "B", "query_ref": "Q0098", "panel_ref": "P0232", "judgment": {"relevance": "1", "note": "判文件能不能执行，跟 python 路径不是一回事。"}}
+{"reviewer": "B", "query_ref": "Q0099", "panel_ref": "P0478", "judgment": {"relevance": "1", "note": "数包含某词的文档，跟文档内对象数不是一回事。"}}
+{"reviewer": "B", "query_ref": "Q0099", "panel_ref": "P0479", "judgment": {"relevance": "0", "note": "数队列里等于某值的元素，不是文档对象数。"}}
+{"reviewer": "B", "query_ref": "Q0100", "panel_ref": "P0160", "judgment": {"relevance": "0", "note": "十六进制颜色转 RGB，跟有符号整数无关。"}}
+{"reviewer": "B", "query_ref": "Q0100", "panel_ref": "P0159", "judgment": {"relevance": "1", "note": "按基数转整数，进制能对上，有符号没处理。"}}
+{"reviewer": "B", "query_ref": "Q0101", "panel_ref": "P0216", "judgment": {"relevance": "0", "note": "隐藏主窗口，不是禁关闭按钮。"}}
+{"reviewer": "B", "query_ref": "Q0101", "panel_ref": "P0218", "judgment": {"relevance": "0", "note": "置顶标志，跟关闭按钮无关。"}}
+{"reviewer": "B", "query_ref": "Q0101", "panel_ref": "P0215", "judgment": {"relevance": "0", "note": "隐藏窗口，不是禁按钮。"}}
+{"reviewer": "B", "query_ref": "Q0101", "panel_ref": "P0217", "judgment": {"relevance": "0", "note": "关别的窗口，无关。"}}
+{"reviewer": "B", "query_ref": "Q0102", "panel_ref": "P0432", "judgment": {"relevance": "1", "note": "对象转可序列化字典，不是 bigquery。"}}
+{"reviewer": "B", "query_ref": "Q0102", "panel_ref": "P0430", "judgment": {"relevance": "0", "note": "mongo 查询集转 JSON，跟 bigquery 无关。"}}
+{"reviewer": "B", "query_ref": "Q0102", "panel_ref": "P0431", "judgment": {"relevance": "0", "note": "GraphQL 查询转 JSON，无关。"}}
+{"reviewer": "B", "query_ref": "Q0103", "panel_ref": "P0576", "judgment": {"relevance": "2", "note": "下标取值，越界给默认值，能用。"}}
+{"reviewer": "B", "query_ref": "Q0103", "panel_ref": "P0577", "judgment": {"relevance": "1", "note": "按行列取值，没默认值。"}}
+{"reviewer": "B", "query_ref": "Q0103", "panel_ref": "P0578", "judgment": {"relevance": "1", "note": "返回所有等于 val 的下标，没有默认值。"}}
+{"reviewer": "B", "query_ref": "Q0104", "panel_ref": "P0272", "judgment": {"relevance": "1", "note": "异步函数放进事件循环，sleep 没有。"}}
+{"reviewer": "B", "query_ref": "Q0104", "panel_ref": "P0274", "judgment": {"relevance": "1", "note": "循环重试，sleep 没有。"}}
+{"reviewer": "B", "query_ref": "Q0104", "panel_ref": "P0269", "judgment": {"relevance": "1", "note": "函数调用放进 Gtk 主循环，没 sleep。"}}
+{"reviewer": "B", "query_ref": "Q0105", "panel_ref": "P0306", "judgment": {"relevance": "0", "note": "取底层 SSL 套接字，跟 sslcontext 无关。"}}
+{"reviewer": "B", "query_ref": "Q0106", "panel_ref": "P0496", "judgment": {"relevance": "0", "note": "按步长打印当前迭代，不管下一条命令。"}}
+{"reviewer": "B", "query_ref": "Q0106", "panel_ref": "P0495", "judgment": {"relevance": "1", "note": "光标移到下一行，编辑器的事。"}}
+{"reviewer": "B", "query_ref": "Q0106", "panel_ref": "P0494", "judgment": {"relevance": "1", "note": "迭代器取下一个，不是跳循环体。"}}
+{"reviewer": "B", "query_ref": "Q0107", "panel_ref": "P0471", "judgment": {"relevance": "0", "note": "连 PostgreSQL，不是 FTP。"}}
+{"reviewer": "B", "query_ref": "Q0108", "panel_ref": "P0311", "judgment": {"relevance": "1", "note": "取 PDF 文件大小，内容没取。"}}
+{"reviewer": "B", "query_ref": "Q0108", "panel_ref": "P0308", "judgment": {"relevance": "2", "note": "pdfminer 抽 PDF 文本，算取内容。"}}
+{"reviewer": "B", "query_ref": "Q0108", "panel_ref": "P0309", "judgment": {"relevance": "0", "note": "SPSS 读成 DataFrame，跟 PDF 无关。"}}
+{"reviewer": "B", "query_ref": "Q0108", "panel_ref": "P0312", "judgment": {"relevance": "1", "note": "算正态分布密度，是统计的 pdf。"}}
+{"reviewer": "B", "query_ref": "Q0109", "panel_ref": "P0585", "judgment": {"relevance": "1", "note": "按内部索引排代码，返回的是代码顺序，不是索引列表。"}}
+{"reviewer": "B", "query_ref": "Q0110", "panel_ref": "P0314", "judgment": {"relevance": "1", "note": "每行加空格缩进，rst 排版用，不是代码块。"}}
+{"reviewer": "B", "query_ref": "Q0110", "panel_ref": "P0315", "judgment": {"relevance": "1", "note": "输出加缩进，只是排版。"}}
+{"reviewer": "B", "query_ref": "Q0111", "panel_ref": "P0532", "judgment": {"relevance": "1", "note": "读 wav，不是 numpy。"}}
+{"reviewer": "B", "query_ref": "Q0111", "panel_ref": "P0531", "judgment": {"relevance": "2", "note": "np.load 读 npy，能用。"}}
+{"reviewer": "B", "query_ref": "Q0111", "panel_ref": "P0530", "judgment": {"relevance": "0", "note": "读文本，没 numpy。"}}
+{"reviewer": "B", "query_ref": "Q0112", "panel_ref": "P0351", "judgment": {"relevance": "2", "note": "shell=True 跑命令读 stdout，能用。"}}
+{"reviewer": "B", "query_ref": "Q0112", "panel_ref": "P0350", "judgment": {"relevance": "2", "note": "pexpect 在 shell 里跑，返回输出，能用。"}}
+{"reviewer": "B", "query_ref": "Q0112", "panel_ref": "P0352", "judgment": {"relevance": "2", "note": "Popen 执行，拿返回码和输出，能用。"}}
+{"reviewer": "B", "query_ref": "Q0113", "panel_ref": "P0329", "judgment": {"relevance": "0", "note": "收 SIGINT 退出，跟 QDialog 无关。"}}
+{"reviewer": "B", "query_ref": "Q0113", "panel_ref": "P0328", "judgment": {"relevance": "1", "note": "对话框全关了，close 信号没连。"}}
+{"reviewer": "B", "query_ref": "Q0114", "panel_ref": "P0087", "judgment": {"relevance": "0", "note": "算显示位数，跟随机数无关。"}}
+{"reviewer": "B", "query_ref": "Q0114", "panel_ref": "P0089", "judgment": {"relevance": "1", "note": "固定种子出随机浮点数组，是数组，不是单个小数。"}}
+{"reviewer": "B", "query_ref": "Q0114", "panel_ref": "P0088", "judgment": {"relevance": "0", "note": "随机整数，不是小数。"}}
+{"reviewer": "B", "query_ref": "Q0115", "panel_ref": "P0120", "judgment": {"relevance": "0", "note": "终端宽高，和矩阵不搭。"}}
+{"reviewer": "B", "query_ref": "Q0115", "panel_ref": "P0121", "judgment": {"relevance": "0", "note": "检查 3.5 的矩阵乘法语法，跟显示矩阵没关系。"}}
+{"reviewer": "B", "query_ref": "Q0115", "panel_ref": "P0119", "judgment": {"relevance": "0", "note": "终端行列数，不是矩阵。"}}
+{"reviewer": "B", "query_ref": "Q0115", "panel_ref": "P0116", "judgment": {"relevance": "1", "note": "转成 numpy 矩阵，是造矩阵不是看。"}}
+{"reviewer": "B", "query_ref": "Q0115", "panel_ref": "P0117", "judgment": {"relevance": "1", "note": "矩阵做了，没显示出来。"}}
+{"reviewer": "B", "query_ref": "Q0115", "panel_ref": "P0122", "judgment": {"relevance": "2", "note": "按类别拼成 CSV 打印，能看矩阵内容。"}}
+{"reviewer": "B", "query_ref": "Q0116", "panel_ref": "P0540", "judgment": {"relevance": "1", "note": "扩展 slice 边界，不是行列一起指定。"}}
+{"reviewer": "B", "query_ref": "Q0116", "panel_ref": "P0539", "judgment": {"relevance": "1", "note": "按起止长度切数组，不是行列指定。"}}
+{"reviewer": "B", "query_ref": "Q0117", "panel_ref": "P0491", "judgment": {"relevance": "0", "note": "去空白项，跟单引号无关。"}}
+{"reviewer": "B", "query_ref": "Q0118", "panel_ref": "P0010", "judgment": {"relevance": "2", "note": "按对象 id 集合去重，能得唯一对象。"}}
+{"reviewer": "B", "query_ref": "Q0118", "panel_ref": "P0012", "judgment": {"relevance": "1", "note": "列表判重去重，得列表，不是集合。"}}
+{"reviewer": "B", "query_ref": "Q0119", "panel_ref": "P0102", "judgment": {"relevance": "1", "note": "空格换成下划线，不是删空白。"}}
+{"reviewer": "B", "query_ref": "Q0119", "panel_ref": "P0101", "judgment": {"relevance": "2", "note": "split/join 去掉多余空格，能压空白。"}}
+{"reviewer": "B", "query_ref": "Q0119", "panel_ref": "P0103", "judgment": {"relevance": "1", "note": "只去行尾空白，行内没动。"}}
+{"reviewer": "B", "query_ref": "Q0120", "panel_ref": "P0259", "judgment": {"relevance": "0", "note": "跑 pytest，跟 locale 无关。"}}
+{"reviewer": "B", "query_ref": "Q0120", "panel_ref": "P0257", "judgment": {"relevance": "1", "note": "按用户和请求头选 locale，是选不是设。"}}
+{"reviewer": "B", "query_ref": "Q0120", "panel_ref": "P0260", "judgment": {"relevance": "0", "note": "跑演示，无关。"}}
+{"reviewer": "B", "query_ref": "Q0121", "panel_ref": "P0186", "judgment": {"relevance": "1", "note": "随机字符串，能当文件名，但没生成文件名。"}}
+{"reviewer": "B", "query_ref": "Q0121", "panel_ref": "P0185", "judgment": {"relevance": "1", "note": "随机属性名，能当文件名，但不是文件。"}}
+{"reviewer": "B", "query_ref": "Q0122", "panel_ref": "P0488", "judgment": {"relevance": "1", "note": "返回这个对象的 logger，单个，不是当前全部。"}}
+{"reviewer": "B", "query_ref": "Q0123", "panel_ref": "P0239", "judgment": {"relevance": "2", "note": "正则逐行抓单词，能用。"}}
+{"reviewer": "B", "query_ref": "Q0123", "panel_ref": "P0240", "judgment": {"relevance": "2", "note": "按空格切，去标点，能用。"}}
+{"reviewer": "B", "query_ref": "Q0124", "panel_ref": "P0201", "judgment": {"relevance": "1", "note": "规范化 numpy 索引，不是 one-hot 转索引。"}}
+{"reviewer": "B", "query_ref": "Q0124", "panel_ref": "P0200", "judgment": {"relevance": "1", "note": "返回等于某值的下标，能取索引，不是 one-hot。"}}
+{"reviewer": "B", "query_ref": "Q0125", "panel_ref": "P0189", "judgment": {"relevance": "1", "note": "按名删全局变量，是删不是设。"}}
+{"reviewer": "B", "query_ref": "Q0125", "panel_ref": "P0188", "judgment": {"relevance": "1", "note": "按名取调用栈局部变量，是读不是设。"}}
+{"reviewer": "B", "query_ref": "Q0126", "panel_ref": "P0062", "judgment": {"relevance": "0", "note": "列表转数组，方向反了。"}}
+{"reviewer": "B", "query_ref": "Q0126", "panel_ref": "P0066", "judgment": {"relevance": "1", "note": "recarray 转记录列表，不是表。"}}
+{"reviewer": "B", "query_ref": "Q0126", "panel_ref": "P0065", "judgment": {"relevance": "0", "note": "算桌面位置，无关。"}}
+{"reviewer": "B", "query_ref": "Q0126", "panel_ref": "P0064", "judgment": {"relevance": "0", "note": "清空表行，无关。"}}
+{"reviewer": "B", "query_ref": "Q0126", "panel_ref": "P0061", "judgment": {"relevance": "0", "note": "转置矩阵，不是数组转表。"}}
+{"reviewer": "B", "query_ref": "Q0127", "panel_ref": "P0394", "judgment": {"relevance": "0", "note": "跑单元测试，不是判类型。"}}
+{"reviewer": "B", "query_ref": "Q0127", "panel_ref": "P0396", "judgment": {"relevance": "1", "note": "判是不是文本，只覆盖 text。"}}
+{"reviewer": "B", "query_ref": "Q0127", "panel_ref": "P0397", "judgment": {"relevance": "2", "note": "按 isinstance 分支判类型，能用。"}}

@@ -1,0 +1,2092 @@
+{
+  "created_utc": "2026-10-20T03:23:01.444554+00:00",
+  "sources": [
+    {
+      "key": "confirmation",
+      "path": "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
+      "sha256": "bc7e6e69ced0627612f13676c040d1fd025ab2712874e071731fb376126668ea"
+    },
+    {
+      "key": "H_CodeBERT",
+      "path": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "sha256": "1e6e5fc0691804fedde0680f43005aa8161a8f852569a050e5b3a9649ce4a88b"
+    },
+    {
+      "key": "H_BM25",
+      "path": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "sha256": "2b7859c0e65a8a3aaa1bd2a3ef5a726cb1ea4a32f757bfb3dd0876b7f3085de6"
+    },
+    {
+      "key": "A",
+      "path": "results/rene_core_step_a_20261020/RESULTS.json",
+      "sha256": "16024324a600a87374ac8f63074c29fb0556fab30f87554dfeae0fc4a1fd6457"
+    },
+    {
+      "key": "B",
+      "path": "results/rene_core_step_b_20261020/RESULTS.json",
+      "sha256": "5c55a60711d3a31d62bb244a64f5b3ec60fc618207eec16caf1e7094d6bba092"
+    },
+    {
+      "key": "fusion",
+      "path": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "sha256": "39e5b6aa154c43cb658b7bccaab9d5b927cfaa2a9678794667c7e48171669526"
+    },
+    {
+      "key": "envelope",
+      "path": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "sha256": "8f6e61ac172d04a97b4bca0b920867469bc10463ce24e31bc69146ed03a0e896"
+    },
+    {
+      "key": "seed1536",
+      "path": "results/rene_strict_confirmation_20261019/RESULTS.json",
+      "sha256": "46a5b68e4541dabd514a2eee6e676df2b012ed547a4ef30a9610e42278bd8dc5"
+    },
+    {
+      "key": "risk1024",
+      "path": "results/rene_uq_independent_proof_20261019/RESULTS.json",
+      "sha256": "54b1cc94e480f879365280ff8f82381359f17dc119a4ca1a0ceb474ce558a1cc"
+    }
+  ],
+  "tables": {
+    "T1_confirmation": [
+      {
+        "comparison": "CodeBERT ENTR-RAND20 best3",
+        "role": "single frozen confirmatory comparison",
+        "queries": 7718,
+        "groups": 1963,
+        "delta": -0.0008365211420944555,
+        "ci95": [
+          -0.0032547866853966396,
+          0.0015414627313371035
+        ],
+        "practical_margin": 0.005,
+        "equivalence": true
+      }
+    ],
+    "T2_same_pool_contracts": [
+      {
+        "domain": "source",
+        "retriever": "CodeBERT",
+        "queries": 2048,
+        "groups": 594,
+        "role": "post-hoc same-pool paired diagnostic",
+        "single_advantage": 0.0008386593305045272,
+        "single_advantage_ci95": [
+          -0.004314059004085447,
+          0.005898940095295067
+        ],
+        "best3_advantage": -0.004353022961301771,
+        "best3_advantage_ci95": [
+          -0.008244165618233318,
+          -0.0003976603581764404
+        ],
+        "direct_difference": 0.005191682291806308,
+        "direct_difference_ci95": [
+          -0.0001668209643487576,
+          0.010206987093299268
+        ],
+        "direct_difference_family95": [
+          -0.0015474273989473976,
+          0.01167463899366174
+        ]
+      },
+      {
+        "domain": "source",
+        "retriever": "BM25",
+        "queries": 2048,
+        "groups": 594,
+        "role": "post-hoc same-pool paired diagnostic",
+        "single_advantage": -0.0021641975999034846,
+        "single_advantage_ci95": [
+          -0.004685655658324361,
+          0.0002730421027147004
+        ],
+        "best3_advantage": -0.0013374161840739843,
+        "best3_advantage_ci95": [
+          -0.003327882145972192,
+          0.0006352374946431428
+        ],
+        "direct_difference": -0.0008267814158294987,
+        "direct_difference_ci95": [
+          -0.003716864783133344,
+          0.001907185391366402
+        ],
+        "direct_difference_family95": [
+          -0.004479480857270309,
+          0.0026373558446224736
+        ]
+      },
+      {
+        "domain": "cosqa",
+        "retriever": "CodeBERT",
+        "queries": 1490,
+        "groups": 512,
+        "role": "post-hoc same-pool paired diagnostic",
+        "single_advantage": 0.027935834995556248,
+        "single_advantage_ci95": [
+          0.019223018949797988,
+          0.03670910136602857
+        ],
+        "best3_advantage": 0.0023680011097265688,
+        "best3_advantage_ci95": [
+          -0.0034846866030038247,
+          0.008313734188614657
+        ],
+        "direct_difference": 0.025567833885829692,
+        "direct_difference_ci95": [
+          0.016601349224515977,
+          0.0343797507469227
+        ],
+        "direct_difference_family95": [
+          0.014167543007668367,
+          0.036617555169105746
+        ]
+      },
+      {
+        "domain": "cosqa",
+        "retriever": "BM25",
+        "queries": 1490,
+        "groups": 512,
+        "role": "post-hoc same-pool paired diagnostic",
+        "single_advantage": -0.0016997186627318334,
+        "single_advantage_ci95": [
+          -0.005892229900668948,
+          0.002421773193632273
+        ],
+        "best3_advantage": -0.0019476955515067983,
+        "best3_advantage_ci95": [
+          -0.0049748160010331674,
+          0.0009644420281514225
+        ],
+        "direct_difference": 0.0002479768887749696,
+        "direct_difference_ci95": [
+          -0.004432443380927147,
+          0.004787725390882785
+        ],
+        "direct_difference_family95": [
+          -0.005862496549961023,
+          0.0058743488449059765
+        ]
+      }
+    ],
+    "T3_adoption_fixed20": [
+      {
+        "retriever": "CodeBERT",
+        "model": "M0",
+        "role": "development fixed OOF outputs; paired intervals conditional on fitted heads",
+        "delta": 0.0013406014972509315,
+        "adopted": 296,
+        "harmful": 53,
+        "ci95": [
+          -0.0018853700216146776,
+          0.004670321016688648
+        ]
+      },
+      {
+        "retriever": "CodeBERT",
+        "model": "MT",
+        "role": "development fixed OOF outputs; paired intervals conditional on fitted heads",
+        "delta": -0.0006674184332829676,
+        "adopted": 296,
+        "harmful": 55,
+        "ci95": [
+          -0.003665178637941656,
+          0.0025029764483803967
+        ]
+      },
+      {
+        "retriever": "CodeBERT",
+        "model": "MR",
+        "role": "development fixed OOF outputs; paired intervals conditional on fitted heads",
+        "delta": 0.0010797095960434564,
+        "adopted": 296,
+        "harmful": 75,
+        "ci95": [
+          -0.0024941935033777974,
+          0.0047051370435704405
+        ]
+      },
+      {
+        "retriever": "CodeBERT",
+        "model": "MRT",
+        "role": "development fixed OOF outputs; paired intervals conditional on fitted heads",
+        "delta": 0.0013633620534785457,
+        "adopted": 296,
+        "harmful": 81,
+        "ci95": [
+          -0.002070560210443104,
+          0.004994053688438588
+        ]
+      },
+      {
+        "retriever": "BM25",
+        "model": "M0",
+        "role": "development fixed OOF outputs; paired intervals conditional on fitted heads",
+        "delta": -0.0010492230153541485,
+        "adopted": 274,
+        "harmful": 94,
+        "ci95": [
+          -0.0016356920109889162,
+          -0.000509882801748777
+        ]
+      },
+      {
+        "retriever": "BM25",
+        "model": "MT",
+        "role": "development fixed OOF outputs; paired intervals conditional on fitted heads",
+        "delta": -0.0011788346557637889,
+        "adopted": 274,
+        "harmful": 93,
+        "ci95": [
+          -0.0018251769843592458,
+          -0.000569663985983128
+        ]
+      },
+      {
+        "retriever": "BM25",
+        "model": "MR",
+        "role": "development fixed OOF outputs; paired intervals conditional on fitted heads",
+        "delta": -0.0019059028828799763,
+        "adopted": 274,
+        "harmful": 92,
+        "ci95": [
+          -0.0031400814490490066,
+          -0.0009416132788288567
+        ]
+      },
+      {
+        "retriever": "BM25",
+        "model": "MRT",
+        "role": "development fixed OOF outputs; paired intervals conditional on fitted heads",
+        "delta": -0.0022527134926939624,
+        "adopted": 274,
+        "harmful": 96,
+        "ci95": [
+          -0.003542306987705247,
+          -0.0012227975362409155
+        ]
+      }
+    ],
+    "T4_multicandidate_fusion": [
+      {
+        "retriever": "CodeBERT",
+        "policy": "ENTRTop1",
+        "role": "consumed-development post-hoc extension",
+        "delta": -0.013658506762742006,
+        "harmful": 388,
+        "ci95": [
+          -0.022697006447572846,
+          -0.004789473030968412
+        ],
+        "executable": true
+      },
+      {
+        "retriever": "CodeBERT",
+        "policy": "RRF3",
+        "role": "consumed-development post-hoc extension",
+        "delta": -0.010099657981436774,
+        "harmful": 352,
+        "ci95": [
+          -0.01971797233659994,
+          -0.0003949852147091911
+        ],
+        "executable": true,
+        "family95": [
+          -0.02279004248583296,
+          0.0022761157907135125
+        ]
+      },
+      {
+        "retriever": "CodeBERT",
+        "policy": "RRF4",
+        "role": "consumed-development post-hoc extension",
+        "delta": -0.006307936611429862,
+        "harmful": 284,
+        "ci95": [
+          -0.013563370181531467,
+          0.0006806271303323369
+        ],
+        "executable": true,
+        "family95": [
+          -0.015563167538460548,
+          0.002520550681450782
+        ]
+      },
+      {
+        "retriever": "CodeBERT",
+        "policy": "ENTRBest3",
+        "role": "consumed-development post-hoc extension",
+        "delta": 0.0603784464731316,
+        "harmful": 125,
+        "ci95": [
+          0.051462419796465396,
+          0.06938686679408358
+        ],
+        "executable": false
+      },
+      {
+        "retriever": "BM25",
+        "policy": "ENTRTop1",
+        "role": "consumed-development post-hoc extension",
+        "delta": -0.020350960473266497,
+        "harmful": 555,
+        "ci95": [
+          -0.025713056947748596,
+          -0.015221408526523981
+        ],
+        "executable": true
+      },
+      {
+        "retriever": "BM25",
+        "policy": "RRF3",
+        "role": "consumed-development post-hoc extension",
+        "delta": -0.0035704078930193354,
+        "harmful": 411,
+        "ci95": [
+          -0.006056707920276403,
+          -0.0010945392756171036
+        ],
+        "executable": true,
+        "family95": [
+          -0.00681098663582047,
+          -0.0004026595802662371
+        ]
+      },
+      {
+        "retriever": "BM25",
+        "policy": "RRF4",
+        "role": "consumed-development post-hoc extension",
+        "delta": -0.0020243566257178024,
+        "harmful": 349,
+        "ci95": [
+          -0.003759799258791609,
+          -0.000412311172888825
+        ],
+        "executable": true,
+        "family95": [
+          -0.00419818640658929,
+          2.0454861585800217e-05
+        ]
+      },
+      {
+        "retriever": "BM25",
+        "policy": "ENTRBest3",
+        "role": "consumed-development post-hoc extension",
+        "delta": 0.009776291853578388,
+        "harmful": 319,
+        "ci95": [
+          0.005181481721220076,
+          0.014687919732004687
+        ],
+        "executable": false
+      }
+    ],
+    "T5_frozen_H_stages": [
+      {
+        "retriever": "CodeBERT",
+        "policy": "ENTR_top1",
+        "queries": 8530,
+        "groups": 1963,
+        "role": "predefined descriptive full-H stage estimate; not an extra confirmatory test",
+        "delta": -0.021104667733802204,
+        "ci95": [
+          -0.025139425118155964,
+          -0.017046881223317413
+        ],
+        "adopted": 8530,
+        "harmful": 2328,
+        "positive_gain_retention": 0.4251858888021191,
+        "CE_pairs": 0
+      },
+      {
+        "retriever": "CodeBERT",
+        "policy": "HGB_gain_control",
+        "queries": 8530,
+        "groups": 1963,
+        "role": "predefined descriptive full-H stage estimate; not an extra confirmatory test",
+        "delta": -0.002876101727053951,
+        "ci95": [
+          -0.005663321055473195,
+          -5.520426479213472e-05
+        ],
+        "adopted": 5305,
+        "harmful": 1277,
+        "positive_gain_retention": 0.27017403687302455,
+        "CE_pairs": 0
+      },
+      {
+        "retriever": "CodeBERT",
+        "policy": "RIDGE_gain",
+        "queries": 8530,
+        "groups": 1963,
+        "role": "predefined descriptive full-H stage estimate; not an extra confirmatory test",
+        "delta": 7.864058884024954e-05,
+        "ci95": [
+          -0.002245257024612571,
+          0.0024101501576805177
+        ],
+        "adopted": 6034,
+        "harmful": 1317,
+        "positive_gain_retention": 0.23043068038408024,
+        "CE_pairs": 0
+      },
+      {
+        "retriever": "CodeBERT",
+        "policy": "RIDGE_verified",
+        "queries": 8530,
+        "groups": 1963,
+        "role": "predefined descriptive full-H stage estimate; not an extra confirmatory test",
+        "delta": 0.0008470509605318511,
+        "ci95": [
+          -0.0015859511647492543,
+          0.0032649325993236063
+        ],
+        "adopted": 5890,
+        "harmful": 1280,
+        "positive_gain_retention": 0.24348540941110947,
+        "CE_pairs": 17056
+      },
+      {
+        "retriever": "CodeBERT",
+        "policy": "RIDGE_risk",
+        "queries": 8530,
+        "groups": 1963,
+        "role": "predefined descriptive full-H stage estimate; not an extra confirmatory test",
+        "delta": -0.0001777709092614271,
+        "ci95": [
+          -0.0005510607141544759,
+          0.00019457275126158517
+        ],
+        "adopted": 1006,
+        "harmful": 60,
+        "positive_gain_retention": 0.00769090895465412,
+        "CE_pairs": 17056
+      },
+      {
+        "retriever": "BM25",
+        "policy": "ENTR_top1",
+        "queries": 8530,
+        "groups": 1963,
+        "role": "predefined descriptive full-H stage estimate; not an extra confirmatory test",
+        "delta": -0.014435099115947004,
+        "ci95": [
+          -0.016920089739388834,
+          -0.012048550735066775
+        ],
+        "adopted": 7955,
+        "harmful": 2929,
+        "positive_gain_retention": 0.3910461612554606,
+        "CE_pairs": 0
+      },
+      {
+        "retriever": "BM25",
+        "policy": "HGB_gain_control",
+        "queries": 8530,
+        "groups": 1963,
+        "role": "predefined descriptive full-H stage estimate; not an extra confirmatory test",
+        "delta": -0.002714963530394169,
+        "ci95": [
+          -0.003929638748382946,
+          -0.0015431730177068973
+        ],
+        "adopted": 2615,
+        "harmful": 853,
+        "positive_gain_retention": 0.11797752868912496,
+        "CE_pairs": 0
+      },
+      {
+        "retriever": "BM25",
+        "policy": "RIDGE_gain",
+        "queries": 8530,
+        "groups": 1963,
+        "role": "predefined descriptive full-H stage estimate; not an extra confirmatory test",
+        "delta": -0.002079432331256027,
+        "ci95": [
+          -0.002771194646960858,
+          -0.001403062954189902
+        ],
+        "adopted": 3559,
+        "harmful": 1072,
+        "positive_gain_retention": 0.05630484829285594,
+        "CE_pairs": 0
+      },
+      {
+        "retriever": "BM25",
+        "policy": "RIDGE_verified",
+        "queries": 8530,
+        "groups": 1963,
+        "role": "predefined descriptive full-H stage estimate; not an extra confirmatory test",
+        "delta": -0.0017168071252001303,
+        "ci95": [
+          -0.0022813407795633494,
+          -0.0011538519600744273
+        ],
+        "adopted": 2926,
+        "harmful": 906,
+        "positive_gain_retention": 0.04425327202552932,
+        "CE_pairs": 17056
+      },
+      {
+        "retriever": "BM25",
+        "policy": "RIDGE_risk",
+        "queries": 8530,
+        "groups": 1963,
+        "role": "predefined descriptive full-H stage estimate; not an extra confirmatory test",
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "adopted": 0,
+        "harmful": 0,
+        "positive_gain_retention": 0.0,
+        "CE_pairs": 17056
+      }
+    ],
+    "T6_two_T5_weights": [
+      {
+        "domain": "source",
+        "T5_weights": "local",
+        "queries": 512,
+        "groups": 512,
+        "role": "same historical sensitivity subset; post-hoc two-weight diagnostic",
+        "top1_delta": -0.030251881079954066,
+        "top1_delta_ci95": [
+          -0.04521605613498278,
+          -0.0162026454735465
+        ],
+        "top1_delta_family95": [
+          -0.05170186028661594,
+          -0.01129044022003053
+        ],
+        "best3_delta": 0.029989196170394875,
+        "best3_delta_ci95": [
+          0.01828534430999452,
+          0.042346069479078374
+        ],
+        "best3_delta_family95": [
+          0.013759334023407744,
+          0.04728209801347648
+        ],
+        "entropy_single_vs_uniform": -0.005820315279870978,
+        "entropy_single_vs_uniform_ci95": [
+          -0.016975312819782745,
+          0.0054874747235906665
+        ]
+      },
+      {
+        "domain": "source",
+        "T5_weights": "t5base",
+        "queries": 512,
+        "groups": 512,
+        "role": "same historical sensitivity subset; post-hoc two-weight diagnostic",
+        "top1_delta": -0.01336643764167496,
+        "top1_delta_ci95": [
+          -0.02433999310886217,
+          -0.0026263706033192126
+        ],
+        "top1_delta_family95": [
+          -0.02934958818264183,
+          0.0008911129091566497
+        ],
+        "best3_delta": 0.038524590617860746,
+        "best3_delta_ci95": [
+          0.025869494563838188,
+          0.05180257389482993
+        ],
+        "best3_delta_family95": [
+          0.02087318933049534,
+          0.05713879944037454
+        ],
+        "entropy_single_vs_uniform": 0.009123179510571872,
+        "entropy_single_vs_uniform_ci95": [
+          -0.00030040482344577223,
+          0.018624759312859153
+        ]
+      },
+      {
+        "domain": "cosqa",
+        "T5_weights": "local",
+        "queries": 512,
+        "groups": 512,
+        "role": "same historical sensitivity subset; post-hoc two-weight diagnostic",
+        "top1_delta": -0.02019729412585696,
+        "top1_delta_ci95": [
+          -0.036746180362961255,
+          -0.0043464903175097465
+        ],
+        "top1_delta_family95": [
+          -0.043419062702708934,
+          0.0012329212755242775
+        ],
+        "best3_delta": 0.0613077770431902,
+        "best3_delta_ci95": [
+          0.04602760146052284,
+          0.07699339298352308
+        ],
+        "best3_delta_family95": [
+          0.040027687860347785,
+          0.08301838817458497
+        ],
+        "entropy_single_vs_uniform": 0.021065764875242678,
+        "entropy_single_vs_uniform_ci95": [
+          0.007811386895544094,
+          0.034006328633201854
+        ]
+      },
+      {
+        "domain": "cosqa",
+        "T5_weights": "t5base",
+        "queries": 512,
+        "groups": 512,
+        "role": "same historical sensitivity subset; post-hoc two-weight diagnostic",
+        "top1_delta": -0.042703039768602354,
+        "top1_delta_ci95": [
+          -0.06296258058070728,
+          -0.022992053734616397
+        ],
+        "top1_delta_family95": [
+          -0.07135004334799297,
+          -0.016090194526474977
+        ],
+        "best3_delta": 0.056699796317508426,
+        "best3_delta_ci95": [
+          0.039200939684720576,
+          0.07485249065025205
+        ],
+        "best3_delta_family95": [
+          0.031890471084052796,
+          0.08242730494477787
+        ],
+        "entropy_single_vs_uniform": 0.034753210205410286,
+        "entropy_single_vs_uniform_ci95": [
+          0.01882089310079814,
+          0.050446806738038245
+        ]
+      }
+    ],
+    "T7_previous_seed_UQ": [
+      {
+        "population": "1536 downstream repositories; full pipeline",
+        "comparison": "uq_increment",
+        "role": "prior frozen full-pipeline comparison",
+        "delta": 0.003952390664201891,
+        "ci97_5": [
+          0.0013304265837838897,
+          0.0069847308096466455
+        ]
+      },
+      {
+        "population": "1024 downstream repositories; fixed upstream action",
+        "comparison": "full_minus_common",
+        "role": "prior frozen risk-head comparison",
+        "delta": -7.970573383892871e-05,
+        "ci97_5": [
+          -0.0036124158869464784,
+          0.003453004419268621
+        ]
+      },
+      {
+        "population": "1024 downstream repositories; fixed upstream action",
+        "comparison": "full_minus_support",
+        "role": "prior frozen risk-head comparison",
+        "delta": 0.0013465287202921758,
+        "ci97_5": [
+          -0.0012146365947739283,
+          0.004049586953883786
+        ]
+      }
+    ]
+  },
+  "traceable_cells": [
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
+      "pointer": "queries",
+      "value": 7718
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
+      "pointer": "groups",
+      "value": 1963
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
+      "pointer": "mean",
+      "value": -0.0008365211420944555
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
+      "pointer": "ci95_group_bootstrap",
+      "value": [
+        -0.0032547866853966396,
+        0.0015414627313371035
+      ]
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
+      "pointer": "conclusion/practical_equivalence_within_prespecified_plusminus005",
+      "value": true
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/0/domain",
+      "value": "source"
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/0/retriever",
+      "value": "CodeBERT"
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/0/queries",
+      "value": 2048
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/0/groups",
+      "value": 594
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/0/contrasts/a_ENTR_single_minus_uniform/mean",
+      "value": 0.0008386593305045272
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/0/contrasts/a_ENTR_single_minus_uniform/ci95_group_bootstrap",
+      "value": [
+        -0.004314059004085447,
+        0.005898940095295067
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/0/contrasts/b_ENTR_best3_minus_RAND20/mean",
+      "value": -0.004353022961301771
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/0/contrasts/b_ENTR_best3_minus_RAND20/ci95_group_bootstrap",
+      "value": [
+        -0.008244165618233318,
+        -0.0003976603581764404
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/0/contrasts/j_ENTR_contract_difference/mean",
+      "value": 0.005191682291806308
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/0/contrasts/j_ENTR_contract_difference/ci95_group_bootstrap",
+      "value": [
+        -0.0001668209643487576,
+        0.010206987093299268
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/0/contrasts/j_ENTR_contract_difference/four_cell_family95_bonferroni_group_bootstrap",
+      "value": [
+        -0.0015474273989473976,
+        0.01167463899366174
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/1/domain",
+      "value": "source"
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/1/retriever",
+      "value": "BM25"
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/1/queries",
+      "value": 2048
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/1/groups",
+      "value": 594
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/1/contrasts/a_ENTR_single_minus_uniform/mean",
+      "value": -0.0021641975999034846
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/1/contrasts/a_ENTR_single_minus_uniform/ci95_group_bootstrap",
+      "value": [
+        -0.004685655658324361,
+        0.0002730421027147004
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/1/contrasts/b_ENTR_best3_minus_RAND20/mean",
+      "value": -0.0013374161840739843
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/1/contrasts/b_ENTR_best3_minus_RAND20/ci95_group_bootstrap",
+      "value": [
+        -0.003327882145972192,
+        0.0006352374946431428
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/1/contrasts/j_ENTR_contract_difference/mean",
+      "value": -0.0008267814158294987
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/1/contrasts/j_ENTR_contract_difference/ci95_group_bootstrap",
+      "value": [
+        -0.003716864783133344,
+        0.001907185391366402
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/1/contrasts/j_ENTR_contract_difference/four_cell_family95_bonferroni_group_bootstrap",
+      "value": [
+        -0.004479480857270309,
+        0.0026373558446224736
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/2/domain",
+      "value": "cosqa"
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/2/retriever",
+      "value": "CodeBERT"
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/2/queries",
+      "value": 1490
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/2/groups",
+      "value": 512
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/2/contrasts/a_ENTR_single_minus_uniform/mean",
+      "value": 0.027935834995556248
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/2/contrasts/a_ENTR_single_minus_uniform/ci95_group_bootstrap",
+      "value": [
+        0.019223018949797988,
+        0.03670910136602857
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/2/contrasts/b_ENTR_best3_minus_RAND20/mean",
+      "value": 0.0023680011097265688
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/2/contrasts/b_ENTR_best3_minus_RAND20/ci95_group_bootstrap",
+      "value": [
+        -0.0034846866030038247,
+        0.008313734188614657
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/2/contrasts/j_ENTR_contract_difference/mean",
+      "value": 0.025567833885829692
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/2/contrasts/j_ENTR_contract_difference/ci95_group_bootstrap",
+      "value": [
+        0.016601349224515977,
+        0.0343797507469227
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/2/contrasts/j_ENTR_contract_difference/four_cell_family95_bonferroni_group_bootstrap",
+      "value": [
+        0.014167543007668367,
+        0.036617555169105746
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/3/domain",
+      "value": "cosqa"
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/3/retriever",
+      "value": "BM25"
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/3/queries",
+      "value": 1490
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/3/groups",
+      "value": 512
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/3/contrasts/a_ENTR_single_minus_uniform/mean",
+      "value": -0.0016997186627318334
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/3/contrasts/a_ENTR_single_minus_uniform/ci95_group_bootstrap",
+      "value": [
+        -0.005892229900668948,
+        0.002421773193632273
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/3/contrasts/b_ENTR_best3_minus_RAND20/mean",
+      "value": -0.0019476955515067983
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/3/contrasts/b_ENTR_best3_minus_RAND20/ci95_group_bootstrap",
+      "value": [
+        -0.0049748160010331674,
+        0.0009644420281514225
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/3/contrasts/j_ENTR_contract_difference/mean",
+      "value": 0.0002479768887749696
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/3/contrasts/j_ENTR_contract_difference/ci95_group_bootstrap",
+      "value": [
+        -0.004432443380927147,
+        0.004787725390882785
+      ]
+    },
+    {
+      "source": "results/rene_core_step_a_20261020/RESULTS.json",
+      "pointer": "views/3/contrasts/j_ENTR_contract_difference/four_cell_family95_bonferroni_group_bootstrap",
+      "value": [
+        -0.005862496549961023,
+        0.0058743488449059765
+      ]
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/fixed20/M0/delta_mrr",
+      "value": 0.0013406014972509315
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/fixed20/M0/adopted",
+      "value": 296
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/fixed20/M0/harmful",
+      "value": 53
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/estimates/fixed20:M0-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.0018853700216146776,
+        0.004670321016688648
+      ]
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/fixed20/MT/delta_mrr",
+      "value": -0.0006674184332829676
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/fixed20/MT/adopted",
+      "value": 296
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/fixed20/MT/harmful",
+      "value": 55
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/estimates/fixed20:MT-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.003665178637941656,
+        0.0025029764483803967
+      ]
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/fixed20/MR/delta_mrr",
+      "value": 0.0010797095960434564
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/fixed20/MR/adopted",
+      "value": 296
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/fixed20/MR/harmful",
+      "value": 75
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/estimates/fixed20:MR-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.0024941935033777974,
+        0.0047051370435704405
+      ]
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/fixed20/MRT/delta_mrr",
+      "value": 0.0013633620534785457
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/fixed20/MRT/adopted",
+      "value": 296
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/fixed20/MRT/harmful",
+      "value": 81
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/estimates/fixed20:MRT-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.002070560210443104,
+        0.004994053688438588
+      ]
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/fixed20/M0/delta_mrr",
+      "value": -0.0010492230153541485
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/fixed20/M0/adopted",
+      "value": 274
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/fixed20/M0/harmful",
+      "value": 94
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/estimates/fixed20:M0-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.0016356920109889162,
+        -0.000509882801748777
+      ]
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/fixed20/MT/delta_mrr",
+      "value": -0.0011788346557637889
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/fixed20/MT/adopted",
+      "value": 274
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/fixed20/MT/harmful",
+      "value": 93
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/estimates/fixed20:MT-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.0018251769843592458,
+        -0.000569663985983128
+      ]
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/fixed20/MR/delta_mrr",
+      "value": -0.0019059028828799763
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/fixed20/MR/adopted",
+      "value": 274
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/fixed20/MR/harmful",
+      "value": 92
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/estimates/fixed20:MR-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.0031400814490490066,
+        -0.0009416132788288567
+      ]
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/fixed20/MRT/delta_mrr",
+      "value": -0.0022527134926939624
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/fixed20/MRT/adopted",
+      "value": 274
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/fixed20/MRT/harmful",
+      "value": 96
+    },
+    {
+      "source": "results/rene_core_step_b_20261020/RESULTS.json",
+      "pointer": "views/BM25/estimates/fixed20:MRT-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.003542306987705247,
+        -0.0012227975362409155
+      ]
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/ENTRTop1/delta_mrr",
+      "value": -0.013658506762742006
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/ENTRTop1/harmful_queries",
+      "value": 388
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/estimates/ENTRTop1-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.022697006447572846,
+        -0.004789473030968412
+      ]
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/RRF3/delta_mrr",
+      "value": -0.010099657981436774
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/RRF3/harmful_queries",
+      "value": 352
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/estimates/RRF3-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.01971797233659994,
+        -0.0003949852147091911
+      ]
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/estimates/RRF3-NoRewrite/four_effect_family95_bonferroni_group_bootstrap",
+      "value": [
+        -0.02279004248583296,
+        0.0022761157907135125
+      ]
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/RRF4/delta_mrr",
+      "value": -0.006307936611429862
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/RRF4/harmful_queries",
+      "value": 284
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/estimates/RRF4-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.013563370181531467,
+        0.0006806271303323369
+      ]
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/estimates/RRF4-NoRewrite/four_effect_family95_bonferroni_group_bootstrap",
+      "value": [
+        -0.015563167538460548,
+        0.002520550681450782
+      ]
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/ENTRBest3/delta_mrr",
+      "value": 0.0603784464731316
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/policies/ENTRBest3/harmful_queries",
+      "value": 125
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/CodeBERT/estimates/ENTRBest3-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        0.051462419796465396,
+        0.06938686679408358
+      ]
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/ENTRTop1/delta_mrr",
+      "value": -0.020350960473266497
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/ENTRTop1/harmful_queries",
+      "value": 555
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/BM25/estimates/ENTRTop1-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.025713056947748596,
+        -0.015221408526523981
+      ]
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/RRF3/delta_mrr",
+      "value": -0.0035704078930193354
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/RRF3/harmful_queries",
+      "value": 411
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/BM25/estimates/RRF3-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.006056707920276403,
+        -0.0010945392756171036
+      ]
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/BM25/estimates/RRF3-NoRewrite/four_effect_family95_bonferroni_group_bootstrap",
+      "value": [
+        -0.00681098663582047,
+        -0.0004026595802662371
+      ]
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/RRF4/delta_mrr",
+      "value": -0.0020243566257178024
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/RRF4/harmful_queries",
+      "value": 349
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/BM25/estimates/RRF4-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.003759799258791609,
+        -0.000412311172888825
+      ]
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/BM25/estimates/RRF4-NoRewrite/four_effect_family95_bonferroni_group_bootstrap",
+      "value": [
+        -0.00419818640658929,
+        2.0454861585800217e-05
+      ]
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/ENTRBest3/delta_mrr",
+      "value": 0.009776291853578388
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/BM25/policies/ENTRBest3/harmful_queries",
+      "value": 319
+    },
+    {
+      "source": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "pointer": "views/BM25/estimates/ENTRBest3-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        0.005181481721220076,
+        0.014687919732004687
+      ]
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "queries",
+      "value": 8530
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "groups",
+      "value": 1963
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/ENTR_top1/delta_MRR/mean",
+      "value": -0.021104667733802204
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/ENTR_top1/delta_MRR/ci95_group_bootstrap",
+      "value": [
+        -0.025139425118155964,
+        -0.017046881223317413
+      ]
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/ENTR_top1/adopted",
+      "value": 8530
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/ENTR_top1/harmed",
+      "value": 2328
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/ENTR_top1/positive_gain_retention/value",
+      "value": 0.4251858888021191
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/ENTR_top1/CE_pairs_charged",
+      "value": 0
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "queries",
+      "value": 8530
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "groups",
+      "value": 1963
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/HGB_gain_control/delta_MRR/mean",
+      "value": -0.002876101727053951
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/HGB_gain_control/delta_MRR/ci95_group_bootstrap",
+      "value": [
+        -0.005663321055473195,
+        -5.520426479213472e-05
+      ]
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/HGB_gain_control/adopted",
+      "value": 5305
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/HGB_gain_control/harmed",
+      "value": 1277
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/HGB_gain_control/positive_gain_retention/value",
+      "value": 0.27017403687302455
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/HGB_gain_control/CE_pairs_charged",
+      "value": 0
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "queries",
+      "value": 8530
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "groups",
+      "value": 1963
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_gain/delta_MRR/mean",
+      "value": 7.864058884024954e-05
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_gain/delta_MRR/ci95_group_bootstrap",
+      "value": [
+        -0.002245257024612571,
+        0.0024101501576805177
+      ]
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_gain/adopted",
+      "value": 6034
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_gain/harmed",
+      "value": 1317
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_gain/positive_gain_retention/value",
+      "value": 0.23043068038408024
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_gain/CE_pairs_charged",
+      "value": 0
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "queries",
+      "value": 8530
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "groups",
+      "value": 1963
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_verified/delta_MRR/mean",
+      "value": 0.0008470509605318511
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_verified/delta_MRR/ci95_group_bootstrap",
+      "value": [
+        -0.0015859511647492543,
+        0.0032649325993236063
+      ]
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_verified/adopted",
+      "value": 5890
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_verified/harmed",
+      "value": 1280
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_verified/positive_gain_retention/value",
+      "value": 0.24348540941110947
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_verified/CE_pairs_charged",
+      "value": 17056
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "queries",
+      "value": 8530
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "groups",
+      "value": 1963
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_risk/delta_MRR/mean",
+      "value": -0.0001777709092614271
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_risk/delta_MRR/ci95_group_bootstrap",
+      "value": [
+        -0.0005510607141544759,
+        0.00019457275126158517
+      ]
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_risk/adopted",
+      "value": 1006
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_risk/harmed",
+      "value": 60
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_risk/positive_gain_retention/value",
+      "value": 0.00769090895465412
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "pointer": "policy_results/RIDGE_risk/CE_pairs_charged",
+      "value": 17056
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "queries",
+      "value": 8530
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "groups",
+      "value": 1963
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/ENTR_top1/delta_MRR/mean",
+      "value": -0.014435099115947004
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/ENTR_top1/delta_MRR/ci95_group_bootstrap",
+      "value": [
+        -0.016920089739388834,
+        -0.012048550735066775
+      ]
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/ENTR_top1/adopted",
+      "value": 7955
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/ENTR_top1/harmed",
+      "value": 2929
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/ENTR_top1/positive_gain_retention/value",
+      "value": 0.3910461612554606
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/ENTR_top1/CE_pairs_charged",
+      "value": 0
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "queries",
+      "value": 8530
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "groups",
+      "value": 1963
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/HGB_gain_control/delta_MRR/mean",
+      "value": -0.002714963530394169
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/HGB_gain_control/delta_MRR/ci95_group_bootstrap",
+      "value": [
+        -0.003929638748382946,
+        -0.0015431730177068973
+      ]
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/HGB_gain_control/adopted",
+      "value": 2615
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/HGB_gain_control/harmed",
+      "value": 853
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/HGB_gain_control/positive_gain_retention/value",
+      "value": 0.11797752868912496
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/HGB_gain_control/CE_pairs_charged",
+      "value": 0
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "queries",
+      "value": 8530
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "groups",
+      "value": 1963
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_gain/delta_MRR/mean",
+      "value": -0.002079432331256027
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_gain/delta_MRR/ci95_group_bootstrap",
+      "value": [
+        -0.002771194646960858,
+        -0.001403062954189902
+      ]
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_gain/adopted",
+      "value": 3559
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_gain/harmed",
+      "value": 1072
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_gain/positive_gain_retention/value",
+      "value": 0.05630484829285594
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_gain/CE_pairs_charged",
+      "value": 0
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "queries",
+      "value": 8530
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "groups",
+      "value": 1963
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_verified/delta_MRR/mean",
+      "value": -0.0017168071252001303
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_verified/delta_MRR/ci95_group_bootstrap",
+      "value": [
+        -0.0022813407795633494,
+        -0.0011538519600744273
+      ]
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_verified/adopted",
+      "value": 2926
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_verified/harmed",
+      "value": 906
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_verified/positive_gain_retention/value",
+      "value": 0.04425327202552932
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_verified/CE_pairs_charged",
+      "value": 17056
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "queries",
+      "value": 8530
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "groups",
+      "value": 1963
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_risk/delta_MRR/mean",
+      "value": 0.0
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_risk/delta_MRR/ci95_group_bootstrap",
+      "value": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_risk/adopted",
+      "value": 0
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_risk/harmed",
+      "value": 0
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_risk/positive_gain_retention/value",
+      "value": 0.0
+    },
+    {
+      "source": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "pointer": "policy_results/RIDGE_risk/CE_pairs_charged",
+      "value": 17056
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1local/queries",
+      "value": 512
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1local/groups",
+      "value": 512
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1local/effects/ENTR_top1-NoRewrite/mean",
+      "value": -0.030251881079954066
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1local/effects/ENTR_top1-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.04521605613498278,
+        -0.0162026454735465
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1local/effects/ENTR_top1-NoRewrite/eight_effect_family95_bonferroni_bootstrap",
+      "value": [
+        -0.05170186028661594,
+        -0.01129044022003053
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1local/effects/ENTR_best3-NoRewrite/mean",
+      "value": 0.029989196170394875
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1local/effects/ENTR_best3-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        0.01828534430999452,
+        0.042346069479078374
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1local/effects/ENTR_best3-NoRewrite/eight_effect_family95_bonferroni_bootstrap",
+      "value": [
+        0.013759334023407744,
+        0.04728209801347648
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1local/effects/ENTR_top1-Uniform_single_exact/mean",
+      "value": -0.005820315279870978
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1local/effects/ENTR_top1-Uniform_single_exact/ci95_group_bootstrap",
+      "value": [
+        -0.016975312819782745,
+        0.0054874747235906665
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1t5base/queries",
+      "value": 512
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1t5base/groups",
+      "value": 512
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1t5base/effects/ENTR_top1-NoRewrite/mean",
+      "value": -0.01336643764167496
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1t5base/effects/ENTR_top1-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.02433999310886217,
+        -0.0026263706033192126
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1t5base/effects/ENTR_top1-NoRewrite/eight_effect_family95_bonferroni_bootstrap",
+      "value": [
+        -0.02934958818264183,
+        0.0008911129091566497
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1t5base/effects/ENTR_best3-NoRewrite/mean",
+      "value": 0.038524590617860746
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1t5base/effects/ENTR_best3-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        0.025869494563838188,
+        0.05180257389482993
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1t5base/effects/ENTR_best3-NoRewrite/eight_effect_family95_bonferroni_bootstrap",
+      "value": [
+        0.02087318933049534,
+        0.05713879944037454
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1t5base/effects/ENTR_top1-Uniform_single_exact/mean",
+      "value": 0.009123179510571872
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/source~1t5base/effects/ENTR_top1-Uniform_single_exact/ci95_group_bootstrap",
+      "value": [
+        -0.00030040482344577223,
+        0.018624759312859153
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1local/queries",
+      "value": 512
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1local/groups",
+      "value": 512
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1local/effects/ENTR_top1-NoRewrite/mean",
+      "value": -0.02019729412585696
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1local/effects/ENTR_top1-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.036746180362961255,
+        -0.0043464903175097465
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1local/effects/ENTR_top1-NoRewrite/eight_effect_family95_bonferroni_bootstrap",
+      "value": [
+        -0.043419062702708934,
+        0.0012329212755242775
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1local/effects/ENTR_best3-NoRewrite/mean",
+      "value": 0.0613077770431902
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1local/effects/ENTR_best3-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        0.04602760146052284,
+        0.07699339298352308
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1local/effects/ENTR_best3-NoRewrite/eight_effect_family95_bonferroni_bootstrap",
+      "value": [
+        0.040027687860347785,
+        0.08301838817458497
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1local/effects/ENTR_top1-Uniform_single_exact/mean",
+      "value": 0.021065764875242678
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1local/effects/ENTR_top1-Uniform_single_exact/ci95_group_bootstrap",
+      "value": [
+        0.007811386895544094,
+        0.034006328633201854
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1t5base/queries",
+      "value": 512
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1t5base/groups",
+      "value": 512
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1t5base/effects/ENTR_top1-NoRewrite/mean",
+      "value": -0.042703039768602354
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1t5base/effects/ENTR_top1-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        -0.06296258058070728,
+        -0.022992053734616397
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1t5base/effects/ENTR_top1-NoRewrite/eight_effect_family95_bonferroni_bootstrap",
+      "value": [
+        -0.07135004334799297,
+        -0.016090194526474977
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1t5base/effects/ENTR_best3-NoRewrite/mean",
+      "value": 0.056699796317508426
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1t5base/effects/ENTR_best3-NoRewrite/ci95_group_bootstrap",
+      "value": [
+        0.039200939684720576,
+        0.07485249065025205
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1t5base/effects/ENTR_best3-NoRewrite/eight_effect_family95_bonferroni_bootstrap",
+      "value": [
+        0.031890471084052796,
+        0.08242730494477787
+      ]
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1t5base/effects/ENTR_top1-Uniform_single_exact/mean",
+      "value": 0.034753210205410286
+    },
+    {
+      "source": "results/rene_envelope_completion_20261020/RESULTS.json",
+      "pointer": "views/cosqa~1t5base/effects/ENTR_top1-Uniform_single_exact/ci95_group_bootstrap",
+      "value": [
+        0.01882089310079814,
+        0.050446806738038245
+      ]
+    },
+    {
+      "source": "results/rene_strict_confirmation_20261019/RESULTS.json",
+      "pointer": "primary_contrasts/uq_increment/mean",
+      "value": 0.003952390664201891
+    },
+    {
+      "source": "results/rene_strict_confirmation_20261019/RESULTS.json",
+      "pointer": "primary_contrasts/uq_increment/simultaneous_ci97_5",
+      "value": [
+        0.0013304265837838897,
+        0.0069847308096466455
+      ]
+    },
+    {
+      "source": "results/rene_uq_independent_proof_20261019/RESULTS.json",
+      "pointer": "primary_contrasts/full_minus_common/mean",
+      "value": -7.970573383892871e-05
+    },
+    {
+      "source": "results/rene_uq_independent_proof_20261019/RESULTS.json",
+      "pointer": "primary_contrasts/full_minus_common/simultaneous_envelope",
+      "value": [
+        -0.0036124158869464784,
+        0.003453004419268621
+      ]
+    },
+    {
+      "source": "results/rene_uq_independent_proof_20261019/RESULTS.json",
+      "pointer": "primary_contrasts/full_minus_support/mean",
+      "value": 0.0013465287202921758
+    },
+    {
+      "source": "results/rene_uq_independent_proof_20261019/RESULTS.json",
+      "pointer": "primary_contrasts/full_minus_support/simultaneous_envelope",
+      "value": [
+        -0.0012146365947739283,
+        0.004049586953883786
+      ]
+    }
+  ],
+  "no_new_estimates_from_H": true,
+  "no_cross_population_pooling": true,
+  "original_primary_unchanged": true,
+  "risk_certified": false
+}

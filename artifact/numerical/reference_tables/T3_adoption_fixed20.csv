@@ -1,0 +1,9 @@
+retriever,model,role,delta,adopted,harmful,ci95
+CodeBERT,M0,development fixed OOF outputs; paired intervals conditional on fitted heads,0.0013406014972509315,296,53,"[-0.0018853700216146776, 0.004670321016688648]"
+CodeBERT,MT,development fixed OOF outputs; paired intervals conditional on fitted heads,-0.0006674184332829676,296,55,"[-0.003665178637941656, 0.0025029764483803967]"
+CodeBERT,MR,development fixed OOF outputs; paired intervals conditional on fitted heads,0.0010797095960434564,296,75,"[-0.0024941935033777974, 0.0047051370435704405]"
+CodeBERT,MRT,development fixed OOF outputs; paired intervals conditional on fitted heads,0.0013633620534785457,296,81,"[-0.002070560210443104, 0.004994053688438588]"
+BM25,M0,development fixed OOF outputs; paired intervals conditional on fitted heads,-0.0010492230153541485,274,94,"[-0.0016356920109889162, -0.000509882801748777]"
+BM25,MT,development fixed OOF outputs; paired intervals conditional on fitted heads,-0.0011788346557637889,274,93,"[-0.0018251769843592458, -0.000569663985983128]"
+BM25,MR,development fixed OOF outputs; paired intervals conditional on fitted heads,-0.0019059028828799763,274,92,"[-0.0031400814490490066, -0.0009416132788288567]"
+BM25,MRT,development fixed OOF outputs; paired intervals conditional on fitted heads,-0.0022527134926939624,274,96,"[-0.003542306987705247, -0.0012227975362409155]"

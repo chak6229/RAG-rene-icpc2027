@@ -1,0 +1,1360 @@
+{
+  "created_utc": "2026-10-20T10:27:07.891119+00:00",
+  "design_sha256": "b61e524568c38e8544e14421d52ca380d11ae07c9fa3c0e5bb72b384b6728d53",
+  "opening": {
+    "path": "results/rene_factor_confirmation_20261020/OUTCOME_OPENING.json",
+    "sha256": "da2757ba688ed102b6d69ac8127929d00d31e4bc32fcb2d103d57ab0f8c1b73c"
+  },
+  "queries": 13312,
+  "groups": 13312,
+  "corpus_documents": 16384,
+  "views": {
+    "CodeBERT": {
+      "summaries": {
+        "ENTR_B_budget_mean_1_to_3": {
+          "mean": 0.0032569029217645843,
+          "se_cluster": 0.000685006576854315,
+          "ci95_cluster_t": [
+            0.0019141926099538076,
+            0.004599613233575361
+          ],
+          "ci95_group_bootstrap": [
+            0.0019320503792269249,
+            0.004615028928546279
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 5844,
+          "groups_with_nonzero": 5844,
+          "family2_ci95_cluster_t": [
+            0.001721353584696467,
+            0.004792452258832702
+          ],
+          "family2_ci95_group_bootstrap": [
+            0.001740490252190579,
+            0.004814140791147332
+          ],
+          "direction": "positive"
+        },
+        "ENTR_G_aggregation_at3_mean_to_max": {
+          "mean": 0.0036095236576239496,
+          "se_cluster": 0.00046074044212884987,
+          "ci95_cluster_t": [
+            0.0027064068648544786,
+            0.0045126404503934205
+          ],
+          "ci95_group_bootstrap": [
+            0.0027143621605478486,
+            0.004515044566560507
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6700,
+          "groups_with_nonzero": 6700,
+          "family2_ci95_cluster_t": [
+            0.0025767019236774547,
+            0.0046423453915704445
+          ],
+          "family2_ci95_group_bootstrap": [
+            0.0025762663069073123,
+            0.004648856165115173
+          ],
+          "direction": "positive"
+        },
+        "PROB_B_budget_mean_1_to_3": {
+          "mean": 0.0033442797102890324,
+          "se_cluster": 0.0006747794297744786,
+          "ci95_cluster_t": [
+            0.0020216160612527394,
+            0.004666943359325325
+          ],
+          "ci95_group_bootstrap": [
+            0.0020387037349581926,
+            0.004686798738280594
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 5839,
+          "groups_with_nonzero": 5839
+        },
+        "PROB_G_aggregation_at3_mean_to_max": {
+          "mean": 0.004543200593535452,
+          "se_cluster": 0.0004672628994975895,
+          "ci95_cluster_t": [
+            0.0036272988567037355,
+            0.005459102330367169
+          ],
+          "ci95_group_bootstrap": [
+            0.0036159652084093255,
+            0.0054674283622685865
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6696,
+          "groups_with_nonzero": 6696
+        },
+        "ENTR_minus_PROB_B_budget_mean_1_to_3": {
+          "mean": -8.737678852444108e-05,
+          "se_cluster": 0.000703036284671091,
+          "ci95_cluster_t": [
+            -0.0014654278918290625,
+            0.0012906743147801801
+          ],
+          "ci95_group_bootstrap": [
+            -0.0014793859612359573,
+            0.0013067259513023237
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 3319,
+          "groups_with_nonzero": 3319
+        },
+        "ENTR_minus_PROB_G_aggregation_at3_mean_to_max": {
+          "mean": -0.0009336769359114928,
+          "se_cluster": 0.0003804584925400849,
+          "ci95_cluster_t": [
+            -0.0016794296898419128,
+            -0.00018792418198107258
+          ],
+          "ci95_group_bootstrap": [
+            -0.001682505373590102,
+            -0.00019121839374271288
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 2582,
+          "groups_with_nonzero": 2582
+        },
+        "ENTR_J_exact": {
+          "mean": 0.00686642657938854,
+          "se_cluster": 0.0008249559443282698,
+          "ci95_cluster_t": [
+            0.005249395603823553,
+            0.008483457554953526
+          ],
+          "ci95_group_bootstrap": [
+            0.0052608809975354465,
+            0.008493767698143294
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6838,
+          "groups_with_nonzero": 6838
+        },
+        "PROB_J_exact": {
+          "mean": 0.007887480303824492,
+          "se_cluster": 0.0008097372787606588,
+          "ci95_cluster_t": [
+            0.006300280077160441,
+            0.009474680530488543
+          ],
+          "ci95_group_bootstrap": [
+            0.006287534895970951,
+            0.009497945701422166
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6839,
+          "groups_with_nonzero": 6839
+        },
+        "S_ENTR_k1_mean": {
+          "mean": 0.0063582577067502,
+          "se_cluster": 0.0008131614334050205,
+          "ci95_cluster_t": [
+            0.004764345650002222,
+            0.007952169763498178
+          ],
+          "ci95_group_bootstrap": [
+            0.004774726349235074,
+            0.00796986599411691
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6835,
+          "groups_with_nonzero": 6835
+        },
+        "S_ENTR_k1_max": {
+          "mean": 0.0063582577067502,
+          "se_cluster": 0.0008131614334050205,
+          "ci95_cluster_t": [
+            0.004764345650002222,
+            0.007952169763498178
+          ],
+          "ci95_group_bootstrap": [
+            0.004774726349235075,
+            0.007969865994116908
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6835,
+          "groups_with_nonzero": 6835
+        },
+        "S_ENTR_k2_mean": {
+          "mean": 0.003879722442454466,
+          "se_cluster": 0.0005693194426381216,
+          "ci95_cluster_t": [
+            0.0027637753666541315,
+            0.0049956695182548
+          ],
+          "ci95_group_bootstrap": [
+            0.0027593518912576824,
+            0.004992215148289853
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6817,
+          "groups_with_nonzero": 6817
+        },
+        "S_ENTR_k2_max": {
+          "mean": 0.0003801581238014277,
+          "se_cluster": 0.0007042117692140432,
+          "ci95_cluster_t": [
+            -0.0010001970963840038,
+            0.0017605133439868592
+          ],
+          "ci95_group_bootstrap": [
+            -0.0010070823657766298,
+            0.0017651328627187313
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6577,
+          "groups_with_nonzero": 6577
+        },
+        "S_ENTR_k3_mean": {
+          "mean": 0.00310135478498558,
+          "se_cluster": 0.00042784600098534447,
+          "ci95_cluster_t": [
+            0.002262715775082756,
+            0.003939993794888404
+          ],
+          "ci95_group_bootstrap": [
+            0.0022386895456377154,
+            0.00395129014742915
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6677,
+          "groups_with_nonzero": 6677
+        },
+        "S_ENTR_k3_max": {
+          "mean": -0.000508168872638375,
+          "se_cluster": 0.0006301175538655539,
+          "ci95_cluster_t": [
+            -0.001743288893111113,
+            0.000726951147834363
+          ],
+          "ci95_group_bootstrap": [
+            -0.0017352792485420701,
+            0.0007476847325457355
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6244,
+          "groups_with_nonzero": 6244
+        },
+        "S_PROB_k1_mean": {
+          "mean": 0.006671536592658067,
+          "se_cluster": 0.0007949447088834035,
+          "ci95_cluster_t": [
+            0.005113331906742812,
+            0.008229741278573323
+          ],
+          "ci95_group_bootstrap": [
+            0.00513921937577917,
+            0.0082212547091702
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6835,
+          "groups_with_nonzero": 6835
+        },
+        "S_PROB_k1_max": {
+          "mean": 0.006671536592658067,
+          "se_cluster": 0.0007949447088834035,
+          "ci95_cluster_t": [
+            0.005113331906742812,
+            0.008229741278573323
+          ],
+          "ci95_group_bootstrap": [
+            0.00513921937577917,
+            0.0082212547091702
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6835,
+          "groups_with_nonzero": 6835
+        },
+        "S_PROB_k2_mean": {
+          "mean": 0.005121877797137984,
+          "se_cluster": 0.0005689537552540097,
+          "ci95_cluster_t": [
+            0.004006647520618323,
+            0.006237108073657644
+          ],
+          "ci95_group_bootstrap": [
+            0.003983372490201512,
+            0.006248931666425994
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6814,
+          "groups_with_nonzero": 6814
+        },
+        "S_PROB_k2_max": {
+          "mean": 0.0013997831812602283,
+          "se_cluster": 0.0006959851600937394,
+          "ci95_cluster_t": [
+            3.555328493342865e-05,
+            0.002764013077587028
+          ],
+          "ci95_group_bootstrap": [
+            2.5813692199190604e-05,
+            0.0027912366132752157
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6577,
+          "groups_with_nonzero": 6577
+        },
+        "S_PROB_k3_mean": {
+          "mean": 0.003327256882368987,
+          "se_cluster": 0.00043168081548289745,
+          "ci95_cluster_t": [
+            0.002481101090666211,
+            0.004173412674071763
+          ],
+          "ci95_group_bootstrap": [
+            0.002493999448903506,
+            0.004196343188502264
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6677,
+          "groups_with_nonzero": 6677
+        },
+        "S_PROB_k3_max": {
+          "mean": -0.0012159437111664599,
+          "se_cluster": 0.0006221916052892002,
+          "ci95_cluster_t": [
+            -0.0024355277452064493,
+            3.6403228735298453e-06
+          ],
+          "ci95_group_bootstrap": [
+            -0.0024439220641546766,
+            3.4952786397133725e-05
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6244,
+          "groups_with_nonzero": 6244
+        },
+        "delta_ENTR_k1_mean": {
+          "mean": -0.008363474891851333,
+          "se_cluster": 0.0009784776843116377,
+          "ci95_cluster_t": [
+            -0.010281430311542702,
+            -0.006445519472159964
+          ],
+          "ci95_group_bootstrap": [
+            -0.010299156022367955,
+            -0.006475134336232739
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4878,
+          "groups_with_nonzero": 4878
+        },
+        "delta_ENTR_k1_max": {
+          "mean": -0.008363474891851333,
+          "se_cluster": 0.0009784776843116377,
+          "ci95_cluster_t": [
+            -0.010281430311542702,
+            -0.006445519472159964
+          ],
+          "ci95_group_bootstrap": [
+            -0.010299156022367955,
+            -0.006475134336232739
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4878,
+          "groups_with_nonzero": 4878
+        },
+        "delta_ENTR_k2_mean": {
+          "mean": -0.010842010156147056,
+          "se_cluster": 0.0008522809829270244,
+          "ci95_cluster_t": [
+            -0.01251260209351428,
+            -0.009171418218779832
+          ],
+          "ci95_group_bootstrap": [
+            -0.012508305829848427,
+            -0.009194320846489235
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 5639,
+          "groups_with_nonzero": 5639
+        },
+        "delta_ENTR_k2_max": {
+          "mean": 0.009821023530990678,
+          "se_cluster": 0.000930344832592313,
+          "ci95_cluster_t": [
+            0.007997415346091103,
+            0.011644631715890254
+          ],
+          "ci95_group_bootstrap": [
+            0.008001100690998552,
+            0.011639230290417163
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4903,
+          "groups_with_nonzero": 4903
+        },
+        "delta_ENTR_k3_mean": {
+          "mean": -0.01162037781361596,
+          "se_cluster": 0.0008025890706025296,
+          "ci95_cluster_t": [
+            -0.013193566535676703,
+            -0.010047189091555218
+          ],
+          "ci95_group_bootstrap": [
+            -0.013174095074242505,
+            -0.010066159220847632
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6020,
+          "groups_with_nonzero": 6020
+        },
+        "delta_ENTR_k3_max": {
+          "mean": 0.02147861427012545,
+          "se_cluster": 0.0009900383393114981,
+          "ci95_cluster_t": [
+            0.019537998322485747,
+            0.023419230217765152
+          ],
+          "ci95_group_bootstrap": [
+            0.019521257256513096,
+            0.023432104688774987
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 5030,
+          "groups_with_nonzero": 5030
+        },
+        "delta_PROB_k1_mean": {
+          "mean": -0.008050196005943486,
+          "se_cluster": 0.0009456051781746394,
+          "ci95_cluster_t": [
+            -0.009903716638500544,
+            -0.006196675373386428
+          ],
+          "ci95_group_bootstrap": [
+            -0.009887015629192681,
+            -0.006219638298004546
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4859,
+          "groups_with_nonzero": 4859
+        },
+        "delta_PROB_k1_max": {
+          "mean": -0.008050196005943486,
+          "se_cluster": 0.0009456051781746394,
+          "ci95_cluster_t": [
+            -0.009903716638500544,
+            -0.006196675373386428
+          ],
+          "ci95_group_bootstrap": [
+            -0.009887015629192681,
+            -0.006219638298004546
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4859,
+          "groups_with_nonzero": 4859
+        },
+        "delta_PROB_k2_mean": {
+          "mean": -0.009599854801463524,
+          "se_cluster": 0.0008426953415882159,
+          "ci95_cluster_t": [
+            -0.011251657518543194,
+            -0.007948052084383853
+          ],
+          "ci95_group_bootstrap": [
+            -0.011255104171487444,
+            -0.007947452547923343
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 5612,
+          "groups_with_nonzero": 5612
+        },
+        "delta_PROB_k2_max": {
+          "mean": 0.010840648588449454,
+          "se_cluster": 0.0009347209251744746,
+          "ci95_cluster_t": [
+            0.009008462639723887,
+            0.01267283453717502
+          ],
+          "ci95_group_bootstrap": [
+            0.008980643789380181,
+            0.012726926929505717
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4888,
+          "groups_with_nonzero": 4888
+        },
+        "delta_PROB_k3_mean": {
+          "mean": -0.011394475716232541,
+          "se_cluster": 0.0007941505707372251,
+          "ci95_cluster_t": [
+            -0.012951123778439492,
+            -0.009837827654025591
+          ],
+          "ci95_group_bootstrap": [
+            -0.01295282635550824,
+            -0.009852617187257127
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6012,
+          "groups_with_nonzero": 6012
+        },
+        "delta_PROB_k3_max": {
+          "mean": 0.020770839431597316,
+          "se_cluster": 0.0009615649409825747,
+          "ci95_cluster_t": [
+            0.018886035394149934,
+            0.0226556434690447
+          ],
+          "ci95_group_bootstrap": [
+            0.018903944260208857,
+            0.02272434676774874
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 5018,
+          "groups_with_nonzero": 5018
+        },
+        "delta_RAND_exact_k1_mean": {
+          "mean": -0.014721732598601496,
+          "se_cluster": 0.0007368787837972775,
+          "ci95_cluster_t": [
+            -0.01616611981325099,
+            -0.013277345383952002
+          ],
+          "ci95_group_bootstrap": [
+            -0.016190015334712086,
+            -0.013267839128770706
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6866,
+          "groups_with_nonzero": 6866
+        },
+        "delta_RAND_exact_k1_max": {
+          "mean": -0.014721732598601496,
+          "se_cluster": 0.0007368787837972775,
+          "ci95_cluster_t": [
+            -0.01616611981325099,
+            -0.013277345383952002
+          ],
+          "ci95_group_bootstrap": [
+            -0.016190015334712083,
+            -0.013267839128770706
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6866,
+          "groups_with_nonzero": 6866
+        },
+        "delta_RAND_exact_k2_mean": {
+          "mean": -0.014721732598601496,
+          "se_cluster": 0.0007368787837972775,
+          "ci95_cluster_t": [
+            -0.01616611981325099,
+            -0.013277345383952002
+          ],
+          "ci95_group_bootstrap": [
+            -0.016190015334712086,
+            -0.013267839128770706
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6866,
+          "groups_with_nonzero": 6866
+        },
+        "delta_RAND_exact_k2_max": {
+          "mean": 0.00944086540718923,
+          "se_cluster": 0.0006895718552563244,
+          "ci95_cluster_t": [
+            0.00808920650043968,
+            0.010792524313938779
+          ],
+          "ci95_group_bootstrap": [
+            0.008089988219470703,
+            0.010801125367884825
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6624,
+          "groups_with_nonzero": 6624
+        },
+        "delta_RAND_exact_k3_mean": {
+          "mean": -0.014721732598601496,
+          "se_cluster": 0.0007368787837972775,
+          "ci95_cluster_t": [
+            -0.01616611981325099,
+            -0.013277345383952002
+          ],
+          "ci95_group_bootstrap": [
+            -0.016190015334712086,
+            -0.013267839128770706
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6866,
+          "groups_with_nonzero": 6866
+        },
+        "delta_RAND_exact_k3_max": {
+          "mean": 0.02198678314276379,
+          "se_cluster": 0.0007955002761485592,
+          "ci95_cluster_t": [
+            0.020427489465996426,
+            0.023546076819531154
+          ],
+          "ci95_group_bootstrap": [
+            0.020419534298714605,
+            0.023601798519760152
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 6424,
+          "groups_with_nonzero": 6424
+        }
+      },
+      "raw_means": {
+        "NoRewrite": 0.1430551099289757,
+        "ENTR_k1_first": 0.13469163503712436,
+        "ENTR_k1_mean": 0.13469163503712436,
+        "ENTR_k1_max": 0.13469163503712436,
+        "PROB_k1_first": 0.1350049139230322,
+        "PROB_k1_mean": 0.1350049139230322,
+        "PROB_k1_max": 0.1350049139230322,
+        "RAND_exact_k1_first": 0.1283333773303742,
+        "RAND_exact_k1_mean": 0.1283333773303742,
+        "RAND_exact_k1_max": 0.1283333773303742,
+        "ENTR_k2_first": 0.13469163503712436,
+        "ENTR_k2_mean": 0.13221309977282866,
+        "ENTR_k2_max": 0.15287613345996637,
+        "PROB_k2_first": 0.1350049139230322,
+        "PROB_k2_mean": 0.13345525512751216,
+        "PROB_k2_max": 0.15389575851742518,
+        "RAND_exact_k2_first": 0.1283333773303742,
+        "RAND_exact_k2_mean": 0.1283333773303742,
+        "RAND_exact_k2_max": 0.15249597533616494,
+        "ENTR_k3_first": 0.13469163503712436,
+        "ENTR_k3_mean": 0.13143473211535978,
+        "ENTR_k3_max": 0.16453372419910112,
+        "PROB_k3_first": 0.1350049139230322,
+        "PROB_k3_mean": 0.13166063421274318,
+        "PROB_k3_max": 0.16382594936057304,
+        "RAND_exact_k3_first": 0.1283333773303742,
+        "RAND_exact_k3_mean": 0.1283333773303742,
+        "RAND_exact_k3_max": 0.16504189307173947
+      },
+      "primary_role": true
+    },
+    "BM25": {
+      "summaries": {
+        "ENTR_B_budget_mean_1_to_3": {
+          "mean": -0.0011131973538285335,
+          "se_cluster": 0.0004311934225416841,
+          "ci95_cluster_t": [
+            -0.0019583977860498343,
+            -0.00026799692160723286
+          ],
+          "ci95_group_bootstrap": [
+            -0.0019462153825094205,
+            -0.0002846885282740617
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 3406,
+          "groups_with_nonzero": 3406
+        },
+        "ENTR_G_aggregation_at3_mean_to_max": {
+          "mean": 0.0006653647095264845,
+          "se_cluster": 0.0003045545391838754,
+          "ci95_cluster_t": [
+            6.839449918361604e-05,
+            0.001262334919869353
+          ],
+          "ci95_group_bootstrap": [
+            6.729036640367535e-05,
+            0.0012731816854876779
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4058,
+          "groups_with_nonzero": 4058
+        },
+        "PROB_B_budget_mean_1_to_3": {
+          "mean": -0.00045451635969037473,
+          "se_cluster": 0.0004312575561810777,
+          "ci95_cluster_t": [
+            -0.00129984250296593,
+            0.0003908097835851806
+          ],
+          "ci95_group_bootstrap": [
+            -0.0012953061175692833,
+            0.0003813979142370063
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 3365,
+          "groups_with_nonzero": 3365
+        },
+        "PROB_G_aggregation_at3_mean_to_max": {
+          "mean": 0.000374114186886469,
+          "se_cluster": 0.0003117203512010076,
+          "ci95_cluster_t": [
+            -0.00023690203412696166,
+            0.0009851304078998997
+          ],
+          "ci95_group_bootstrap": [
+            -0.00023369397185650105,
+            0.0009762132019185406
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4057,
+          "groups_with_nonzero": 4057
+        },
+        "ENTR_minus_PROB_B_budget_mean_1_to_3": {
+          "mean": -0.000658680994138159,
+          "se_cluster": 0.0004056073715438472,
+          "ci95_cluster_t": [
+            -0.0014537291275726724,
+            0.00013636713929635438
+          ],
+          "ci95_group_bootstrap": [
+            -0.0014652165829379545,
+            0.00011508833134243139
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 1823,
+          "groups_with_nonzero": 1823
+        },
+        "ENTR_minus_PROB_G_aggregation_at3_mean_to_max": {
+          "mean": 0.00029125052264001433,
+          "se_cluster": 0.00023941013705789635,
+          "ci95_cluster_t": [
+            -0.00017802739474271983,
+            0.0007605284400227485
+          ],
+          "ci95_group_bootstrap": [
+            -0.00017762912595164392,
+            0.0007597652060673816
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 1400,
+          "groups_with_nonzero": 1400
+        },
+        "ENTR_J_exact": {
+          "mean": -0.000447832644302053,
+          "se_cluster": 0.0005390867278695439,
+          "ci95_cluster_t": [
+            -0.0015045192994795403,
+            0.0006088540108754344
+          ],
+          "ci95_group_bootstrap": [
+            -0.0015173642567352088,
+            0.0005950593045503925
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4151,
+          "groups_with_nonzero": 4151
+        },
+        "PROB_J_exact": {
+          "mean": -8.040217280390575e-05,
+          "se_cluster": 0.0005361840311461601,
+          "ci95_cluster_t": [
+            -0.001131399129583978,
+            0.0009705947839761665
+          ],
+          "ci95_group_bootstrap": [
+            -0.0011058206372310815,
+            0.0009682436158924508
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4151,
+          "groups_with_nonzero": 4151
+        },
+        "S_ENTR_k1_mean": {
+          "mean": -0.0012778525287399862,
+          "se_cluster": 0.0004896870996605278,
+          "ci95_cluster_t": [
+            -0.002237708887045782,
+            -0.00031799617043419017
+          ],
+          "ci95_group_bootstrap": [
+            -0.002200639145716714,
+            -0.0003271122326146532
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4146,
+          "groups_with_nonzero": 4146
+        },
+        "S_ENTR_k1_max": {
+          "mean": -0.0012778525287399855,
+          "se_cluster": 0.0004896870996605278,
+          "ci95_cluster_t": [
+            -0.0022377088870457816,
+            -0.0003179961704341895
+          ],
+          "ci95_group_bootstrap": [
+            -0.0022006391457167138,
+            -0.00032711223261465227
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4146,
+          "groups_with_nonzero": 4146
+        },
+        "S_ENTR_k2_mean": {
+          "mean": -0.00041496202760698235,
+          "se_cluster": 0.00033728211952780107,
+          "ci95_cluster_t": [
+            -0.0010760829499184901,
+            0.0002461588947045254
+          ],
+          "ci95_group_bootstrap": [
+            -0.0010675559809913823,
+            0.00024806031755707035
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4126,
+          "groups_with_nonzero": 4126
+        },
+        "S_ENTR_k2_max": {
+          "mean": -0.0007089916275141241,
+          "se_cluster": 0.00045907265583774537,
+          "ci95_cluster_t": [
+            -0.0016088393219615815,
+            0.00019085606693333343
+          ],
+          "ci95_group_bootstrap": [
+            -0.001604887088871308,
+            0.00019163339787186786
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 3878,
+          "groups_with_nonzero": 3878
+        },
+        "S_ENTR_k3_mean": {
+          "mean": -0.0001646551749114522,
+          "se_cluster": 0.00024348526426114835,
+          "ci95_cluster_t": [
+            -0.0006419209211744203,
+            0.00031261057135151585
+          ],
+          "ci95_group_bootstrap": [
+            -0.0006439869157794197,
+            0.0003216763328366813
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4038,
+          "groups_with_nonzero": 4038
+        },
+        "S_ENTR_k3_max": {
+          "mean": -0.0008300198844379329,
+          "se_cluster": 0.000420300018679597,
+          "ci95_cluster_t": [
+            -0.0016538676958369456,
+            -6.1720730389203246e-06
+          ],
+          "ci95_group_bootstrap": [
+            -0.0016532396283947671,
+            3.4773927793793133e-06
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 3590,
+          "groups_with_nonzero": 3590
+        },
+        "S_PROB_k1_mean": {
+          "mean": -0.0006133357547155894,
+          "se_cluster": 0.0004959556022220991,
+          "ci95_cluster_t": [
+            -0.0015854792695442987,
+            0.00035880776011311996
+          ],
+          "ci95_group_bootstrap": [
+            -0.0015935375723447735,
+            0.00036667603188810676
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4147,
+          "groups_with_nonzero": 4147
+        },
+        "S_PROB_k1_max": {
+          "mean": -0.000613335754715589,
+          "se_cluster": 0.0004959556022220991,
+          "ci95_cluster_t": [
+            -0.0015854792695442982,
+            0.0003588077601131204
+          ],
+          "ci95_group_bootstrap": [
+            -0.0015935375723447735,
+            0.0003666760318881073
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4147,
+          "groups_with_nonzero": 4147
+        },
+        "S_PROB_k2_mean": {
+          "mean": -0.0006529300852109264,
+          "se_cluster": 0.0003333977304877238,
+          "ci95_cluster_t": [
+            -0.0013064370525686765,
+            5.768821468235411e-07
+          ],
+          "ci95_group_bootstrap": [
+            -0.001303560317828362,
+            -7.6742955579673e-06
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4126,
+          "groups_with_nonzero": 4126
+        },
+        "S_PROB_k2_max": {
+          "mean": -0.001088519531725871,
+          "se_cluster": 0.0004460751255771046,
+          "ci95_cluster_t": [
+            -0.001962890218362429,
+            -0.00021414884508931314
+          ],
+          "ci95_group_bootstrap": [
+            -0.001963803389677842,
+            -0.00022006815959532447
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 3878,
+          "groups_with_nonzero": 3878
+        },
+        "S_PROB_k3_mean": {
+          "mean": -0.0001588193950252141,
+          "se_cluster": 0.00024191337195193403,
+          "ci95_cluster_t": [
+            -0.0006330040088086512,
+            0.0003153652187582231
+          ],
+          "ci95_group_bootstrap": [
+            -0.0006420587840244552,
+            0.0003220062456379115
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4042,
+          "groups_with_nonzero": 4042
+        },
+        "S_PROB_k3_max": {
+          "mean": -0.0005329335819116846,
+          "se_cluster": 0.0004094718647201651,
+          "ci95_cluster_t": [
+            -0.0013355566715774108,
+            0.00026968950775404165
+          ],
+          "ci95_group_bootstrap": [
+            -0.0013159244496236389,
+            0.00027499553193261064
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 3590,
+          "groups_with_nonzero": 3590
+        },
+        "delta_ENTR_k1_mean": {
+          "mean": -0.009318129015846163,
+          "se_cluster": 0.0006507834564867993,
+          "ci95_cluster_t": [
+            -0.010593757144547364,
+            -0.008042500887144961
+          ],
+          "ci95_group_bootstrap": [
+            -0.010584541257062168,
+            -0.008065645431330508
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 2744,
+          "groups_with_nonzero": 2744
+        },
+        "delta_ENTR_k1_max": {
+          "mean": -0.009318129015846163,
+          "se_cluster": 0.0006507834564867993,
+          "ci95_cluster_t": [
+            -0.010593757144547364,
+            -0.008042500887144961
+          ],
+          "ci95_group_bootstrap": [
+            -0.010584541257062168,
+            -0.008065645431330508
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 2744,
+          "groups_with_nonzero": 2744
+        },
+        "delta_ENTR_k2_mean": {
+          "mean": -0.008455238514713121,
+          "se_cluster": 0.0005509645840805816,
+          "ci95_cluster_t": [
+            -0.009535207457324994,
+            -0.0073752695721012495
+          ],
+          "ci95_group_bootstrap": [
+            -0.00952016562187256,
+            -0.007361037045055124
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 3286,
+          "groups_with_nonzero": 3286
+        },
+        "delta_ENTR_k2_max": {
+          "mean": 0.0008301156693153865,
+          "se_cluster": 0.0005987237722171863,
+          "ci95_cluster_t": [
+            -0.00034346807432396277,
+            0.002003699412954736
+          ],
+          "ci95_group_bootstrap": [
+            -0.0003259158512386726,
+            0.0020255031975352977
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 2368,
+          "groups_with_nonzero": 2368
+        },
+        "delta_ENTR_k3_mean": {
+          "mean": -0.008204931662017632,
+          "se_cluster": 0.00048672059180767454,
+          "ci95_cluster_t": [
+            -0.009158973243037077,
+            -0.007250890080998188
+          ],
+          "ci95_group_bootstrap": [
+            -0.009155024744239125,
+            -0.007242333732704987
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 3559,
+          "groups_with_nonzero": 3559
+        },
+        "delta_ENTR_k3_max": {
+          "mean": 0.005632390386820493,
+          "se_cluster": 0.0005883785397591255,
+          "ci95_cluster_t": [
+            0.0044790847700909705,
+            0.006785696003550016
+          ],
+          "ci95_group_bootstrap": [
+            0.0045174277015535514,
+            0.0067898059347290774
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 2202,
+          "groups_with_nonzero": 2202
+        },
+        "delta_PROB_k1_mean": {
+          "mean": -0.008653612241821765,
+          "se_cluster": 0.0006519795816849723,
+          "ci95_cluster_t": [
+            -0.00993158494602351,
+            -0.007375639537620021
+          ],
+          "ci95_group_bootstrap": [
+            -0.009935453399761,
+            -0.0073976345589782415
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 2714,
+          "groups_with_nonzero": 2714
+        },
+        "delta_PROB_k1_max": {
+          "mean": -0.008653612241821765,
+          "se_cluster": 0.0006519795816849723,
+          "ci95_cluster_t": [
+            -0.00993158494602351,
+            -0.007375639537620021
+          ],
+          "ci95_group_bootstrap": [
+            -0.009935453399761,
+            -0.0073976345589782415
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 2714,
+          "groups_with_nonzero": 2714
+        },
+        "delta_PROB_k2_mean": {
+          "mean": -0.008693206572317062,
+          "se_cluster": 0.0005483376958885229,
+          "ci95_cluster_t": [
+            -0.00976802644047822,
+            -0.007618386704155903
+          ],
+          "ci95_group_bootstrap": [
+            -0.009771984227338118,
+            -0.0076195733067330115
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 3284,
+          "groups_with_nonzero": 3284
+        },
+        "delta_PROB_k2_max": {
+          "mean": 0.00045058776510364246,
+          "se_cluster": 0.0005792951192739538,
+          "ci95_cluster_t": [
+            -0.0006849130556369693,
+            0.0015860885858442542
+          ],
+          "ci95_group_bootstrap": [
+            -0.0006828280034516465,
+            0.0015989557533757257
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 2357,
+          "groups_with_nonzero": 2357
+        },
+        "delta_PROB_k3_mean": {
+          "mean": -0.008199095882131392,
+          "se_cluster": 0.0004836192665359062,
+          "ci95_cluster_t": [
+            -0.00914705842454977,
+            -0.007251133339713015
+          ],
+          "ci95_group_bootstrap": [
+            -0.009147217866943651,
+            -0.0072389342513595285
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 3540,
+          "groups_with_nonzero": 3540
+        },
+        "delta_PROB_k3_max": {
+          "mean": 0.0059294766893467415,
+          "se_cluster": 0.0005926302610719896,
+          "ci95_cluster_t": [
+            0.00476783709416705,
+            0.007091116284526433
+          ],
+          "ci95_group_bootstrap": [
+            0.004799456902707133,
+            0.00711005095332284
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 2178,
+          "groups_with_nonzero": 2178
+        },
+        "delta_RAND_exact_k1_mean": {
+          "mean": -0.00804027648710619,
+          "se_cluster": 0.00042028332670496866,
+          "ci95_cluster_t": [
+            -0.00886409157986101,
+            -0.00721646139435137
+          ],
+          "ci95_group_bootstrap": [
+            -0.00885816225042585,
+            -0.007227670381693119
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4181,
+          "groups_with_nonzero": 4181
+        },
+        "delta_RAND_exact_k1_max": {
+          "mean": -0.00804027648710619,
+          "se_cluster": 0.0004202833267049687,
+          "ci95_cluster_t": [
+            -0.00886409157986101,
+            -0.00721646139435137
+          ],
+          "ci95_group_bootstrap": [
+            -0.00885816225042585,
+            -0.00722767038169312
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4181,
+          "groups_with_nonzero": 4181
+        },
+        "delta_RAND_exact_k2_mean": {
+          "mean": -0.00804027648710619,
+          "se_cluster": 0.00042028332670496866,
+          "ci95_cluster_t": [
+            -0.00886409157986101,
+            -0.00721646139435137
+          ],
+          "ci95_group_bootstrap": [
+            -0.00885816225042585,
+            -0.007227670381693119
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4181,
+          "groups_with_nonzero": 4181
+        },
+        "delta_RAND_exact_k2_max": {
+          "mean": 0.0015391072968295022,
+          "se_cluster": 0.00038062615245133683,
+          "ci95_cluster_t": [
+            0.000793025905628548,
+            0.0022851886880304565
+          ],
+          "ci95_group_bootstrap": [
+            0.0008107263948317685,
+            0.0022800109412993096
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 3931,
+          "groups_with_nonzero": 3931
+        },
+        "delta_RAND_exact_k3_mean": {
+          "mean": -0.00804027648710619,
+          "se_cluster": 0.00042028332670496866,
+          "ci95_cluster_t": [
+            -0.00886409157986101,
+            -0.00721646139435137
+          ],
+          "ci95_group_bootstrap": [
+            -0.00885816225042585,
+            -0.007227670381693119
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 4181,
+          "groups_with_nonzero": 4181
+        },
+        "delta_RAND_exact_k3_max": {
+          "mean": 0.006462410271258434,
+          "se_cluster": 0.00045350393577519877,
+          "ci95_cluster_t": [
+            0.005573478060113203,
+            0.007351342482403665
+          ],
+          "ci95_group_bootstrap": [
+            0.0056052390439818986,
+            0.007347068433982287
+          ],
+          "queries": 13312,
+          "groups": 13312,
+          "changed_queries": 3739,
+          "groups_with_nonzero": 3739
+        }
+      },
+      "raw_means": {
+        "NoRewrite": 0.11734968420519916,
+        "ENTR_k1_first": 0.108031555189353,
+        "ENTR_k1_mean": 0.108031555189353,
+        "ENTR_k1_max": 0.108031555189353,
+        "PROB_k1_first": 0.1086960719633774,
+        "PROB_k1_mean": 0.1086960719633774,
+        "PROB_k1_max": 0.1086960719633774,
+        "RAND_exact_k1_first": 0.10930940771809297,
+        "RAND_exact_k1_mean": 0.10930940771809297,
+        "RAND_exact_k1_max": 0.10930940771809297,
+        "ENTR_k2_first": 0.108031555189353,
+        "ENTR_k2_mean": 0.10889444569048602,
+        "ENTR_k2_max": 0.11817979987451453,
+        "PROB_k2_first": 0.1086960719633774,
+        "PROB_k2_mean": 0.10865647763288207,
+        "PROB_k2_max": 0.1178002719703028,
+        "RAND_exact_k2_first": 0.10930940771809297,
+        "RAND_exact_k2_mean": 0.10930940771809297,
+        "RAND_exact_k2_max": 0.11888879150202868,
+        "ENTR_k3_first": 0.108031555189353,
+        "ENTR_k3_mean": 0.10914475254318154,
+        "ENTR_k3_max": 0.12298207459201962,
+        "PROB_k3_first": 0.1086960719633774,
+        "PROB_k3_mean": 0.10915058832306777,
+        "PROB_k3_max": 0.1232791608945459,
+        "RAND_exact_k3_first": 0.10930940771809297,
+        "RAND_exact_k3_mean": 0.10930940771809297,
+        "RAND_exact_k3_max": 0.12381209447645758
+      },
+      "primary_role": false
+    }
+  },
+  "retriever_differences_descriptive": {
+    "CodeBERT_minus_BM25_ENTR_B_budget_mean_1_to_3": {
+      "mean": 0.004370100275593134,
+      "se_cluster": 0.000806305158897989,
+      "ci95_cluster_t": [
+        0.0027896274919737038,
+        0.005950573059212564
+      ],
+      "ci95_group_bootstrap": [
+        0.0028156727432045985,
+        0.005923546427953604
+      ],
+      "queries": 13312,
+      "groups": 13312,
+      "changed_queries": 7164,
+      "groups_with_nonzero": 7164
+    },
+    "CodeBERT_minus_BM25_ENTR_G_aggregation_at3_mean_to_max": {
+      "mean": 0.0029441589480974635,
+      "se_cluster": 0.00054941365121992,
+      "ci95_cluster_t": [
+        0.0018672300544651202,
+        0.004021087841729807
+      ],
+      "ci95_group_bootstrap": [
+        0.0018912233620413537,
+        0.004021580415350209
+      ],
+      "queries": 13312,
+      "groups": 13312,
+      "changed_queries": 7885,
+      "groups_with_nonzero": 7885
+    }
+  },
+  "primary_directions": {
+    "ENTR_B_budget_mean_1_to_3": "positive",
+    "ENTR_G_aggregation_at3_mean_to_max": "positive"
+  },
+  "new_setting_confirmation": true,
+  "external_preregistration": false,
+  "CoSQA_confirmation": false,
+  "risk_certified": false,
+  "seconds": 39.583222900051624
+}

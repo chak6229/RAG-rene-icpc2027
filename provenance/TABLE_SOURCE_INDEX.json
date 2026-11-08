@@ -1,0 +1,130 @@
+[
+  {
+    "key": "confirmation",
+    "path": "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
+    "sha256": "bc7e6e69ced0627612f13676c040d1fd025ab2712874e071731fb376126668ea",
+    "delivered": "provenance/table_sources/confirmation/PRIMARY_RESULT.json",
+    "delivered_sha256": "bc7e6e69ced0627612f13676c040d1fd025ab2712874e071731fb376126668ea",
+    "source_type": "计算实验"
+  },
+  {
+    "key": "H_CodeBERT",
+    "path": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+    "sha256": "1e6e5fc0691804fedde0680f43005aa8161a8f852569a050e5b3a9649ce4a88b",
+    "delivered": "provenance/table_sources/H_CodeBERT/CodeBERT_full_H.json",
+    "delivered_sha256": "1e6e5fc0691804fedde0680f43005aa8161a8f852569a050e5b3a9649ce4a88b",
+    "source_type": "计算实验"
+  },
+  {
+    "key": "H_BM25",
+    "path": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+    "sha256": "2b7859c0e65a8a3aaa1bd2a3ef5a726cb1ea4a32f757bfb3dd0876b7f3085de6",
+    "delivered": "provenance/table_sources/H_BM25/BM25_full_H.json",
+    "delivered_sha256": "2b7859c0e65a8a3aaa1bd2a3ef5a726cb1ea4a32f757bfb3dd0876b7f3085de6",
+    "source_type": "计算实验"
+  },
+  {
+    "key": "A",
+    "path": "results/rene_core_step_a_20261020/RESULTS.json",
+    "sha256": "16024324a600a87374ac8f63074c29fb0556fab30f87554dfeae0fc4a1fd6457",
+    "delivered": "provenance/table_sources/A/RESULTS.json",
+    "delivered_sha256": "16024324a600a87374ac8f63074c29fb0556fab30f87554dfeae0fc4a1fd6457",
+    "source_type": "计算实验"
+  },
+  {
+    "key": "B",
+    "path": "results/rene_core_step_b_20261020/RESULTS.json",
+    "sha256": "5c55a60711d3a31d62bb244a64f5b3ec60fc618207eec16caf1e7094d6bba092",
+    "delivered": "provenance/table_sources/B/RESULTS.json",
+    "delivered_sha256": "5c55a60711d3a31d62bb244a64f5b3ec60fc618207eec16caf1e7094d6bba092",
+    "source_type": "计算实验"
+  },
+  {
+    "key": "fusion",
+    "path": "results/rene_multicandidate_fusion_20261020/RESULTS.json",
+    "sha256": "39e5b6aa154c43cb658b7bccaab9d5b927cfaa2a9678794667c7e48171669526",
+    "delivered": "provenance/table_sources/fusion/RESULTS.json",
+    "delivered_sha256": "39e5b6aa154c43cb658b7bccaab9d5b927cfaa2a9678794667c7e48171669526",
+    "source_type": "计算实验"
+  },
+  {
+    "key": "envelope",
+    "path": "results/rene_envelope_completion_20261020/RESULTS.json",
+    "sha256": "8f6e61ac172d04a97b4bca0b920867469bc10463ce24e31bc69146ed03a0e896",
+    "delivered": "provenance/table_sources/envelope/RESULTS.json",
+    "delivered_sha256": "8f6e61ac172d04a97b4bca0b920867469bc10463ce24e31bc69146ed03a0e896",
+    "source_type": "计算实验"
+  },
+  {
+    "key": "seed1536",
+    "path": "results/rene_strict_confirmation_20261019/RESULTS.json",
+    "sha256": "46a5b68e4541dabd514a2eee6e676df2b012ed547a4ef30a9610e42278bd8dc5",
+    "delivered": "provenance/table_sources/seed1536/RESULTS.json",
+    "delivered_sha256": "c6901a4f5c7908021331621b879704e9fc87ca6cdeb04083c031c487406cbc51",
+    "source_type": "计算实验"
+  },
+  {
+    "key": "risk1024",
+    "path": "results/rene_uq_independent_proof_20261019/RESULTS.json",
+    "sha256": "54b1cc94e480f879365280ff8f82381359f17dc119a4ca1a0ceb474ce558a1cc",
+    "delivered": "provenance/table_sources/risk1024/RESULTS.json",
+    "delivered_sha256": "ef6cc250fb1ae82d9c54928dea84c74bfb0c971140536bb5aa43cbdfd72f72e9",
+    "source_type": "计算实验"
+  },
+  {
+    "key": "previous",
+    "path": "results/rene_evidence_integration_20261020/TABLES.json",
+    "sha256": "e0bf0badd7d5c52a743e7096bf60feaf903e72f99dc252cfcccafe9211b6a096",
+    "delivered": "provenance/table_sources/previous/TABLES.json",
+    "delivered_sha256": "e0bf0badd7d5c52a743e7096bf60feaf903e72f99dc252cfcccafe9211b6a096",
+    "source_type": "计算实验"
+  },
+  {
+    "key": "factors",
+    "path": "results/rene_budget_aggregation_20261020/RESULTS.json",
+    "sha256": "da61be1ad9085de2144a09a6918419b54725274c712bb2e3c9d12106473496fc",
+    "delivered": "provenance/table_sources/factors/RESULTS.json",
+    "delivered_sha256": "da61be1ad9085de2144a09a6918419b54725274c712bb2e3c9d12106473496fc",
+    "source_type": "计算实验"
+  },
+  {
+    "key": "staqc",
+    "path": "results/rene_factor_confirmation_20261020/RESULTS.json",
+    "sha256": "c9ddea0e949088c52a67848084b62091a71fe0ae2be9f472127be40134baa9e1",
+    "delivered": "provenance/table_sources/staqc/RESULTS.json",
+    "delivered_sha256": "c9ddea0e949088c52a67848084b62091a71fe0ae2be9f472127be40134baa9e1",
+    "source_type": "计算实验"
+  },
+  {
+    "key": "unixcoder",
+    "path": "results/rene_third_retriever_20261020/RESULTS.json",
+    "sha256": "fee5eccca889cc7418c7fc450a009348d3aae75696b27f16ce42ec065f124dee",
+    "delivered": "provenance/table_sources/unixcoder/RESULTS.json",
+    "delivered_sha256": "fee5eccca889cc7418c7fc450a009348d3aae75696b27f16ce42ec065f124dee",
+    "source_type": "计算实验"
+  },
+  {
+    "key": "weights",
+    "path": "results/rene_t5_weight_factors_20261020/RESULTS.json",
+    "sha256": "cdcbc0ff2e311a0066a37c7e9b33abe8262c4352afe936ac1659939cca6c9006",
+    "delivered": "provenance/table_sources/weights/RESULTS.json",
+    "delivered_sha256": "cdcbc0ff2e311a0066a37c7e9b33abe8262c4352afe936ac1659939cca6c9006",
+    "source_type": "计算实验"
+  },
+  {
+    "key": "review",
+    "path": "results/rene_review_returns_20261020/RESULTS.json",
+    "sha256": "c703b1c544a61e3f8272c4df9dfe4bba51288d0e1f1484b490185dd433cf8262",
+    "delivered": "provenance/table_sources/review/RESULTS.json",
+    "delivered_sha256": "9e21de9a77f4293848d92763f50d8555a0556001d4ac5a85935284eb8ccfea19",
+    "source_type": "人工评审"
+  },
+  {
+    "key": "training",
+    "path": "results/rene_cqc_training_fidelity_20261020/RESULTS.json",
+    "sha256": "94578cc08b1354616eba85278df4d843349b6b3ae62348d8c603ec388cffb8ed",
+    "delivered": "provenance/table_sources/training/RESULTS.json",
+    "delivered_sha256": "ebb1484da973c97fd0d32b8926ef1d074f517a5302a720457a12c190b8628200",
+    "source_type": "计算实验"
+  }
+]

@@ -1,0 +1,250 @@
+{
+  "status": "FROZEN_BEFORE_NEW_FUSION_EFFECTS",
+  "created_utc": "2026-10-20T02:45:49.627676+00:00",
+  "role": "consumed_development_post_hoc_extension",
+  "new_confirmation": false,
+  "prior_A_B_effects_known": true,
+  "external_preregistration": false,
+  "scope": "CoSQA D1490/512, two retrievers, no new generation/training/retrieval/CE or H effects",
+  "candidate_pool": "exact parent ENTR three positions; same generation cache as A/B",
+  "retrievers": [
+    "CodeBERT",
+    "BM25"
+  ],
+  "executable_policies": [
+    "NoRewrite",
+    "ENTRTop1",
+    "RRF3",
+    "RRF4"
+  ],
+  "oracle_diagnostic": "ENTRBest3, maximum candidate RR, no original included; not executable or an upper bound on fused rankings",
+  "RRF": {
+    "constant": 60,
+    "depth": 100,
+    "weights": "equal per unique input text",
+    "dedup": "exact retrieval input text, including original if present; verify identical-text rankings and scores",
+    "RRF3": "three ENTR selected candidate lists, deduplicated",
+    "RRF4": "original + three ENTR selected candidate lists, deduplicated",
+    "score": "sum 1/(60+rank) over each unique input Top100",
+    "precision": "exact rational ordering using shared LCM integer denominator",
+    "shared_denominator": "117671955487901874837890815641362681946988303003141220897970719568000",
+    "ties": "integer document ID ascending",
+    "output": "highest 100 from the actual retrieved-document union"
+  },
+  "primary_family": "four effects = RRF3/4 vs NoRewrite x CodeBERT/BM25; pointwise95 and Bonferroni98.75 individual intervals",
+  "contrast_definitions": {
+    "RRF3-NoRewrite": [
+      "RRF3",
+      "NoRewrite"
+    ],
+    "RRF4-NoRewrite": [
+      "RRF4",
+      "NoRewrite"
+    ],
+    "ENTRTop1-NoRewrite": [
+      "ENTRTop1",
+      "NoRewrite"
+    ],
+    "ENTRBest3-NoRewrite": [
+      "ENTRBest3",
+      "NoRewrite"
+    ],
+    "RRF4-RRF3": [
+      "RRF4",
+      "RRF3"
+    ],
+    "RRF3-ENTRTop1": [
+      "RRF3",
+      "ENTRTop1"
+    ],
+    "RRF4-ENTRTop1": [
+      "RRF4",
+      "ENTRTop1"
+    ],
+    "ENTRBest3-ENTRTop1": [
+      "ENTRBest3",
+      "ENTRTop1"
+    ],
+    "RRF3-ENTRBest3": [
+      "RRF3",
+      "ENTRBest3"
+    ],
+    "RRF4-ENTRBest3": [
+      "RRF4",
+      "ENTRBest3"
+    ]
+  },
+  "secondary": "RRF4-RRF3, fusion vs Top1, best3 opportunity; paired cross-retriever effect differences",
+  "statistics": {
+    "grouping": "512 existing connected groups",
+    "weighting": "query-weighted means",
+    "bootstrap_repetitions": 10000,
+    "seed": 20261020,
+    "group_bootstrap": "shared draws for paired contrasts",
+    "cluster_t": "group influence standard errors, G-1 df",
+    "equivalence": "no margin/claim assigned"
+  },
+  "cost": "unique retrieval-input counts per query (policy standalone and common four-list cache budget); same exhaustive position generation for rewrite arms; no invented wall-clock/token estimates",
+  "risk_gate": false,
+  "risk_certified": false,
+  "tuning_or_weight_search": false,
+  "no_policy_promotion": true,
+  "original_sealed_files_checked": 7,
+  "bound_files": [
+    {
+      "path": "experiments/rene_multicandidate_fusion_20261020/__init__.py",
+      "sha256": "17e64c5916ae32975d22f9be88ab574daf611ef295b7f99710099bcc558a3b1d"
+    },
+    {
+      "path": "experiments/rene_multicandidate_fusion_20261020/audit.py",
+      "sha256": "c41477395971cb609e5f6247eb33bd07cf5ea964d7eb31c5f36f7630071d4359"
+    },
+    {
+      "path": "experiments/rene_multicandidate_fusion_20261020/common.py",
+      "sha256": "0d490667fc5d54c274aa3eae3c2a47db971e40e451f833784c5a3843acd44862"
+    },
+    {
+      "path": "experiments/rene_multicandidate_fusion_20261020/metrics.py",
+      "sha256": "6904dd23bf5157777c92a3691065e35fb651ed56b8d75291da4fa782b3521368"
+    },
+    {
+      "path": "experiments/rene_multicandidate_fusion_20261020/run.py",
+      "sha256": "8cb0f53747d6e3649a6bf83c3fa4311385927abe91c7b5cf819d9127e6e0fd18"
+    },
+    {
+      "path": "experiments/rene_multicandidate_fusion_20261020/test_contract.py",
+      "sha256": "fa59d0f31adf3e1d3e9ffd1d74f6f5214b5728cdc17f004344626899c82af72d"
+    },
+    {
+      "path": "ResearchVault/Handoffs/RENE-AB之后核心贡献验证优先级-20261020.md",
+      "sha256": "dff7e7e8c075c8ea1d11ca1bdc9a5bf1c837c0c7218267c7279f24d13d4525e5"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/candidates.jsonl",
+      "sha256": "661e6617bbfe375e0e356980fc1b0ff64f9491a17f5993585463da1dace79128"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/CANDIDATES_SEALED.json",
+      "sha256": "6159ed2394b90177a9f22bb15cdd52a1150b6ab8a803e40739b934974e60fe2b"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/data/groups.json",
+      "sha256": "e912e041e4ace46892149516d7e6d27b9a90659fcc55f6da7bd678bf86e4b0a7"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/data/private/development_qrels.jsonl",
+      "sha256": "7947d0a0d21873337ead09a5d128981cb52321942bdb97c18f66567102133088"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/data/queries.jsonl",
+      "sha256": "6b51e8e5f3a90f867786178b9380fa7eb72401978518c0bea70e7069523bf7d8"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/DECISIONS_SEALED.json",
+      "sha256": "042cc4fed9359041c19c83822995dadd37f10d3509c415f670e4ca7129f0beaa"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/FINAL_ACCEPTANCE.json",
+      "sha256": "f2ceb09d068c390ea2e3ba5fc6d63546cc92f69e552d83be3a7ba29c9ea5e9e4"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/PROTOCOL.json",
+      "sha256": "d11ad87523cb04de5fd63650870a768af7dc7581ca82a171c1792952a46df7ce"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/rankings/BM25.jsonl",
+      "sha256": "34d6781285f2321128b50937b26003f943380fc0c71828cb006bf3947f69e622"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/rankings/BM25.manifest.json",
+      "sha256": "c1508c006d40626294574c950008770bf8506b8281eaa87fb24ea7356ee0a54d"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/rankings/CodeBERT.jsonl",
+      "sha256": "a7181153e29730e8adb3a3000e5cb07f5563caf76390073f67bba551fe815be7"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/rankings/CodeBERT.manifest.json",
+      "sha256": "4e464396bf2d7084fe95bef2773609f44552c76fbce6aceb6db94e6f26487ad7"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/ROLE_MANIFEST.json",
+      "sha256": "46d1a09364a46f5c127f6623cd2de64d4ec1c4f584b30017c253e224b4830826"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/selections.jsonl",
+      "sha256": "314a317245fdbe2fb41971ebc2397566e25bf53a2d5b22a188c4eca2b5cc8431"
+    },
+    {
+      "path": "results/rene_multicandidate_fusion_20261020/TEST_RESULTS.json",
+      "sha256": "95ba9f2222cf241c809f89fd8529a43655592da360b68639317b26ef82e89f76"
+    },
+    {
+      "path": "results/rene_ssqr_alignment_20261019/cosqa_adapter/public/corpus.jsonl",
+      "sha256": "4e48d0ded5f5591002040faac69e9ece984cd2b340a6164fcc9d93c4b5009f68"
+    }
+  ],
+  "protected_files": [
+    {
+      "path": "configs/vac_mqr_gain_model/CURRENT.json",
+      "sha256": "74eb0553c9d489f25f82408ed2cc0521a5d3fab92159d59700d5c8496c52d371"
+    },
+    {
+      "path": "configs/vac_mqr_verification_policy/CURRENT.json",
+      "sha256": "ca9c157954527fbcfee44ea34010131ab0143ec74d0778c081409d28507315e1"
+    },
+    {
+      "path": "configs/vac_mqr_risk_module/CURRENT.json",
+      "sha256": "436c367c8f8e15d1723064e9edb780dc3544180821d03fcac61d7c3724f50693"
+    },
+    {
+      "path": "configs/uq_candidate_selection/CURRENT.json",
+      "sha256": "5bd37f87e468a878f37f8356e298e15b3517bd5acb58ced03e24e3c923d6ef27"
+    },
+    {
+      "path": "results/vac_mqr_v5/STABLE.json",
+      "sha256": "ea43301dd61510d8415391e5b5182f286e736589a0e870f79630a92320f69a72"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/PROTOCOL.json",
+      "sha256": "886a24259c82edd44b13dd6ce183b8795ae1bf00d27ffc0e8d1b14ab6eb13591"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
+      "sha256": "bc7e6e69ced0627612f13676c040d1fd025ab2712874e071731fb376126668ea"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/FINAL_ACCEPTANCE.json",
+      "sha256": "69de5d3290a5e039af18e3635cbf3ecbce86086e70cdda04dae5bd6c8f49a12e"
+    },
+    {
+      "path": "results/rene_core_step_a_20261020/PROTOCOL.json",
+      "sha256": "595340d6874976925c2378fb88f5e673269d5bcbd7d6c623ff78ead642d06121"
+    },
+    {
+      "path": "results/rene_core_step_a_20261020/RESULTS.json",
+      "sha256": "16024324a600a87374ac8f63074c29fb0556fab30f87554dfeae0fc4a1fd6457"
+    },
+    {
+      "path": "results/rene_core_step_a_20261020/AUDIT.json",
+      "sha256": "042d3a40e18e673206c5a1753412cfc6681ba572ce55bcff27d1a379fdeca75a"
+    },
+    {
+      "path": "results/rene_core_step_b_20261020/PROTOCOL.json",
+      "sha256": "7f4ac3795fe7ee7adf9e8d662e8fe71cd28b53caf70e8c841718a75b06b9c295"
+    },
+    {
+      "path": "results/rene_core_step_b_20261020/RESULTS.json",
+      "sha256": "5c55a60711d3a31d62bb244a64f5b3ec60fc618207eec16caf1e7094d6bba092"
+    },
+    {
+      "path": "results/rene_core_step_b_20261020/FINAL_ACCEPTANCE.json",
+      "sha256": "96a283b5b283c9ac1dd3874d6be04fd1a4e8f158613fa4bff06636bdaf658906"
+    }
+  ],
+  "environment": {
+    "python": "3.10.11",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3"
+  }
+}

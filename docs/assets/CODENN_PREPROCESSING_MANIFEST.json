@@ -1,0 +1,75 @@
+{
+  "format_version": 2,
+  "hdf5": {
+    "nodes": [
+      "indices",
+      "phrases"
+    ],
+    "indices_shape": [
+      18223872
+    ],
+    "indices_dtype": "[('length', '<u4'), ('pos', '<u4')]",
+    "phrases_shape": [
+      180242654
+    ],
+    "phrases_dtype": "int16",
+    "positions_contiguous_in_scanned_prefix": true
+  },
+  "vocabulary": {
+    "mapping": "token_to_id",
+    "size": 10001,
+    "special_tokens": {
+      "<s>": 0,
+      "</s>": 0,
+      "UNK": 1
+    },
+    "note": "id 0 is shared by <s> and </s> in the pickle; it does not occur in the selected phrase stream"
+  },
+  "selection": "first decodable descriptions in author/source HDF5 order",
+  "scanned_source_rows": 1010000,
+  "decoded_rows": 1010000,
+  "discarded_rows": 0,
+  "discard_reasons": {},
+  "train": {
+    "samples": 1000000,
+    "first_source_index": 0,
+    "last_source_index": 999999
+  },
+  "validation": {
+    "samples": 10000,
+    "first_source_index": 1000000,
+    "last_source_index": 1009999,
+    "fixed_corruption_seed": 1000104,
+    "masking_unit": "whitespace-delimited natural-language words",
+    "masking": "one contiguous span, round(15% * word_count), minimum 1"
+  },
+  "samples": [
+    "set up this animator set to play each of the supplied animations when the previous animation ends",
+    "create an instance of jaxb element",
+    "this method tests the specified object for equality with this object",
+    "return the localized version of the specified output stream",
+    "get int property for activity",
+    "return a transform representing a rotation transformation",
+    "add a boolean parameter to the UNK replacing any existing value for the given name",
+    "return an estimate of the UNK percentile of the designated values in the values array",
+    "contain the data data",
+    "fetch entire contents of an input stream and represent same data as result input stream",
+    "private constructor",
+    "return a string representation of this set",
+    "convert an asn",
+    "return an array containing all of the elements in this UNK in proper sequence",
+    "return the enum constants associated with this class",
+    "set up this animator set to play all of the supplied animations at the same time",
+    "set content transfer encoding value",
+    "return a filter that returns true if the filename ends with the specified text",
+    "if we have no more room in the current UNK then double our capacity and copy the current buffer to the new one",
+    "handle remote methods"
+  ],
+  "sha256": {
+    "source_h5": "65cd5ec49ac9badf44a99443fc4c358f1126c5e8216236b7bfbaf70f9a6bec68",
+    "source_vocab": "59310289b8fd4e43fbf44d9f9d01c283dce498cea8dca088484fdf36bad6c0e2",
+    "train": "22462d846275af98a930e77d3ab31fe4ca7795b44a4f9addb4942089c8e5d225",
+    "validation": "bc8b15c021ce1fbe46b1da6bde775d7042c46107b62fe8627a3ff30e654ea9b0",
+    "fixed_validation_cqc": "71b6860b726691604e72462ffb69b82fa547b9996ff6f46faad4e5f3fc2544df"
+  }
+}

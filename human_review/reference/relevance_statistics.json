@@ -1,0 +1,1288 @@
+{
+  "summary": [
+    {
+      "reviewer": "A",
+      "threshold": 2,
+      "cutoff": 1,
+      "policy": "ENTR_top1",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 128,
+      "weighted_original_qrels_delta": -0.029894490035169988,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.051897713950762016,
+        -0.051897713950762016
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.022003223915592028,
+        -0.022003223915592028
+      ],
+      "unweighted_original_qrels_delta": -0.015625,
+      "unweighted_expanded_delta_bounds": [
+        -0.03125,
+        -0.03125
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 2,
+      "cutoff": 1,
+      "policy": "HGB_gain_control",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 128,
+      "weighted_original_qrels_delta": 0.016200175849941382,
+      "weighted_expanded_delta_identification_bounds": [
+        0.008939038686987104,
+        0.008939038686987104
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.007261137162954279,
+        -0.007261137162954279
+      ],
+      "unweighted_original_qrels_delta": 0.0234375,
+      "unweighted_expanded_delta_bounds": [
+        0.0078125,
+        0.0078125
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 2,
+      "cutoff": 1,
+      "policy": "RIDGE_gain",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 128,
+      "weighted_original_qrels_delta": -0.018317702227432592,
+      "weighted_expanded_delta_identification_bounds": [
+        0.007546893317702227,
+        0.007546893317702227
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.02586459554513482,
+        0.02586459554513482
+      ],
+      "unweighted_original_qrels_delta": -0.0234375,
+      "unweighted_expanded_delta_bounds": [
+        0.0,
+        0.0
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 2,
+      "cutoff": 1,
+      "policy": "RIDGE_verified",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 128,
+      "weighted_original_qrels_delta": -0.018317702227432592,
+      "weighted_expanded_delta_identification_bounds": [
+        0.007546893317702227,
+        0.007546893317702227
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.02586459554513482,
+        0.02586459554513482
+      ],
+      "unweighted_original_qrels_delta": -0.0234375,
+      "unweighted_expanded_delta_bounds": [
+        0.0,
+        0.0
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 2,
+      "cutoff": 1,
+      "policy": "RIDGE_risk",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 128,
+      "weighted_original_qrels_delta": -0.0004396248534583822,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.0004396248534583822,
+        -0.0004396248534583822
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.0,
+        0.0
+      ],
+      "unweighted_original_qrels_delta": -0.0078125,
+      "unweighted_expanded_delta_bounds": [
+        -0.0078125,
+        -0.0078125
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 2,
+      "cutoff": 1,
+      "policy": "SAFE_ENTR_best3_opportunity",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 127,
+      "weighted_original_qrels_delta": 0.06960726846424385,
+      "weighted_expanded_delta_identification_bounds": [
+        0.09797039859320048,
+        0.09841002344665885
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.028363130128956623,
+        0.028802754982415007
+      ],
+      "unweighted_original_qrels_delta": 0.078125,
+      "unweighted_expanded_delta_bounds": [
+        0.09375,
+        0.1015625
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 2,
+      "cutoff": 3,
+      "policy": "ENTR_top1",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 118,
+      "weighted_original_qrels_delta": -0.012287514654161781,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.04036000390777648,
+        -0.006583382180539273
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.028072489253614694,
+        0.005704132473622509
+      ],
+      "unweighted_original_qrels_delta": -0.0078125,
+      "unweighted_expanded_delta_bounds": [
+        -0.03125,
+        -0.0013020833333333333
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 2,
+      "cutoff": 3,
+      "policy": "HGB_gain_control",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 121,
+      "weighted_original_qrels_delta": 0.019256789761625634,
+      "weighted_expanded_delta_identification_bounds": [
+        0.01108953692848769,
+        0.028558518952715904
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.008167252833137944,
+        0.00930172919109027
+      ],
+      "unweighted_original_qrels_delta": 0.020833333333333332,
+      "unweighted_expanded_delta_bounds": [
+        0.0078125,
+        0.024739583333333332
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 2,
+      "cutoff": 3,
+      "policy": "RIDGE_gain",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 122,
+      "weighted_original_qrels_delta": 0.005004396248534584,
+      "weighted_expanded_delta_identification_bounds": [
+        0.013723622508792497,
+        0.02316334505666276
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.008719226260257913,
+        0.018158948808128177
+      ],
+      "unweighted_original_qrels_delta": 0.005208333333333333,
+      "unweighted_expanded_delta_bounds": [
+        0.01171875,
+        0.028645833333333332
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 2,
+      "cutoff": 3,
+      "policy": "RIDGE_verified",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 121,
+      "weighted_original_qrels_delta": 0.0015936400937866355,
+      "weighted_expanded_delta_identification_bounds": [
+        0.005843347010550996,
+        0.018262749120750293
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.004249706916764361,
+        0.01666910902696366
+      ],
+      "unweighted_original_qrels_delta": 0.0013020833333333333,
+      "unweighted_expanded_delta_bounds": [
+        0.00390625,
+        0.0234375
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 2,
+      "cutoff": 3,
+      "policy": "RIDGE_risk",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 125,
+      "weighted_original_qrels_delta": -0.00011601211410707307,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.00017707112153184839,
+        0.0003236127393513091
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -6.10590074247753e-05,
+        0.0004396248534583822
+      ],
+      "unweighted_original_qrels_delta": -0.0013020833333333333,
+      "unweighted_expanded_delta_bounds": [
+        -0.0026041666666666665,
+        0.006510416666666667
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 2,
+      "cutoff": 3,
+      "policy": "SAFE_ENTR_best3_opportunity",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 117,
+      "weighted_original_qrels_delta": 0.07655334114888629,
+      "weighted_expanded_delta_identification_bounds": [
+        0.0931809300508011,
+        0.11857415005861664
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.01662758890191481,
+        0.04202080890973036
+      ],
+      "unweighted_original_qrels_delta": 0.08984375,
+      "unweighted_expanded_delta_bounds": [
+        0.09505208333333333,
+        0.13151041666666666
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 1,
+      "cutoff": 1,
+      "policy": "ENTR_top1",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 128,
+      "weighted_original_qrels_delta": -0.029894490035169988,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.03808616647127784,
+        -0.03808616647127784
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.008191676436107855,
+        -0.008191676436107855
+      ],
+      "unweighted_original_qrels_delta": -0.015625,
+      "unweighted_expanded_delta_bounds": [
+        -0.015625,
+        -0.015625
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 1,
+      "cutoff": 1,
+      "policy": "HGB_gain_control",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 128,
+      "weighted_original_qrels_delta": 0.016200175849941382,
+      "weighted_expanded_delta_identification_bounds": [
+        0.003473036342321219,
+        0.003473036342321219
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.012727139507620165,
+        -0.012727139507620165
+      ],
+      "unweighted_original_qrels_delta": 0.0234375,
+      "unweighted_expanded_delta_bounds": [
+        0.0078125,
+        0.0078125
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 1,
+      "cutoff": 1,
+      "policy": "RIDGE_gain",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 128,
+      "weighted_original_qrels_delta": -0.018317702227432592,
+      "weighted_expanded_delta_identification_bounds": [
+        0.009342028135990622,
+        0.009342028135990622
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.027659730363423212,
+        0.027659730363423212
+      ],
+      "unweighted_original_qrels_delta": -0.0234375,
+      "unweighted_expanded_delta_bounds": [
+        0.015625,
+        0.015625
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 1,
+      "cutoff": 1,
+      "policy": "RIDGE_verified",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 128,
+      "weighted_original_qrels_delta": -0.018317702227432592,
+      "weighted_expanded_delta_identification_bounds": [
+        0.009342028135990622,
+        0.009342028135990622
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.027659730363423212,
+        0.027659730363423212
+      ],
+      "unweighted_original_qrels_delta": -0.0234375,
+      "unweighted_expanded_delta_bounds": [
+        0.015625,
+        0.015625
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 1,
+      "cutoff": 1,
+      "policy": "RIDGE_risk",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 128,
+      "weighted_original_qrels_delta": -0.0004396248534583822,
+      "weighted_expanded_delta_identification_bounds": [
+        0.000402989449003517,
+        0.000402989449003517
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.0008426143024618992,
+        0.0008426143024618992
+      ],
+      "unweighted_original_qrels_delta": -0.0078125,
+      "unweighted_expanded_delta_bounds": [
+        0.0078125,
+        0.0078125
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 1,
+      "cutoff": 1,
+      "policy": "SAFE_ENTR_best3_opportunity",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 128,
+      "weighted_original_qrels_delta": 0.06960726846424385,
+      "weighted_expanded_delta_identification_bounds": [
+        0.0689405041031653,
+        0.0689405041031653
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.0006667643610785463,
+        -0.0006667643610785463
+      ],
+      "unweighted_original_qrels_delta": 0.078125,
+      "unweighted_expanded_delta_bounds": [
+        0.078125,
+        0.078125
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 1,
+      "cutoff": 3,
+      "policy": "ENTR_top1",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 124,
+      "weighted_original_qrels_delta": -0.012287514654161781,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.03566822977725674,
+        -0.018096668620554906
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.023380715123094958,
+        -0.005809153966393123
+      ],
+      "unweighted_original_qrels_delta": -0.0078125,
+      "unweighted_expanded_delta_bounds": [
+        -0.018229166666666668,
+        -0.005208333333333333
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 1,
+      "cutoff": 3,
+      "policy": "HGB_gain_control",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 126,
+      "weighted_original_qrels_delta": 0.019256789761625634,
+      "weighted_expanded_delta_identification_bounds": [
+        0.004650254005470887,
+        0.007471180148495506
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.014606535756154749,
+        -0.011785609613130129
+      ],
+      "unweighted_original_qrels_delta": 0.020833333333333332,
+      "unweighted_expanded_delta_bounds": [
+        0.009114583333333334,
+        0.01171875
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 1,
+      "cutoff": 3,
+      "policy": "RIDGE_gain",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 126,
+      "weighted_original_qrels_delta": 0.005004396248534584,
+      "weighted_expanded_delta_identification_bounds": [
+        0.0032971864009378664,
+        0.005006838608831575
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.0017072098475967175,
+        2.442360296991012e-06
+      ],
+      "unweighted_original_qrels_delta": 0.005208333333333333,
+      "unweighted_expanded_delta_bounds": [
+        0.009114583333333334,
+        0.014322916666666666
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 1,
+      "cutoff": 3,
+      "policy": "RIDGE_verified",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 126,
+      "weighted_original_qrels_delta": 0.0015936400937866355,
+      "weighted_expanded_delta_identification_bounds": [
+        0.0032971864009378664,
+        0.005006838608831575
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.001703546307151231,
+        0.0034131985150449395
+      ],
+      "unweighted_original_qrels_delta": 0.0013020833333333333,
+      "unweighted_expanded_delta_bounds": [
+        0.009114583333333334,
+        0.014322916666666666
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 1,
+      "cutoff": 3,
+      "policy": "RIDGE_risk",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 127,
+      "weighted_original_qrels_delta": -0.00011601211410707307,
+      "weighted_expanded_delta_identification_bounds": [
+        0.0003175068386088316,
+        0.0005373192653380227
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.0004335189527159046,
+        0.0006533313794450957
+      ],
+      "unweighted_original_qrels_delta": -0.0013020833333333333,
+      "unweighted_expanded_delta_bounds": [
+        0.006510416666666667,
+        0.010416666666666666
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "A",
+      "threshold": 1,
+      "cutoff": 3,
+      "policy": "SAFE_ENTR_best3_opportunity",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 125,
+      "weighted_original_qrels_delta": 0.07655334114888629,
+      "weighted_expanded_delta_identification_bounds": [
+        0.05030529503712387,
+        0.06313501367721766
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.026248046111762405,
+        -0.01341832747166862
+      ],
+      "unweighted_original_qrels_delta": 0.08984375,
+      "unweighted_expanded_delta_bounds": [
+        0.059895833333333336,
+        0.06770833333333333
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 2,
+      "cutoff": 1,
+      "policy": "ENTR_top1",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 123,
+      "weighted_original_qrels_delta": -0.029894490035169988,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.07520515826494724,
+        -0.01781213364595545
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.04531066822977726,
+        0.012082356389214536
+      ],
+      "unweighted_original_qrels_delta": -0.015625,
+      "unweighted_expanded_delta_bounds": [
+        -0.046875,
+        0.0
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 2,
+      "cutoff": 1,
+      "policy": "HGB_gain_control",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 126,
+      "weighted_original_qrels_delta": 0.016200175849941382,
+      "weighted_expanded_delta_identification_bounds": [
+        0.0004396248534583822,
+        0.017365181711606097
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.015760550996483002,
+        0.0011650058616647129
+      ],
+      "unweighted_original_qrels_delta": 0.0234375,
+      "unweighted_expanded_delta_bounds": [
+        0.0078125,
+        0.0234375
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 2,
+      "cutoff": 1,
+      "policy": "RIDGE_gain",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 127,
+      "weighted_original_qrels_delta": -0.018317702227432592,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.0004396248534583822,
+        0.007546893317702227
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.01787807737397421,
+        0.02586459554513482
+      ],
+      "unweighted_original_qrels_delta": -0.0234375,
+      "unweighted_expanded_delta_bounds": [
+        -0.0078125,
+        0.0
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 2,
+      "cutoff": 1,
+      "policy": "RIDGE_verified",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 127,
+      "weighted_original_qrels_delta": -0.018317702227432592,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.0004396248534583822,
+        0.007546893317702227
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.01787807737397421,
+        0.02586459554513482
+      ],
+      "unweighted_original_qrels_delta": -0.0234375,
+      "unweighted_expanded_delta_bounds": [
+        -0.0078125,
+        0.0
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 2,
+      "cutoff": 1,
+      "policy": "RIDGE_risk",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 128,
+      "weighted_original_qrels_delta": -0.0004396248534583822,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.0004396248534583822,
+        -0.0004396248534583822
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.0,
+        0.0
+      ],
+      "unweighted_original_qrels_delta": -0.0078125,
+      "unweighted_expanded_delta_bounds": [
+        -0.0078125,
+        -0.0078125
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 2,
+      "cutoff": 1,
+      "policy": "SAFE_ENTR_best3_opportunity",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 120,
+      "weighted_original_qrels_delta": 0.06960726846424385,
+      "weighted_expanded_delta_identification_bounds": [
+        0.043925849941383356,
+        0.11577520515826495
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.025681418522860492,
+        0.046167936694021104
+      ],
+      "unweighted_original_qrels_delta": 0.078125,
+      "unweighted_expanded_delta_bounds": [
+        0.0625,
+        0.125
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 2,
+      "cutoff": 3,
+      "policy": "ENTR_top1",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 121,
+      "weighted_original_qrels_delta": -0.012287514654161781,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.04525815748339195,
+        -0.01712583040250098
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.032970642829230165,
+        -0.004838315748339195
+      ],
+      "unweighted_original_qrels_delta": -0.0078125,
+      "unweighted_expanded_delta_bounds": [
+        -0.04296875,
+        -0.016927083333333332
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 2,
+      "cutoff": 3,
+      "policy": "HGB_gain_control",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 125,
+      "weighted_original_qrels_delta": 0.019256789761625634,
+      "weighted_expanded_delta_identification_bounds": [
+        0.00857634818288394,
+        0.016001123485736617
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.010680441578741696,
+        -0.003255666275889019
+      ],
+      "unweighted_original_qrels_delta": 0.020833333333333332,
+      "unweighted_expanded_delta_bounds": [
+        0.009114583333333334,
+        0.018229166666666668
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 2,
+      "cutoff": 3,
+      "policy": "RIDGE_gain",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 123,
+      "weighted_original_qrels_delta": 0.005004396248534584,
+      "weighted_expanded_delta_identification_bounds": [
+        0.0017096522078937084,
+        0.012565943728018758
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.0032947440406408753,
+        0.007561547479484174
+      ],
+      "unweighted_original_qrels_delta": 0.005208333333333333,
+      "unweighted_expanded_delta_bounds": [
+        -0.005208333333333333,
+        0.009114583333333334
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 2,
+      "cutoff": 3,
+      "policy": "RIDGE_verified",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 122,
+      "weighted_original_qrels_delta": 0.0015936400937866355,
+      "weighted_expanded_delta_identification_bounds": [
+        0.001278575615474795,
+        0.016604386479093396
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.00031506447831184054,
+        0.01501074638530676
+      ],
+      "unweighted_original_qrels_delta": 0.0013020833333333333,
+      "unweighted_expanded_delta_bounds": [
+        -0.006510416666666667,
+        0.01171875
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 2,
+      "cutoff": 3,
+      "policy": "RIDGE_risk",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 126,
+      "weighted_original_qrels_delta": -0.00011601211410707307,
+      "weighted_expanded_delta_identification_bounds": [
+        0.0017548358733880422,
+        0.0019624364986322784
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.0018708479874951153,
+        0.002078448612739351
+      ],
+      "unweighted_original_qrels_delta": -0.0013020833333333333,
+      "unweighted_expanded_delta_bounds": [
+        -0.006510416666666667,
+        -0.0026041666666666665
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 2,
+      "cutoff": 3,
+      "policy": "SAFE_ENTR_best3_opportunity",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 116,
+      "weighted_original_qrels_delta": 0.07655334114888629,
+      "weighted_expanded_delta_identification_bounds": [
+        0.04735248143806174,
+        0.10337900547088706
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.02920085971082454,
+        0.026825664322000783
+      ],
+      "unweighted_original_qrels_delta": 0.08984375,
+      "unweighted_expanded_delta_bounds": [
+        0.06510416666666667,
+        0.11458333333333333
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 1,
+      "cutoff": 1,
+      "policy": "ENTR_top1",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 123,
+      "weighted_original_qrels_delta": -0.029894490035169988,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.07612104337631888,
+        -0.018728018757327082
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.046226553341148884,
+        0.011166471277842907
+      ],
+      "unweighted_original_qrels_delta": -0.015625,
+      "unweighted_expanded_delta_bounds": [
+        -0.0703125,
+        -0.0234375
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 1,
+      "cutoff": 1,
+      "policy": "HGB_gain_control",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 126,
+      "weighted_original_qrels_delta": 0.016200175849941382,
+      "weighted_expanded_delta_identification_bounds": [
+        0.0030700468933177022,
+        0.019995603751465415
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.013130128956623681,
+        0.003795427901524033
+      ],
+      "unweighted_original_qrels_delta": 0.0234375,
+      "unweighted_expanded_delta_bounds": [
+        0.0,
+        0.015625
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 1,
+      "cutoff": 1,
+      "policy": "RIDGE_gain",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 127,
+      "weighted_original_qrels_delta": -0.018317702227432592,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.007033997655334115,
+        0.0009525205158264947
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.011283704572098477,
+        0.019270222743259086
+      ],
+      "unweighted_original_qrels_delta": -0.0234375,
+      "unweighted_expanded_delta_bounds": [
+        -0.0078125,
+        0.0
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 1,
+      "cutoff": 1,
+      "policy": "RIDGE_verified",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 127,
+      "weighted_original_qrels_delta": -0.018317702227432592,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.007033997655334115,
+        0.0009525205158264947
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.011283704572098477,
+        0.019270222743259086
+      ],
+      "unweighted_original_qrels_delta": -0.0234375,
+      "unweighted_expanded_delta_bounds": [
+        -0.0078125,
+        0.0
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 1,
+      "cutoff": 1,
+      "policy": "RIDGE_risk",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 128,
+      "weighted_original_qrels_delta": -0.0004396248534583822,
+      "weighted_expanded_delta_identification_bounds": [
+        0.0,
+        0.0
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.0004396248534583822,
+        0.0004396248534583822
+      ],
+      "unweighted_original_qrels_delta": -0.0078125,
+      "unweighted_expanded_delta_bounds": [
+        0.0,
+        0.0
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 1,
+      "cutoff": 1,
+      "policy": "SAFE_ENTR_best3_opportunity",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 119,
+      "weighted_original_qrels_delta": 0.06960726846424385,
+      "weighted_expanded_delta_identification_bounds": [
+        0.06525498241500587,
+        0.13849648300117234
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.004352286049237984,
+        0.06888921453692849
+      ],
+      "unweighted_original_qrels_delta": 0.078125,
+      "unweighted_expanded_delta_bounds": [
+        0.0703125,
+        0.140625
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 1,
+      "cutoff": 3,
+      "policy": "ENTR_top1",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 121,
+      "weighted_original_qrels_delta": -0.012287514654161781,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.042211313012895664,
+        -0.014237739351309104
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.02992379835873388,
+        -0.0019502246971473231
+      ],
+      "unweighted_original_qrels_delta": -0.0078125,
+      "unweighted_expanded_delta_bounds": [
+        -0.0390625,
+        -0.013020833333333334
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 1,
+      "cutoff": 3,
+      "policy": "HGB_gain_control",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 125,
+      "weighted_original_qrels_delta": 0.019256789761625634,
+      "weighted_expanded_delta_identification_bounds": [
+        0.008454230168034389,
+        0.01572025205158265
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.010802559593591247,
+        -0.0035365377100429855
+      ],
+      "unweighted_original_qrels_delta": 0.020833333333333332,
+      "unweighted_expanded_delta_bounds": [
+        0.009114583333333334,
+        0.018229166666666668
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 1,
+      "cutoff": 3,
+      "policy": "RIDGE_gain",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 124,
+      "weighted_original_qrels_delta": 0.005004396248534584,
+      "weighted_expanded_delta_identification_bounds": [
+        -0.00025278429073856976,
+        0.007868063696756546
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.005257180539273153,
+        0.0028636674482219616
+      ],
+      "unweighted_original_qrels_delta": 0.005208333333333333,
+      "unweighted_expanded_delta_bounds": [
+        0.0,
+        0.010416666666666666
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 1,
+      "cutoff": 3,
+      "policy": "RIDGE_verified",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 124,
+      "weighted_original_qrels_delta": 0.0015936400937866355,
+      "weighted_expanded_delta_identification_bounds": [
+        0.0019477823368503322,
+        0.010068630324345447
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        0.00035414224306369677,
+        0.008474990230558812
+      ],
+      "unweighted_original_qrels_delta": 0.0013020833333333333,
+      "unweighted_expanded_delta_bounds": [
+        0.0013020833333333333,
+        0.01171875
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 1,
+      "cutoff": 3,
+      "policy": "RIDGE_risk",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 127,
+      "weighted_original_qrels_delta": -0.00011601211410707307,
+      "weighted_expanded_delta_identification_bounds": [
+        -1.831770222743259e-05,
+        0.00011601211410707307
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        9.769441187964049e-05,
+        0.00023202422821414615
+      ],
+      "unweighted_original_qrels_delta": -0.0013020833333333333,
+      "unweighted_expanded_delta_bounds": [
+        0.0,
+        0.0026041666666666665
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    },
+    {
+      "reviewer": "B",
+      "threshold": 1,
+      "cutoff": 3,
+      "policy": "SAFE_ENTR_best3_opportunity",
+      "queries": 128,
+      "sample_groups": 120,
+      "point_identified_queries": 116,
+      "weighted_original_qrels_delta": 0.07655334114888629,
+      "weighted_expanded_delta_identification_bounds": [
+        0.06195901719421649,
+        0.11107366158655725
+      ],
+      "weighted_change_from_original_delta_bounds": [
+        -0.014594323954669792,
+        0.03452032043767096
+      ],
+      "unweighted_original_qrels_delta": 0.08984375,
+      "unweighted_expanded_delta_bounds": [
+        0.06770833333333333,
+        0.11458333333333333
+      ],
+      "interval_type": "sample identification range over shared unknown relevance, not a confidence interval"
+    }
+  ],
+  "supplement_agreement": {
+    "including_unknown": {
+      "n": 344,
+      "agreement": 0.5523255813953488,
+      "kappa": 0.3208205128205128,
+      "type": "nominal"
+    },
+    "jointly_judged": {
+      "n": 296,
+      "agreement": 0.6418918918918919,
+      "kappa": 0.4844853481609305,
+      "type": "linear weighted"
+    },
+    "jointly_judged_coverage": 0.8604651162790697,
+    "unknown_by_reviewer": {
+      "A": 48,
+      "B": 0
+    },
+    "disagreements": 154,
+    "confusion_rows_A_columns_B": [
+      "0",
+      "1",
+      "2",
+      "u"
+    ],
+    "confusion": [
+      [
+        119,
+        50,
+        3,
+        0
+      ],
+      [
+        16,
+        57,
+        30,
+        0
+      ],
+      [
+        0,
+        7,
+        14,
+        0
+      ],
+      [
+        5,
+        32,
+        11,
+        0
+      ]
+    ],
+    "label_counts": {
+      "A": {
+        "2": 21,
+        "1": 103,
+        "0": 172,
+        "u": 48
+      },
+      "B": {
+        "2": 58,
+        "1": 146,
+        "0": 140,
+        "u": 0
+      }
+    }
+  },
+  "pooled_top3_agreement": {
+    "including_unknown": {
+      "n": 610,
+      "agreement": 0.5540983606557377,
+      "kappa": 0.3404173275611898,
+      "type": "nominal"
+    },
+    "jointly_judged": {
+      "n": 513,
+      "agreement": 0.6569200779727096,
+      "kappa": 0.5270356524117809,
+      "type": "linear weighted"
+    },
+    "jointly_judged_coverage": 0.840983606557377,
+    "unknown_by_reviewer": {
+      "A": 49,
+      "B": 49
+    },
+    "disagreements": 272,
+    "confusion_rows_A_columns_B": [
+      "0",
+      "1",
+      "2",
+      "u"
+    ],
+    "confusion": [
+      [
+        180,
+        54,
+        3,
+        3
+      ],
+      [
+        58,
+        113,
+        30,
+        21
+      ],
+      [
+        3,
+        28,
+        44,
+        24
+      ],
+      [
+        5,
+        32,
+        11,
+        1
+      ]
+    ],
+    "label_counts": {
+      "A": {
+        "2": 99,
+        "1": 222,
+        "0": 240,
+        "u": 49
+      },
+      "B": {
+        "2": 88,
+        "1": 227,
+        "0": 246,
+        "u": 49
+      }
+    }
+  }
+}

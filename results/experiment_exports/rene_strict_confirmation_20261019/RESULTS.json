@@ -1,0 +1,926 @@
+{
+  "actual_planning_mde": 0.00488874180314337,
+  "candidate_prediction": {
+    "fusion/no_seed_uq": {
+      "query_weighted_harm_brier": 0.15237706713638208,
+      "query_weighted_rmse": 0.10623355412743947,
+      "weighted_harm_auc": 0.7373506537705479
+    },
+    "fusion/seed_uq": {
+      "query_weighted_harm_brier": 0.1522085634147119,
+      "query_weighted_rmse": 0.10586671026906488,
+      "weighted_harm_auc": 0.7394811447073059
+    },
+    "rewrite/no_seed_uq": {
+      "query_weighted_harm_brier": 0.16930520119802117,
+      "query_weighted_rmse": 0.15008876362313522,
+      "weighted_harm_auc": 0.764942029737324
+    },
+    "rewrite/seed_uq": {
+      "query_weighted_harm_brier": 0.1692952474155729,
+      "query_weighted_rmse": 0.15000937728859187,
+      "weighted_harm_auc": 0.7650792857497448
+    }
+  },
+  "ce_physical_cost": {
+    "completed": true,
+    "elapsed_seconds": 7.623524900060147,
+    "labels_opened": false,
+    "physical_executed_tokens": 636772,
+    "physical_unique_pairs": 4667,
+    "plan_seal_sha256": "ef752c8358a009e5684554194c07712e258b54db2d92bcb6eea5030d7285cc22",
+    "scores_sha256": "8055dffeb9870e87c2bb1a1ec5cc54282a42b371a0c2bf484dace88d2673acb0"
+  },
+  "completed": true,
+  "corpus": [
+    {
+      "block": 0,
+      "documents": 4096,
+      "path": "results\\rene_strict_confirmation_20261019\\fresh\\corpus\\block0.pkl",
+      "query_count": 1536,
+      "sha256": "07f9439cb01d2c79dc2e3269b59888e185df26e0f454397b7865373f5968119b"
+    }
+  ],
+  "decision_seal_sha256": "714428bdb8e85bd3a19e5ec7493fd754b6266ea3f699e31d8759b90cf5ac47cc",
+  "evaluation_at_utc": "2026-10-18T22:08:07.025767+00:00",
+  "formal_components_changed": false,
+  "interpretation": "finite frozen-corpus downstream repository confirmation; upstream retriever train exposure disclosed",
+  "methods": {
+    "fusion/base34/mean": {
+      "accepted": 1342,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.8736979166666666,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.24230049282921487,
+      "delta_mrr": -0.01002129357841205,
+      "descriptive_ci95": [
+        -0.014771827766780453,
+        -0.005449924996088794
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 299,
+      "harmful_rate": 0.22280178837555886,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.4046488400409918,
+      "positive": 245,
+      "queries": 1536,
+      "unchanged_accepted": 798,
+      "verified": 0
+    },
+    "fusion/base46/mean": {
+      "accepted": 1350,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.87890625,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.2469737892003644,
+      "delta_mrr": -0.011904675848054401,
+      "descriptive_ci95": [
+        -0.017209352375101367,
+        -0.00688315780374321
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 307,
+      "harmful_rate": 0.22740740740740742,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.40276545777134937,
+      "positive": 243,
+      "queries": 1536,
+      "unchanged_accepted": 800,
+      "verified": 0
+    },
+    "fusion/multiseed_IG": {
+      "accepted": 1536,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 1.0,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.22544104622776867,
+      "delta_mrr": -0.006495816980194973,
+      "descriptive_ci95": [
+        -0.011932350280966172,
+        -0.00121961307111036
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 319,
+      "harmful_rate": 0.20768229166666666,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.40817431663920883,
+      "positive": 255,
+      "queries": 1536,
+      "unchanged_accepted": 962,
+      "verified": 0
+    },
+    "fusion/no_seed_uq/base": {
+      "accepted": 650,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.4231770833333333,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.10309934840705556,
+      "delta_mrr": -0.00021806685489513642,
+      "descriptive_ci95": [
+        -0.0008781197871706284,
+        0.0004278441403076468
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 54,
+      "harmful_rate": 0.08307692307692308,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.41445206676450863,
+      "positive": 66,
+      "queries": 1536,
+      "unchanged_accepted": 530,
+      "verified": 0
+    },
+    "fusion/no_seed_uq/fixed50": {
+      "accepted": 768,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.5,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.2541680015648687,
+      "delta_mrr": 0.014001290549255627,
+      "descriptive_ci95": [
+        0.0075368713661498445,
+        0.02038720878829371
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 175,
+      "harmful_rate": 0.22786458333333334,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.42867142416865933,
+      "positive": 244,
+      "queries": 1536,
+      "unchanged_accepted": 349,
+      "verified": 0
+    },
+    "fusion/no_seed_uq/mean": {
+      "accepted": 1434,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.93359375,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.20103790271084263,
+      "delta_mrr": 0.01395586027294055,
+      "descriptive_ci95": [
+        0.0072923617861422796,
+        0.020531406670521838
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 263,
+      "harmful_rate": 0.18340306834030684,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.4286259938923443,
+      "positive": 354,
+      "queries": 1536,
+      "unchanged_accepted": 817,
+      "verified": 0
+    },
+    "fusion/no_seed_uq/risk": {
+      "accepted": 150,
+      "actual_pairs": 2632,
+      "billed_slots": 2632,
+      "coverage": 0.09765625,
+      "cp_numerical_pass": true,
+      "cp_upper95": 0.041374969893577085,
+      "delta_mrr": 0.0006265649012146857,
+      "descriptive_ci95": [
+        -0.00014559648292586513,
+        0.0016378056742640077
+      ],
+      "executed_ce_tokens": 359563,
+      "harmful": 2,
+      "harmful_rate": 0.013333333333333334,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.4152966985206185,
+      "positive": 5,
+      "queries": 1536,
+      "unchanged_accepted": 143,
+      "verified": 329
+    },
+    "fusion/no_seed_uq/verified": {
+      "accepted": 769,
+      "actual_pairs": 2632,
+      "billed_slots": 2632,
+      "coverage": 0.5006510416666666,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.13229645312788485,
+      "delta_mrr": 0.013573966443869661,
+      "descriptive_ci95": [
+        0.00868578083209378,
+        0.018681073283327798
+      ],
+      "executed_ce_tokens": 359563,
+      "harmful": 86,
+      "harmful_rate": 0.11183355006501951,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.42824410006327346,
+      "positive": 149,
+      "queries": 1536,
+      "unchanged_accepted": 534,
+      "verified": 329
+    },
+    "fusion/seed101_IG": {
+      "accepted": 1536,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 1.0,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.2281195767274752,
+      "delta_mrr": -0.008831334754808205,
+      "descriptive_ci95": [
+        -0.014601796725490694,
+        -0.003239122531667156
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 323,
+      "harmful_rate": 0.21028645833333334,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.4058387988645955,
+      "positive": 258,
+      "queries": 1536,
+      "unchanged_accepted": 955,
+      "verified": 0
+    },
+    "fusion/seed_uq/base": {
+      "accepted": 635,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.4134114583333333,
+      "cp_numerical_pass": true,
+      "cp_upper95": 0.08819978330888974,
+      "delta_mrr": 0.0003161013875418304,
+      "descriptive_ci95": [
+        -0.0003129615206209383,
+        0.0009646728891663296
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 44,
+      "harmful_rate": 0.06929133858267716,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.4149862350069456,
+      "positive": 62,
+      "queries": 1536,
+      "unchanged_accepted": 529,
+      "verified": 0
+    },
+    "fusion/seed_uq/fixed50": {
+      "accepted": 768,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.5,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.25281953743242397,
+      "delta_mrr": 0.01492662129112575,
+      "descriptive_ci95": [
+        0.008514434945612338,
+        0.021385964061192073
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 174,
+      "harmful_rate": 0.2265625,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.42959675491052945,
+      "positive": 245,
+      "queries": 1536,
+      "unchanged_accepted": 349,
+      "verified": 0
+    },
+    "fusion/seed_uq/mean": {
+      "accepted": 1434,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.93359375,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.19743172743984722,
+      "delta_mrr": 0.016196660833483104,
+      "descriptive_ci95": [
+        0.009591943636155818,
+        0.02287881972236421
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 258,
+      "harmful_rate": 0.1799163179916318,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.43086679445288684,
+      "positive": 364,
+      "queries": 1536,
+      "unchanged_accepted": 812,
+      "verified": 0
+    },
+    "fusion/seed_uq/risk": {
+      "accepted": 161,
+      "actual_pairs": 2688,
+      "billed_slots": 2688,
+      "coverage": 0.10481770833333333,
+      "cp_numerical_pass": true,
+      "cp_upper95": 0.0385858725483137,
+      "delta_mrr": 0.004578955565416576,
+      "descriptive_ci95": [
+        0.0023040471519304613,
+        0.007187799247450693
+      ],
+      "executed_ce_tokens": 367632,
+      "harmful": 2,
+      "harmful_rate": 0.012422360248447204,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.41924908918482034,
+      "positive": 22,
+      "queries": 1536,
+      "unchanged_accepted": 137,
+      "verified": 336
+    },
+    "fusion/seed_uq/verified": {
+      "accepted": 742,
+      "actual_pairs": 2688,
+      "billed_slots": 2688,
+      "coverage": 0.4830729166666667,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.10951372097708277,
+      "delta_mrr": 0.012453819856355153,
+      "descriptive_ci95": [
+        0.008290432795144506,
+        0.016868808468894984
+      ],
+      "executed_ce_tokens": 367632,
+      "harmful": 67,
+      "harmful_rate": 0.09029649595687332,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.4271239534757589,
+      "positive": 132,
+      "queries": 1536,
+      "unchanged_accepted": 543,
+      "verified": 336
+    },
+    "rewrite/base34/mean": {
+      "accepted": 1004,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.6536458333333334,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.32043259604655455,
+      "delta_mrr": -0.006829863536633573,
+      "descriptive_ci95": [
+        -0.011388128459611502,
+        -0.002389592996798281
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 297,
+      "harmful_rate": 0.2958167330677291,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.4078402700827702,
+      "positive": 168,
+      "queries": 1536,
+      "unchanged_accepted": 539,
+      "verified": 0
+    },
+    "rewrite/base46/mean": {
+      "accepted": 1053,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.685546875,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.3057710865480505,
+      "delta_mrr": -0.005218305186024333,
+      "descriptive_ci95": [
+        -0.009322018832784638,
+        -0.0012702343975494383
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 297,
+      "harmful_rate": 0.28205128205128205,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.40945182843337946,
+      "positive": 186,
+      "queries": 1536,
+      "unchanged_accepted": 570,
+      "verified": 0
+    },
+    "rewrite/multiseed_IG": {
+      "accepted": 1536,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 1.0,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.28746805653741625,
+      "delta_mrr": -0.020198150397541196,
+      "descriptive_ci95": [
+        -0.02791060312579555,
+        -0.012653903017485195
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 412,
+      "harmful_rate": 0.2682291666666667,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.39447198322186255,
+      "positive": 276,
+      "queries": 1536,
+      "unchanged_accepted": 848,
+      "verified": 0
+    },
+    "rewrite/no_seed_uq/base": {
+      "accepted": 463,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.3014322916666667,
+      "cp_numerical_pass": true,
+      "cp_upper95": 0.09656508203262903,
+      "delta_mrr": 0.000718984160632319,
+      "descriptive_ci95": [
+        -0.0003628954820835649,
+        0.0019306030808469046
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 34,
+      "harmful_rate": 0.0734341252699784,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.4153891177800361,
+      "positive": 34,
+      "queries": 1536,
+      "unchanged_accepted": 395,
+      "verified": 0
+    },
+    "rewrite/no_seed_uq/fixed50": {
+      "accepted": 768,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.5,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.2971499366756037,
+      "delta_mrr": 0.017508909706911935,
+      "descriptive_ci95": [
+        0.009974913645453215,
+        0.024941131444052297
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 207,
+      "harmful_rate": 0.26953125,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.4321790433263157,
+      "positive": 233,
+      "queries": 1536,
+      "unchanged_accepted": 328,
+      "verified": 0
+    },
+    "rewrite/no_seed_uq/mean": {
+      "accepted": 1229,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.8001302083333334,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.23917413866140105,
+      "delta_mrr": 0.017353023303611798,
+      "descriptive_ci95": [
+        0.009896413456986032,
+        0.02480839075592713
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 269,
+      "harmful_rate": 0.21887713588283156,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.43202315692301557,
+      "positive": 298,
+      "queries": 1536,
+      "unchanged_accepted": 662,
+      "verified": 0
+    },
+    "rewrite/no_seed_uq/risk": {
+      "accepted": 181,
+      "actual_pairs": 2696,
+      "billed_slots": 2696,
+      "coverage": 0.11783854166666667,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.11827612019367345,
+      "delta_mrr": 0.008082581063828531,
+      "descriptive_ci95": [
+        0.004515882224401862,
+        0.011779569785926192
+      ],
+      "executed_ce_tokens": 366973,
+      "harmful": 14,
+      "harmful_rate": 0.07734806629834254,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.42275271468323233,
+      "positive": 44,
+      "queries": 1536,
+      "unchanged_accepted": 123,
+      "verified": 337
+    },
+    "rewrite/no_seed_uq/verified": {
+      "accepted": 496,
+      "actual_pairs": 2696,
+      "billed_slots": 2696,
+      "coverage": 0.3229166666666667,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.10814662474365552,
+      "delta_mrr": 0.007812357389695031,
+      "descriptive_ci95": [
+        0.004165890494409218,
+        0.011636830761752306
+      ],
+      "executed_ce_tokens": 366973,
+      "harmful": 42,
+      "harmful_rate": 0.0846774193548387,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.4224824910090988,
+      "positive": 67,
+      "queries": 1536,
+      "unchanged_accepted": 387,
+      "verified": 337
+    },
+    "rewrite/seed101_IG": {
+      "accepted": 1536,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 1.0,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.2881324167017447,
+      "delta_mrr": -0.018518086026822204,
+      "descriptive_ci95": [
+        -0.02628968990534321,
+        -0.010916456619688965
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 413,
+      "harmful_rate": 0.2688802083333333,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.39615204759258155,
+      "positive": 272,
+      "queries": 1536,
+      "unchanged_accepted": 851,
+      "verified": 0
+    },
+    "rewrite/seed_uq/base": {
+      "accepted": 371,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.24153645833333334,
+      "cp_numerical_pass": true,
+      "cp_upper95": 0.08668969236147382,
+      "delta_mrr": 0.0011345686671994264,
+      "descriptive_ci95": [
+        5.6059863236001276e-05,
+        0.002361287630839465
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 23,
+      "harmful_rate": 0.06199460916442048,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.41580470228660316,
+      "positive": 37,
+      "queries": 1536,
+      "unchanged_accepted": 311,
+      "verified": 0
+    },
+    "rewrite/seed_uq/fixed50": {
+      "accepted": 768,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.5,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.2877743635839638,
+      "delta_mrr": 0.016469260243210125,
+      "descriptive_ci95": [
+        0.009067675375079012,
+        0.023793828904300384
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 200,
+      "harmful_rate": 0.2604166666666667,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.43113939386261385,
+      "positive": 239,
+      "queries": 1536,
+      "unchanged_accepted": 329,
+      "verified": 0
+    },
+    "rewrite/seed_uq/mean": {
+      "accepted": 1156,
+      "actual_pairs": 0,
+      "billed_slots": 0,
+      "coverage": 0.7526041666666666,
+      "cp_numerical_pass": false,
+      "cp_upper95": 0.251397051051371,
+      "delta_mrr": 0.015529392128821174,
+      "descriptive_ci95": [
+        0.007985252812259556,
+        0.022997147522915394
+      ],
+      "executed_ce_tokens": 0,
+      "harmful": 266,
+      "harmful_rate": 0.2301038062283737,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.43019952574822495,
+      "positive": 295,
+      "queries": 1536,
+      "unchanged_accepted": 595,
+      "verified": 0
+    },
+    "rewrite/seed_uq/risk": {
+      "accepted": 157,
+      "actual_pairs": 2480,
+      "billed_slots": 2480,
+      "coverage": 0.10221354166666667,
+      "cp_numerical_pass": true,
+      "cp_upper95": 0.09006031366495905,
+      "delta_mrr": 0.005536276769913236,
+      "descriptive_ci95": [
+        0.002780135835557244,
+        0.00867084786796721
+      ],
+      "executed_ce_tokens": 336634,
+      "harmful": 8,
+      "harmful_rate": 0.050955414012738856,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.42020641038931705,
+      "positive": 29,
+      "queries": 1536,
+      "unchanged_accepted": 120,
+      "verified": 310
+    },
+    "rewrite/seed_uq/verified": {
+      "accepted": 382,
+      "actual_pairs": 2480,
+      "billed_slots": 2480,
+      "coverage": 0.24869791666666666,
+      "cp_numerical_pass": true,
+      "cp_upper95": 0.09911637358664913,
+      "delta_mrr": 0.005536703374304982,
+      "descriptive_ci95": [
+        0.0026687916038502886,
+        0.008716212105370024
+      ],
+      "executed_ce_tokens": 336634,
+      "harmful": 28,
+      "harmful_rate": 0.07329842931937172,
+      "no_rewrite_mrr": 0.4146701336194038,
+      "policy_mrr": 0.4202068369937087,
+      "positive": 52,
+      "queries": 1536,
+      "unchanged_accepted": 302,
+      "verified": 310
+    }
+  },
+  "no_rewrite_mrr": 0.4146701336194038,
+  "oracle": {
+    "fusion": {
+      "all_candidate_delta_mrr": 0.04786828427619899,
+      "label_access": "oracle diagnostic after opening; not a deployed selection method",
+      "queries_with_positive_candidate": 705,
+      "seed101_best_delta_mrr": 0.024720473233330875
+    },
+    "rewrite": {
+      "all_candidate_delta_mrr": 0.06975843128096347,
+      "label_access": "oracle diagnostic after opening; not a deployed selection method",
+      "queries_with_positive_candidate": 733,
+      "seed101_best_delta_mrr": 0.0378380428403148
+    }
+  },
+  "planned_power": {
+    "amended_at_utc": "2026-10-18T21:05:02.341754+00:00",
+    "confirmation_queries": 1536,
+    "explanation": "The original maximum also powered high-variance ungated rewrite diagnostics. This amendment powers exactly the previously named fusion post-risk primary and key secondary. All other stage/family comparisons remain descriptive; no hypothesis or threshold changed.",
+    "familywise_alpha": 0.05,
+    "fresh_outcomes_opened": false,
+    "fresh_protocol_exists": false,
+    "key_contrasts": 2,
+    "model_unseen_claim": false,
+    "observations": [
+      {
+        "contrast": "uq_increment",
+        "development_mean": 0.0029716370747381185,
+        "family": "fusion",
+        "sd": 0.05578997291992621,
+        "sd_upper80": 0.05732980904678277,
+        "stage": "risk"
+      },
+      {
+        "contrast": "versus_no_rewrite",
+        "development_mean": 0.00470065415679307,
+        "family": "fusion",
+        "sd": 0.060477170497722624,
+        "sd_upper80": 0.06214637603965963,
+        "stage": "risk"
+      }
+    ],
+    "original_all_stage_power_sha256": "62fc7ed0d9dcc9e10bf741644ce9706eeda29e39cb9f3b002659afffddf30355",
+    "original_all_stage_queries": 10624,
+    "original_design_sha256": "18a2a52d1a6905c99f71b91189b6fbdcd32502c1d9da84b35649804ebff8d629",
+    "planning_sd": 0.06214637603965963,
+    "required_unrounded": 1469,
+    "sensitivity_n": {
+      "0.0025": 5874,
+      "0.005": 1469,
+      "0.01": 368
+    },
+    "target_effect": 0.005,
+    "target_power": 0.8,
+    "z_sum": 3.083023961177861
+  },
+  "primary_contrasts": {
+    "uq_increment": {
+      "ci95": [
+        0.0015895882013498856,
+        0.006598886539586656
+      ],
+      "holm_adjusted_p": 0.002201290490472796,
+      "mean": 0.003952390664201891,
+      "negative_queries": 5,
+      "paired_sd": 0.050508826906351625,
+      "paired_t_p_two_sided": 0.002201290490472796,
+      "positive_confirmed": true,
+      "positive_queries": 22,
+      "simultaneous_ci97_5": [
+        0.0013304265837838897,
+        0.0069847308096466455
+      ]
+    },
+    "versus_no_rewrite": {
+      "ci95": [
+        0.0023040471519304613,
+        0.007187799247450693
+      ],
+      "holm_adjusted_p": 0.0005516150216264226,
+      "mean": 0.004578955565416576,
+      "negative_queries": 2,
+      "paired_sd": 0.04922760591787924,
+      "paired_t_p_two_sided": 0.0002758075108132113,
+      "positive_confirmed": true,
+      "positive_queries": 22,
+      "simultaneous_ci97_5": [
+        0.0020351985682379218,
+        0.007553569198115914
+      ]
+    }
+  },
+  "protocol_sha256": "8d25f287a3b1ac29305433e757a4ceccef42a94c11bd28d76e918c8e6403dd9c",
+  "queries": 1536,
+  "risk_certified": false,
+  "risk_cost_preserved": true,
+  "sample_plan_complete": true,
+  "stage_uq_increment": {
+    "fusion/base": {
+      "ci95": [
+        0.0001769873618639571,
+        0.0009587315516318071
+      ],
+      "descriptive_only": true,
+      "mean": 0.000534168242436967,
+      "negative_queries": 35,
+      "paired_sd": 0.007807572814232444,
+      "paired_t_p_two_sided": 0.0074105776113430315,
+      "positive_queries": 43,
+      "simultaneous_ci97_5": [
+        0.00013819768813331582,
+        0.0010271174814367016
+      ]
+    },
+    "fusion/fixed50": {
+      "ci95": [
+        -0.001135533751526985,
+        0.0031687014671638856
+      ],
+      "descriptive_only": true,
+      "mean": 0.0009253307418701207,
+      "negative_queries": 40,
+      "paired_sd": 0.04228883298340086,
+      "paired_t_p_two_sided": 0.39126674223949387,
+      "positive_queries": 40,
+      "simultaneous_ci97_5": [
+        -0.0014280131184179435,
+        0.003511975683095276
+      ]
+    },
+    "fusion/mean": {
+      "ci95": [
+        -0.0005989098675151302,
+        0.005299097997242168
+      ],
+      "descriptive_only": true,
+      "mean": 0.0022408005605425523,
+      "negative_queries": 45,
+      "paired_sd": 0.05721061344221873,
+      "paired_t_p_two_sided": 0.12497790180372359,
+      "positive_queries": 59,
+      "simultaneous_ci97_5": [
+        -0.0009181294434887358,
+        0.005771764307053455
+      ]
+    },
+    "fusion/risk": {
+      "ci95": [
+        0.0015895882013498856,
+        0.006598886539586656
+      ],
+      "descriptive_only": true,
+      "mean": 0.003952390664201891,
+      "negative_queries": 5,
+      "paired_sd": 0.050508826906351625,
+      "paired_t_p_two_sided": 0.002201290490472796,
+      "positive_queries": 22,
+      "simultaneous_ci97_5": [
+        0.0013304265837838897,
+        0.0069847308096466455
+      ]
+    },
+    "fusion/verified": {
+      "ci95": [
+        -0.004414392764247204,
+        0.0021646784183262614
+      ],
+      "descriptive_only": true,
+      "mean": -0.0011201465875145093,
+      "negative_queries": 70,
+      "paired_sd": 0.06521329132374745,
+      "paired_t_p_two_sided": 0.5009310203647956,
+      "positive_queries": 74,
+      "simultaneous_ci97_5": [
+        -0.004851974608853748,
+        0.0025975422735368715
+      ]
+    },
+    "rewrite/base": {
+      "ci95": [
+        -1.910504660686035e-05,
+        0.000894736369031447
+      ],
+      "descriptive_only": true,
+      "mean": 0.0004155845065671073,
+      "negative_queries": 12,
+      "paired_sd": 0.009061165013349661,
+      "paired_t_p_two_sided": 0.07245142694162729,
+      "positive_queries": 23,
+      "simultaneous_ci97_5": [
+        -6.881953467745478e-05,
+        0.0009715810409928998
+      ]
+    },
+    "rewrite/fixed50": {
+      "ci95": [
+        -0.003014924274674657,
+        0.0008465830093294936
+      ],
+      "descriptive_only": true,
+      "mean": -0.0010396494637018082,
+      "negative_queries": 57,
+      "paired_sd": 0.0386325659803014,
+      "paired_t_p_two_sided": 0.29172848407638646,
+      "positive_queries": 60,
+      "simultaneous_ci97_5": [
+        -0.0033079594144763023,
+        0.0011041904194771853
+      ]
+    },
+    "rewrite/mean": {
+      "ci95": [
+        -0.00412313863971044,
+        0.00033229103488273653
+      ],
+      "descriptive_only": true,
+      "mean": -0.0018236311747906239,
+      "negative_queries": 83,
+      "paired_sd": 0.044604502689051764,
+      "paired_t_p_two_sided": 0.10928680949342039,
+      "positive_queries": 70,
+      "simultaneous_ci97_5": [
+        -0.0044511413226534765,
+        0.0005783257545527018
+      ]
+    },
+    "rewrite/risk": {
+      "ci95": [
+        -0.0057971103648873324,
+        0.0006436945871910914
+      ],
+      "descriptive_only": true,
+      "mean": -0.0025463042939152954,
+      "negative_queries": 28,
+      "paired_sd": 0.06454859418978393,
+      "paired_t_p_two_sided": 0.12230241618373147,
+      "positive_queries": 18,
+      "simultaneous_ci97_5": [
+        -0.006356377301363279,
+        0.0011195060751292762
+      ]
+    },
+    "rewrite/verified": {
+      "ci95": [
+        -0.005532942238751237,
+        0.0009741015988163844
+      ],
+      "descriptive_only": true,
+      "mean": -0.0022756540153900475,
+      "negative_queries": 39,
+      "paired_sd": 0.06500414795161225,
+      "paired_t_p_two_sided": 0.17025736080090306,
+      "positive_queries": 34,
+      "simultaneous_ci97_5": [
+        -0.006101740144092969,
+        0.0013795537962157176
+      ]
+    }
+  },
+  "test_used": false
+}

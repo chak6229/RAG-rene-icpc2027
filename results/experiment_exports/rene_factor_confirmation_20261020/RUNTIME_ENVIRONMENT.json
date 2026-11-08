@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-10-20T10:11:37.150072+00:00",
+  "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "torch": "2.7.0+cu128",
+    "transformers": "4.57.6",
+    "tokenizers": "0.22.2",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "sentencepiece": "0.2.2",
+    "safetensors": "0.8.0",
+    "matplotlib": "3.10.9",
+    "threadpoolctl": "3.6.0"
+  },
+  "GPU_and_driver": "NVIDIA GeForce RTX 5070 Laptop GPU, 577.05, 8151 MiB",
+  "scope": "read-only runtime metadata; no method outcomes or setting changes",
+  "delivery_scripts_syntax_passed": true
+}

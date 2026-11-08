@@ -1,0 +1,15 @@
+{
+  "source_type": "人工评审",
+  "reviewers": [
+    "A",
+    "B"
+  ],
+  "queries": 128,
+  "sample_groups": 120,
+  "initial_annotations": 1676,
+  "supplement_annotations": 688,
+  "initial_labels_and_rationales_multiset_unchanged": true,
+  "supplement_labels_and_rationales_multiset_unchanged": true,
+  "cross_file_query_references_consistent": true,
+  "identities_and_process_times_omitted": true
+}

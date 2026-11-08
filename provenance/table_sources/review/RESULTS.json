@@ -1,0 +1,3628 @@
+{
+  "role": "posthoc_final_review_return_diagnostic",
+  "provenance": {
+    "human_review_reported_by_user": true,
+    "reviewers": [
+      "A",
+      "B"
+    ],
+    "rating_version": "final_submitted_returns",
+    "original_independent_label_versions_available": false,
+    "agreement_applies_to": "final returned labels; original independent-label agreement not reconstructed",
+    "reviewer_process_source": "user clarification"
+  },
+  "sample_queries": 128,
+  "sample_groups": 120,
+  "unique_rewrite_items": 383,
+  "unique_code_panels": 327,
+  "finite_frame_queries": 8530,
+  "agreement_scope": "unweighted displayed items; not population-weighted quality certification",
+  "agreement": {
+    "semantics": {
+      "n": 383,
+      "agreement": 0.7650130548302873,
+      "kappa": 0.5251412040225927,
+      "type": "nominal"
+    },
+    "relevance_including_unknown": {
+      "n": 327,
+      "agreement": 0.5382262996941896,
+      "kappa": 0.37064889047503724,
+      "type": "nominal"
+    },
+    "relevance_ordinal_judged_subset": {
+      "n": 260,
+      "agreement": 0.6692307692307692,
+      "kappa": 0.5685001459002044,
+      "type": "linear weighted",
+      "coverage_of_displayed_panels": 0.7951070336391437
+    },
+    "clarity": {
+      "n": 128,
+      "agreement": 0.7265625,
+      "kappa": 0.028620988725065022,
+      "type": "nominal"
+    },
+    "semantic_flag_exact_agreement": 0.7232375979112271
+  },
+  "confusion": {
+    "semantics": {
+      "rows_A_columns_B": [
+        "preserved",
+        "drift",
+        "malformed",
+        "uncertain"
+      ],
+      "counts": [
+        [
+          226,
+          7,
+          0,
+          2
+        ],
+        [
+          47,
+          66,
+          2,
+          14
+        ],
+        [
+          2,
+          0,
+          1,
+          16
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "relevance": {
+      "rows_A_columns_B": [
+        "0",
+        "1",
+        "2",
+        "u"
+      ],
+      "counts": [
+        [
+          70,
+          4,
+          0,
+          4
+        ],
+        [
+          49,
+          70,
+          0,
+          32
+        ],
+        [
+          5,
+          28,
+          34,
+          29
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ]
+      ]
+    }
+  },
+  "distributions": {
+    "A": {
+      "clarity": {
+        "clear": 124,
+        "ambiguous": 4
+      },
+      "semantics": {
+        "preserved": 235,
+        "drift": 129,
+        "malformed": 19
+      },
+      "relevance": {
+        "2": 96,
+        "1": 151,
+        "0": 78,
+        "u": 2
+      },
+      "issue_flags": {
+        "none": 235,
+        "unsupported_constraint": 109,
+        "operation_change": 14,
+        "incoherent": 19,
+        "polarity_change": 1,
+        "entity_api_change": 5
+      }
+    },
+    "B": {
+      "clarity": {
+        "clear": 94,
+        "ambiguous": 29,
+        "insufficient": 5
+      },
+      "semantics": {
+        "preserved": 275,
+        "drift": 73,
+        "uncertain": 32,
+        "malformed": 3
+      },
+      "relevance": {
+        "u": 67,
+        "1": 102,
+        "0": 124,
+        "2": 34
+      },
+      "issue_flags": {
+        "none": 275,
+        "unsupported_constraint": 43,
+        "uncertain": 32,
+        "operation_change": 18,
+        "entity_api_change": 11,
+        "incoherent": 3,
+        "lost_constraint": 1
+      }
+    }
+  },
+  "weighted_query_rates": {
+    "any_definite_semantic_issue": {
+      "estimate": 0.3500512895662368,
+      "ci95_conservative_finite_frame": [
+        0.09859320046893318,
+        0.6960140679953106
+      ],
+      "estimated_frame_count": 2985.9375,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 9,
+          "fraction": 0.5625,
+          "simultaneous_interval": [
+            0.22385321100917432,
+            0.8623853211009175
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 5,
+          "fraction": 0.3125,
+          "simultaneous_interval": [
+            0.06885245901639345,
+            0.6737704918032786
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 9,
+          "fraction": 0.5625,
+          "simultaneous_interval": [
+            0.2727272727272727,
+            0.8181818181818182
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 10,
+          "fraction": 0.625,
+          "simultaneous_interval": [
+            0.31666666666666665,
+            0.8666666666666667
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.019425019425019424,
+            0.5528360528360529
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 8,
+          "fraction": 0.5,
+          "simultaneous_interval": [
+            0.17937701396348013,
+            0.8206229860365198
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 6,
+          "fraction": 0.375,
+          "simultaneous_interval": [
+            0.10129564193168433,
+            0.7255594817432274
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 6,
+          "fraction": 0.375,
+          "simultaneous_interval": [
+            0.10051399200456881,
+            0.7281553398058253
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "any_possible_semantic_issue": {
+      "estimate": 0.754630715123095,
+      "ci95_conservative_finite_frame": [
+        0.3960140679953107,
+        0.953810082063306
+      ],
+      "estimated_frame_count": 6437.0,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 14,
+          "fraction": 0.875,
+          "simultaneous_interval": [
+            0.5192660550458715,
+            0.9935779816513761
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 12,
+          "fraction": 0.75,
+          "simultaneous_interval": [
+            0.3844262295081967,
+            0.9590163934426229
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 14,
+          "fraction": 0.875,
+          "simultaneous_interval": [
+            0.5818181818181818,
+            0.9636363636363636
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 14,
+          "fraction": 0.875,
+          "simultaneous_interval": [
+            0.5666666666666667,
+            0.9666666666666667
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 11,
+          "fraction": 0.6875,
+          "simultaneous_interval": [
+            0.32517482517482516,
+            0.9324009324009324
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 12,
+          "fraction": 0.75,
+          "simultaneous_interval": [
+            0.38560687432867885,
+            0.958109559613319
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 15,
+          "fraction": 0.9375,
+          "simultaneous_interval": [
+            0.6018845700824499,
+            0.9988221436984688
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 11,
+          "fraction": 0.6875,
+          "simultaneous_interval": [
+            0.32552826956025127,
+            0.9320388349514563
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "any_uncertain_semantics": {
+      "estimate": 0.2686987104337632,
+      "ci95_conservative_finite_frame": [
+        0.05638921453692849,
+        0.6257913247362251
+      ],
+      "estimated_frame_count": 2292.0,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.006422018348623854,
+            0.48073394495412847
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.019672131147540985,
+            0.5516393442622951
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 4,
+          "fraction": 0.25,
+          "simultaneous_interval": [
+            0.07272727272727272,
+            0.5636363636363636
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.016666666666666666,
+            0.35
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 6,
+          "fraction": 0.375,
+          "simultaneous_interval": [
+            0.09984459984459984,
+            0.7284382284382285
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 5,
+          "fraction": 0.3125,
+          "simultaneous_interval": [
+            0.06874328678839957,
+            0.6723952738990333
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.005889281507656066,
+            0.4793875147232038
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 5,
+          "fraction": 0.3125,
+          "simultaneous_interval": [
+            0.06796116504854369,
+            0.6744717304397487
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "verified_action_definite_drift": {
+      "estimate": 0.04161049237983587,
+      "ci95_conservative_finite_frame": [
+        0.0009378663540445487,
+        0.36565064478311843
+      ],
+      "estimated_frame_count": 354.9375,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0009174311926605505,
+            0.39908256880733944
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.01818181818181818,
+            0.34545454545454546
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.05,
+            0.5
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0003885003885003885,
+            0.40093240093240096
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0010741138560687433,
+            0.39849624060150374
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.001177856301531213,
+            0.39811542991755006
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "verified_harm_with_preserved_meaning": {
+      "estimate": 0.1291031652989449,
+      "ci95_conservative_finite_frame": [
+        0.07620164126611957,
+        0.40316529894490033
+      ],
+      "estimated_frame_count": 1101.25,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 14,
+          "fraction": 0.875,
+          "simultaneous_interval": [
+            0.519672131147541,
+            0.9942622950819672
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2545454545454545
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 9,
+          "fraction": 0.5625,
+          "simultaneous_interval": [
+            0.26666666666666666,
+            0.8166666666666667
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3014763014763015
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2996777658431794
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "missed_preserved_positive_opportunity": {
+      "estimate": 0.14283411488862838,
+      "ci95_conservative_finite_frame": [
+        0.04279015240328253,
+        0.458968347010551
+      ],
+      "estimated_frame_count": 1218.375,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.02018348623853211,
+            0.5513761467889908
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 6,
+          "fraction": 0.375,
+          "simultaneous_interval": [
+            0.10081967213114754,
+            0.7270491803278688
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.05454545454545454,
+            0.4909090909090909
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 6,
+          "fraction": 0.375,
+          "simultaneous_interval": [
+            0.13333333333333333,
+            0.6833333333333333
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3014763014763015
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 9,
+          "fraction": 0.5625,
+          "simultaneous_interval": [
+            0.22448979591836735,
+            0.8614393125671321
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "displayed_alternative_relevant": {
+      "estimate": 0.11992966002344665,
+      "ci95_conservative_finite_frame": [
+        0.012895662368112544,
+        0.46178194607268463
+      ],
+      "estimated_frame_count": 1023.0,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.02018348623853211,
+            0.5513761467889908
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 4,
+          "fraction": 0.25,
+          "simultaneous_interval": [
+            0.040983606557377046,
+            0.6155737704918033
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.05454545454545454,
+            0.4909090909090909
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.016666666666666666,
+            0.35
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3014763014763015
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.02040816326530612,
+            0.5510204081632653
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.005889281507656066,
+            0.4793875147232038
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.0057110222729868645,
+            0.4814391776127927
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "known_target_both_incomplete": {
+      "estimate": 0.4508792497069168,
+      "ci95_conservative_finite_frame": [
+        0.15662368112543962,
+        0.7756154747948417
+      ],
+      "estimated_frame_count": 3846.0,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 7,
+          "fraction": 0.4375,
+          "simultaneous_interval": [
+            0.13761467889908258,
+            0.7761467889908257
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 12,
+          "fraction": 0.75,
+          "simultaneous_interval": [
+            0.3844262295081967,
+            0.9590163934426229
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 8,
+          "fraction": 0.5,
+          "simultaneous_interval": [
+            0.23636363636363636,
+            0.7636363636363637
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 6,
+          "fraction": 0.375,
+          "simultaneous_interval": [
+            0.13333333333333333,
+            0.6833333333333333
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 7,
+          "fraction": 0.4375,
+          "simultaneous_interval": [
+            0.13636363636363635,
+            0.7773892773892774
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 8,
+          "fraction": 0.5,
+          "simultaneous_interval": [
+            0.17937701396348013,
+            0.8206229860365198
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 5,
+          "fraction": 0.3125,
+          "simultaneous_interval": [
+            0.06949352179034157,
+            0.6725559481743227
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 5,
+          "fraction": 0.3125,
+          "simultaneous_interval": [
+            0.06796116504854369,
+            0.6744717304397487
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "rater_A_any_semantic_issue": {
+      "estimate": 0.7541910902696366,
+      "ci95_conservative_finite_frame": [
+        0.3955451348182884,
+        0.9536928487690504
+      ],
+      "estimated_frame_count": 6433.25,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 14,
+          "fraction": 0.875,
+          "simultaneous_interval": [
+            0.5192660550458715,
+            0.9935779816513761
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 12,
+          "fraction": 0.75,
+          "simultaneous_interval": [
+            0.3844262295081967,
+            0.9590163934426229
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 14,
+          "fraction": 0.875,
+          "simultaneous_interval": [
+            0.5818181818181818,
+            0.9636363636363636
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 13,
+          "fraction": 0.8125,
+          "simultaneous_interval": [
+            0.5,
+            0.95
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 11,
+          "fraction": 0.6875,
+          "simultaneous_interval": [
+            0.32517482517482516,
+            0.9324009324009324
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 12,
+          "fraction": 0.75,
+          "simultaneous_interval": [
+            0.38560687432867885,
+            0.958109559613319
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 15,
+          "fraction": 0.9375,
+          "simultaneous_interval": [
+            0.6018845700824499,
+            0.9988221436984688
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 11,
+          "fraction": 0.6875,
+          "simultaneous_interval": [
+            0.32552826956025127,
+            0.9320388349514563
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "rater_B_any_semantic_issue": {
+      "estimate": 0.37557151230949587,
+      "ci95_conservative_finite_frame": [
+        0.10914419695193435,
+        0.720398593200469
+      ],
+      "estimated_frame_count": 3203.625,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 9,
+          "fraction": 0.5625,
+          "simultaneous_interval": [
+            0.22385321100917432,
+            0.8623853211009175
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 5,
+          "fraction": 0.3125,
+          "simultaneous_interval": [
+            0.06885245901639345,
+            0.6737704918032786
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 9,
+          "fraction": 0.5625,
+          "simultaneous_interval": [
+            0.2727272727272727,
+            0.8181818181818182
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 11,
+          "fraction": 0.6875,
+          "simultaneous_interval": [
+            0.38333333333333336,
+            0.9
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 4,
+          "fraction": 0.25,
+          "simultaneous_interval": [
+            0.04040404040404041,
+            0.6165501165501166
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 8,
+          "fraction": 0.5,
+          "simultaneous_interval": [
+            0.17937701396348013,
+            0.8206229860365198
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 7,
+          "fraction": 0.4375,
+          "simultaneous_interval": [
+            0.13898704358068315,
+            0.7750294464075382
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 6,
+          "fraction": 0.375,
+          "simultaneous_interval": [
+            0.10051399200456881,
+            0.7281553398058253
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    }
+  },
+  "weighted_query_issue_type_rates": {
+    "A_unsupported_constraint": {
+      "estimate": 0.6072318288393904,
+      "ci95_conservative_finite_frame": [
+        0.2690504103165299,
+        0.8785463071512309
+      ],
+      "estimated_frame_count": 5179.6875,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 11,
+          "fraction": 0.6875,
+          "simultaneous_interval": [
+            0.326605504587156,
+            0.9311926605504587
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 12,
+          "fraction": 0.75,
+          "simultaneous_interval": [
+            0.3844262295081967,
+            0.9590163934426229
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 12,
+          "fraction": 0.75,
+          "simultaneous_interval": [
+            0.43636363636363634,
+            0.9272727272727272
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 12,
+          "fraction": 0.75,
+          "simultaneous_interval": [
+            0.43333333333333335,
+            0.9333333333333333
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 8,
+          "fraction": 0.5,
+          "simultaneous_interval": [
+            0.17754467754467754,
+            0.8224553224553225
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 9,
+          "fraction": 0.5625,
+          "simultaneous_interval": [
+            0.22448979591836735,
+            0.8614393125671321
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 14,
+          "fraction": 0.875,
+          "simultaneous_interval": [
+            0.5206124852767963,
+            0.9941107184923439
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 8,
+          "fraction": 0.5,
+          "simultaneous_interval": [
+            0.17818389491719017,
+            0.8218161050828098
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "A_lost_constraint": {
+      "estimate": 0.0,
+      "ci95_conservative_finite_frame": [
+        0.0,
+        0.3
+      ],
+      "estimated_frame_count": 0.0,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2545454545454545
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3014763014763015
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2996777658431794
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "A_operation_change": {
+      "estimate": 0.07055978898007034,
+      "ci95_conservative_finite_frame": [
+        0.005392731535756155,
+        0.3989449003516999
+      ],
+      "estimated_frame_count": 601.875,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.006422018348623854,
+            0.48073394495412847
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.019672131147540985,
+            0.5516393442622951
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.03636363636363636,
+            0.41818181818181815
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.03333333333333333,
+            0.43333333333333335
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3014763014763015
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.00644468313641246,
+            0.48012889366272826
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.005889281507656066,
+            0.4793875147232038
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "A_entity_api_change": {
+      "estimate": 0.034510550996483,
+      "ci95_conservative_finite_frame": [
+        0.0005861664712778429,
+        0.3547479484173505
+      ],
+      "estimated_frame_count": 294.375,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0009174311926605505,
+            0.39908256880733944
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.01818181818181818,
+            0.34545454545454546
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.016666666666666666,
+            0.35
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0003885003885003885,
+            0.40093240093240096
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0010741138560687433,
+            0.39849624060150374
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "A_polarity_change": {
+      "estimate": 0.018859906213364596,
+      "ci95_conservative_finite_frame": [
+        0.00011723329425556858,
+        0.3300117233294256
+      ],
+      "estimated_frame_count": 160.875,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2545454545454545
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0003885003885003885,
+            0.40093240093240096
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2996777658431794
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "A_incoherent": {
+      "estimate": 0.14441676436107856,
+      "ci95_conservative_finite_frame": [
+        0.018522860492379837,
+        0.4917936694021102
+      ],
+      "estimated_frame_count": 1231.875,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0009174311926605505,
+            0.39908256880733944
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.01818181818181818,
+            0.34545454545454546
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.016666666666666666,
+            0.35
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.005439005439005439,
+            0.48212898212898214
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 5,
+          "fraction": 0.3125,
+          "simultaneous_interval": [
+            0.06874328678839957,
+            0.6723952738990333
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.005889281507656066,
+            0.4793875147232038
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 4,
+          "fraction": 0.25,
+          "simultaneous_interval": [
+            0.041119360365505425,
+            0.6162193032552827
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "B_unsupported_constraint": {
+      "estimate": 0.22178341148886282,
+      "ci95_conservative_finite_frame": [
+        0.053106682297772566,
+        0.5609613130128956
+      ],
+      "estimated_frame_count": 1891.8125,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 6,
+          "fraction": 0.375,
+          "simultaneous_interval": [
+            0.10091743119266056,
+            0.726605504587156
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.019672131147540985,
+            0.5516393442622951
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 7,
+          "fraction": 0.4375,
+          "simultaneous_interval": [
+            0.18181818181818182,
+            0.7272727272727273
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 6,
+          "fraction": 0.375,
+          "simultaneous_interval": [
+            0.13333333333333333,
+            0.6833333333333333
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3014763014763015
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 4,
+          "fraction": 0.25,
+          "simultaneous_interval": [
+            0.04189044038668099,
+            0.6143931256713212
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 6,
+          "fraction": 0.375,
+          "simultaneous_interval": [
+            0.10129564193168433,
+            0.7255594817432274
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 6,
+          "fraction": 0.375,
+          "simultaneous_interval": [
+            0.10051399200456881,
+            0.7281553398058253
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "B_lost_constraint": {
+      "estimate": 0.018859906213364596,
+      "ci95_conservative_finite_frame": [
+        0.00011723329425556858,
+        0.3300117233294256
+      ],
+      "estimated_frame_count": 160.875,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2545454545454545
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0003885003885003885,
+            0.40093240093240096
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2996777658431794
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "B_operation_change": {
+      "estimate": 0.10506301289566237,
+      "ci95_conservative_finite_frame": [
+        0.007502930832356389,
+        0.451348182883939
+      ],
+      "estimated_frame_count": 896.1875,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.006422018348623854,
+            0.48073394495412847
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.000819672131147541,
+            0.4
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.03636363636363636,
+            0.41818181818181815
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.05,
+            0.5
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0003885003885003885,
+            0.40093240093240096
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 4,
+          "fraction": 0.25,
+          "simultaneous_interval": [
+            0.04189044038668099,
+            0.6143931256713212
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.001177856301531213,
+            0.39811542991755006
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.0057110222729868645,
+            0.4814391776127927
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "B_entity_api_change": {
+      "estimate": 0.06788540445486518,
+      "ci95_conservative_finite_frame": [
+        0.005978898007033997,
+        0.3969519343493552
+      ],
+      "estimated_frame_count": 579.0625,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 4,
+          "fraction": 0.25,
+          "simultaneous_interval": [
+            0.04128440366972477,
+            0.6146788990825688
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.000819672131147541,
+            0.4
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2545454545454545
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.05,
+            0.5
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0003885003885003885,
+            0.40093240093240096
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0010741138560687433,
+            0.39849624060150374
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "B_polarity_change": {
+      "estimate": 0.0,
+      "ci95_conservative_finite_frame": [
+        0.0,
+        0.3
+      ],
+      "estimated_frame_count": 0.0,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2545454545454545
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3014763014763015
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2996777658431794
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "B_incoherent": {
+      "estimate": 0.02608440797186401,
+      "ci95_conservative_finite_frame": [
+        0.00035169988276670573,
+        0.3413833528722157
+      ],
+      "estimated_frame_count": 222.5,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.01818181818181818,
+            0.34545454545454546
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0003885003885003885,
+            0.40093240093240096
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0010741138560687433,
+            0.39849624060150374
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "both_same_rewrite_unsupported_constraint": {
+      "estimate": 0.2075762016412661,
+      "ci95_conservative_finite_frame": [
+        0.045838218053927314,
+        0.5488862837045722
+      ],
+      "estimated_frame_count": 1770.625,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 5,
+          "fraction": 0.3125,
+          "simultaneous_interval": [
+            0.06880733944954129,
+            0.673394495412844
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.019672131147540985,
+            0.5516393442622951
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 7,
+          "fraction": 0.4375,
+          "simultaneous_interval": [
+            0.18181818181818182,
+            0.7272727272727273
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 6,
+          "fraction": 0.375,
+          "simultaneous_interval": [
+            0.13333333333333333,
+            0.6833333333333333
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3014763014763015
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 4,
+          "fraction": 0.25,
+          "simultaneous_interval": [
+            0.04189044038668099,
+            0.6143931256713212
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 5,
+          "fraction": 0.3125,
+          "simultaneous_interval": [
+            0.06949352179034157,
+            0.6725559481743227
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 6,
+          "fraction": 0.375,
+          "simultaneous_interval": [
+            0.10051399200456881,
+            0.7281553398058253
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "both_same_rewrite_lost_constraint": {
+      "estimate": 0.0,
+      "ci95_conservative_finite_frame": [
+        0.0,
+        0.3
+      ],
+      "estimated_frame_count": 0.0,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2545454545454545
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3014763014763015
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2996777658431794
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "both_same_rewrite_operation_change": {
+      "estimate": 0.045655041031652986,
+      "ci95_conservative_finite_frame": [
+        0.001992966002344666,
+        0.36811254396248533
+      ],
+      "estimated_frame_count": 389.4375,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.006422018348623854,
+            0.48073394495412847
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.000819672131147541,
+            0.4
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2545454545454545
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.03333333333333333,
+            0.43333333333333335
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3014763014763015
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.00644468313641246,
+            0.48012889366272826
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.001177856301531213,
+            0.39811542991755006
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "both_same_rewrite_entity_api_change": {
+      "estimate": 0.014808030480656506,
+      "ci95_conservative_finite_frame": [
+        0.00023446658851113716,
+        0.32344665885111373
+      ],
+      "estimated_frame_count": 126.3125,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0009174311926605505,
+            0.39908256880733944
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2545454545454545
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3014763014763015
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0010741138560687433,
+            0.39849624060150374
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "both_same_rewrite_polarity_change": {
+      "estimate": 0.0,
+      "ci95_conservative_finite_frame": [
+        0.0,
+        0.3
+      ],
+      "estimated_frame_count": 0.0,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2545454545454545
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3014763014763015
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2996777658431794
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "both_same_rewrite_incoherent": {
+      "estimate": 0.006821512309495897,
+      "ci95_conservative_finite_frame": [
+        0.00011723329425556858,
+        0.31078546307151234
+      ],
+      "estimated_frame_count": 58.1875,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2545454545454545
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3014763014763015
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0010741138560687433,
+            0.39849624060150374
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "either_unsupported_constraint": {
+      "estimate": 0.6072318288393904,
+      "ci95_conservative_finite_frame": [
+        0.2690504103165299,
+        0.8785463071512309
+      ],
+      "estimated_frame_count": 5179.6875,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 11,
+          "fraction": 0.6875,
+          "simultaneous_interval": [
+            0.326605504587156,
+            0.9311926605504587
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 12,
+          "fraction": 0.75,
+          "simultaneous_interval": [
+            0.3844262295081967,
+            0.9590163934426229
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 12,
+          "fraction": 0.75,
+          "simultaneous_interval": [
+            0.43636363636363634,
+            0.9272727272727272
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 12,
+          "fraction": 0.75,
+          "simultaneous_interval": [
+            0.43333333333333335,
+            0.9333333333333333
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 8,
+          "fraction": 0.5,
+          "simultaneous_interval": [
+            0.17754467754467754,
+            0.8224553224553225
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 9,
+          "fraction": 0.5625,
+          "simultaneous_interval": [
+            0.22448979591836735,
+            0.8614393125671321
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 14,
+          "fraction": 0.875,
+          "simultaneous_interval": [
+            0.5206124852767963,
+            0.9941107184923439
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 8,
+          "fraction": 0.5,
+          "simultaneous_interval": [
+            0.17818389491719017,
+            0.8218161050828098
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "either_lost_constraint": {
+      "estimate": 0.018859906213364596,
+      "ci95_conservative_finite_frame": [
+        0.00011723329425556858,
+        0.3300117233294256
+      ],
+      "estimated_frame_count": 160.875,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2545454545454545
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0003885003885003885,
+            0.40093240093240096
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2996777658431794
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "either_operation_change": {
+      "estimate": 0.1299677608440797,
+      "ci95_conservative_finite_frame": [
+        0.010902696365767878,
+        0.482063305978898
+      ],
+      "estimated_frame_count": 1108.625,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.006422018348623854,
+            0.48073394495412847
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.019672131147540985,
+            0.5516393442622951
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 4,
+          "fraction": 0.25,
+          "simultaneous_interval": [
+            0.07272727272727272,
+            0.5636363636363636
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.05,
+            0.5
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0003885003885003885,
+            0.40093240093240096
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 4,
+          "fraction": 0.25,
+          "simultaneous_interval": [
+            0.04189044038668099,
+            0.6143931256713212
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.005889281507656066,
+            0.4793875147232038
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.0057110222729868645,
+            0.4814391776127927
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "either_entity_api_change": {
+      "estimate": 0.08714830011723329,
+      "ci95_conservative_finite_frame": [
+        0.0076201641266119575,
+        0.4220398593200469
+      ],
+      "estimated_frame_count": 743.375,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 4,
+          "fraction": 0.25,
+          "simultaneous_interval": [
+            0.04128440366972477,
+            0.6146788990825688
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.000819672131147541,
+            0.4
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.01818181818181818,
+            0.34545454545454546
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.05,
+            0.5
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.005439005439005439,
+            0.48212898212898214
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0010741138560687433,
+            0.39849624060150374
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "either_polarity_change": {
+      "estimate": 0.018859906213364596,
+      "ci95_conservative_finite_frame": [
+        0.00011723329425556858,
+        0.3300117233294256
+      ],
+      "estimated_frame_count": 160.875,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2545454545454545
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0003885003885003885,
+            0.40093240093240096
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.2996777658431794
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.29917550058892817
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.30097087378640774
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    },
+    "either_incoherent": {
+      "estimate": 0.16367966002344667,
+      "ci95_conservative_finite_frame": [
+        0.022860492379835874,
+        0.5135990621336459
+      ],
+      "estimated_frame_count": 1396.1875,
+      "frame_n": 8530,
+      "strata": [
+        {
+          "stratum": "gate_reject_positive",
+          "N": 1090,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.0009174311926605505,
+            0.39908256880733944
+          ]
+        },
+        {
+          "stratum": "gate_reject_negative",
+          "N": 1220,
+          "n": 16,
+          "positive": 0,
+          "fraction": 0.0,
+          "simultaneous_interval": [
+            0.0,
+            0.3008196721311475
+          ]
+        },
+        {
+          "stratum": "final_positive",
+          "N": 55,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.03636363636363636,
+            0.41818181818181815
+          ]
+        },
+        {
+          "stratum": "final_negative",
+          "N": 60,
+          "n": 16,
+          "positive": 1,
+          "fraction": 0.0625,
+          "simultaneous_interval": [
+            0.016666666666666666,
+            0.35
+          ]
+        },
+        {
+          "stratum": "gate_reject_zero",
+          "N": 2574,
+          "n": 16,
+          "positive": 3,
+          "fraction": 0.1875,
+          "simultaneous_interval": [
+            0.019425019425019424,
+            0.5528360528360529
+          ]
+        },
+        {
+          "stratum": "remaining_opportunity",
+          "N": 931,
+          "n": 16,
+          "positive": 5,
+          "fraction": 0.3125,
+          "simultaneous_interval": [
+            0.06874328678839957,
+            0.6723952738990333
+          ]
+        },
+        {
+          "stratum": "remaining_neutral_changed",
+          "N": 849,
+          "n": 16,
+          "positive": 2,
+          "fraction": 0.125,
+          "simultaneous_interval": [
+            0.005889281507656066,
+            0.4793875147232038
+          ]
+        },
+        {
+          "stratum": "remaining_no_opportunity",
+          "N": 1751,
+          "n": 16,
+          "positive": 4,
+          "fraction": 0.25,
+          "simultaneous_interval": [
+            0.041119360365505425,
+            0.6162193032552827
+          ]
+        }
+      ],
+      "inference": "Bonferroni 8-stratum exact hypergeometric bounds; pseudorandom SRS interpretation, finite frame only"
+    }
+  },
+  "conditional_query_rates": {
+    "verified_action_definite_drift": {
+      "event_frame_n": 5890,
+      "event": "RIDGE_verified adopts a rewrite",
+      "estimate": 0.060261035653650256,
+      "ci95_conservative_finite_frame": [
+        0.0013582342954159593,
+        0.5295415959252971
+      ],
+      "method": "HT numerator / known finite-frame event count; conservative unconditional numerator bounds"
+    },
+    "verified_harm_with_preserved_meaning": {
+      "event_frame_n": 1280,
+      "event": "RIDGE_verified has negative delta",
+      "estimate": 0.8603515625,
+      "ci95_conservative_finite_frame": [
+        0.5078125,
+        1.0
+      ],
+      "method": "HT numerator / known finite-frame event count; conservative unconditional numerator bounds"
+    },
+    "missed_preserved_positive_opportunity": {
+      "event_frame_n": 3092,
+      "event": "safe ENTR positive opportunity exists",
+      "estimate": 0.39404107373868047,
+      "ci95_conservative_finite_frame": [
+        0.11804657179818888,
+        1.0
+      ],
+      "method": "HT numerator / known finite-frame event count; conservative unconditional numerator bounds"
+    }
+  },
+  "disagreements": {
+    "semantic_fidelity": 90,
+    "semantic_flags": 106,
+    "rewrite_union": 106,
+    "code": 151,
+    "clarity": 35,
+    "unknown_vs_judged_code": 65,
+    "B_lower_numeric_relevance": 82,
+    "B_higher_numeric_relevance": 4,
+    "queries_with_any_disagreement": 122,
+    "automatic_adjudication_performed": false
+  },
+  "rate_interpretation": "query contains a reviewer-marked item/event; indicators overlap and are not causal explanation fractions",
+  "interval_interpretation": "fixed finite frame sampling uncertainty only; label error and review-version uncertainty are not included",
+  "causal_explanation_percentage_identified": false,
+  "human_review_reported_by_user": true,
+  "original_independent_agreement_established": false,
+  "risk_certified": false,
+  "source_type": "人工评审"
+}

@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "path": "imports/codenn_keras/keras/train.desc.h5",
+      "bytes": 422768639,
+      "sha256": "65cd5ec49ac9badf44a99443fc4c358f1126c5e8216236b7bfbaf70f9a6bec68",
+      "role": "source_h5"
+    },
+    {
+      "path": "imports/codenn_keras/keras/vocab.desc.pkl",
+      "bytes": 167955,
+      "sha256": "59310289b8fd4e43fbf44d9f9d01c283dce498cea8dca088484fdf36bad6c0e2",
+      "role": "source_vocab"
+    },
+    {
+      "path": "data/codenn_cqc/train.txt",
+      "bytes": 56704552,
+      "sha256": "22462d846275af98a930e77d3ab31fe4ca7795b44a4f9addb4942089c8e5d225",
+      "role": "train"
+    },
+    {
+      "path": "data/codenn_cqc/valid.txt",
+      "bytes": 567715,
+      "sha256": "bc8b15c021ce1fbe46b1da6bde775d7042c46107b62fe8627a3ff30e654ea9b0",
+      "role": "validation"
+    },
+    {
+      "path": "data/codenn_cqc/valid_fixed_cqc.jsonl",
+      "bytes": 2155438,
+      "sha256": "71b6860b726691604e72462ffb69b82fa547b9996ff6f46faad4e5f3fc2544df",
+      "role": "fixed_validation_cqc"
+    }
+  ],
+  "selection": "first decodable descriptions in author/source HDF5 order",
+  "train": {
+    "samples": 1000000,
+    "first_source_index": 0,
+    "last_source_index": 999999
+  },
+  "validation": {
+    "samples": 10000,
+    "first_source_index": 1000000,
+    "last_source_index": 1009999,
+    "fixed_corruption_seed": 1000104,
+    "masking_unit": "whitespace-delimited natural-language words",
+    "masking": "one contiguous span, round(15% * word_count), minimum 1"
+  },
+  "upstream_readme": "https://github.com/guxd/deep-code-search/blob/master/keras/README.md",
+  "upstream_download": "https://drive.google.com/drive/folders/1GZYLT_lzhlVczXjD6dgwVUvDDPHMB6L7?usp=sharing",
+  "alternate_download": "https://pan.baidu.com/s/1U_MtFXqq0C-Qh8WUFAWGvg",
+  "redistribution": "raw and decoded comments remain upstream inputs, not bundled in this release"
+}

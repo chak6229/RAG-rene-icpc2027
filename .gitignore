@@ -218,3 +218,26 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# SSQR replication outputs and external model assets
+.venv/
+venv/
+reproduced/
+artifact/numerical/reproduced/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.env.*
+external_inputs/
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.zip
+.DS_Store
+Thumbs.db

@@ -1,0 +1,386 @@
+{
+  "created_utc": "2026-10-20T15:02:09.850884+00:00",
+  "status": "FROZEN_BEFORE_NEW_STUDY_PREDICTIONS",
+  "role": "prospectively_specified_third_retriever_extension_on_consumed_datasets",
+  "new_confirmation": false,
+  "external_preregistration": false,
+  "prior_two_retriever_effects_known": true,
+  "new_UniXcoder_effects_computed_before_freeze": false,
+  "retriever": "UniXcoder-base author zero-shot checkpoint",
+  "model": "models/unixcoder-base-pinned-20261020",
+  "samples": {
+    "cosqa": {
+      "queries": "results/rene_ssqr_bridge_20261019/data/cosqa/queries.jsonl",
+      "corpus": "results/rene_ssqr_alignment_20261019/cosqa_adapter/public/corpus.jsonl",
+      "candidates": "results/rene_ssqr_bridge_20261019/candidates/cosqa/baseline.jsonl",
+      "old_actions": "results/rene_budget_aggregation_20261020/ACTIONS.jsonl",
+      "qrels": "results/rene_ssqr_bridge_20261019/data/private/cosqa_qrels.jsonl",
+      "reference_rows": "results/rene_budget_aggregation_20261020/per_query.jsonl",
+      "reference_results": "results/rene_budget_aggregation_20261020/RESULTS.json",
+      "queries_expected": 1490,
+      "groups_expected": 512,
+      "documents_expected": 6267,
+      "grouping": "original CoSQA connected group",
+      "actions": "results/rene_third_retriever_20261020/public/cosqa_actions.jsonl",
+      "candidate_positions": 9915,
+      "unique_query_inputs": 11350
+    },
+    "staqc": {
+      "queries": "results/rene_factor_confirmation_20261020/public/queries.jsonl",
+      "corpus": "results/rene_factor_confirmation_20261020/public/corpus.jsonl",
+      "candidates": "results/rene_factor_confirmation_20261020/candidates.jsonl",
+      "old_actions": "results/rene_factor_confirmation_20261020/actions.jsonl",
+      "groups": "results/rene_factor_confirmation_20261020/public/groups.jsonl",
+      "qrels": "results/rene_factor_confirmation_20261020/private/qrels.jsonl",
+      "reference_rows": "results/rene_factor_confirmation_20261020/per_query.jsonl",
+      "reference_results": "results/rene_factor_confirmation_20261020/RESULTS.json",
+      "queries_expected": 13312,
+      "groups_expected": 13312,
+      "documents_expected": 16384,
+      "grouping": "original StaQC connected group, one query per group",
+      "actions": "results/rene_third_retriever_20261020/public/staqc_actions.jsonl",
+      "candidate_positions": 116319,
+      "unique_query_inputs": 128891
+    }
+  },
+  "inference": {
+    "mode": "<encoder-only>",
+    "code_max_length": 256,
+    "query_max_length": 128,
+    "pooling": "mean of all nonpadding last hidden token states including special tokens",
+    "normalization": "L2 unit vector",
+    "similarity": "FP32 dot product of normalized vectors",
+    "batch_size": 16,
+    "precision": "FP32; TF32 disabled",
+    "dropout": false,
+    "token_prefix": [
+      "<s>",
+      "<encoder-only>",
+      "</s>"
+    ],
+    "token_suffix": [
+      "</s>"
+    ],
+    "ties": "score descending, original corpus doc_id ascending",
+    "depth": 100,
+    "recipe_source": "pinned official downstream-tasks/code-search; code256/nl128",
+    "common_input_text_and_corpus": true,
+    "isolated_architecture_effect": false
+  },
+  "selectors": [
+    "ENTR",
+    "PROB",
+    "exact uniform without replacement over original positions"
+  ],
+  "candidate_counts": [
+    1,
+    2,
+    3
+  ],
+  "aggregations": [
+    "first structural anchor",
+    "mean",
+    "max label-assisted"
+  ],
+  "primary_components": [
+    "ENTR_B_budget_mean_1_to_3",
+    "ENTR_G_aggregation_at3_mean_to_max"
+  ],
+  "primary_family": {
+    "size": 12,
+    "new_model_B_G_times_2_scenarios": 4,
+    "paired_new_minus_each_old_B_G_times_2_scenarios": 8,
+    "correction": "two-sided Bonferroni12; both cluster-t and group bootstrap intervals",
+    "nonzero_groups_minimum": 20,
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 202610203
+  },
+  "secondary": "pointwise95 descriptive: PROB, ENTR-PROB, all S curves and baseline/candidate RR",
+  "sample_planning": "complete previously fixed samples; no new-model power guarantee; old variance scenarios archived",
+  "no_new_training": true,
+  "no_new_T5_generation": true,
+  "no_new_H_evaluation": true,
+  "not_cross_rewriter_family": true,
+  "not_full_policy_transfer": true,
+  "risk_certified": false,
+  "bound_files": [
+    {
+      "path": "experiments/rene_budget_aggregation_20261020/metrics.py",
+      "sha256": "b64318d0dc306aec279d9a3273fa3e74f614a0c62b2a8b4052f7f4d6bc47f147"
+    },
+    {
+      "path": "experiments/rene_third_retriever_20261020/__init__.py",
+      "sha256": "e7b71b5a854cd8e1e7710da60b97d34b10febbf3c0d56f5b0890efe42b6dfeee"
+    },
+    {
+      "path": "experiments/rene_third_retriever_20261020/analysis.py",
+      "sha256": "0aa157fffbc29786163c99ad07c058b3f4ab79e2bc09c241260b03d7576ba54f"
+    },
+    {
+      "path": "experiments/rene_third_retriever_20261020/audit.py",
+      "sha256": "09a3ab05572ce061d2bfd39141ea110db99e01fd87ab976318fb71f21d8e3cc7"
+    },
+    {
+      "path": "experiments/rene_third_retriever_20261020/common.py",
+      "sha256": "0a9257fa88f2835f1362c62cf99646c17304f10ab587090cd842fc903c6fbabf"
+    },
+    {
+      "path": "experiments/rene_third_retriever_20261020/DESIGN.md",
+      "sha256": "44f6fa9a806e0dd34afea9803d6cba74d8aed330ac0dc026a5c108f5e79eac20"
+    },
+    {
+      "path": "experiments/rene_third_retriever_20261020/download.py",
+      "sha256": "8f1f3e6b92ce2c0a31be0b28c38474ff3baa77646a051d03261c8024e1a91926"
+    },
+    {
+      "path": "experiments/rene_third_retriever_20261020/encoder.py",
+      "sha256": "adf3a17849768418f8e6a484c95ddaffb4b080fb71d849b886d7e0211cd73a93"
+    },
+    {
+      "path": "experiments/rene_third_retriever_20261020/inference.py",
+      "sha256": "2a350996e1b2948cba10414df0c4676f23fed970e392c5cf883d0505129b6df9"
+    },
+    {
+      "path": "experiments/rene_third_retriever_20261020/preflight.py",
+      "sha256": "eff5e8033ea81f773776721ed64db10990c6d0ec87fc28c448e0628d49943333"
+    },
+    {
+      "path": "experiments/rene_third_retriever_20261020/prepare.py",
+      "sha256": "a5505e41bff67a9cc64bb863ad0b52737601b40366604162511bbfaf45e0ef31"
+    },
+    {
+      "path": "experiments/rene_third_retriever_20261020/report.py",
+      "sha256": "855e2b188b43c2cebfcee777c98ccb8e17e77cb3216b6a612c8865487d6658bb"
+    },
+    {
+      "path": "experiments/rene_third_retriever_20261020/run.py",
+      "sha256": "64c569e2f76f0b25c85c52189fa0a2dde0cd511bea0849926a12b488241c9020"
+    },
+    {
+      "path": "experiments/rene_third_retriever_20261020/statistics.py",
+      "sha256": "41a511c1c7199ae1c6176a14e94221e372e9455d306a3b305925530f689ff7d6"
+    },
+    {
+      "path": "experiments/rene_third_retriever_20261020/test_contract.py",
+      "sha256": "838a9069aa3bb07c7c099135a39b7db0d4c1249a0828e2f787fb9d002593a8be"
+    },
+    {
+      "path": "models/unixcoder-base-pinned-20261020/config.json",
+      "sha256": "a7c07558348da020fb6055541fd593f21a6f0142a398da17bc452d50d3aef927"
+    },
+    {
+      "path": "models/unixcoder-base-pinned-20261020/merges.txt",
+      "sha256": "3b84414c9f8804a621da0fd4bfe77104ef536c350baaaf3c99003356b0cc85f4"
+    },
+    {
+      "path": "models/unixcoder-base-pinned-20261020/pytorch_model.bin",
+      "sha256": "6732b60037b086557e4c731c3748c99b4fec735d9ffe3c4c70061fd142e6b9d9"
+    },
+    {
+      "path": "models/unixcoder-base-pinned-20261020/README.md",
+      "sha256": "4257702415ce5590e143f628b39dd434c94f911eccde62f723d8f97f32c41445"
+    },
+    {
+      "path": "models/unixcoder-base-pinned-20261020/special_tokens_map.json",
+      "sha256": "c611b1f7d416eb001ee4f293d903ea8c88e703463f1d403f1866a0352743fd00"
+    },
+    {
+      "path": "models/unixcoder-base-pinned-20261020/tokenizer_config.json",
+      "sha256": "44b6e7a4fd703a619b6f8c297a8799f71ac14fdcb7f2d1ad8d8211649abed5e4"
+    },
+    {
+      "path": "models/unixcoder-base-pinned-20261020/vocab.json",
+      "sha256": "81c76e8f61bb1df102044d9b3d72070e3b2ac4d484b087ecb23b8633d6874f4b"
+    },
+    {
+      "path": "results/rene_budget_aggregation_20261020/ACTIONS.jsonl",
+      "sha256": "59b63645ec9a3ef29d204a1b9dbcb17efadad5ed775fef012ef0ee6a6287c1af"
+    },
+    {
+      "path": "results/rene_budget_aggregation_20261020/per_query.jsonl",
+      "sha256": "ac4111c47ccd80e1f4c12ad325fe23bca127663e1efc7ce8a0e01b8c1b53ef2b"
+    },
+    {
+      "path": "results/rene_budget_aggregation_20261020/RESULTS.json",
+      "sha256": "da61be1ad9085de2144a09a6918419b54725274c712bb2e3c9d12106473496fc"
+    },
+    {
+      "path": "results/rene_factor_confirmation_20261020/actions.jsonl",
+      "sha256": "cdbb99e185f016cf20abaefe13fe7bcc22fb9ddbd2dc1494b0329c78c2ca346e"
+    },
+    {
+      "path": "results/rene_factor_confirmation_20261020/candidates.jsonl",
+      "sha256": "f5a93f423c43bec97f814c0ab939ab2f7c747f5df1968e464ccaaf3c39b6c7d1"
+    },
+    {
+      "path": "results/rene_factor_confirmation_20261020/per_query.jsonl",
+      "sha256": "a819b9d4d5d2e719fc524ff177d71e72930aa4f9002e5cee85669c4f6726d623"
+    },
+    {
+      "path": "results/rene_factor_confirmation_20261020/private/qrels.jsonl",
+      "sha256": "cd597b30494d0ca7a97db4dd7efd6126f1ba11ab33f876ac817ce0cda475df8e"
+    },
+    {
+      "path": "results/rene_factor_confirmation_20261020/public/corpus.jsonl",
+      "sha256": "97b3c1d4391112bdc43b974123d45137330fe7b16351a27984f37f0d5e509f65"
+    },
+    {
+      "path": "results/rene_factor_confirmation_20261020/public/groups.jsonl",
+      "sha256": "9217c38e0a7baaf3b3955d670e15594ddc6cf8cfc1e3e6959a08e75a741bc7ab"
+    },
+    {
+      "path": "results/rene_factor_confirmation_20261020/public/queries.jsonl",
+      "sha256": "533828b42488a7b38a0e5e00a0bfd6f6b0625846489a88d109170f92a1d0fa14"
+    },
+    {
+      "path": "results/rene_factor_confirmation_20261020/RESULTS.json",
+      "sha256": "c9ddea0e949088c52a67848084b62091a71fe0ae2be9f472127be40134baa9e1"
+    },
+    {
+      "path": "results/rene_ssqr_alignment_20261019/cosqa_adapter/public/corpus.jsonl",
+      "sha256": "4e48d0ded5f5591002040faac69e9ece984cd2b340a6164fcc9d93c4b5009f68"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/candidates/cosqa/baseline.jsonl",
+      "sha256": "661e6617bbfe375e0e356980fc1b0ff64f9491a17f5993585463da1dace79128"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/data/cosqa/queries.jsonl",
+      "sha256": "6b51e8e5f3a90f867786178b9380fa7eb72401978518c0bea70e7069523bf7d8"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/data/private/cosqa_qrels.jsonl",
+      "sha256": "7947d0a0d21873337ead09a5d128981cb52321942bdb97c18f66567102133088"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/BEFORE_INFERENCE_PROTECTED.json",
+      "sha256": "09aeece682b6f64945c4071f55eb47edc5d89a51e6886e5775b4f56c7d96fcc5"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/MODEL_PROVENANCE.json",
+      "sha256": "218345660c183cf1cafdaadb10e3390d7fabea04c3cf4b2571e3f02d5bea58eb"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/PRECISION_SCENARIOS.json",
+      "sha256": "990fff44e12b5c97e7d437823243cc7db8f1e5fb22700f48446edb3622841093"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/PREFLIGHT.json",
+      "sha256": "79aac8d77c501e364df9de1256b296627b812c7fd4d3cb386ab4526ae9916309"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/public/cosqa_actions.jsonl",
+      "sha256": "3a1302b4a2e2ec7b395dbff43980a73bd017f8d696db7cc0c638c6f69f70f933"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/public/staqc_actions.jsonl",
+      "sha256": "61c4b9fbddf86a171d1b6d527db6502241a6314d7f9239c95ed9853a3b217cc0"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/sources/HF_MODEL.json",
+      "sha256": "a5746f145860003905bafbeae77d6bc3006a6956c8c06732d5a89ba560381efb"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/sources/LICENSE",
+      "sha256": "7c77a44a8acd9b41fdc209864a8016b3d430b5d0e09309818d5b7444336df744"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/sources/LICENSE.receipt.json",
+      "sha256": "78342f4e1c6e50ea3d996b8b6c5cd728f6bf630773c249f528ce40b413c40b94"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/sources/UniXcoder__downstream-tasks__code-search__model.py",
+      "sha256": "8f21d6d0427466404a1b4f9aa040062de34deb8d584aac834ffdb9b4c7b0e486"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/sources/UniXcoder__downstream-tasks__code-search__model.py.receipt.json",
+      "sha256": "24770905dc795e449f92412dd5917cbd4b1469adb386daa9c93c612efbe15b52"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/sources/UniXcoder__downstream-tasks__code-search__README.md",
+      "sha256": "16649d770b20b8f92d9b08ff7818bfbe3b647c86f3960c928df6db7dae22d8f5"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/sources/UniXcoder__downstream-tasks__code-search__README.md.receipt.json",
+      "sha256": "d577653367bbc68650e9553661ac1996707802499fc70cd72860ada0bb18aecd"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/sources/UniXcoder__downstream-tasks__code-search__run.py",
+      "sha256": "460851452fa5eb80d5777991d161eb95ea8b21a65aafb3fa5fc00120f77044a0"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/sources/UniXcoder__downstream-tasks__code-search__run.py.receipt.json",
+      "sha256": "dfdf1c400d580fb12eb6cabfa61a5ee182cbcaf239432ee7090137270f289994"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/sources/UniXcoder__README.md",
+      "sha256": "5df42cce9f34cfaac10620f5c130e1acb9cf33e83c407204e93beacd5554a44f"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/sources/UniXcoder__README.md.receipt.json",
+      "sha256": "9d2adbc482a7ebe546a7e3ff4c64129c903da8cc75b3b13769675bcf864ebdc3"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/sources/UniXcoder__unixcoder.py",
+      "sha256": "50ce5aa8b9b945dd28ad8f9d24cdce2e8e7aa58d95a6cb47ab53c221dbeead95"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/sources/UniXcoder__unixcoder.py.receipt.json",
+      "sha256": "01f9f577bfbeb03adfd0507e73cadbd12c712818c47521f153293191af6faa1f"
+    },
+    {
+      "path": "results/rene_third_retriever_20261020/TEST_RESULTS.json",
+      "sha256": "7ceeba7f179c5b21476213f505f7b5fdbe5b4caa6db9e946b2ec5c12e482baf2"
+    }
+  ],
+  "protected_files": [
+    {
+      "path": "configs/vac_mqr_gain_model/CURRENT.json",
+      "sha256": "74eb0553c9d489f25f82408ed2cc0521a5d3fab92159d59700d5c8496c52d371"
+    },
+    {
+      "path": "configs/vac_mqr_verification_policy/CURRENT.json",
+      "sha256": "ca9c157954527fbcfee44ea34010131ab0143ec74d0778c081409d28507315e1"
+    },
+    {
+      "path": "configs/vac_mqr_risk_module/CURRENT.json",
+      "sha256": "436c367c8f8e15d1723064e9edb780dc3544180821d03fcac61d7c3724f50693"
+    },
+    {
+      "path": "configs/uq_candidate_selection/CURRENT.json",
+      "sha256": "5bd37f87e468a878f37f8356e298e15b3517bd5acb58ced03e24e3c923d6ef27"
+    },
+    {
+      "path": "results/vac_mqr_v5/STABLE.json",
+      "sha256": "ea43301dd61510d8415391e5b5182f286e736589a0e870f79630a92320f69a72"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/PROTOCOL.json",
+      "sha256": "886a24259c82edd44b13dd6ce183b8795ae1bf00d27ffc0e8d1b14ab6eb13591"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
+      "sha256": "bc7e6e69ced0627612f13676c040d1fd025ab2712874e071731fb376126668ea"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/FINAL_ACCEPTANCE.json",
+      "sha256": "69de5d3290a5e039af18e3635cbf3ecbce86086e70cdda04dae5bd6c8f49a12e"
+    },
+    {
+      "path": "results/rene_budget_aggregation_20261020/FINAL_ACCEPTANCE.json",
+      "sha256": "96d4c64bfaafc0c6fea1c2c4387ebca332c091ad2173185343cc763d8fa15934"
+    },
+    {
+      "path": "results/rene_cqc_training_fidelity_20261020/FINAL_ACCEPTANCE.json",
+      "sha256": "914035e9f39383bfb22c1619b53c0b7406f7fdfe92cf1d493a7cb9e34d213cb0"
+    },
+    {
+      "path": "results/rene_factor_confirmation_20261020/FINAL_ACCEPTANCE.json",
+      "sha256": "5760c4ff94ca170ed65852240448001621aa230fea8c8e3f1c510466df47594e"
+    },
+    {
+      "path": "results/rene_factor_confirmation_20261020/DELIVERY_ACCEPTANCE.json",
+      "sha256": "cb9bb88d91c1d28adb543e65ba6e73a2590023d6f50f9c466201bc43f2551508"
+    }
+  ]
+}

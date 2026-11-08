@@ -1,0 +1,168 @@
+{
+  "created_utc": "2026-10-20T05:57:18.939396+00:00",
+  "status": "FROZEN_BEFORE_NEW_GENERATION_AND_OUTCOMES",
+  "training_protocol_sha256": "4b18123ad653f4921000fb48e5e358538c6db7157de6b07fbf6061a68a4e4677",
+  "new_confirmation": false,
+  "risk_certified": false,
+  "code_and_input_files": [
+    {
+      "path": "experiments/rene_cqc_training_fidelity_20261020/__init__.py",
+      "sha256": "556ecbbab87347bc0e8c8ace2cff95b2f54d1a292f16f3682bdd0b9ad4de32f0"
+    },
+    {
+      "path": "experiments/rene_cqc_training_fidelity_20261020/analyze.py",
+      "sha256": "bb73c9d035934ba09c2e1d2b15f91c297d9308fbcc5fb4583b855ba5ae735a70"
+    },
+    {
+      "path": "experiments/rene_cqc_training_fidelity_20261020/audit.py",
+      "sha256": "6132223b0cfa506797ef1d9b8f92a8528a1c84c4fcf03d1788a3de684c280b3d"
+    },
+    {
+      "path": "experiments/rene_cqc_training_fidelity_20261020/common.py",
+      "sha256": "e294cdafad1ab2ed7ce5b0d5358f7c437c2e129dd65343cc2836b7a0372ac848"
+    },
+    {
+      "path": "experiments/rene_cqc_training_fidelity_20261020/DESIGN.md",
+      "sha256": "a358e6d12702bd6cfe2e980737787e1d37d37bd7245c9cc787920dbe200e874b"
+    },
+    {
+      "path": "experiments/rene_cqc_training_fidelity_20261020/evaluate.py",
+      "sha256": "110deca92b515cc41344dbb26c99585c1100011cefceb182f93e4d0046b4cee4"
+    },
+    {
+      "path": "experiments/rene_cqc_training_fidelity_20261020/model_audit.py",
+      "sha256": "89882143ec9adf1a36e67e9a631b9307b684f4a82c02489047b317c896e418be"
+    },
+    {
+      "path": "experiments/rene_cqc_training_fidelity_20261020/prepare.py",
+      "sha256": "253798bcee3a515b7d24b57e6152a6adff37a5c8a8fd60b6cbfab441b13807d0"
+    },
+    {
+      "path": "experiments/rene_cqc_training_fidelity_20261020/report.py",
+      "sha256": "b63e6cf4d45856bcaee8de371c849bdfddbfd27368ca358a2fafc5a959ea3273"
+    },
+    {
+      "path": "experiments/rene_cqc_training_fidelity_20261020/test_eval.py",
+      "sha256": "f9e3027c7e23ac88ab9117eba1933a4979114e68d1ec563dd3b2ff8420841ffe"
+    },
+    {
+      "path": "experiments/rene_cqc_training_fidelity_20261020/test_train.py",
+      "sha256": "51dd16c9caa6683636b7cbe841571e4d0561bf9ed92b4e1e9f808a74fcce57b5"
+    },
+    {
+      "path": "experiments/rene_cqc_training_fidelity_20261020/train.py",
+      "sha256": "94ce4bead6e0bedb0c60de99384356b4d682c42ef831fac6f725961772c124e7"
+    },
+    {
+      "path": "experiments/rene_envelope_completion_20261020/common.py",
+      "sha256": "956854d1949a2d8f787d40a35fb33fc2312fa36f9f731651aa5eb203e7730db4"
+    },
+    {
+      "path": "experiments/rene_ssqr_alignment_20261019/pipeline.py",
+      "sha256": "73ec0b3e94fe5d9e7cda036530b204db7a27485045a7c1444eac572d366fd515"
+    },
+    {
+      "path": "experiments/rene_ssqr_alignment_20261019/retriever.py",
+      "sha256": "48b490fb06712985740af8064095e2116fe87a192c8ddcdfe051f39f2c9944f4"
+    },
+    {
+      "path": "experiments/rene_ssqr_alignment_20261019/t5.py",
+      "sha256": "fdc537ac6b56541150278ec6f79951b9463a7fd74a27f1e6c44cf7d94668cfa1"
+    },
+    {
+      "path": "models/codebert-ssqr-pooler-2epoch-20261019/model.safetensors",
+      "sha256": "0d533c04602916c22d1f13d282056f081b6bd04f9866ccc1ded46a0516e13e3d"
+    },
+    {
+      "path": "models/codebert-ssqr-pooler-2epoch-20261019/ssqr_representation_contract.json",
+      "sha256": "59b12aed88ea1f97c34906e1baaf10a092247ef11177adc1769d155f25539956"
+    },
+    {
+      "path": "models/codebert-ssqr-pooler-2epoch-20261019/training_complete.json",
+      "sha256": "a4eb4936d4dd2d5393927d8c0298566a69859b39b32cc11c987717430251b5cf"
+    },
+    {
+      "path": "models/codebert-ssqr-pooler-2epoch-20261019/TRAINING_CONTRACT.json",
+      "sha256": "59b12aed88ea1f97c34906e1baaf10a092247ef11177adc1769d155f25539956"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/candidates.jsonl",
+      "sha256": "661e6617bbfe375e0e356980fc1b0ff64f9491a17f5993585463da1dace79128"
+    },
+    {
+      "path": "results/rene_cosqa_pilot_20261019/retrieval_cache/CodeBERT/code_vectors.npy",
+      "sha256": "5b95a05f5329a96fd2dd74e850dcc731ee7e758fd4ab3889e371e7c8831f7f4f"
+    },
+    {
+      "path": "results/rene_cqc_training_fidelity_20261020/data/cosqa_queries.jsonl",
+      "sha256": "2be1e3b70cd54d12aef7b9e0f22eaa136809cc1aa7bda4875bdc5db07d3b3e0e"
+    },
+    {
+      "path": "results/rene_cqc_training_fidelity_20261020/data/source_queries.jsonl",
+      "sha256": "88649a161abc11d53cb7debb6b4e6ec1107448712a9df4abc2415eb1daa37baf"
+    },
+    {
+      "path": "results/rene_cqc_training_fidelity_20261020/EVAL_TESTS.json",
+      "sha256": "36f34161fdcadb2c7a452163cb36bbb427e01a2c46e6f187dc2ef756beaebbea"
+    },
+    {
+      "path": "results/rene_cqc_training_fidelity_20261020/RUNTIME_DETERMINISM.json",
+      "sha256": "bc893305294084b49fe7b5bd855c5203fccd5a5fd669c1efbb4be5037ae8dbe2"
+    },
+    {
+      "path": "results/rene_cqc_training_fidelity_20261020/TRAIN_PROTOCOL.json",
+      "sha256": "4b18123ad653f4921000fb48e5e358538c6db7157de6b07fbf6061a68a4e4677"
+    },
+    {
+      "path": "results/rene_ssqr_alignment_20261019/cosqa_adapter/public/corpus.jsonl",
+      "sha256": "4e48d0ded5f5591002040faac69e9ece984cd2b340a6164fcc9d93c4b5009f68"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/candidates/source/baseline.jsonl",
+      "sha256": "c9320f614729f694e0641d94ca3ae9fd123d9963bda53109851b5d03354ec0cb"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/data/private/cosqa_qrels.jsonl",
+      "sha256": "7947d0a0d21873337ead09a5d128981cb52321942bdb97c18f66567102133088"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/data/private/source_qrels.jsonl",
+      "sha256": "034fe50601d2ebe27352269722f255875f53805d34e0ed46832f9520b0d221ce"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/data/source/corpus.jsonl",
+      "sha256": "ce50ba50a853a58dd295916b5331a8a14e8ccb443b297a7bae54a41976e94147"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/PROTOCOL.json",
+      "sha256": "7d3d4c0728aa413a21dfc748d4a01dc4f29d5d59a0b4a44591eb48793dc3d95e"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/rankings/cosqa/CodeBERT.jsonl",
+      "sha256": "5b2fbbbb847194e9ac079b8fd2c2d9526fde2277ee98f0edce7444851a7d1629"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/rankings/source/CodeBERT.jsonl",
+      "sha256": "6984e489dcdd37a462a515fe7b9fcdfc809d739ba0037cce1fc2b2c54bec938d"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/retrieval_cache/source/CodeBERT/code_vectors.npy",
+      "sha256": "f934fd0c4e95fef13b450721b7b9eef1c92238dca4fff6142a369f6e5139a1f8"
+    }
+  ],
+  "candidate_views": [
+    "own_generated_pool",
+    "fixed_historical_local_pool_rescored"
+  ],
+  "score_precision": "FP32 raw full vocabulary entropy; independent FP64 verification",
+  "generation": "same1..n positions, greedy19 new tokens, batch8, no dropout",
+  "corpus_scope": "original bridge corpora19210/6267",
+  "retrieval": "FP32 pooler dot, TF32 off, max_length256, batch16",
+  "tie_rule": "score descending then integer doc_id ascending",
+  "stored_full_new_scores": true,
+  "exact_random": "original positions uniformly without replacement, preserve duplicate text probability",
+  "primary_family_size": 28,
+  "statistics": "10000 original-group shared bootstrap and cluster-t, Bonferroni",
+  "no_H_outcomes": true,
+  "no_new_policy_selection": true
+}

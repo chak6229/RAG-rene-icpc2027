@@ -1,0 +1,723 @@
+{
+  "created_utc": "2026-10-19T11:24:08.805023+00:00",
+  "status": "FROZEN",
+  "role": "consumed_development_only",
+  "parent_protocol_sha256": "d11ad87523cb04de5fd63650870a768af7dc7581ca82a171c1792952a46df7ce",
+  "prior_effects_known": true,
+  "design": "follow-up to observed selection-conditional optimism; no new confirmation claim",
+  "confirmation_authorized": false,
+  "new_generation_or_retrieval": false,
+  "new_seeds_or_masks": 0,
+  "queries": 1490,
+  "groups": 512,
+  "retrievers": [
+    "CodeBERT",
+    "BM25"
+  ],
+  "denominator": "all 1490 permanent-D queries, never only changed or adopted queries",
+  "candidate_pool": "the parent's exactly three cached ENTR candidates per query",
+  "outer_folds": "reuse frozen five whole-connected-group folds",
+  "inner_folds": "four remaining original fold IDs inside each outer training set; no outer labels enter inner fitting",
+  "base_models": {
+    "algorithms": [
+      "HGB",
+      "RIDGE"
+    ],
+    "blocks": {
+      "GEN": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "GS": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "GSA": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "GSL": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "FULL": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ]
+    },
+    "hgb_parameters": {
+      "loss": "squared_error",
+      "max_iter": 200,
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 7,
+      "max_depth": 3,
+      "min_samples_leaf": 30,
+      "l2_regularization": 10.0,
+      "max_bins": 63,
+      "early_stopping": false,
+      "random_state": 20261019
+    },
+    "ridge_alpha": 10.0,
+    "reused": [
+      "FULL_HGB",
+      "FULL_RIDGE",
+      "GEN_HGB"
+    ],
+    "new_refits": "all other block/algorithm combinations; same hyperparameters",
+    "primary_in_parent": "FULL_HGB; the Ridge control is not retroactively promoted"
+  },
+  "calibration": {
+    "base_models": [
+      "FULL_HGB",
+      "FULL_RIDGE"
+    ],
+    "methods": [
+      "AFFINE",
+      "ISOTONIC",
+      "CONTEXT_RIDGE"
+    ],
+    "training_cohort": "raw positive, non-identical winners selected from inner group-OOF predictions",
+    "test_cohort": "raw positive, non-identical winners selected from outer group-OOF predictions",
+    "AFFINE": "StandardScaler + Ridge(alpha=10), winner score only",
+    "ISOTONIC": "monotone increasing, clipped extrapolation, y bounded [-1,1]",
+    "CONTEXT_RIDGE": "StandardScaler + Ridge(alpha=10), winner score, runner-up incl NoRewrite, gap, and 52 retrieval/anchor/lexical features",
+    "small_sample_fallback": "<30 training selected actions: constant training mean; no actions: zero",
+    "winner_preserved": true,
+    "may_rescue_raw_nonpositive_action": false,
+    "hyperparameter_or_threshold_tuning": false,
+    "adoption": "raw eligible and calibrated expected gain strictly >0; otherwise complete NoRewrite ranking",
+    "primary_check": "AFFINE vs RAW selected-cohort MSE and mean bias, utility reported separately"
+  },
+  "feature_blocks": {
+    "GEN": "19 generation/text",
+    "GS": "GEN +36 score summaries",
+    "GSA": "GS +9 anchor/ranking correspondence",
+    "GSL": "GS +7 lexical code-coverage",
+    "FULL": "all71; anchors are retrieved documents, never gold target ranks"
+  },
+  "fixed_coverage": {
+    "base_ablation": "top floor(.20 * outer-held queries) changed-ranking winners, no score sign gate",
+    "calibration": "top floor(.50 * raw-eligible outer-held queries); exact same count for RAW and three calibrators per family",
+    "tie": "descending policy score, descending original raw winner score, then query_id; isotonic plateaus preserve raw order",
+    "purpose": "separate ordering evidence from adopting fewer queries; calibration half-eligible is not 50% of all queries"
+  },
+  "metrics": [
+    "query-weighted delta MRR@100",
+    "adoption count and coverage",
+    "harmful/adopted",
+    "positive gain and loss",
+    "fixed-cohort selected-action MSE/MAE/bias",
+    "fixed-bin calibration",
+    "paired equal-coverage utility"
+  ],
+  "calibration_bins": [
+    -1,
+    -0.1,
+    -0.02,
+    0,
+    0.005,
+    0.01,
+    0.02,
+    0.05,
+    0.1,
+    0.25,
+    1.000001
+  ],
+  "statistics": {
+    "bootstrap": 5000,
+    "seed": 20261019,
+    "unit": "whole connected group",
+    "interval": "descriptive paired 95% percentile; conditional on fitted OOF models; no familywise or confirmation claims",
+    "model_refit_inside_bootstrap": false
+  },
+  "gold_evidence_audit": "D-only original/candidate top1 relevance and RR strata; audit-only, never predictive inputs or rule selection",
+  "outcome_summary_after_predictions_sealed": true,
+  "deployment": "NoRewrite",
+  "risk_certified": false,
+  "promote_formal_model": false,
+  "bound_files": [
+    {
+      "path": "experiments/rene_cosqa_development_20261019/__init__.py",
+      "sha256": "36bfc5f68ae9e5c132db4768520877595c31c225390023e8d2bb906362f5823e"
+    },
+    {
+      "path": "experiments/rene_cosqa_development_20261019/analyze.py",
+      "sha256": "99cf00bd1fd078048f3b9d9116d11f41e6c2f0cbf246a5936b2ad67f8190a77d"
+    },
+    {
+      "path": "experiments/rene_cosqa_development_20261019/audit.py",
+      "sha256": "6fb88a396cdd4bbcbd3476ca798b718a68852933537fe213561e4c7097f42429"
+    },
+    {
+      "path": "experiments/rene_cosqa_development_20261019/common.py",
+      "sha256": "a3c7194cb2480e297a1716b27ca5ec32e2b65a0f1c80c7b5b3f230333800bbed"
+    },
+    {
+      "path": "experiments/rene_cosqa_development_20261019/evaluation.py",
+      "sha256": "d00aa1331ec1dfc2ab5f328d1e878ab66d27713607b6ab8cf77034cf37de334e"
+    },
+    {
+      "path": "experiments/rene_cosqa_development_20261019/features.py",
+      "sha256": "928bde3bb087d2b9b8d58218f7ceba6208008294b00b06a544845e7a1138781d"
+    },
+    {
+      "path": "experiments/rene_cosqa_development_20261019/freeze.py",
+      "sha256": "ce62748a020cad9a59004207924ab3f2ec802410930b6b851f3bd92471f96b18"
+    },
+    {
+      "path": "experiments/rene_cosqa_development_20261019/gain.py",
+      "sha256": "c42b7c01b8abd636879a6a9dd35aa1e842b1b5ffea4868cb2f4ac2011ea17b2f"
+    },
+    {
+      "path": "experiments/rene_cosqa_development_20261019/ranking.py",
+      "sha256": "a9b82e788a05700db55648b0109e68969946a383bde79b4f22352baa10b5430b"
+    },
+    {
+      "path": "experiments/rene_cosqa_development_20261019/run.py",
+      "sha256": "9f41d6d6bc61f77f6d69ba846e4c27a425dfd027f5c6422ff38c4bfcc15502e4"
+    },
+    {
+      "path": "experiments/rene_cosqa_development_20261019/test_contract.py",
+      "sha256": "41a11ba29e62ca66f62d36f6d6067f5791216b9d56b5df181b07bde0a2f5b502"
+    },
+    {
+      "path": "experiments/rene_cosqa_pilot_20261019/common.py",
+      "sha256": "d4a1d467ae404882bf5b2ef09af76cae33553dc4a94c37d6f9869927ef70dfb3"
+    },
+    {
+      "path": "experiments/rene_cosqa_pilot_20261019/evaluation.py",
+      "sha256": "3c1ce4ef2a508e23bf38d408f3082c8ba4d7d66067b8db5e77375486311193aa"
+    },
+    {
+      "path": "experiments/rene_postselection_20261019/__init__.py",
+      "sha256": "e9f7cd7b665230c651db909f614f8b8ce897d3dd95e22b18514aa779ded52b4d"
+    },
+    {
+      "path": "experiments/rene_postselection_20261019/analyze.py",
+      "sha256": "7602d80dd5cb234c0fddb76b5e8ac8da6495dd715a6fba941868392d3d3ec6b7"
+    },
+    {
+      "path": "experiments/rene_postselection_20261019/audit.py",
+      "sha256": "aa9e7dcf96796125d50c6073f8f025e932a3f2ec22215f18b770889675862d78"
+    },
+    {
+      "path": "experiments/rene_postselection_20261019/common.py",
+      "sha256": "e9f0675f8cdb0818df6d4497f065467a04777eb7cbe2bc6b501072ff666d99af"
+    },
+    {
+      "path": "experiments/rene_postselection_20261019/freeze.py",
+      "sha256": "402ab373e4e6f3df22668f87b897b5d72b7ad5443a9584a84c810240a32f7545"
+    },
+    {
+      "path": "experiments/rene_postselection_20261019/modeling.py",
+      "sha256": "c2da74930c4495e7974ef18ea972dee13fdd8b68da5d81c9c1379d5a1ff448c4"
+    },
+    {
+      "path": "experiments/rene_postselection_20261019/README.md",
+      "sha256": "7b2affc3b27629afe0d6bc9e7af260041301d5ee602e7b15183ac5cb440fa76b"
+    },
+    {
+      "path": "experiments/rene_postselection_20261019/run.py",
+      "sha256": "2f7ce680f237db4f9266c804eb01deb80f582c8c28658d84996da1cda6016070"
+    },
+    {
+      "path": "experiments/rene_postselection_20261019/test_contract.py",
+      "sha256": "75ed973bb70943632ea97ee11e95747e9d421eb1e1cd394dfbef86e1159f1e2a"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/data/groups.json",
+      "sha256": "e912e041e4ace46892149516d7e6d27b9a90659fcc55f6da7bd678bf86e4b0a7"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/data/private/development_qrels.jsonl",
+      "sha256": "7947d0a0d21873337ead09a5d128981cb52321942bdb97c18f66567102133088"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/data/queries.jsonl",
+      "sha256": "6b51e8e5f3a90f867786178b9380fa7eb72401978518c0bea70e7069523bf7d8"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/decisions/BM25.jsonl",
+      "sha256": "eb73d81acc0842ec80a7fd09ae338a8dfdd4de465119817a54bf00fd2873aa1d"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/decisions/CodeBERT.jsonl",
+      "sha256": "92ed322402758ffbca2f6e6e58b33367c2c2162d7e778c83753f9352dd6b201d"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/DECISIONS_SEALED.json",
+      "sha256": "042cc4fed9359041c19c83822995dadd37f10d3509c415f670e4ca7129f0beaa"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/features/BM25.jsonl",
+      "sha256": "e3771907c0f4c69aeb6c3ae5ee308bcc1c08e410d904bfdca89f76f07fc1d75e"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/features/CodeBERT.jsonl",
+      "sha256": "1fb88ecc02f698938f4b346ab3c9a7655b7fdef9fbf3f93a0c9937280fac6b16"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/FINAL_ACCEPTANCE.json",
+      "sha256": "f2ceb09d068c390ea2e3ba5fc6d63546cc92f69e552d83be3a7ba29c9ea5e9e4"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/FOLDS.json",
+      "sha256": "fec96f846d900381aff1dbaf15a08424faee494015dddd21b829c750745ccaa6"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GAIN_HGB-fold0.joblib",
+      "sha256": "cb6e6a407f342c5e58f619f9fedf89be53a0f98f1eeb5535e036dfabb49a9cb7"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GAIN_HGB-fold1.joblib",
+      "sha256": "ddacf1ba63320e02343cd23a1d6ca63b8692039cb794fffb7ba6b4296d5bdcef"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GAIN_HGB-fold2.joblib",
+      "sha256": "860eee07988976fd79d541f5ee7a322ec8dbb07bed1135f318544d984035a0c2"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GAIN_HGB-fold3.joblib",
+      "sha256": "4096e23a42a3b9e67ece5a255db64f5092381704fcf0a25ab36361b96d934cdf"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GAIN_HGB-fold4.joblib",
+      "sha256": "60f56b93fcc2d35a0dcaff2037a1104082c584fba63d85a21ecc7389480c8646"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GAIN_RIDGE-fold0.joblib",
+      "sha256": "b90d672f419710926eea7ff45baf2f20db39bcbea9d51a34f3001a8dffcee694"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GAIN_RIDGE-fold1.joblib",
+      "sha256": "898843e78e5c5d7abd6c69d7cbe133fc6d337e43c53a1a9589f2c67cf7f11c8f"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GAIN_RIDGE-fold2.joblib",
+      "sha256": "4552b5bfb882c211457d14b6aa0441bed5e1e1c3784d375e6d797d525d3a1023"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GAIN_RIDGE-fold3.joblib",
+      "sha256": "69fda18678872b2e7bacee0bf1885035421fc273755ce93a38d49caa78d8a8f5"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GAIN_RIDGE-fold4.joblib",
+      "sha256": "8baa8352976cc58ac7fdc788ff67cb9a86109d42ce96fdb2abb1a423a62accd4"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GEN_HGB-fold0.joblib",
+      "sha256": "59d8ffc4876be14580bb5ab28466909c0313a65b1db6ce8b3a8bc30f20198efa"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GEN_HGB-fold1.joblib",
+      "sha256": "977c96cb69ad5526aeb051540032d3109e78475f00314997f3d774ebf9b7a87b"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GEN_HGB-fold2.joblib",
+      "sha256": "dd8ea500d054e1c9e8d963dbd578d21976bd3beaeee10269794f326c9d2396f7"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GEN_HGB-fold3.joblib",
+      "sha256": "76c440678d32e71745c26ec2ee28a528e266eeff391113d5db5c623e914b7592"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/BM25/GEN_HGB-fold4.joblib",
+      "sha256": "a7054d6e356a61cdf5b3d583af45b9fae21bcd5e48d340ae233b3e1fc0cbce09"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GAIN_HGB-fold0.joblib",
+      "sha256": "921ab6139617641f795aa0e271d73e57b755fc02ff25be2f9ffb64d61aa3fb5e"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GAIN_HGB-fold1.joblib",
+      "sha256": "97688c5b0f86300507034e3285c3d7dede3ee1e5dcb65179589d0528dc86ed87"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GAIN_HGB-fold2.joblib",
+      "sha256": "31e0178f5e990952322123b91ce4d0975a0f7620448d05352fc11db724f1377b"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GAIN_HGB-fold3.joblib",
+      "sha256": "8b6c78b02bbf06bf9fcdb5aab2e1765d25d6ddb0df7f580d5e0f6f3fee0929b3"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GAIN_HGB-fold4.joblib",
+      "sha256": "24da93faa55fbfa4abbbf4744f09bc3c86c52f8ba73a69d486f15b33e8a65938"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GAIN_RIDGE-fold0.joblib",
+      "sha256": "8b4a6e07553787350d69e1cd19cf3e59e1cdbe282a0a4fa73f4ada3f298966aa"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GAIN_RIDGE-fold1.joblib",
+      "sha256": "0562331329c9b101c4574bc13d34d448c148cdfccb7f65d42163d8ae1d1b064d"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GAIN_RIDGE-fold2.joblib",
+      "sha256": "3acf1ba03a8c7ac39a26f16f946c8f2725beee66c03590efc3b906c4af41958e"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GAIN_RIDGE-fold3.joblib",
+      "sha256": "9001365c76b7240aba7bbc2599092d14dcc2a173656e1fda8e801fbf4d1f53b5"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GAIN_RIDGE-fold4.joblib",
+      "sha256": "9586017d42cf5905df528e85fdbb581f878ffcd9c4d3fb32b09e37ce89d34048"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GEN_HGB-fold0.joblib",
+      "sha256": "639a7b53f6627d3aa4b088eefbcf4303807363b4f587d882a6b66ee11cf26819"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GEN_HGB-fold1.joblib",
+      "sha256": "d6a9e9e09b04aeca6cb7bff3074a1416685671bf7e5bd98fba798ebc128030e2"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GEN_HGB-fold2.joblib",
+      "sha256": "fb8ff2830ed627ec0e3e1283edcbfdaf25d2c6604f67703f44e3316c30a793ae"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GEN_HGB-fold3.joblib",
+      "sha256": "fcbd4caf3a5c8e66f6b078882c2520977114e6856123b0a0fb4b710325708bf3"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/models/CodeBERT/GEN_HGB-fold4.joblib",
+      "sha256": "17ea64c4524da13c831d988062056c40624b782472c1ad8c87682109ec55df9f"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/oof_predictions/BM25.jsonl",
+      "sha256": "15ec7a8ed226a8ff4478a96deef1ef1513f9a10734734b69edc00bb2a4777f43"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/oof_predictions/CodeBERT.jsonl",
+      "sha256": "8f620712b364edbf4eecf49b2ccf3199bb255292d72ef1eeae75aa3693479461"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/OOF_SEALED_BM25.json",
+      "sha256": "d91480c4c8965865f49e1977229e4a76935d407f30ee979d530087ab1ea6127d"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/OOF_SEALED_CodeBERT.json",
+      "sha256": "00db014b551f5fed2d8127b2eb6a357f878a7caa8569e312376ada66a8d462a7"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/PROTOCOL.json",
+      "sha256": "d11ad87523cb04de5fd63650870a768af7dc7581ca82a171c1792952a46df7ce"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/rankings/BM25.jsonl",
+      "sha256": "34d6781285f2321128b50937b26003f943380fc0c71828cb006bf3947f69e622"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/rankings/CodeBERT.jsonl",
+      "sha256": "a7181153e29730e8adb3a3000e5cb07f5563caf76390073f67bba551fe815be7"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/READOUT.json",
+      "sha256": "d4f909801b0ee8dd9bd9e50beef11c3fb9aa61f14de27036370120fb150497e1"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/ROLE_MANIFEST.json",
+      "sha256": "46d1a09364a46f5c127f6623cd2de64d4ec1c4f584b30017c253e224b4830826"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/selections.jsonl",
+      "sha256": "314a317245fdbe2fb41971ebc2397566e25bf53a2d5b22a188c4eca2b5cc8431"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/TRAINING_LEDGER_BM25.json",
+      "sha256": "48ef808f8254c29f45b95d2d1d035a2f204c93c3f843d3ac9fa6fecb2131283e"
+    },
+    {
+      "path": "results/rene_cosqa_development_20261019/TRAINING_LEDGER_CodeBERT.json",
+      "sha256": "d6974468d9b3575704c902af30a7b6f65e525bcd805fba38966a14bf7dac8096"
+    },
+    {
+      "path": "results/rene_postselection_20261019/TESTS_PRE_FREEZE.json",
+      "sha256": "b8325d0f3258d8900d00171c92f1b16e231ba4501c591db3e9a2973df1d7d7db"
+    }
+  ],
+  "protected_files": [
+    {
+      "path": "configs/vac_mqr_gain_model/CURRENT.json",
+      "sha256": "74eb0553c9d489f25f82408ed2cc0521a5d3fab92159d59700d5c8496c52d371"
+    },
+    {
+      "path": "configs/vac_mqr_verification_policy/CURRENT.json",
+      "sha256": "ca9c157954527fbcfee44ea34010131ab0143ec74d0778c081409d28507315e1"
+    },
+    {
+      "path": "configs/vac_mqr_risk_module/CURRENT.json",
+      "sha256": "436c367c8f8e15d1723064e9edb780dc3544180821d03fcac61d7c3724f50693"
+    },
+    {
+      "path": "configs/uq_candidate_selection/CURRENT.json",
+      "sha256": "5bd37f87e468a878f37f8356e298e15b3517bd5acb58ced03e24e3c923d6ef27"
+    },
+    {
+      "path": "results/vac_mqr_v5/STABLE.json",
+      "sha256": "ea43301dd61510d8415391e5b5182f286e736589a0e870f79630a92320f69a72"
+    }
+  ]
+}

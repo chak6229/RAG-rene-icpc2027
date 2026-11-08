@@ -1,0 +1,165 @@
+{
+  "created_utc": "2026-10-20T12:59:28.313008+00:00",
+  "role": "posthoc_consumed_H_mechanism_diagnostic_before_new_human_labels",
+  "known_outcomes_before_design": true,
+  "external_preregistration": false,
+  "reviewers": [
+    "A",
+    "B"
+  ],
+  "human_labels_available": false,
+  "frame": "CodeBERT full H8530/1963 groups",
+  "per_stratum_n": 16,
+  "strata": [
+    "gate_reject_positive",
+    "gate_reject_negative",
+    "final_positive",
+    "final_negative",
+    "gate_reject_zero",
+    "remaining_opportunity",
+    "remaining_neutral_changed",
+    "remaining_no_opportunity"
+  ],
+  "sample_algorithm": "SHA256 rank within stratum; salt in bound common.py",
+  "inference": "finite fixed frame; stratified simultaneous hypergeometric intervals, no new confirmatory test",
+  "bound_files": [
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/FINAL_ACCEPTANCE.json",
+      "sha256": "69de5d3290a5e039af18e3635cbf3ecbce86086e70cdda04dae5bd6c8f49a12e"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/DESIGN.json",
+      "sha256": "0956f89599e6c26c673a1676d70c1dbfd15669c6180c7c2e476c52be22425184"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
+      "sha256": "bc7e6e69ced0627612f13676c040d1fd025ab2712874e071731fb376126668ea"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/DECISIONS_SEALED.json",
+      "sha256": "d0141c351dfd53c89232c6d58ce5020f3b1d2a317c6cdfbe39db4b11a7e92391"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/public/H_queries.jsonl",
+      "sha256": "0fc53c4fa419d12c106db5bfa768e1c03f4d85cb8daad15eca83fff85a977239"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/public/H_groups.json",
+      "sha256": "187efb40e4a3e4536bf747e8214a7a4290f9e23e5165b3f36d149364901b34f5"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/private/H_qrels.jsonl",
+      "sha256": "6e3d47196d18b34d8b659647d1f7267dafdd1edf13bef27d581e50c88b3d7a8b"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/candidates.jsonl",
+      "sha256": "61a9017e70f9c899c6d0af25d000d750f5d2c837b1646fbdf6ce2c4d880adb0b"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/selections.jsonl",
+      "sha256": "26d185a700362d81055eff6b1c2d9e6ab662675c6ff95773f2bd7cca38215803"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/ce_scores.jsonl",
+      "sha256": "6007d942a259b83d9b36fcd44b4cc5be48141499f9802ceb62012c04d4514889"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/decisions/CodeBERT.jsonl",
+      "sha256": "9cc313bb554039c3038c450a72d1cca21f0a0fe932b83d47198c91e0aa7d6c5a"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/rankings/CodeBERT.jsonl",
+      "sha256": "4978dd71bce0a998fc0aed779e1cb0e55fce4212e0b6b8c0da95a34a71cad65f"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_per_query.jsonl",
+      "sha256": "74de1cbbdaf80230184b44dfbb44cc0f5348bf0d40c1ae1d235729b5a5e602df"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/metrics/CodeBERT_full_H.json",
+      "sha256": "1e6e5fc0691804fedde0680f43005aa8161a8f852569a050e5b3a9649ce4a88b"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/decisions/BM25.jsonl",
+      "sha256": "ad1b79a0cc73f3b328ecf0c466e0d89ea8a81ddb767379ae49c42e5558df8a74"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/rankings/BM25.jsonl",
+      "sha256": "f1107940a334df0e3880af3cc8cdda9c55de20f12a47012c394db3a94281509e"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/metrics/BM25_per_query.jsonl",
+      "sha256": "c8d7bccb16eb0adadf423077b737664074749e52fe3fe511bf5d01da8586abea"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/metrics/BM25_full_H.json",
+      "sha256": "2b7859c0e65a8a3aaa1bd2a3ef5a726cb1ea4a32f757bfb3dd0876b7f3085de6"
+    },
+    {
+      "path": "results/rene_ssqr_alignment_20261019/cosqa_adapter/public/corpus.jsonl",
+      "sha256": "4e48d0ded5f5591002040faac69e9ece984cd2b340a6164fcc9d93c4b5009f68"
+    },
+    {
+      "path": "results/rene_cosqa_ssqr_audit_20261019/selected_source/coclr/data/search/code_idx_map.txt",
+      "sha256": "be8a910ca03cb9f1b38a0eba6dc8109eeb8040a40aaba1a467a7b8426d261f3f"
+    },
+    {
+      "path": "imports/CodeXGLUE-main/Text-Code/NL-code-search-WebQuery/CoSQA/cosqa-all.json",
+      "sha256": "4d1a227fe3652992d1e98f43fa9dc1b8f54a6c27a1a24b9d182bdfb8cbc3274c"
+    },
+    {
+      "path": "configs/vac_mqr_gain_model/CURRENT.json",
+      "sha256": "74eb0553c9d489f25f82408ed2cc0521a5d3fab92159d59700d5c8496c52d371"
+    },
+    {
+      "path": "configs/vac_mqr_verification_policy/CURRENT.json",
+      "sha256": "ca9c157954527fbcfee44ea34010131ab0143ec74d0778c081409d28507315e1"
+    },
+    {
+      "path": "configs/vac_mqr_risk_module/CURRENT.json",
+      "sha256": "436c367c8f8e15d1723064e9edb780dc3544180821d03fcac61d7c3724f50693"
+    },
+    {
+      "path": "configs/uq_candidate_selection/CURRENT.json",
+      "sha256": "5bd37f87e468a878f37f8356e298e15b3517bd5acb58ced03e24e3c923d6ef27"
+    },
+    {
+      "path": "results/vac_mqr_v5/STABLE.json",
+      "sha256": "ea43301dd61510d8415391e5b5182f286e736589a0e870f79630a92320f69a72"
+    },
+    {
+      "path": "experiments/rene_mechanism_review_20261020/accept.py",
+      "sha256": "4b43291411f7025313f7858afe71f9b593f81d3b526acb10bbb4e1824e18d3f9"
+    },
+    {
+      "path": "experiments/rene_mechanism_review_20261020/build.py",
+      "sha256": "6121ff1e56b00cec6638277dff0c1e8837ce87829c9236382addcfad60878c92"
+    },
+    {
+      "path": "experiments/rene_mechanism_review_20261020/collect.py",
+      "sha256": "f3571367c08d77620bedca7bf08d761d0323ccc5ae6f23ab5d76576c65f67bec"
+    },
+    {
+      "path": "experiments/rene_mechanism_review_20261020/common.py",
+      "sha256": "04d1f92a3b459917cbd70e891bf831dc36224bf223cc0aa6379770d484fac98d"
+    },
+    {
+      "path": "experiments/rene_mechanism_review_20261020/pages.py",
+      "sha256": "4179e4120f8c973f6878e2bb877c42a0f204c2ea076aa24c8b60fe7f389b9d1a"
+    },
+    {
+      "path": "experiments/rene_mechanism_review_20261020/test_contract.py",
+      "sha256": "9521520d72dcc2c944fd2d748ce537658d2401282e8eeab520947946e297b065"
+    },
+    {
+      "path": "experiments/rene_mechanism_review_20261020/__init__.py",
+      "sha256": "fa4f0ac3a184c3a7d337b3c256941750b0e71dd45ae3c1f116df7beb329f363e"
+    },
+    {
+      "path": "experiments/rene_mechanism_review_20261020/DESIGN.md",
+      "sha256": "469eea0e9172ffb1d42d92219d4a97d52164cec62965f6d866306cae572626c7"
+    }
+  ],
+  "old_primary_sha256": "bc7e6e69ced0627612f13676c040d1fd025ab2712874e071731fb376126668ea",
+  "risk_certified": false
+}

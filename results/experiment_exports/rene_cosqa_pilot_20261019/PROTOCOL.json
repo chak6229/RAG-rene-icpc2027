@@ -1,0 +1,528 @@
+{
+  "schema": "rene-cosqa-source-reconstruction-development-v1",
+  "status": "FROZEN",
+  "created_utc": "2026-10-19T08:41:01.334156+00:00",
+  "role": "development",
+  "query_ids": [
+    "cosqa-train-10246",
+    "cosqa-train-12757",
+    "cosqa-train-13994",
+    "cosqa-train-14489",
+    "cosqa-train-4164",
+    "cosqa-train-13996",
+    "cosqa-train-16175",
+    "cosqa-train-16043",
+    "cosqa-train-7126",
+    "cosqa-train-8150",
+    "cosqa-train-10176",
+    "cosqa-train-4405",
+    "cosqa-train-16503",
+    "cosqa-train-8670",
+    "cosqa-train-15232",
+    "cosqa-train-6196",
+    "cosqa-train-11385",
+    "cosqa-train-15343",
+    "cosqa-train-6843",
+    "cosqa-train-11162",
+    "cosqa-train-18439",
+    "cosqa-train-12539",
+    "cosqa-train-15468",
+    "cosqa-train-960",
+    "cosqa-train-10969",
+    "cosqa-train-4946",
+    "cosqa-train-15874",
+    "cosqa-train-13170",
+    "cosqa-train-8065",
+    "cosqa-train-10769",
+    "cosqa-train-1367",
+    "cosqa-train-15268",
+    "cosqa-train-4248",
+    "cosqa-train-12076",
+    "cosqa-train-3879",
+    "cosqa-dev-115",
+    "cosqa-train-4912",
+    "cosqa-train-12242",
+    "cosqa-train-5230",
+    "cosqa-train-12780",
+    "cosqa-train-12347",
+    "cosqa-train-14109",
+    "cosqa-train-7490",
+    "cosqa-train-7027",
+    "cosqa-train-8502",
+    "cosqa-train-9139",
+    "cosqa-train-9053",
+    "cosqa-train-9673",
+    "cosqa-train-15760",
+    "cosqa-train-11896",
+    "cosqa-train-14385",
+    "cosqa-train-8529",
+    "cosqa-train-12228",
+    "cosqa-train-9010",
+    "cosqa-train-13380",
+    "cosqa-train-2108",
+    "cosqa-train-9527",
+    "cosqa-train-15784",
+    "cosqa-dev-203",
+    "cosqa-train-14512",
+    "cosqa-train-8312",
+    "cosqa-train-5817",
+    "cosqa-train-8175",
+    "cosqa-train-7269",
+    "cosqa-train-9959",
+    "cosqa-dev-398",
+    "cosqa-train-18896",
+    "cosqa-train-19245",
+    "cosqa-train-13087",
+    "cosqa-train-15856",
+    "cosqa-train-14037",
+    "cosqa-train-8165",
+    "cosqa-train-14538",
+    "cosqa-train-14067",
+    "cosqa-train-13105",
+    "cosqa-train-7234",
+    "cosqa-train-11479",
+    "cosqa-train-10600",
+    "cosqa-train-11485",
+    "cosqa-train-1973",
+    "cosqa-train-9396",
+    "cosqa-train-12270",
+    "cosqa-train-6699",
+    "cosqa-train-9338",
+    "cosqa-train-13639",
+    "cosqa-train-4629",
+    "cosqa-train-4505",
+    "cosqa-train-6600",
+    "cosqa-train-12685",
+    "cosqa-train-10944",
+    "cosqa-train-1404",
+    "cosqa-train-5590",
+    "cosqa-train-8084",
+    "cosqa-train-1105",
+    "cosqa-train-17637",
+    "cosqa-train-8669",
+    "cosqa-train-16372",
+    "cosqa-train-13480",
+    "cosqa-train-8226",
+    "cosqa-train-12910",
+    "cosqa-train-19210",
+    "cosqa-train-18814",
+    "cosqa-train-17077",
+    "cosqa-train-16614",
+    "cosqa-train-2038",
+    "cosqa-train-18553",
+    "cosqa-train-18702",
+    "cosqa-train-18266",
+    "cosqa-train-15133",
+    "cosqa-train-10628",
+    "cosqa-train-11827",
+    "cosqa-train-13438",
+    "cosqa-train-12473",
+    "cosqa-train-7736",
+    "cosqa-train-2237",
+    "cosqa-train-14624",
+    "cosqa-train-8539",
+    "cosqa-train-19006",
+    "cosqa-train-17791",
+    "cosqa-train-11335",
+    "cosqa-train-17089",
+    "cosqa-train-10752",
+    "cosqa-train-11423",
+    "cosqa-train-7169",
+    "cosqa-train-8436",
+    "cosqa-train-7245",
+    "cosqa-train-9744",
+    "cosqa-train-14334",
+    "cosqa-train-11207",
+    "cosqa-train-11436",
+    "cosqa-train-7646",
+    "cosqa-train-11516",
+    "cosqa-train-16936",
+    "cosqa-train-15315",
+    "cosqa-train-17234",
+    "cosqa-train-12265",
+    "cosqa-train-15206",
+    "cosqa-train-15632",
+    "cosqa-train-10989",
+    "cosqa-train-10892",
+    "cosqa-train-6067",
+    "cosqa-train-13200",
+    "cosqa-train-1897",
+    "cosqa-train-7112",
+    "cosqa-train-6851",
+    "cosqa-train-14311",
+    "cosqa-train-14272",
+    "cosqa-train-17516",
+    "cosqa-train-104",
+    "cosqa-train-307",
+    "cosqa-train-11533",
+    "cosqa-train-8628",
+    "cosqa-train-7684",
+    "cosqa-dev-601",
+    "cosqa-train-12393",
+    "cosqa-train-19376",
+    "cosqa-train-8158",
+    "cosqa-train-12395",
+    "cosqa-train-19938",
+    "cosqa-train-18675",
+    "cosqa-train-8378",
+    "cosqa-train-17486",
+    "cosqa-train-18450",
+    "cosqa-train-9564",
+    "cosqa-train-13913",
+    "cosqa-train-11063",
+    "cosqa-train-8295",
+    "cosqa-train-13733",
+    "cosqa-train-5553",
+    "cosqa-train-14156",
+    "cosqa-train-10270",
+    "cosqa-train-6336",
+    "cosqa-train-14781",
+    "cosqa-train-11410",
+    "cosqa-train-11975",
+    "cosqa-train-14763",
+    "cosqa-train-7278",
+    "cosqa-train-4406",
+    "cosqa-train-9629",
+    "cosqa-train-11247",
+    "cosqa-train-13291",
+    "cosqa-train-10811",
+    "cosqa-train-9858",
+    "cosqa-train-7492",
+    "cosqa-train-11431",
+    "cosqa-train-4938",
+    "cosqa-train-8753",
+    "cosqa-train-10848",
+    "cosqa-train-12078",
+    "cosqa-train-13606",
+    "cosqa-train-5108",
+    "cosqa-train-17411",
+    "cosqa-train-18823",
+    "cosqa-train-15313",
+    "cosqa-dev-36",
+    "cosqa-train-14441",
+    "cosqa-train-6453",
+    "cosqa-train-12028",
+    "cosqa-train-11171",
+    "cosqa-train-122",
+    "cosqa-train-17939",
+    "cosqa-train-19239",
+    "cosqa-train-13166",
+    "cosqa-train-11034",
+    "cosqa-train-12733",
+    "cosqa-train-2812",
+    "cosqa-dev-563",
+    "cosqa-train-9481",
+    "cosqa-train-18671",
+    "cosqa-train-18911",
+    "cosqa-train-13773",
+    "cosqa-train-10771",
+    "cosqa-train-7733",
+    "cosqa-train-13832",
+    "cosqa-train-14172",
+    "cosqa-train-11371",
+    "cosqa-train-6881",
+    "cosqa-train-7426",
+    "cosqa-train-12299",
+    "cosqa-train-17154",
+    "cosqa-train-18349",
+    "cosqa-train-18292",
+    "cosqa-train-17296",
+    "cosqa-train-18303",
+    "cosqa-train-17324",
+    "cosqa-train-19875",
+    "cosqa-train-19542",
+    "cosqa-train-18994",
+    "cosqa-train-8021",
+    "cosqa-train-9197",
+    "cosqa-train-11869",
+    "cosqa-train-822",
+    "cosqa-train-12478",
+    "cosqa-train-10476",
+    "cosqa-train-14416",
+    "cosqa-dev-348",
+    "cosqa-train-19491",
+    "cosqa-train-19644",
+    "cosqa-train-16380",
+    "cosqa-train-11508",
+    "cosqa-train-14869",
+    "cosqa-train-9385",
+    "cosqa-train-5175",
+    "cosqa-dev-526",
+    "cosqa-train-16004",
+    "cosqa-train-11264",
+    "cosqa-train-2810",
+    "cosqa-train-10701",
+    "cosqa-train-11406",
+    "cosqa-train-14324",
+    "cosqa-train-8461",
+    "cosqa-train-11102",
+    "cosqa-train-2005",
+    "cosqa-train-12180",
+    "cosqa-train-7436",
+    "cosqa-train-7890"
+  ],
+  "queries": 256,
+  "groups": 86,
+  "role_manifest_sha256": "46d1a09364a46f5c127f6623cd2de64d4ec1c4f584b30017c253e224b4830826",
+  "candidate_k": 3,
+  "metric_k": 100,
+  "ranking_depth": 100,
+  "retrievers": [
+    "CodeBERT",
+    "BM25"
+  ],
+  "generation": {
+    "seed": 101,
+    "do_sample": false,
+    "max_new_tokens": 19,
+    "temperature": 1.0,
+    "top_k": 0,
+    "top_p": 1.0,
+    "position_policy": "source_1_to_n",
+    "batch_size": 8
+  },
+  "reconstruction": {
+    "target": "source-guided reconstruction of SSQR position-scoring transfer, not exact original checkpoint replication",
+    "primary_basis": "published main JSON path positions1..n, explicit greedy reconstruction of unspecified generate defaults",
+    "paper_differences": "paper describes positions0..n, sampled m10; original post-training generation config and weights unavailable",
+    "max_new_tokens_rationale": "explicit 19 new tokens corresponding to modern default total length20 incl decoder start; not recovered original decoding",
+    "t5_checkpoint": "local best92000 from completed 93750-step CODEnn run, train seed101; author code actual set_seed42",
+    "codebert": "new completed2epoch pooler/raw-dot/full batch CE; source linear warmup/decay; source valid only checkpoint selection",
+    "prob": "descending teacher-forced mean log probability of wrapped label including sentinels/EOS; declared operationalization",
+    "entr": "ascending raw full-model-vocabulary mean entropy; sentinels/EOS included, padding excluded",
+    "same_pool": true,
+    "quality_filter": "none",
+    "deduplicate_positions": false,
+    "short_query_rule": "min(3, number of available positions), no identity padding"
+  },
+  "rand_seeds": [
+    2026101900,
+    2026101901,
+    2026101902,
+    2026101903,
+    2026101904,
+    2026101905,
+    2026101906,
+    2026101907,
+    2026101908,
+    2026101909,
+    2026101910,
+    2026101911,
+    2026101912,
+    2026101913,
+    2026101914,
+    2026101915,
+    2026101916,
+    2026101917,
+    2026101918,
+    2026101919
+  ],
+  "rand_estimand": "per-query average of best3 RR over20 frozen uniform position permutations, no new T5 sampling",
+  "bm25": {
+    "parameters": {
+      "k1": 1.2,
+      "b": 0.75
+    },
+    "idf": "log(1+(N-df+.5)/(df+.5))",
+    "tokenization": "ASCII lowercase alphanumeric words starting with a letter, camel/snake split",
+    "query_tf": "unique terms",
+    "document_truncation": "none"
+  },
+  "dense": {
+    "representation": "pooler_output",
+    "normalization": "none",
+    "similarity": "raw dot",
+    "precision": "float32, TF32 disabled",
+    "max_tokens": 256,
+    "batch_size": 16
+  },
+  "ties": "score_desc_doc_id_asc",
+  "missing_input_policy": "reject; no implicit deletion or fallback",
+  "main_contrasts": [
+    "CodeBERT:ENTR_minus_RAND_best3",
+    "CodeBERT:ENTR_minus_PROB_best3",
+    "BM25:ENTR_minus_RAND_best3",
+    "BM25:ENTR_minus_PROB_best3"
+  ],
+  "multiplicity": "four RQ1 contrasts across two retrievers; Holm cluster-t p-values; Bonferroni98.75% cluster percentile intervals",
+  "bootstrap_repetitions": 10000,
+  "statistics_seed": 20261019,
+  "planning_effect": 0.005,
+  "inference": "pilot is descriptive development only; independent connected groups assumed; no confirmatory equivalence declaration",
+  "power_plan": {
+    "alpha_family": 0.05,
+    "family_size": 4,
+    "power_targets": [
+      0.8,
+      0.9
+    ],
+    "effect_targets": [
+      0.0025,
+      0.005,
+      0.01
+    ],
+    "method": "group-weighted delta cluster-sandwich variance; normal planning with conservative95% bootstrap variance",
+    "minimum_changed_groups_for_variance_plan": 20,
+    "bootstrap_variance_repetitions": 2000,
+    "confirmation_group_selection": "frozen SHA256 order of reserved groups, sample size decided before any confirmation method effects",
+    "confirmation_currently_authorized": false
+  },
+  "deployment_policy_promoted": false,
+  "risk_certified": false,
+  "bound_files": [
+    {
+      "path": "experiments/rene_cosqa_pilot_20261019/__init__.py",
+      "sha256": "42e329dc8ce8eaab83e13f40361c27f3c019e881debd56924515534a8ef77432"
+    },
+    {
+      "path": "experiments/rene_cosqa_pilot_20261019/analyze.py",
+      "sha256": "d094e57d37da72c98fe9b855a751a8b9a0edb41f0300a612f2cf0213fba0be35"
+    },
+    {
+      "path": "experiments/rene_cosqa_pilot_20261019/audit.py",
+      "sha256": "c1d9ccddd8daef34e658910fa8639a3741b7e67d64f64d7584fa3159bb81f00b"
+    },
+    {
+      "path": "experiments/rene_cosqa_pilot_20261019/common.py",
+      "sha256": "d4a1d467ae404882bf5b2ef09af76cae33553dc4a94c37d6f9869927ef70dfb3"
+    },
+    {
+      "path": "experiments/rene_cosqa_pilot_20261019/evaluation.py",
+      "sha256": "3c1ce4ef2a508e23bf38d408f3082c8ba4d7d66067b8db5e77375486311193aa"
+    },
+    {
+      "path": "experiments/rene_cosqa_pilot_20261019/freeze.py",
+      "sha256": "a9d98de2d8c8c0f63318d98321f855d621942af8d929fcc65e10e10609e29790"
+    },
+    {
+      "path": "experiments/rene_cosqa_pilot_20261019/ranking.py",
+      "sha256": "ee3826fbdfbf8b0e3f6d8adf79709e710333be7e5850fcc94e8b47f6bcc16168"
+    },
+    {
+      "path": "experiments/rene_cosqa_pilot_20261019/run.py",
+      "sha256": "9c306e8da75ec4c0504c18283d1769d1a114251d5568e07e6a797ffaf6182abf"
+    },
+    {
+      "path": "experiments/rene_cosqa_pilot_20261019/selection.py",
+      "sha256": "3f8280af1ea2229696c292d002c7acc58ccf48e660d6631683a2830567f586ef"
+    },
+    {
+      "path": "experiments/rene_cosqa_pilot_20261019/test_contract.py",
+      "sha256": "dba2737492d0c928547c8fbe2c23a8bdb052fe1a55948a8e52c4f5210a7e7a1e"
+    },
+    {
+      "path": "experiments/rene_independent_eval_20261019/run_cosqa_eval.py",
+      "sha256": "e9e77322b2cc143b0c957c82056a6344da479db74837c1c454cfbccb8d18ad10"
+    },
+    {
+      "path": "experiments/rene_independent_eval_20261019/rne_eval.py",
+      "sha256": "5778a98e8328769a6729766442fc61b698a9668913913c3619d6809d6e9f3b17"
+    },
+    {
+      "path": "experiments/rene_ssqr_alignment_20261019/t5.py",
+      "sha256": "fdc537ac6b56541150278ec6f79951b9463a7fd74a27f1e6c44cf7d94668cfa1"
+    },
+    {
+      "path": "experiments/rene_ssqr_alignment_20261019/retriever.py",
+      "sha256": "48b490fb06712985740af8064095e2116fe87a192c8ddcdfe051f39f2c9944f4"
+    },
+    {
+      "path": "experiments/rene_ssqr_alignment_20261019/pipeline.py",
+      "sha256": "73ec0b3e94fe5d9e7cda036530b204db7a27485045a7c1444eac572d366fd515"
+    },
+    {
+      "path": "experiments/rene_ssqr_alignment_20261019/common.py",
+      "sha256": "1b3c596b3504692ede62121f3c1bdd1c17ecdab6dd363398387e5d07e2935aa2"
+    },
+    {
+      "path": "results/rene_ssqr_alignment_20261019/cosqa_adapter/manifest.json",
+      "sha256": "f7fb647fe4a5dd322269987661aff53ef9b85d9414850599de8a608cf633d4e5"
+    },
+    {
+      "path": "results/rene_ssqr_alignment_20261019/cosqa_adapter/public/corpus.jsonl",
+      "sha256": "4e48d0ded5f5591002040faac69e9ece984cd2b340a6164fcc9d93c4b5009f68"
+    },
+    {
+      "path": "results/rene_ssqr_alignment_20261019/cosqa_adapter/public/all_positive_queries.jsonl",
+      "sha256": "5a23db8b72362d31c0149bf6a3825d3898164b6b8bb816737e037826b3296c3a"
+    },
+    {
+      "path": "results/rene_ssqr_alignment_20261019/cosqa_adapter/public/official_test_queries.jsonl",
+      "sha256": "ff4879bc9cad8d5de84e5f5c10f81276492bedb1ddbb1653bf86201f90210d61"
+    },
+    {
+      "path": "results/rene_cosqa_ssqr_audit_20261019/QUERY_GROUP_INVENTORY.jsonl",
+      "sha256": "23c73f5f651e70663463b4b0924c891b858a6ce1824831585c338f1957d35d22"
+    },
+    {
+      "path": "models/t5-cqc-codenn-1m/best/model.safetensors",
+      "sha256": "7acd4cb8379a1f5297bb978a748bc002b708ef5fd60a8b4737a6f8c7d2ebcaa5"
+    },
+    {
+      "path": "models/t5-cqc-codenn-1m/best/config.json",
+      "sha256": "853ccc6d11c4c05c7c766a841a2cb2c96565fc407f81afa1f0e7ad91f7f3b9d7"
+    },
+    {
+      "path": "models/t5-base/spiece.model",
+      "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+    },
+    {
+      "path": "models/codebert-ssqr-pooler-2epoch-20261019/model.safetensors",
+      "sha256": "0d533c04602916c22d1f13d282056f081b6bd04f9866ccc1ded46a0516e13e3d"
+    },
+    {
+      "path": "models/codebert-ssqr-pooler-2epoch-20261019/config.json",
+      "sha256": "cee5b66d8e61ba09dc4e7e6e3ce87e790a107a42982dad1a8d940b498ca83fa8"
+    },
+    {
+      "path": "models/codebert-ssqr-pooler-2epoch-20261019/training_complete.json",
+      "sha256": "a4eb4936d4dd2d5393927d8c0298566a69859b39b32cc11c987717430251b5cf"
+    },
+    {
+      "path": "results/rene_cosqa_pilot_20261019/ROLE_MANIFEST.json",
+      "sha256": "46d1a09364a46f5c127f6623cd2de64d4ec1c4f584b30017c253e224b4830826"
+    },
+    {
+      "path": "results/rene_cosqa_pilot_20261019/data/queries.jsonl",
+      "sha256": "b2b5ecb6687a6b09facea75f6f9a8745e85324488f5184dafe584efb75068fc1"
+    },
+    {
+      "path": "results/rene_cosqa_pilot_20261019/data/groups.json",
+      "sha256": "11df9ec16a51986165facb47c8fc5205ff84fef0de70a09eb2466aee135217d6"
+    },
+    {
+      "path": "results/rene_cosqa_pilot_20261019/data/PILOT_ROLE.json",
+      "sha256": "4a64683934c1f61e7ee873bc634223ed96cd5dc52ba61281b7c3bca6b1e236e1"
+    },
+    {
+      "path": "results/rene_cosqa_pilot_20261019/data/private/pilot_qrels.jsonl",
+      "sha256": "896119370cf4ec12d20f74850cb8f9731142034894f5c9caccba76646625169a"
+    },
+    {
+      "path": "results/rene_cosqa_pilot_20261019/TEST_RESULTS.json",
+      "sha256": "01a1bee348f8a0c0a34045f75d0e0a40671c2d3b61da4c21bed259adc1a31754"
+    }
+  ],
+  "protected_files": [
+    {
+      "path": "configs/vac_mqr_gain_model/CURRENT.json",
+      "sha256": "74eb0553c9d489f25f82408ed2cc0521a5d3fab92159d59700d5c8496c52d371"
+    },
+    {
+      "path": "configs/vac_mqr_verification_policy/CURRENT.json",
+      "sha256": "ca9c157954527fbcfee44ea34010131ab0143ec74d0778c081409d28507315e1"
+    },
+    {
+      "path": "configs/vac_mqr_risk_module/CURRENT.json",
+      "sha256": "436c367c8f8e15d1723064e9edb780dc3544180821d03fcac61d7c3724f50693"
+    },
+    {
+      "path": "configs/uq_candidate_selection/CURRENT.json",
+      "sha256": "5bd37f87e468a878f37f8356e298e15b3517bd5acb58ced03e24e3c923d6ef27"
+    },
+    {
+      "path": "results/vac_mqr_v5/STABLE.json",
+      "sha256": "ea43301dd61510d8415391e5b5182f286e736589a0e870f79630a92320f69a72"
+    }
+  ]
+}

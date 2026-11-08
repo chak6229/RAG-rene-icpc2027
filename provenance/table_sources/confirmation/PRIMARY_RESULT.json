@@ -1,0 +1,26 @@
+{
+  "mean": -0.0008365211420944555,
+  "queries": 7718,
+  "groups": 1963,
+  "changed_groups": 1500,
+  "standard_error_cluster": 0.0012101956660550708,
+  "ci95_cluster_t": [
+    -0.0032099252076455208,
+    0.00153688292345661
+  ],
+  "ci95_group_bootstrap": [
+    -0.0032547866853966396,
+    0.0015414627313371035
+  ],
+  "p_two_sided_cluster_t": 0.489504039620162,
+  "alpha": 0.05,
+  "comparison": "CodeBERT:ENTR_minus_RAND20_best3:capped16",
+  "only_confirmatory_test": true,
+  "conclusion": {
+    "direction": "difference from zero unresolved",
+    "practical_equivalence_within_prespecified_plusminus005": true,
+    "advantage_above005_excluded": true,
+    "does_not_imply_all_UQ_is_ineffective": true
+  },
+  "precision_plan_sha256": "5095031bc93ed21eb83e62051d88f2169a92157085aaeb33dbcf19f381dab9ff"
+}

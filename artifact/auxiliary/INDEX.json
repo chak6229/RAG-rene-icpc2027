@@ -1,0 +1,47 @@
+[
+  {
+    "study": "rene_core_step_b_20261020",
+    "file": "artifact/auxiliary/rene_core_step_b_20261020/per_query.jsonl.gz",
+    "records": 2980,
+    "source_sha256": "bb8ee5754e6f7c7d649450ac6d546611790ddac83513f74782c239920e01012a",
+    "numeric_fields_unchanged": true,
+    "includes_raw_text": false,
+    "full_model_pipeline_replayed": false
+  },
+  {
+    "study": "rene_multicandidate_fusion_20261020",
+    "file": "artifact/auxiliary/rene_multicandidate_fusion_20261020/per_query.jsonl.gz",
+    "records": 2980,
+    "source_sha256": "7d029506826fac285af4180c2099475e3e2b9367b0decb2dc0c8475835a55514",
+    "numeric_fields_unchanged": true,
+    "includes_raw_text": false,
+    "full_model_pipeline_replayed": false
+  },
+  {
+    "study": "rene_cqc_training_fidelity_20261020",
+    "file": "artifact/auxiliary/rene_cqc_training_fidelity_20261020/per_query.jsonl.gz",
+    "records": 16384,
+    "source_sha256": "616d03983fe8063eb6a78b7fc3ec7530184322f0cd64fbc0172e5c334caa6353",
+    "numeric_fields_unchanged": true,
+    "includes_raw_text": false,
+    "full_model_pipeline_replayed": false
+  },
+  {
+    "study": "rene_cqc_training_fidelity_20261020",
+    "file": "artifact/auxiliary/rene_cqc_training_fidelity_20261020/candidate_RR.jsonl.gz",
+    "records": 149440,
+    "source_sha256": "8d8d8288b620a0ea81068481565025beeeb8ae9cab436e713162e63c7d5ac14a",
+    "numeric_fields_unchanged": true,
+    "includes_raw_text": false,
+    "full_model_pipeline_replayed": false
+  },
+  {
+    "study": "rene_cqc_training_fidelity_20261020",
+    "file": "artifact/auxiliary/rene_cqc_training_fidelity_20261020/selections.jsonl.gz",
+    "records": 16384,
+    "source_sha256": "91724a5ab79ea5fe002fe7bb2c0a8aa2e58ef60cffe38fb68460262b5d3873e7",
+    "numeric_fields_unchanged": true,
+    "includes_raw_text": false,
+    "full_model_pipeline_replayed": false
+  }
+]

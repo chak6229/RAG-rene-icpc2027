@@ -1,0 +1,164 @@
+{
+  "version": "2026.11.08",
+  "repository": "https://github.com/chak6229/RAG-rene-icpc2027",
+  "release_tag": "rene-review-20261108",
+  "release_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108",
+  "publication_status": "publication_in_progress",
+  "assets": [
+    {
+      "identity": "W1",
+      "filename": "SSQR_RENE_W1_CQC_T5_20261031.zip",
+      "bytes": 895679380,
+      "sha256": "c30b796808b512a1d7ebf4d8e6babfab6756878f95a5ce827dd0b29b3f37b097",
+      "files": [
+        {
+          "path": "models/t5-cqc-codenn-1m/best/best_checkpoint.json",
+          "bytes": 1111,
+          "sha256": "b9da5736041528ad35be75b70f082c54d913b3d271b62d9b2d5843923559b651"
+        },
+        {
+          "path": "models/t5-cqc-codenn-1m/best/config.json",
+          "bytes": 1528,
+          "sha256": "853ccc6d11c4c05c7c766a841a2cb2c96565fc407f81afa1f0e7ad91f7f3b9d7"
+        },
+        {
+          "path": "models/t5-cqc-codenn-1m/best/generation_config.json",
+          "bytes": 149,
+          "sha256": "34f49d5043dafc40ac0f60a26f3ba19690bd2f2f4ea4957bdafa51d05feee63e"
+        },
+        {
+          "path": "models/t5-cqc-codenn-1m/best/model.safetensors",
+          "bytes": 891644712,
+          "sha256": "7acd4cb8379a1f5297bb978a748bc002b708ef5fd60a8b4737a6f8c7d2ebcaa5"
+        },
+        {
+          "path": "models/t5-cqc-codenn-1m/best/special_tokens_map.json",
+          "bytes": 2668,
+          "sha256": "65d84a9271d68f1230ab99518c00f0f7eaef95c7b363001595ba6fa662d434b1"
+        },
+        {
+          "path": "models/t5-cqc-codenn-1m/best/tokenizer.json",
+          "bytes": 2422422,
+          "sha256": "4b053a1ea4ac16b299555f8fc83b5e2dbdf1b9a2b3cbfb556682d821b8d6b4fd"
+        },
+        {
+          "path": "models/t5-cqc-codenn-1m/best/tokenizer_config.json",
+          "bytes": 21974,
+          "sha256": "f01de13ca97541b336fcb4a20702a9d7702ec52e052104ee191dfa2c6f092139"
+        },
+        {
+          "path": "models/t5-cqc-codenn-1m/best/spiece.model",
+          "bytes": 791656,
+          "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+        },
+        {
+          "path": "models/t5-base/spiece.model",
+          "bytes": 791656,
+          "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+        }
+      ],
+      "download_route": "Authenticated download from the private GitHub release or the identically named review attachment.",
+      "download_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261108/SSQR_RENE_W1_CQC_T5_20261031.zip"
+    },
+    {
+      "identity": "W3",
+      "filename": "SSQR_RENE_W3_CodeBERT_20261031.zip",
+      "bytes": 503428077,
+      "sha256": "b2e696ea88b54e916eedc20349fc536da82d29e37ceeefbe6b21a0d1e6bf76bd",
+      "files": [
+        {
+          "path": "models/codebert-ssqr-pooler-2epoch-20261019/config.json",
+          "bytes": 675,
+          "sha256": "cee5b66d8e61ba09dc4e7e6e3ce87e790a107a42982dad1a8d940b498ca83fa8"
+        },
+        {
+          "path": "models/codebert-ssqr-pooler-2epoch-20261019/merges.txt",
+          "bytes": 456318,
+          "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5"
+        },
+        {
+          "path": "models/codebert-ssqr-pooler-2epoch-20261019/model.safetensors",
+          "bytes": 498604904,
+          "sha256": "0d533c04602916c22d1f13d282056f081b6bd04f9866ccc1ded46a0516e13e3d"
+        },
+        {
+          "path": "models/codebert-ssqr-pooler-2epoch-20261019/special_tokens_map.json",
+          "bytes": 1009,
+          "sha256": "b72f59af007f804a5b6514f6ed8d59b4723349105471bcc3a881591fd586e2d5"
+        },
+        {
+          "path": "models/codebert-ssqr-pooler-2epoch-20261019/ssqr_representation_contract.json",
+          "bytes": 2191,
+          "sha256": "59b12aed88ea1f97c34906e1baaf10a092247ef11177adc1769d155f25539956"
+        },
+        {
+          "path": "models/codebert-ssqr-pooler-2epoch-20261019/tokenizer.json",
+          "bytes": 3558643,
+          "sha256": "727009a8214ddfa5af1deedf1006d4d06e8e51e54aa5f03566263d4e19bfcdce"
+        },
+        {
+          "path": "models/codebert-ssqr-pooler-2epoch-20261019/tokenizer_config.json",
+          "bytes": 1304,
+          "sha256": "253e231e9ae9fd6e64762375b14c8f7f266c711b75d2b74a17170e6f3defe729"
+        },
+        {
+          "path": "models/codebert-ssqr-pooler-2epoch-20261019/training_complete.json",
+          "bytes": 521,
+          "sha256": "a4eb4936d4dd2d5393927d8c0298566a69859b39b32cc11c987717430251b5cf"
+        },
+        {
+          "path": "models/codebert-ssqr-pooler-2epoch-20261019/TRAINING_CONTRACT.json",
+          "bytes": 2191,
+          "sha256": "59b12aed88ea1f97c34906e1baaf10a092247ef11177adc1769d155f25539956"
+        },
+        {
+          "path": "models/codebert-ssqr-pooler-2epoch-20261019/vocab.json",
+          "bytes": 798293,
+          "sha256": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+        }
+      ],
+      "download_route": "Authenticated download from the private GitHub release or the identically named review attachment.",
+      "download_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261108/SSQR_RENE_W3_CodeBERT_20261031.zip"
+    },
+    {
+      "identity": "W5",
+      "filename": "SSQR_RENE_W5_CrossEncoder_20261031.zip",
+      "bytes": 500010650,
+      "sha256": "b67389496bf49bb867315c73d2b78955be628530de5005c1f123307f22ca8a7c",
+      "files": [
+        {
+          "path": "results/uq_pilot_20261014/action_witness_uq/data/ce_large_dense_4096.pt",
+          "bytes": 498653857,
+          "sha256": "3a0f26dcae197b2e7cb97b62349ccd743e4211a835a8e2ab2842376a7c4c2f39"
+        },
+        {
+          "path": "models/codebert-base/config.json",
+          "bytes": 498,
+          "sha256": "742474d6148a061fa975dadc09ce93725fa9673c55421ed316ef75532cc6b7aa"
+        },
+        {
+          "path": "models/codebert-base/merges.txt",
+          "bytes": 456318,
+          "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5"
+        },
+        {
+          "path": "models/codebert-base/vocab.json",
+          "bytes": 898822,
+          "sha256": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab"
+        },
+        {
+          "path": "models/codebert-base/special_tokens_map.json",
+          "bytes": 150,
+          "sha256": "7638f5bbbe86ef6d604ef28ad3647dc690d6d117c81c0d63e885416be8da1150"
+        },
+        {
+          "path": "models/codebert-base/tokenizer_config.json",
+          "bytes": 25,
+          "sha256": "994f46754c5bf4014f1aa92d34b1374319c3a6b3f702105cd5b742beaecd18ce"
+        }
+      ],
+      "download_route": "Authenticated download from the private GitHub release or the identically named review attachment.",
+      "download_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261108/SSQR_RENE_W5_CrossEncoder_20261031.zip"
+    }
+  ]
+}

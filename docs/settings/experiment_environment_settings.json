@@ -1,0 +1,1812 @@
+{
+  "title": "SSQR 外部复现实验环境与参数",
+  "table_range": "S16–S25",
+  "pages": [
+    {
+      "title": "实验环境",
+      "intro": "本材料集中列出主稿三个研究问题及相关敏感性实验的环境和参数。表 S16—S25 接续既有补充结果表 S1—S15；同一参数在不同实验中的取值分别保留。依据列 R01—R35 对应随附来源索引。",
+      "tables": [
+        {
+          "number": 16,
+          "title": "软件与硬件环境",
+          "headers": [
+            "项目",
+            "配置",
+            "依据"
+          ],
+          "rows": [
+            [
+              "操作系统",
+              "Windows，运行记录标识 Windows-10-10.0.26200-SP0（build 26200）",
+              "R01、R02"
+            ],
+            [
+              "GPU",
+              "NVIDIA GeForce RTX 5070 Laptop GPU；运行记录显存 8,151 MiB",
+              "R01、R02"
+            ],
+            [
+              "GPU 驱动",
+              "577.05",
+              "R01"
+            ],
+            [
+              "CPU",
+              "AMD Ryzen 9 8945HX with Radeon Graphics；16 核、32 逻辑处理器（本次硬件核对）",
+              "R34"
+            ],
+            [
+              "内存",
+              "32 GiB（本次硬件核对）",
+              "R34"
+            ],
+            [
+              "Python",
+              "3.10.11，64 位",
+              "R01、R02"
+            ],
+            [
+              "PyTorch / CUDA",
+              "2.7.0+cu128 / 12.8（PyTorch 构建及运行库）",
+              "R01、R02"
+            ],
+            [
+              "Transformers / Tokenizers",
+              "4.57.6 / 0.22.2",
+              "R01"
+            ],
+            [
+              "SentencePiece / Safetensors",
+              "0.2.2 / 0.8.0",
+              "R01"
+            ],
+            [
+              "NumPy / SciPy",
+              "2.2.6 / 1.15.3",
+              "R01、R02"
+            ],
+            [
+              "Scikit-learn / Joblib",
+              "1.7.2 / 1.6.0",
+              "R07、R09"
+            ],
+            [
+              "Threadpoolctl / Matplotlib",
+              "3.6.0 / 3.10.9",
+              "R01"
+            ],
+            [
+              "训练精度",
+              "主 T5、CodeBERT 及有限训练对照使用 BF16；有限对照模型权重为 FP32",
+              "R03、R05、R15"
+            ],
+            [
+              "生成与检索精度",
+              "主 T5 生成/评分及神经检索使用 FP32，关闭 TF32；交叉编码器核验采用 BF16 autocast，输出转 FP32",
+              "R02、R06、R20"
+            ],
+            [
+              "推断状态",
+              "模型使用 eval；生成、评分与检索关闭 dropout；训练阶段保留各模型训练设置",
+              "R17、R20、R31"
+            ]
+          ],
+          "widths_cm": [
+            3.1,
+            11.2,
+            2.5
+          ],
+          "notes": [
+            "软件、GPU 与驱动来自实验当时的运行记录。CPU 与内存于本次整理时核对，单独标明记录时点。CUDA 12.8 表示 PyTorch 使用的运行库版本。"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "模型训练",
+      "intro": "",
+      "tables": [
+        {
+          "number": 17,
+          "title": "主改写器与神经检索及核验模型的训练参数",
+          "headers": [
+            "参数",
+            "本地 CQC T5",
+            "CodeBERT 检索器",
+            "交叉编码器核验器"
+          ],
+          "rows": [
+            [
+              "基础模型",
+              "T5-base",
+              "CodeBERT-base",
+              "CodeBERT-base"
+            ],
+            [
+              "训练数据",
+              "本地 CODEnn 来源前 1,000,000 条注释",
+              "CodeXGLUE 251,820 对查询—代码",
+              "历史 large_dense_4096：4,096 条查询、16,384 对"
+            ],
+            [
+              "训练目标",
+              "恢复单个连续遮盖片段，长度 max(1, round(0.15n))",
+              "查询到代码的完整批内交叉熵",
+              "二元相关性 BCEWithLogits"
+            ],
+            [
+              "轮数 / 更新",
+              "3 轮 / 93,750 次",
+              "2 轮 / 15,740 次",
+              "1 轮 / 512 次"
+            ],
+            [
+              "微批量 / 梯度累积",
+              "8 / 4",
+              "32 / 1",
+              "8 / 4"
+            ],
+            [
+              "有效批量",
+              "32",
+              "32",
+              "32"
+            ],
+            [
+              "优化器",
+              "AdamW",
+              "AdamW",
+              "AdamW"
+            ],
+            [
+              "学习率",
+              "0.001",
+              "0.00005",
+              "0.00002"
+            ],
+            [
+              "调度",
+              "恒定",
+              "10% 预热（1,574 次）后线性衰减",
+              "恒定"
+            ],
+            [
+              "权重衰减",
+              "0.01（执行代码默认值）",
+              "0",
+              "0.01"
+            ],
+            [
+              "梯度裁剪",
+              "L2 范数上限 1",
+              "L2 范数上限 1",
+              "L2 范数上限 1"
+            ],
+            [
+              "输入长度",
+              "512",
+              "查询、代码各 256",
+              "查询 64、代码 160，另加特殊标记"
+            ],
+            [
+              "随机种子",
+              "101",
+              "123456",
+              "141414"
+            ],
+            [
+              "权重选取",
+              "源验证损失最佳，第 92,000 次更新",
+              "主检索使用预定两轮最终权重",
+              "历史固定训练完成权重，H 推断前冻结"
+            ],
+            [
+              "训练精度",
+              "BF16",
+              "BF16",
+              "BF16 autocast"
+            ]
+          ],
+          "widths_cm": [
+            2.5,
+            4.8,
+            4.8,
+            4.7
+          ],
+          "notes": [
+            "T5 依据 R03、R04、R29；CodeBERT 依据 R05；核验器依据 R27、R28。核验器沿用历史训练权重，其训练来源及负例构造保留在来源代码中，未使用 H 标注重新训练。",
+            "主 T5 完成 93,750 次更新，实际生成使用源验证最佳的第 92,000 次权重。该训练与八种 1,024 次更新的敏感性配置分别报告。"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "候选生成与检索",
+      "intro": "",
+      "tables": [
+        {
+          "number": 18,
+          "title": "生成评分选择及检索参数",
+          "headers": [
+            "环节",
+            "设置",
+            "依据"
+          ],
+          "rows": [
+            [
+              "主插入位置",
+              "按空白划分 n 个词，分别在第 1 至第 n 个词后插入；每位置生成 1 条",
+              "R06、R17"
+            ],
+            [
+              "主生成参数",
+              "greedy；do_sample=false；num_beams=1；num_return_sequences=1；max_new_tokens=19",
+              "R06、R14"
+            ],
+            [
+              "长度解释",
+              "主解码器长度至多 20（含起始标记）；输入超过 512 时报错，主流程不静默截断",
+              "R17"
+            ],
+            [
+              "批量与种子",
+              "早期/CoSQA/有限训练生成批量 8；StaQC 与新两权重生成批量 32、查询块 32；种子均 101",
+              "R06、R07、R11、R14、R16"
+            ],
+            [
+              "T5 分词",
+              "T5Tokenizer legacy=True；本地 T5-base SentencePiece；核对保存分词器词表",
+              "R17"
+            ],
+            [
+              "ENTR / PROB",
+              "同一生成标签序列；ENTR 为完整词表预测熵的非填充位置均值，低分优先；PROB 为逐词元对数概率均值，高分优先",
+              "R17"
+            ],
+            [
+              "评分标签",
+              "<extra_id_0> + 片段 + <extra_id_1>，并包含 EOS；同分按原插入位置排序",
+              "R17"
+            ],
+            [
+              "候选选择与聚合",
+              "k=1、2、3，截至候选池大小；mean / 标注辅助 best-k；不额外加入原查询",
+              "R26、R14"
+            ],
+            [
+              "重复与空片段",
+              "保留原始位置及其抽取概率；不以原查询补齐短候选池",
+              "R11、R14"
+            ],
+            [
+              "精确随机 / RAND20",
+              "精确随机为位置上的均匀不放回期望；RAND20 使用种子 2026101900—2026101919",
+              "R06、R07、R26"
+            ],
+            [
+              "CodeBERT 表示",
+              "pooler_output；不归一化；FP32 原始点积；查询与代码长度上限均为 256",
+              "R05、R11"
+            ],
+            [
+              "CodeBERT 批量",
+              "CoSQA H 编码 16；新两权重 StaQC 编码 32；排名得分分块 128",
+              "R20、R14"
+            ],
+            [
+              "BM25",
+              "k1=1.2，b=0.75；IDF=ln(1+(N−df+0.5)/(df+0.5))；词法本地实现",
+              "R07、R18"
+            ],
+            [
+              "BM25 分词与计分",
+              "拆分小写/数字到大写的驼峰边界，再提取小写 [a-z][a-z0-9]*；查询词去重；文档不截断；FP64",
+              "R18"
+            ],
+            [
+              "UniXcoder",
+              "<encoder-only>；查询 128、代码 256；对非填充词元（含特殊标记）的末层表示取均值，L2 归一化后 FP32 点积；批量 16",
+              "R12、R31"
+            ],
+            [
+              "排名规则",
+              "取 Top100；按分数降序、原文档 ID 升序处理平分；所有同条件对照固定语料与标注",
+              "R06、R11、R12、R14"
+            ]
+          ],
+          "widths_cm": [
+            3.1,
+            11.2,
+            2.5
+          ],
+          "notes": [
+            "采样参数 temperature=1、top_k=0、top_p=1 适用于采样敏感性配置；主贪心设置不使用这些采样截断参数。主流程中的 k 表示所选候选数，生成时仍枚举全部指定位置。"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "模型身份",
+      "intro": "",
+      "tables": [
+        {
+          "number": 19,
+          "title": "实际使用权重及文件校验值",
+          "headers": [
+            "模型",
+            "身份与用途",
+            "权重文件 SHA-256"
+          ],
+          "rows": [
+            [
+              "W1 本地 CQC T5",
+              "T5-base 上独立 CQC 训练；源验证最佳，第 92,000 次更新",
+              "7acd4cb8379a1f5297bb978a748bc002b708ef5fd60a8b4737a6f8c7d2ebcaa5"
+            ],
+            [
+              "W2 公开 T5-base",
+              "公开基础权重；两权重对照及有限训练共同初始化",
+              "a90903540cc02cbeb7ff9f823f1a80eb778c7e22426a0e620b01c77a5ec8f5b4"
+            ],
+            [
+              "W3 CodeBERT 检索器",
+              "SSQR pooler/点积目标；两轮最终权重",
+              "0d533c04602916c22d1f13d282056f081b6bd04f9866ccc1ded46a0516e13e3d"
+            ],
+            [
+              "W4 UniXcoder-base",
+              "公开零样本权重；revision 5604afdc964f6c53782a6813140ade5216b99006",
+              "6732b60037b086557e4c731c3748c99b4fec735d9ffe3c4c70061fd142e6b9d9"
+            ],
+            [
+              "W5 CodeBERT 交叉编码器",
+              "历史 large_dense_4096 交叉编码器；完整 H 前冻结",
+              "3a0f26dcae197b2e7cb97b62349ccd743e4211a835a8e2ab2842376a7c4c2f39"
+            ]
+          ],
+          "widths_cm": [
+            3.3,
+            6.1,
+            7.4
+          ],
+          "notes": [
+            "W1—W3 的封存身份见 R14，W4 见 R12，W5 见 R07；本次逐一计算实际文件哈希并与封存记录一致。精确文件位置见随附来源索引。",
+            "两权重分析比较各权重自己的完整候选池。相同查询、语料、标注及检索器形成配对；不将候选池假定为跨权重相同。"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "生成与训练敏感性",
+      "intro": "",
+      "tables": [
+        {
+          "number": 20,
+          "title": "六种生成配置",
+          "headers": [
+            "配置",
+            "位置",
+            "解码",
+            "新增词元上限",
+            "含起始总长"
+          ],
+          "rows": [
+            [
+              "greedy20_source",
+              "1…n",
+              "贪心",
+              "19",
+              "20"
+            ],
+            [
+              "greedy20_all",
+              "0…n",
+              "贪心",
+              "19",
+              "20"
+            ],
+            [
+              "greedy10_source",
+              "1…n",
+              "贪心",
+              "9",
+              "10"
+            ],
+            [
+              "greedy10_all",
+              "0…n",
+              "贪心",
+              "9",
+              "10"
+            ],
+            [
+              "sample10_source",
+              "1…n",
+              "采样",
+              "9",
+              "10"
+            ],
+            [
+              "sample10_all",
+              "0…n",
+              "采样",
+              "9",
+              "10"
+            ]
+          ],
+          "widths_cm": [
+            5.2,
+            2.2,
+            2.2,
+            3.4,
+            3.8
+          ],
+          "notes": [
+            "依据 R06。每域固定 512 条查询/组，共用配置间匹配查询。采样 temperature=1、top_k=0、top_p=1；每查询—位置以 SHA-256(seed=101, query_id, position) 确定随机流，每位置生成 1 条。贪心批量 8，采样批量 1。"
+          ]
+        },
+        {
+          "number": 21,
+          "title": "八种预算匹配训练配置",
+          "headers": [
+            "臂",
+            "优化器",
+            "调度",
+            "调度总长",
+            "长度",
+            "权重衰减",
+            "种子"
+          ],
+          "rows": [
+            [
+              "L",
+              "AdamW",
+              "恒定",
+              "—",
+              "512",
+              "0.01",
+              "101"
+            ],
+            [
+              "O",
+              "Adafactor",
+              "恒定",
+              "—",
+              "512",
+              "0.01",
+              "101"
+            ],
+            [
+              "S",
+              "AdamW",
+              "线性",
+              "100,000",
+              "512",
+              "0.01",
+              "101"
+            ],
+            [
+              "N",
+              "AdamW",
+              "恒定",
+              "—",
+              "128",
+              "0.01",
+              "101"
+            ],
+            [
+              "W",
+              "AdamW",
+              "恒定",
+              "—",
+              "512",
+              "0.0",
+              "101"
+            ],
+            [
+              "P",
+              "Adafactor",
+              "线性",
+              "100,000",
+              "128",
+              "0.0",
+              "101"
+            ],
+            [
+              "PN",
+              "Adafactor",
+              "线性",
+              "1,093",
+              "128",
+              "0.0",
+              "101"
+            ],
+            [
+              "PS",
+              "Adafactor",
+              "线性",
+              "100,000",
+              "128",
+              "0.0",
+              "42"
+            ]
+          ],
+          "widths_cm": [
+            1.0,
+            3.1,
+            1.6,
+            3.0,
+            2.1,
+            3.1,
+            2.9
+          ],
+          "notes": [
+            "依据 R15、R16、R30。全部从同一 T5-base 初始化，共用固定 32,768 行训练材料和数据顺序，进行 1,024 次更新；微批量 8、累积 4、有效批量 32、初始学习率 0.001、梯度范数上限 1；BF16 计算、FP32 权重。",
+            "线性调度总长独立于实际 1,024 次更新预算。Adafactor 固定 scale_parameter=false、relative_step=false；各臂使用最终权重，无早停选择。评估同时报告自身生成池与固定历史池重评分视角。"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "固定动作与结果融合",
+      "intro": "",
+      "tables": [
+        {
+          "number": 22,
+          "title": "固定动作采纳与融合设置",
+          "headers": [
+            "项目",
+            "设置",
+            "依据"
+          ],
+          "rows": [
+            [
+              "样本与动作",
+              "CoSQA D：1,490 条查询、512 个连通组；固定同一 ENTR Top1 动作",
+              "R09"
+            ],
+            [
+              "训练目标",
+              "固定动作 RR@100 减原查询 RR@100；每查询等权；目标标注不进入特征",
+              "R09"
+            ],
+            [
+              "特征块",
+              "M0=27 维；MT=37 维；MR=61 维；MRT=71 维；完整列名及分区保留在协议",
+              "R09"
+            ],
+            [
+              "拟合",
+              "StandardScaler + Ridge；alpha=1；solver=svd；含截距，不裁剪预测，不调参",
+              "R09"
+            ],
+            [
+              "OOF 划分",
+              "复用按完整连通组划分的 5 折；只在训练折拟合标准化与模型",
+              "R09"
+            ],
+            [
+              "合格动作",
+              "同时改变查询文本和完整 Top100 排序；各预测头共用该可观测门槛",
+              "R09"
+            ],
+            [
+              "Fixed20",
+              "每留出折采纳 floor(合格动作数/5) 个最高预测动作；含负分；同分按 query_id 升序",
+              "R09"
+            ],
+            [
+              "零阈值",
+              "只采纳合格且原始预测收益 >0 的动作；两个策略均以全部 D 查询为分母",
+              "R09"
+            ],
+            [
+              "重抽样范围",
+              "以已拟合 OOF 模型为条件；不在 bootstrap 内重新拟合或调整配额",
+              "R09"
+            ],
+            [
+              "RRF 输入",
+              "RRF3 为三个 ENTR 列表；RRF4 再加原查询；先按完整输入文本去重，再等权融合",
+              "R10"
+            ],
+            [
+              "RRF 参数",
+              "常数 60，输入和输出深度 100；分数为 Σ1/(60+rank)",
+              "R10"
+            ],
+            [
+              "RRF 数值与平分",
+              "用精确有理数的等价整数排序；同分按文档 ID 升序；取检索文档并集的前 100",
+              "R10"
+            ],
+            [
+              "工作量",
+              "融合按去重后检索输入数计量，不解释为在线耗时；本对照无风险门",
+              "R10"
+            ]
+          ],
+          "widths_cm": [
+            3.1,
+            11.2,
+            2.5
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "title": "完整 H 执行流程",
+      "intro": "",
+      "tables": [
+        {
+          "number": 23,
+          "title": "冻结执行阶段的模型与决策参数",
+          "headers": [
+            "项目",
+            "设置",
+            "依据"
+          ],
+          "rows": [
+            [
+              "D 中三个角色",
+              "收益拟合：953 查询/307 组；核验更新拟合：288/103；风险拟合：249/102；按完整组互斥",
+              "R08"
+            ],
+            [
+              "评估样本",
+              "完整 H 为 8,530 条查询、1,963 组；拟合和阈值冻结后再推断 H",
+              "R07"
+            ],
+            [
+              "收益预测",
+              "71 维实际输入；StandardScaler + Ridge alpha=10；查询内候选按 1/候选数加权",
+              "R07、R19"
+            ],
+            [
+              "基础损害预测",
+              "StandardScaler + LogisticRegression；C=0.1、lbfgs、max_iter=2000、random_state=261019",
+              "R19"
+            ],
+            [
+              "收益采纳",
+              "在同一 ENTR min(3,n) 候选中选预测最高者；预测 >0 且排名改变才采纳；预测裁至 [−1,1]",
+              "R19"
+            ],
+            [
+              "核验配额",
+              "按正向基础预测收益排序，最多 min(floor(N/4),合格查询数) 条；同分按 query_id",
+              "R07、R19"
+            ],
+            [
+              "核验证据",
+              "每查询 8 个不同代码；按原查询成功锚点、当前赢家/竞争候选及排名位移构建",
+              "R07、R19"
+            ],
+            [
+              "核验输入",
+              "原查询与代码成对；分别截至 64/160 词元，另加特殊标记；推断批量 32",
+              "R20"
+            ],
+            [
+              "核验精度",
+              "冻结模型 eval；BF16 autocast，分数转 FP32；不用改写文本替代原查询评分",
+              "R20"
+            ],
+            [
+              "更新模型",
+              "71+2+18=91 维；加权 StandardScaler + Ridge alpha=10；预测加上 0.5×残差预测，再裁至 [−1,1]",
+              "R19"
+            ],
+            [
+              "风险模型",
+              "negative/zero/positive 三分类，zero 为参考类，含基础概率 offset；20 维输入，屏蔽重复核验可用性列",
+              "R07、R19"
+            ],
+            [
+              "风险正则与优化",
+              "截距惩罚 1；核验指示系数惩罚 50；其余系数 10；L-BFGS-B，maxiter=2000，ftol=1e−11，gtol=1e−7",
+              "R19"
+            ],
+            [
+              "回退",
+              "阈值 0.075；超过时恢复原查询完整 Top100，不重新挑候选；已付核验成本保留",
+              "R07、R19"
+            ],
+            [
+              "数值零与小样本",
+              "TOL=1e−10；残差拟合不足 30 行时使用零残差；风险样本不足 30 或少于两类时保留概率 offset",
+              "R19"
+            ]
+          ],
+          "widths_cm": [
+            3.1,
+            11.2,
+            2.5
+          ],
+          "notes": [
+            "完整 H 流程的 Ridge alpha=10，与表 S22 的固定动作对照 alpha=1 分别保留。风险阈值是执行规则；经验损害计数不构成总体风险认证。",
+            "HGB 次要控制依据 R07：squared_error；max_iter=200，learning_rate=0.05，max_leaf_nodes=7，max_depth=3，min_samples_leaf=30，l2_regularization=10，max_bins=63，early_stopping=false，random_state=20261019。"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "配对推断与样本口径",
+      "intro": "",
+      "tables": [
+        {
+          "number": 24,
+          "title": "各项研究的比较族重抽样与样本",
+          "headers": [
+            "分析",
+            "查询/组与语料口径",
+            "比较族",
+            "重抽样次数 / 种子",
+            "主要设置"
+          ],
+          "rows": [
+            [
+              "CoSQA 指定复现",
+              "限额 H：7,718 查询/1,963 组；每组最多 16 条",
+              "1",
+              "10,000 / 261019",
+              "双侧 95% 双区间；须严格落入 ±0.005 且至少 20 个变化组"
+            ],
+            [
+              "完整 H 阶段",
+              "完整 H：8,530 查询/1,963 组",
+              "描述性",
+              "10,000 / 261019",
+              "阶段均值区间；收益保留率比值另用种子 261020"
+            ],
+            [
+              "同池 B/G",
+              "AdvTest 2,048/594；CoSQA D 1,490/512；双检索器",
+              "24",
+              "10,000 / 20261020",
+              "ENTR、PROB 的 B/G 及直接分量差"
+            ],
+            [
+              "StaQC 确认",
+              "13,312 查询/组；16,384 代码语料",
+              "2",
+              "10,000 / 202610202",
+              "CodeBERT ENTR B/G；PROB、BM25 描述性"
+            ],
+            [
+              "UniXcoder 扩展",
+              "复用 CoSQA D 与前述 StaQC 样本",
+              "12",
+              "10,000 / 202610203",
+              "两域 B/G 及相对 CodeBERT、BM25 的配对分量差"
+            ],
+            [
+              "匹配两权重",
+              "AdvTest、CoSQA 每域 512 查询/组",
+              "24",
+              "20,000 / 202610204",
+              "两域×两选择器×B/G×权重内及直接差"
+            ],
+            [
+              "新两权重确认",
+              "新 StaQC 25,600 查询/组；32,768 代码语料",
+              "6",
+              "20,000 / 202610215",
+              "两权重 ENTR B/G 及权重配对直接差；无等效检验"
+            ],
+            [
+              "固定动作采纳",
+              "CoSQA D 1,490/512",
+              "8",
+              "10,000 / 20261020",
+              "两条件增量×两采纳策略×两检索器"
+            ],
+            [
+              "RRF 融合",
+              "CoSQA D 1,490/512",
+              "4",
+              "10,000 / 20261020",
+              "RRF3/RRF4 相对原查询，两个检索器"
+            ],
+            [
+              "有限训练对照",
+              "AdvTest、CoSQA 每域 512 查询/组",
+              "28",
+              "10,000 / 20261020",
+              "保持已封存主要比较族和两候选池视角"
+            ]
+          ],
+          "widths_cm": [
+            2.5,
+            4.2,
+            1.3,
+            3.5,
+            5.3
+          ],
+          "notes": [
+            "依据 R07、R09—R16、R21、R26。均值以查询为权重单位；重抽样保留完整连通组或仓库组，在同一研究内共享配对重抽样。校正比较采用 Bonferroni 聚类 t 区间与组 percentile bootstrap 区间。",
+            "B/G 方向判断同时要求两种校正区间在同一方向排除零，并满足至少 20 个非零组。各研究比较族分别保留，不因统一展示合并总体。CoSQA ±0.005 为其指定等效界；新两权重规划中的 0.005 是精度目标。",
+            "有限训练对照的重抽样种子依据实际分析入口 R35；其余对应 R07、R09—R16、R21、R26。"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "人工评审与相关性诊断",
+      "intro": "",
+      "tables": [
+        {
+          "number": 25,
+          "title": "人工评审及补审的固定设置",
+          "headers": [
+            "项目",
+            "设置",
+            "依据"
+          ],
+          "rows": [
+            [
+              "抽样框与层",
+              "CodeBERT 完整 H8530；在收集标签前固定 8 个互不重叠的层，每层抽取 16 条",
+              "R22"
+            ],
+            [
+              "固定抽样规则",
+              "按 SHA-256 伪随机顺序选取；盐值 rene-mechanism-review-20261020-v1；完整拼接规则见代码",
+              "R22、R23"
+            ],
+            [
+              "审阅规模",
+              "128 条查询；两人分别独立评估 383 条不同改写与 327 个代码面板",
+              "R33"
+            ],
+            [
+              "盲化信息",
+              "隐藏方法、分数、排名结果、层和目标角色；语义评估与代码相关性评估分开",
+              "R33"
+            ],
+            [
+              "语义类别",
+              "含义保持、含义偏移、不可读、无法判断；每项附理由",
+              "R33"
+            ],
+            [
+              "代码类别",
+              "相对原查询评为 2/1/0 或未知；未知不记为 0；展示面板不等于完整语料重标",
+              "R33"
+            ],
+            [
+              "一致性统计",
+              "语义精确一致率与名义 Cohen κ；代码含未知的名义 κ，以及双方可判子集的线性加权 κ 与覆盖率",
+              "R33"
+            ],
+            [
+              "加权事件",
+              "使用原始 Nh/nh 分层权重；事件可以重叠；构造同时层超几何界，报告固定 H8530 的 95% 区间",
+              "R22、R33"
+            ],
+            [
+              "Top-3 补审",
+              "原查询与三候选 Top-3 并集 610 面板；266 沿用原判，每人新增 344 项，覆盖同批 126 条查询",
+              "R25、R33"
+            ],
+            [
+              "补审主诊断",
+              "固定 RIDGE_verified、RR@3、2 级相关、原八层权重；同文本共享未知相关性赋值",
+              "R25"
+            ],
+            [
+              "敏感性口径",
+              "另报告 1/2 级相关、未加权、各阶段及 RR@1；保留两位审阅者标签与分歧",
+              "R25"
+            ],
+            [
+              "识别界与抽样包络",
+              "样本识别界处理未判相关性；有限 H8530 的抽样包络另用超几何反演与 Bonferroni；Neyman/Welch–Satterthwaite t 为近似",
+              "R24"
+            ],
+            [
+              "覆盖范围",
+              "四个“审阅者×阈值”主策略组合另报同时包络；不声明全部 48 组合同时覆盖；区间不含标注误差",
+              "R24、R25"
+            ]
+          ],
+          "widths_cm": [
+            3.1,
+            11.2,
+            2.5
+          ],
+          "notes": [
+            "依据 R22—R25 及当前中文稿 R33。原始独立标签、补充判断和分歧分别保留；相关性诊断的 RR@3、样本识别范围和抽样包络不替换完整 H 的 MRR@100。"
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "R01": {
+      "path": "results/rene_factor_confirmation_20261020/RUNTIME_ENVIRONMENT.json",
+      "sha256": "2cad647a13135e896f7c6e068c89cee386816683bb8e8efc3d037111e27c4b50"
+    },
+    "R02": {
+      "path": "results/rene_weight_confirmation_20261021/RUNTIME.json",
+      "sha256": "76478bc62fefa0a01511a91b839b40de741d4b981cdd466574a31578f468efec"
+    },
+    "R03": {
+      "path": "models/t5-cqc-codenn-1m/training_config.json",
+      "sha256": "475a55e44124f4640e17f503082c2a1664e7a1f4d70c00463293e5f8b5d8b28f"
+    },
+    "R04": {
+      "path": "models/t5-cqc-codenn-1m/best/best_checkpoint.json",
+      "sha256": "b9da5736041528ad35be75b70f082c54d913b3d271b62d9b2d5843923559b651"
+    },
+    "R05": {
+      "path": "results/rene_ssqr_alignment_20261019/TRAINING_CONTRACT.json",
+      "sha256": "59b12aed88ea1f97c34906e1baaf10a092247ef11177adc1769d155f25539956"
+    },
+    "R06": {
+      "path": "results/rene_ssqr_bridge_20261019/PROTOCOL.json",
+      "sha256": "7d3d4c0728aa413a21dfc748d4a01dc4f29d5d59a0b4a44591eb48793dc3d95e"
+    },
+    "R07": {
+      "path": "results/rene_cosqa_confirmation_20261019/DESIGN.json",
+      "sha256": "0956f89599e6c26c673a1676d70c1dbfd15669c6180c7c2e476c52be22425184"
+    },
+    "R08": {
+      "path": "results/rene_cosqa_confirmation_20261019/STAGE_ROLES.json",
+      "sha256": "96044e39c59a49dc38af85fb35787a8117e81ae8d460188a26dc20298816904e"
+    },
+    "R09": {
+      "path": "results/rene_core_step_b_20261020/PROTOCOL.json",
+      "sha256": "7f4ac3795fe7ee7adf9e8d662e8fe71cd28b53caf70e8c841718a75b06b9c295"
+    },
+    "R10": {
+      "path": "results/rene_multicandidate_fusion_20261020/PROTOCOL.json",
+      "sha256": "51a55d9398b864e50d1432ffd3f1061c40711a72246497da1b29b36eef618185"
+    },
+    "R11": {
+      "path": "results/rene_factor_confirmation_20261020/DESIGN.json",
+      "sha256": "b61e524568c38e8544e14421d52ca380d11ae07c9fa3c0e5bb72b384b6728d53"
+    },
+    "R12": {
+      "path": "results/rene_third_retriever_20261020/DESIGN.json",
+      "sha256": "7d3c275debf4cfef8aa8e8d4fa2489db7909cf4fda2a239a1a3dd17d6b56447a"
+    },
+    "R13": {
+      "path": "results/rene_t5_weight_factors_20261020/DESIGN.json",
+      "sha256": "a5736815a7ffc020fbedb320e79054054d29b265134566edbbf1674b1d0ce2e9"
+    },
+    "R14": {
+      "path": "results/rene_weight_confirmation_20261021/DESIGN.json",
+      "sha256": "cb03eede49db37e7a3de670904c12b93d0a2f947e541a6b2dfb1f8b149c69f5d"
+    },
+    "R15": {
+      "path": "results/rene_cqc_training_fidelity_20261020/TRAIN_PROTOCOL.json",
+      "sha256": "4b18123ad653f4921000fb48e5e358538c6db7157de6b07fbf6061a68a4e4677"
+    },
+    "R16": {
+      "path": "results/rene_cqc_training_fidelity_20261020/EVAL_PROTOCOL.json",
+      "sha256": "326cd54903ea014cd739aae02e2ab124f1678882d60339b42d0b74115defb1f1"
+    },
+    "R17": {
+      "path": "experiments/rene_ssqr_alignment_20261019/t5.py",
+      "sha256": "fdc537ac6b56541150278ec6f79951b9463a7fd74a27f1e6c44cf7d94668cfa1"
+    },
+    "R18": {
+      "path": "experiments/rene_cosqa_pilot_20261019/ranking.py",
+      "sha256": "ee3826fbdfbf8b0e3f6d8adf79709e710333be7e5850fcc94e8b47f6bcc16168"
+    },
+    "R19": {
+      "path": "experiments/rene_cosqa_confirmation_20261019/policy.py",
+      "sha256": "362a8381e1ba12e596fc20847dbf0b490e97f2bda3c591056d3db2ac96e23f35"
+    },
+    "R20": {
+      "path": "experiments/rene_cosqa_confirmation_20261019/cache.py",
+      "sha256": "2accea77fd96390047c68608b0760940e0b76cef75447e6a7000ff118d9b6b42"
+    },
+    "R21": {
+      "path": "experiments/rene_cosqa_confirmation_20261019/statistics.py",
+      "sha256": "f1b46a7e56dca7ce0cafc3dcc8eaf600ff7bcc017b842710e0860b854a5996fe"
+    },
+    "R22": {
+      "path": "results/rene_mechanism_review_20261020/PROTOCOL.json",
+      "sha256": "d7a02670633234ecdb20908435555e009c0f954b1cc8c2512687963d86bace00"
+    },
+    "R23": {
+      "path": "experiments/rene_mechanism_review_20261020/common.py",
+      "sha256": "04d1f92a3b459917cbd70e891bf831dc36224bf223cc0aa6379770d484fac98d"
+    },
+    "R24": {
+      "path": "paper/rene2027/relevance_sampling_uncertainty.md",
+      "sha256": "a3cb3e7932cc66efe4f254416f0d7abd77fe7fd94001458ba299bc68de6a7e62"
+    },
+    "R25": {
+      "path": "paper/rene2027/relevance_sensitivity_results.md",
+      "sha256": "82b34c525f45c57bef669b2fb664b127974dd96ecea7ec1c0d138fe6579c6287"
+    },
+    "R26": {
+      "path": "results/rene_budget_aggregation_20261020/PROTOCOL.json",
+      "sha256": "8fa9aded2d7cf9b440db20dc1dd63fdb962e931697c2ef15ca992dc103277114"
+    },
+    "R27": {
+      "path": "experiments/action_witness_uq_20261014/gpu_data.py",
+      "sha256": "40265f20d5251733f5fd11c34054f34cb6901bfbc486772b5cced51e1f761895"
+    },
+    "R28": {
+      "path": "results/uq_pilot_20261014/action_witness_uq/data/ce_large_dense_4096_train_status.json",
+      "sha256": "5519247f0ded717ee5e13e2be7b9c3ed2a6a2eafe13c75eff33dbf70b50b113f"
+    },
+    "R29": {
+      "path": "train_t5_cqc.py",
+      "sha256": "cebe7f6ea0831ac6ef7f2ee0b030547412824ff5fd7a064067fd7c0cff5b063d"
+    },
+    "R30": {
+      "path": "experiments/rene_cqc_training_fidelity_20261020/train.py",
+      "sha256": "94ce4bead6e0bedb0c60de99384356b4d682c42ef831fac6f725961772c124e7"
+    },
+    "R31": {
+      "path": "experiments/rene_third_retriever_20261020/encoder.py",
+      "sha256": "adf3a17849768418f8e6a484c95ddaffb4b080fb71d849b886d7e0211cd73a93"
+    },
+    "R32": {
+      "path": "paper/rene2027/implementation_fidelity.md",
+      "sha256": "9f292af5d9d4833d2b3744113419aed5d0beb81d4937435d2f06d56420016588"
+    },
+    "R33": {
+      "path": "paper/rene2027/ieee_submission/论文中文版_IEEE双栏.docx",
+      "sha256": "381e74fcfad345c7f7a091cc54ae86b34b3224c70415fef19e7da958d5074665"
+    },
+    "R34": {
+      "path": "results/rene_experiment_settings_20261026/HARDWARE_RECHECK.json",
+      "sha256": "588935d091d9f7d99a123b1f4d4cdf5b524c90a6c278e7dc748e838577ef42b6",
+      "scope": "current hardware recheck; CPU and RAM not recorded in historic run metadata"
+    },
+    "R35": {
+      "path": "experiments/rene_cqc_training_fidelity_20261020/analyze.py",
+      "sha256": "bb73c9d035934ba09c2e1d2b15f91c297d9308fbcc5fb4583b855ba5ae735a70"
+    }
+  },
+  "weights": [
+    {
+      "id": "W1",
+      "name": "本地 CQC T5",
+      "path": "models/t5-cqc-codenn-1m/best/model.safetensors",
+      "sha256": "7acd4cb8379a1f5297bb978a748bc002b708ef5fd60a8b4737a6f8c7d2ebcaa5"
+    },
+    {
+      "id": "W2",
+      "name": "公开 T5-base",
+      "path": "models/t5-base/model.safetensors",
+      "sha256": "a90903540cc02cbeb7ff9f823f1a80eb778c7e22426a0e620b01c77a5ec8f5b4"
+    },
+    {
+      "id": "W3",
+      "name": "CodeBERT 检索器",
+      "path": "models/codebert-ssqr-pooler-2epoch-20261019/model.safetensors",
+      "sha256": "0d533c04602916c22d1f13d282056f081b6bd04f9866ccc1ded46a0516e13e3d"
+    },
+    {
+      "id": "W4",
+      "name": "UniXcoder-base",
+      "path": "models/unixcoder-base-pinned-20261020/pytorch_model.bin",
+      "sha256": "6732b60037b086557e4c731c3748c99b4fec735d9ffe3c4c70061fd142e6b9d9"
+    },
+    {
+      "id": "W5",
+      "name": "CodeBERT 交叉编码器",
+      "path": "results/uq_pilot_20261014/action_witness_uq/data/ce_large_dense_4096.pt",
+      "sha256": "3a0f26dcae197b2e7cb97b62349ccd743e4211a835a8e2ab2842376a7c4c2f39"
+    }
+  ],
+  "fixed_action_feature_blocks": {
+    "M0": {
+      "columns": [
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "names": [
+        "label_token_count",
+        "span_token_count",
+        "span_empty",
+        "position_fraction",
+        "log_query_words",
+        "log_span_words",
+        "span_novel_fraction",
+        "rewrite_word_ratio",
+        "identity_text",
+        "candidate_top1",
+        "candidate_top2",
+        "candidate_top3",
+        "candidate_top10",
+        "candidate_top100",
+        "candidate_margin12",
+        "candidate_margin1_10",
+        "candidate_mean10",
+        "candidate_std10",
+        "candidate_std100",
+        "candidate_standardized_margin12",
+        "candidate_entropy100",
+        "original_query_coverage_candidate_top1",
+        "original_query_coverage_candidate_mean3",
+        "rewrite_coverage_candidate_top1",
+        "span_coverage_candidate_top1",
+        "span_coverage_candidate_max3",
+        "log_candidate_top1_code_words"
+      ]
+    },
+    "MT": {
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "names": [
+        "full_vocab_entropy",
+        "label_mean_log_probability",
+        "label_sum_log_probability",
+        "mean_max_vocab_probability",
+        "label_token_count",
+        "span_token_count",
+        "span_full_vocab_entropy",
+        "span_mean_log_probability",
+        "span_empty",
+        "position_fraction",
+        "log_query_words",
+        "log_span_words",
+        "span_novel_fraction",
+        "rewrite_word_ratio",
+        "identity_text",
+        "entr_rank_fraction",
+        "prob_rank_fraction",
+        "entropy_above_pool_min",
+        "logp_below_pool_max",
+        "candidate_top1",
+        "candidate_top2",
+        "candidate_top3",
+        "candidate_top10",
+        "candidate_top100",
+        "candidate_margin12",
+        "candidate_margin1_10",
+        "candidate_mean10",
+        "candidate_std10",
+        "candidate_std100",
+        "candidate_standardized_margin12",
+        "candidate_entropy100",
+        "original_query_coverage_candidate_top1",
+        "original_query_coverage_candidate_mean3",
+        "rewrite_coverage_candidate_top1",
+        "span_coverage_candidate_top1",
+        "span_coverage_candidate_max3",
+        "log_candidate_top1_code_words"
+      ]
+    },
+    "MR": {
+      "columns": [
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "names": [
+        "label_token_count",
+        "span_token_count",
+        "span_empty",
+        "position_fraction",
+        "log_query_words",
+        "log_span_words",
+        "span_novel_fraction",
+        "rewrite_word_ratio",
+        "identity_text",
+        "original_top1",
+        "original_top2",
+        "original_top3",
+        "original_top10",
+        "original_top100",
+        "original_margin12",
+        "original_margin1_10",
+        "original_mean10",
+        "original_std10",
+        "original_std100",
+        "original_standardized_margin12",
+        "original_entropy100",
+        "candidate_top1",
+        "candidate_top2",
+        "candidate_top3",
+        "candidate_top10",
+        "candidate_top100",
+        "candidate_margin12",
+        "candidate_margin1_10",
+        "candidate_mean10",
+        "candidate_std10",
+        "candidate_std100",
+        "candidate_standardized_margin12",
+        "candidate_entropy100",
+        "difference_top1",
+        "difference_top2",
+        "difference_top3",
+        "difference_top10",
+        "difference_top100",
+        "difference_margin12",
+        "difference_margin1_10",
+        "difference_mean10",
+        "difference_std10",
+        "difference_std100",
+        "difference_standardized_margin12",
+        "difference_entropy100",
+        "same_ranking",
+        "same_top1",
+        "jaccard3",
+        "jaccard10",
+        "jaccard100",
+        "original_top1_rr_in_candidate",
+        "candidate_top1_rr_in_original",
+        "original_top3_mean_rr_in_candidate",
+        "rank_biased_overlap20",
+        "original_query_coverage_original_top1",
+        "original_query_coverage_candidate_top1",
+        "original_query_coverage_candidate_mean3",
+        "rewrite_coverage_candidate_top1",
+        "span_coverage_candidate_top1",
+        "span_coverage_candidate_max3",
+        "log_candidate_top1_code_words"
+      ]
+    },
+    "MRT": {
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "names": [
+        "full_vocab_entropy",
+        "label_mean_log_probability",
+        "label_sum_log_probability",
+        "mean_max_vocab_probability",
+        "label_token_count",
+        "span_token_count",
+        "span_full_vocab_entropy",
+        "span_mean_log_probability",
+        "span_empty",
+        "position_fraction",
+        "log_query_words",
+        "log_span_words",
+        "span_novel_fraction",
+        "rewrite_word_ratio",
+        "identity_text",
+        "entr_rank_fraction",
+        "prob_rank_fraction",
+        "entropy_above_pool_min",
+        "logp_below_pool_max",
+        "original_top1",
+        "original_top2",
+        "original_top3",
+        "original_top10",
+        "original_top100",
+        "original_margin12",
+        "original_margin1_10",
+        "original_mean10",
+        "original_std10",
+        "original_std100",
+        "original_standardized_margin12",
+        "original_entropy100",
+        "candidate_top1",
+        "candidate_top2",
+        "candidate_top3",
+        "candidate_top10",
+        "candidate_top100",
+        "candidate_margin12",
+        "candidate_margin1_10",
+        "candidate_mean10",
+        "candidate_std10",
+        "candidate_std100",
+        "candidate_standardized_margin12",
+        "candidate_entropy100",
+        "difference_top1",
+        "difference_top2",
+        "difference_top3",
+        "difference_top10",
+        "difference_top100",
+        "difference_margin12",
+        "difference_margin1_10",
+        "difference_mean10",
+        "difference_std10",
+        "difference_std100",
+        "difference_standardized_margin12",
+        "difference_entropy100",
+        "same_ranking",
+        "same_top1",
+        "jaccard3",
+        "jaccard10",
+        "jaccard100",
+        "original_top1_rr_in_candidate",
+        "candidate_top1_rr_in_original",
+        "original_top3_mean_rr_in_candidate",
+        "rank_biased_overlap20",
+        "original_query_coverage_original_top1",
+        "original_query_coverage_candidate_top1",
+        "original_query_coverage_candidate_mean3",
+        "rewrite_coverage_candidate_top1",
+        "span_coverage_candidate_top1",
+        "span_coverage_candidate_max3",
+        "log_candidate_top1_code_words"
+      ]
+    }
+  },
+  "model_configuration": {
+    "CQC_T5": {
+      "model": ".\\models\\t5-base",
+      "corpus": ".\\data\\codenn_cqc\\train.txt",
+      "validation": ".\\data\\codenn_cqc\\valid_fixed_cqc.jsonl",
+      "data_manifest": ".\\data\\codenn_cqc\\manifest.json",
+      "validation_max_samples": 0,
+      "data_manifest_sha256": "03afc4d224287ac6700f2d50ec0399dc414bc6b3f604697b708b9ae77b4dbab2",
+      "epochs": 3,
+      "batch_size": 8,
+      "gradient_accumulation": 4,
+      "effective_batch_size": 32,
+      "max_length": 512,
+      "learning_rate": 0.001,
+      "max_samples": 0,
+      "max_steps": 0,
+      "seed": 101,
+      "save_steps": 500,
+      "total_steps": 93750,
+      "early_stopping_patience": 3,
+      "early_stopping_start_step": 3000,
+      "min_delta": 0.005,
+      "scheduler": "constant",
+      "precision": "bf16",
+      "masking": "dynamic per epoch; one contiguous span of round(15% words), minimum 1"
+    },
+    "CodeBERT": {
+      "schema_version": 1,
+      "representation": "roberta_pooler_output",
+      "normalization": "none",
+      "similarity": "unnormalized_dot_product",
+      "objective": "query_to_code_in_batch_cross_entropy",
+      "source_repository": "RedSmallPanda/SSQR",
+      "source_commit": "7fe5d780740eb4348500658ce6decf188a542d2b",
+      "source_path": "Query Reformulation/code/model.py",
+      "base_model": "models/codebert-base",
+      "base_weights_sha256": "28b61fd8fa069f6bc966f4cb9572a4026ab2a784fca8fb224020d91b744e32d6",
+      "train_input": {
+        "path": "data/codexglue/training/train.jsonl",
+        "sha256": "029315b3454c09d0397d7a1777c451cadd5ab314c93f8b822bf608fb9749dfd1",
+        "rows": 251820
+      },
+      "validation_input": {
+        "path": "data/codexglue/advtest/valid.jsonl",
+        "sha256": "472b5e1dea460a52f2860bf02f4731451d3a889fb0f7a9204151df895db581a6",
+        "rows": 9604
+      },
+      "batch_size": 32,
+      "epochs": 2,
+      "total_steps": 15740,
+      "max_length": 256,
+      "seed": 123456,
+      "optimizer": "AdamW",
+      "learning_rate": 5e-05,
+      "weight_decay": 0.0,
+      "adam_epsilon": 1e-08,
+      "scheduler": "linear_10percent_warmup",
+      "warmup_steps": 1574,
+      "gradient_clipping": 1.0,
+      "precision": "bfloat16",
+      "gradient_checkpointing": true,
+      "validation_every_steps": 787,
+      "main_checkpoint": "final_two_epochs",
+      "best_checkpoint": "selected only by CodeXGLUE valid source full MRR, never CoSQA",
+      "source_model_sha256": "c2cb773824269747a2568b9fb9799345cc11b279839c1b34db4f260106c95cdd",
+      "trainer_sha256": "367d5c0eb0c46db0e81910cea911d051656af9bde119ac9b3d8f8dce20f4ade5",
+      "retriever_sha256": "48b490fb06712985740af8064095e2116fe87a192c8ddcdfe051f39f2c9944f4",
+      "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+      "torch_version": "2.7.0+cu128",
+      "transformers_version": "4.57.6",
+      "sampler": "explicit torch.randperm CPU generator; seed=123456+epoch; saved next_batch",
+      "paper_source_choice": "published CodeBERT objective and source linear schedule; paper constant-LR discrepancy recorded",
+      "runtime_difference": "modern PyTorch/transformers, bf16 and layer activation checkpointing; full BxB objective unchanged"
+    },
+    "finite_training_common": {
+      "model": "models\\t5-base",
+      "initialization": "same original t5-base; no continuation from adapted model",
+      "seed": 101,
+      "raw_data_examples": 32768,
+      "epochs": 1,
+      "updates": 1024,
+      "microbatch": 8,
+      "gradient_accumulation": 4,
+      "effective_batch": 32,
+      "learning_rate": 0.001,
+      "clip_grad_norm": 1.0,
+      "precision": "BF16 compute / FP32 weights",
+      "data_order": "fixed shared bank; no arm-specific shuffle/corruption",
+      "final_checkpoint_only": true,
+      "validation_examples": 1024,
+      "no_early_stopping": true,
+      "optimizer_state_not_used_for_model_selection": true
+    },
+    "finite_training_arms": {
+      "L": {
+        "optimizer": "AdamW",
+        "schedule": "constant",
+        "horizon": null,
+        "max_length": 512,
+        "weight_decay": 0.01,
+        "seed": 101
+      },
+      "O": {
+        "optimizer": "Adafactor",
+        "schedule": "constant",
+        "horizon": null,
+        "max_length": 512,
+        "weight_decay": 0.01,
+        "seed": 101
+      },
+      "S": {
+        "optimizer": "AdamW",
+        "schedule": "linear",
+        "horizon": 100000,
+        "max_length": 512,
+        "weight_decay": 0.01,
+        "seed": 101
+      },
+      "N": {
+        "optimizer": "AdamW",
+        "schedule": "constant",
+        "horizon": null,
+        "max_length": 128,
+        "weight_decay": 0.01,
+        "seed": 101
+      },
+      "W": {
+        "optimizer": "AdamW",
+        "schedule": "constant",
+        "horizon": null,
+        "max_length": 512,
+        "weight_decay": 0.0,
+        "seed": 101
+      },
+      "P": {
+        "optimizer": "Adafactor",
+        "schedule": "linear",
+        "horizon": 100000,
+        "max_length": 128,
+        "weight_decay": 0.0,
+        "seed": 101
+      },
+      "PN": {
+        "optimizer": "Adafactor",
+        "schedule": "linear",
+        "horizon": 1093,
+        "max_length": 128,
+        "weight_decay": 0.0,
+        "seed": 101
+      },
+      "PS": {
+        "optimizer": "Adafactor",
+        "schedule": "linear",
+        "horizon": 100000,
+        "max_length": 128,
+        "weight_decay": 0.0,
+        "seed": 42
+      }
+    },
+    "generation_profiles": {
+      "greedy20_source": {
+        "bank": "baseline",
+        "positions": "source_1_to_n",
+        "max_new_tokens": 19,
+        "sample": false
+      },
+      "greedy20_all": {
+        "bank": "baseline",
+        "positions": "paper_0_to_n",
+        "max_new_tokens": 19,
+        "sample": false
+      },
+      "greedy10_source": {
+        "bank": "greedy10",
+        "positions": "source_1_to_n",
+        "max_new_tokens": 9,
+        "sample": false
+      },
+      "greedy10_all": {
+        "bank": "greedy10",
+        "positions": "paper_0_to_n",
+        "max_new_tokens": 9,
+        "sample": false
+      },
+      "sample10_source": {
+        "bank": "sample10",
+        "positions": "source_1_to_n",
+        "max_new_tokens": 9,
+        "sample": true
+      },
+      "sample10_all": {
+        "bank": "sample10",
+        "positions": "paper_0_to_n",
+        "max_new_tokens": 9,
+        "sample": true
+      }
+    },
+    "UniXcoder_inference": {
+      "mode": "<encoder-only>",
+      "code_max_length": 256,
+      "query_max_length": 128,
+      "pooling": "mean of all nonpadding last hidden token states including special tokens",
+      "normalization": "L2 unit vector",
+      "similarity": "FP32 dot product of normalized vectors",
+      "batch_size": 16,
+      "precision": "FP32; TF32 disabled",
+      "dropout": false,
+      "token_prefix": [
+        "<s>",
+        "<encoder-only>",
+        "</s>"
+      ],
+      "token_suffix": [
+        "</s>"
+      ],
+      "ties": "score descending, original corpus doc_id ascending",
+      "depth": 100,
+      "recipe_source": "pinned official downstream-tasks/code-search; code256/nl128",
+      "common_input_text_and_corpus": true,
+      "isolated_architecture_effect": false
+    },
+    "paired_weight_generation": {
+      "seed": 101,
+      "do_sample": false,
+      "num_beams": 1,
+      "max_new_tokens": 19,
+      "positions": "1..n",
+      "batch_positions": 32,
+      "query_block": 32,
+      "precision": "float32",
+      "dropout": false,
+      "empty_and_duplicate_positions_retained": true
+    },
+    "paired_weight_retrieval": {
+      "representation": "roberta_pooler_output",
+      "normalization": "none",
+      "similarity": "FP32 dot",
+      "TF32": false,
+      "max_length": 256,
+      "encoding_batch": 32,
+      "scoring_batch": 128,
+      "depth": 100,
+      "tie": "score descending, doc_id ascending"
+    },
+    "H_hgb_control": {
+      "loss": "squared_error",
+      "max_iter": 200,
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 7,
+      "max_depth": 3,
+      "min_samples_leaf": 30,
+      "l2_regularization": 10.0,
+      "max_bins": 63,
+      "early_stopping": false,
+      "random_state": 20261019
+    },
+    "H_risk": {
+      "algorithm": "threeway zero-reference offset logistic; historical algorithm adapted to20real stage/anchor features",
+      "training": "separateD risk role; actual selected actions after exact25%verification allocation; no class weights",
+      "classes": [
+        "negative",
+        "zero",
+        "positive"
+      ],
+      "native_harm": "separate gain-role logistic C.1",
+      "penalty": "intercept1, verified coefficient50, other coefficients10; duplicate CEavailability masked",
+      "threshold": 0.075,
+      "target_harm": 0.1,
+      "fallback": "restore original fullTop100; no reject-and-reselect; retain sunkCEcost",
+      "certification": "no certificate from dependent query-level binomial counts; cluster intervals are descriptive",
+      "deployment_policy_promoted": false
+    },
+    "H_verification": {
+      "budget": "highest positive base-gain priority min(floor(n/4),eligible) queries per retriever, queryID breaks ties",
+      "plan": "eight distinct original success anchors, winner/rival and largest RR-position changes; public rankings only",
+      "scorer": "frozen historical real code-query CE; original userquery conditioning; source training exposure retained",
+      "input": "query<=64 tokens, code<=160 tokens plus actual model specials",
+      "update": "separate-role weighted Ridge residual on71+2+18real witness features; mean+=.5residual; same ENTR pool, NoRewrite0",
+      "no_threshold_tuning": true
+    }
+  },
+  "protection": {
+    "paper/rene2027/ieee_submission/论文中文版_IEEE双栏.docx": "381e74fcfad345c7f7a091cc54ae86b34b3224c70415fef19e7da958d5074665",
+    "paper/rene2027/ieee_submission/supplementary/TABLES.json": "a58858d64d12372e4ca973f2b1b25b686daa3a703dda8d0cf0e186c1f52dab12"
+  },
+  "hardware_recheck": {
+    "cpu": "AMD Ryzen 9 8945HX with Radeon Graphics",
+    "cores": 16,
+    "logical_processors": 32,
+    "installed_memory_gib": 32,
+    "checked_local": "2026-10-26T20:56:23.214357+08:00",
+    "scope": "current hardware recheck; CPU and RAM not recorded in historic run metadata"
+  }
+}

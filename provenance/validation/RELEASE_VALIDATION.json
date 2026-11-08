@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "checked_local_date": "2026-11-08",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14",
+  "numpy": "1.26.4",
+  "scipy": "1.13.1",
+  "threadpoolctl": "3.6.0",
+  "environment": "Previously validated isolated pinned Python 3.12 environment, reused for this release.",
+  "source_tree_complete_replay": {
+    "passed": true,
+    "numerical_studies": 14,
+    "numerical_contrasts": 103,
+    "full_bootstrap": true,
+    "human_review": "human review",
+    "human_query_bounds": 6144,
+    "human_sampling_combinations": 48,
+    "elapsed_seconds": 28.081049800035544
+  },
+  "models": {
+    "archives": 3,
+    "internal_files": 25,
+    "archive_and_file_hashes_passed": true,
+    "new_training": false
+  },
+  "tables": {
+    "original_result_records": 176,
+    "settings_rows": 115,
+    "additional_display_rows": 26,
+    "base_table_numbering": "S1–S25"
+  },
+  "manuscript": {
+    "source_sha256": "9ca3427b577c4b897384d7af97e513e9dd0531f18ae52ac1ef3df7b6e4fc4d7f",
+    "pdf_total_pages": 11,
+    "main_text_last_page": 10,
+    "scientific_text_unchanged": true
+  },
+  "supplement_pdf_pages": 27,
+  "core_statistics_tolerance": 1e-11,
+  "uploaded_to_github": false,
+  "publication_pending": "New repository address from author",
+  "new_model_experiments": false
+}

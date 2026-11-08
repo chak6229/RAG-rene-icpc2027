@@ -1,0 +1,16 @@
+{
+  "manuscript_source_sha256": "9ca3427b577c4b897384d7af97e513e9dd0531f18ae52ac1ef3df7b6e4fc4d7f",
+  "delivery_version": "2026.11.08",
+  "core_numeric_alignment_checks": 102,
+  "source_alignment_audit_date": "2026-11-08",
+  "original_result_records": 176,
+  "settings_rows": 115,
+  "S3_S4_additional_numeric_fields_checked": 104,
+  "protected_scientific_files_identical": 486,
+  "ethics_statement": "Exact match to the latest English manuscript",
+  "deleted_repository_removed_from_current_docs": true,
+  "historical_annotations_preserved": true,
+  "paper_in_artifact": false,
+  "current_repository": "https://github.com/chak6229/RAG-rene-icpc2027",
+  "delivery_manuscript_sha256": "79ef48e2e3315ab145e88fecd5eeb3ca4889435033fba3bdbc44c9db8a531162"
+}

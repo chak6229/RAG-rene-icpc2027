@@ -1,0 +1,282 @@
+[
+  {
+    "reference": "R01",
+    "path": "results/rene_factor_confirmation_20261020/RUNTIME_ENVIRONMENT.json",
+    "sha256": "2cad647a13135e896f7c6e068c89cee386816683bb8e8efc3d037111e27c4b50",
+    "included": true,
+    "delivered": "provenance/settings_sources/R01/RUNTIME_ENVIRONMENT.json",
+    "delivered_sha256": "2cad647a13135e896f7c6e068c89cee386816683bb8e8efc3d037111e27c4b50"
+  },
+  {
+    "reference": "R02",
+    "path": "results/rene_weight_confirmation_20261021/RUNTIME.json",
+    "sha256": "76478bc62fefa0a01511a91b839b40de741d4b981cdd466574a31578f468efec",
+    "included": true,
+    "delivered": "provenance/settings_sources/R02/RUNTIME.json",
+    "delivered_sha256": "76478bc62fefa0a01511a91b839b40de741d4b981cdd466574a31578f468efec"
+  },
+  {
+    "reference": "R03",
+    "path": "models/t5-cqc-codenn-1m/training_config.json",
+    "sha256": "475a55e44124f4640e17f503082c2a1664e7a1f4d70c00463293e5f8b5d8b28f",
+    "included": true,
+    "delivered": "provenance/settings_sources/R03/training_config.json",
+    "delivered_sha256": "f8b7cbab5d6241d8eaf8723d61baeda84524318e3f2045cf7ede8763715ffa6f"
+  },
+  {
+    "reference": "R04",
+    "path": "models/t5-cqc-codenn-1m/best/best_checkpoint.json",
+    "sha256": "b9da5736041528ad35be75b70f082c54d913b3d271b62d9b2d5843923559b651",
+    "included": true,
+    "delivered": "provenance/settings_sources/R04/best_checkpoint.json",
+    "delivered_sha256": "2388e0f41a01d5b7c915f4a2d364da3f30fdcb62a0437c48a2aff8e08ca51067"
+  },
+  {
+    "reference": "R05",
+    "path": "results/rene_ssqr_alignment_20261019/TRAINING_CONTRACT.json",
+    "sha256": "59b12aed88ea1f97c34906e1baaf10a092247ef11177adc1769d155f25539956",
+    "included": true,
+    "delivered": "provenance/settings_sources/R05/TRAINING_CONTRACT.json",
+    "delivered_sha256": "59b12aed88ea1f97c34906e1baaf10a092247ef11177adc1769d155f25539956"
+  },
+  {
+    "reference": "R06",
+    "path": "results/rene_ssqr_bridge_20261019/PROTOCOL.json",
+    "sha256": "7d3d4c0728aa413a21dfc748d4a01dc4f29d5d59a0b4a44591eb48793dc3d95e",
+    "included": true,
+    "delivered": "provenance/settings_sources/R06/PROTOCOL.json",
+    "delivered_sha256": "7d3d4c0728aa413a21dfc748d4a01dc4f29d5d59a0b4a44591eb48793dc3d95e"
+  },
+  {
+    "reference": "R07",
+    "path": "results/rene_cosqa_confirmation_20261019/DESIGN.json",
+    "sha256": "0956f89599e6c26c673a1676d70c1dbfd15669c6180c7c2e476c52be22425184",
+    "included": true,
+    "delivered": "provenance/settings_sources/R07/DESIGN.json",
+    "delivered_sha256": "0956f89599e6c26c673a1676d70c1dbfd15669c6180c7c2e476c52be22425184"
+  },
+  {
+    "reference": "R08",
+    "path": "results/rene_cosqa_confirmation_20261019/STAGE_ROLES.json",
+    "sha256": "96044e39c59a49dc38af85fb35787a8117e81ae8d460188a26dc20298816904e",
+    "included": true,
+    "delivered": "provenance/settings_sources/R08/STAGE_ROLES.json",
+    "delivered_sha256": "96044e39c59a49dc38af85fb35787a8117e81ae8d460188a26dc20298816904e"
+  },
+  {
+    "reference": "R09",
+    "path": "results/rene_core_step_b_20261020/PROTOCOL.json",
+    "sha256": "7f4ac3795fe7ee7adf9e8d662e8fe71cd28b53caf70e8c841718a75b06b9c295",
+    "included": true,
+    "delivered": "provenance/settings_sources/R09/PROTOCOL.json",
+    "delivered_sha256": "7f4ac3795fe7ee7adf9e8d662e8fe71cd28b53caf70e8c841718a75b06b9c295"
+  },
+  {
+    "reference": "R10",
+    "path": "results/rene_multicandidate_fusion_20261020/PROTOCOL.json",
+    "sha256": "51a55d9398b864e50d1432ffd3f1061c40711a72246497da1b29b36eef618185",
+    "included": true,
+    "delivered": "provenance/settings_sources/R10/PROTOCOL.json",
+    "delivered_sha256": "51a55d9398b864e50d1432ffd3f1061c40711a72246497da1b29b36eef618185"
+  },
+  {
+    "reference": "R11",
+    "path": "results/rene_factor_confirmation_20261020/DESIGN.json",
+    "sha256": "b61e524568c38e8544e14421d52ca380d11ae07c9fa3c0e5bb72b384b6728d53",
+    "included": true,
+    "delivered": "provenance/settings_sources/R11/DESIGN.json",
+    "delivered_sha256": "b61e524568c38e8544e14421d52ca380d11ae07c9fa3c0e5bb72b384b6728d53"
+  },
+  {
+    "reference": "R12",
+    "path": "results/rene_third_retriever_20261020/DESIGN.json",
+    "sha256": "7d3c275debf4cfef8aa8e8d4fa2489db7909cf4fda2a239a1a3dd17d6b56447a",
+    "included": true,
+    "delivered": "provenance/settings_sources/R12/DESIGN.json",
+    "delivered_sha256": "7d3c275debf4cfef8aa8e8d4fa2489db7909cf4fda2a239a1a3dd17d6b56447a"
+  },
+  {
+    "reference": "R13",
+    "path": "results/rene_t5_weight_factors_20261020/DESIGN.json",
+    "sha256": "a5736815a7ffc020fbedb320e79054054d29b265134566edbbf1674b1d0ce2e9",
+    "included": true,
+    "delivered": "provenance/settings_sources/R13/DESIGN.json",
+    "delivered_sha256": "a5736815a7ffc020fbedb320e79054054d29b265134566edbbf1674b1d0ce2e9"
+  },
+  {
+    "reference": "R14",
+    "path": "results/rene_weight_confirmation_20261021/DESIGN.json",
+    "sha256": "cb03eede49db37e7a3de670904c12b93d0a2f947e541a6b2dfb1f8b149c69f5d",
+    "included": true,
+    "delivered": "provenance/settings_sources/R14/DESIGN.json",
+    "delivered_sha256": "cb03eede49db37e7a3de670904c12b93d0a2f947e541a6b2dfb1f8b149c69f5d"
+  },
+  {
+    "reference": "R15",
+    "path": "results/rene_cqc_training_fidelity_20261020/TRAIN_PROTOCOL.json",
+    "sha256": "4b18123ad653f4921000fb48e5e358538c6db7157de6b07fbf6061a68a4e4677",
+    "included": true,
+    "delivered": "provenance/settings_sources/R15/TRAIN_PROTOCOL.json",
+    "delivered_sha256": "97a325eadf364307e86bc02daeb2c889feb377c8a688d7e8c0cd5283628d0c13"
+  },
+  {
+    "reference": "R16",
+    "path": "results/rene_cqc_training_fidelity_20261020/EVAL_PROTOCOL.json",
+    "sha256": "326cd54903ea014cd739aae02e2ab124f1678882d60339b42d0b74115defb1f1",
+    "included": true,
+    "delivered": "provenance/settings_sources/R16/EVAL_PROTOCOL.json",
+    "delivered_sha256": "326cd54903ea014cd739aae02e2ab124f1678882d60339b42d0b74115defb1f1"
+  },
+  {
+    "reference": "R17",
+    "path": "experiments/rene_ssqr_alignment_20261019/t5.py",
+    "sha256": "fdc537ac6b56541150278ec6f79951b9463a7fd74a27f1e6c44cf7d94668cfa1",
+    "included": true,
+    "delivered": "provenance/settings_sources/R17/t5.py",
+    "delivered_sha256": "515ab5ff380b8abdbd9ffe8710be0fcb456df54f4ad131e115860b0569f4a24e"
+  },
+  {
+    "reference": "R18",
+    "path": "experiments/rene_cosqa_pilot_20261019/ranking.py",
+    "sha256": "ee3826fbdfbf8b0e3f6d8adf79709e710333be7e5850fcc94e8b47f6bcc16168",
+    "included": true,
+    "delivered": "provenance/settings_sources/R18/ranking.py",
+    "delivered_sha256": "98ed45cc5b3381bf71937a8c3ff50e12eb1a7b1079dd11ff0bc34c89de77c790"
+  },
+  {
+    "reference": "R19",
+    "path": "experiments/rene_cosqa_confirmation_20261019/policy.py",
+    "sha256": "362a8381e1ba12e596fc20847dbf0b490e97f2bda3c591056d3db2ac96e23f35",
+    "included": true,
+    "delivered": "provenance/settings_sources/R19/policy.py",
+    "delivered_sha256": "e1817a54ec9beb660c4bb6b6634c590f156e318da87995c4c67d927d1e572d87"
+  },
+  {
+    "reference": "R20",
+    "path": "experiments/rene_cosqa_confirmation_20261019/cache.py",
+    "sha256": "2accea77fd96390047c68608b0760940e0b76cef75447e6a7000ff118d9b6b42",
+    "included": true,
+    "delivered": "provenance/settings_sources/R20/cache.py",
+    "delivered_sha256": "a001be285d7ac5cb15988b7af6bb108867435d2039e3a77d3b91090e30afc4ad"
+  },
+  {
+    "reference": "R21",
+    "path": "experiments/rene_cosqa_confirmation_20261019/statistics.py",
+    "sha256": "f1b46a7e56dca7ce0cafc3dcc8eaf600ff7bcc017b842710e0860b854a5996fe",
+    "included": true,
+    "delivered": "provenance/settings_sources/R21/statistics.py",
+    "delivered_sha256": "4f267ed3316b4099e99770c45b393ef91e5160214f48c87cd8d6f93586066787"
+  },
+  {
+    "reference": "R22",
+    "path": "results/rene_mechanism_review_20261020/PROTOCOL.json",
+    "sha256": "d7a02670633234ecdb20908435555e009c0f954b1cc8c2512687963d86bace00",
+    "included": true,
+    "delivered": "provenance/settings_sources/R22/PROTOCOL.json",
+    "delivered_sha256": "4d4a43758ec26ab47ad2faf543fd1d92b36dfff14b745c97b43c573dfe90265c"
+  },
+  {
+    "reference": "R23",
+    "path": "experiments/rene_mechanism_review_20261020/common.py",
+    "sha256": "04d1f92a3b459917cbd70e891bf831dc36224bf223cc0aa6379770d484fac98d",
+    "included": true,
+    "delivered": "provenance/settings_sources/R23/common.py",
+    "delivered_sha256": "75dafca132ba0ada93b0d52bf6143f1a4d2cc20bd8cc516093ca8936e5c7a119"
+  },
+  {
+    "reference": "R24",
+    "path": "paper/rene2027/relevance_sampling_uncertainty.md",
+    "sha256": "a3cb3e7932cc66efe4f254416f0d7abd77fe7fd94001458ba299bc68de6a7e62",
+    "included": true,
+    "delivered": "provenance/settings_sources/R24/relevance_sampling_uncertainty.md",
+    "delivered_sha256": "095b29106992a54482b36e265d3a36a411433a8cd88b9dee0affaf9ff9d01a6c"
+  },
+  {
+    "reference": "R25",
+    "path": "paper/rene2027/relevance_sensitivity_results.md",
+    "sha256": "82b34c525f45c57bef669b2fb664b127974dd96ecea7ec1c0d138fe6579c6287",
+    "included": true,
+    "delivered": "provenance/settings_sources/R25/relevance_sensitivity_results.md",
+    "delivered_sha256": "2a0b0a57a61c374b75975770a9ce5c55014fd2d0e66cffb34b1ef79722834aab"
+  },
+  {
+    "reference": "R26",
+    "path": "results/rene_budget_aggregation_20261020/PROTOCOL.json",
+    "sha256": "8fa9aded2d7cf9b440db20dc1dd63fdb962e931697c2ef15ca992dc103277114",
+    "included": true,
+    "delivered": "provenance/settings_sources/R26/PROTOCOL.json",
+    "delivered_sha256": "8fa9aded2d7cf9b440db20dc1dd63fdb962e931697c2ef15ca992dc103277114"
+  },
+  {
+    "reference": "R27",
+    "path": "experiments/action_witness_uq_20261014/gpu_data.py",
+    "sha256": "40265f20d5251733f5fd11c34054f34cb6901bfbc486772b5cced51e1f761895",
+    "included": true,
+    "delivered": "provenance/settings_sources/R27/gpu_data.py",
+    "delivered_sha256": "f3e9fefaef72e97d6599c2c1ca33ec088a3cc63d454660b46f610e982ee7cee2"
+  },
+  {
+    "reference": "R28",
+    "path": "results/uq_pilot_20261014/action_witness_uq/data/ce_large_dense_4096_train_status.json",
+    "sha256": "5519247f0ded717ee5e13e2be7b9c3ed2a6a2eafe13c75eff33dbf70b50b113f",
+    "included": true,
+    "delivered": "provenance/settings_sources/R28/ce_large_dense_4096_train_status.json",
+    "delivered_sha256": "5519247f0ded717ee5e13e2be7b9c3ed2a6a2eafe13c75eff33dbf70b50b113f"
+  },
+  {
+    "reference": "R29",
+    "path": "train_t5_cqc.py",
+    "sha256": "cebe7f6ea0831ac6ef7f2ee0b030547412824ff5fd7a064067fd7c0cff5b063d",
+    "included": true,
+    "delivered": "provenance/settings_sources/R29/train_t5_cqc.py",
+    "delivered_sha256": "5df131f7b16d2484832e29be3d2cabb12f46003ee0783bf133d4460b387a1fc4"
+  },
+  {
+    "reference": "R30",
+    "path": "experiments/rene_cqc_training_fidelity_20261020/train.py",
+    "sha256": "94ce4bead6e0bedb0c60de99384356b4d682c42ef831fac6f725961772c124e7",
+    "included": true,
+    "delivered": "provenance/settings_sources/R30/train.py",
+    "delivered_sha256": "40ab629933650941f20e340c646a699168f00a276da119adde3aa6d121417d04"
+  },
+  {
+    "reference": "R31",
+    "path": "experiments/rene_third_retriever_20261020/encoder.py",
+    "sha256": "adf3a17849768418f8e6a484c95ddaffb4b080fb71d849b886d7e0211cd73a93",
+    "included": true,
+    "delivered": "provenance/settings_sources/R31/encoder.py",
+    "delivered_sha256": "81f3c9e72037799eb967aab7faa83510b85e35c2f17062a8ede1674455a0b263"
+  },
+  {
+    "reference": "R32",
+    "path": "paper/rene2027/implementation_fidelity.md",
+    "sha256": "9f292af5d9d4833d2b3744113419aed5d0beb81d4937435d2f06d56420016588",
+    "included": true,
+    "delivered": "provenance/settings_sources/R32/implementation_fidelity.md",
+    "delivered_sha256": "07d7b11800c38f47793c68db59946318b8f5dcffc233b17154ac328560741540"
+  },
+  {
+    "reference": "R33",
+    "path": "paper/rene2027/ieee_submission/论文中文版_IEEE双栏.docx",
+    "sha256": "381e74fcfad345c7f7a091cc54ae86b34b3224c70415fef19e7da958d5074665",
+    "included": false,
+    "reason": "paper excluded; machine-readable 人工评审 inputs included in human_review/data/"
+  },
+  {
+    "reference": "R34",
+    "path": "results/rene_experiment_settings_20261026/HARDWARE_RECHECK.json",
+    "sha256": "588935d091d9f7d99a123b1f4d4cdf5b524c90a6c278e7dc748e838577ef42b6",
+    "scope": "current hardware recheck; CPU and RAM not recorded in historic run metadata",
+    "included": true,
+    "delivered": "provenance/settings_sources/R34/HARDWARE_RECHECK.json",
+    "delivered_sha256": "588935d091d9f7d99a123b1f4d4cdf5b524c90a6c278e7dc748e838577ef42b6"
+  },
+  {
+    "reference": "R35",
+    "path": "experiments/rene_cqc_training_fidelity_20261020/analyze.py",
+    "sha256": "bb73c9d035934ba09c2e1d2b15f91c297d9308fbcc5fb4583b855ba5ae735a70",
+    "included": true,
+    "delivered": "provenance/settings_sources/R35/analyze.py",
+    "delivered_sha256": "2dd39432d557fec45b4295f162a17d8ebd752e6414f9a9fc348936e6d469767c"
+  }
+]

@@ -1,0 +1,5 @@
+metric,role,n,agreement,kappa,type,source_path,source_pointer,coverage_of_displayed_panels
+semantics,unweighted agreement of final submitted labels,383,0.7650130548302873,0.5251412040225927,nominal,results/rene_review_returns_20261020/RESULTS.json,agreement/semantics,
+relevance_including_unknown,unweighted agreement of final submitted labels,327,0.5382262996941896,0.37064889047503724,nominal,results/rene_review_returns_20261020/RESULTS.json,agreement/relevance_including_unknown,
+relevance_ordinal_judged_subset,unweighted agreement of final submitted labels,260,0.6692307692307692,0.5685001459002044,linear weighted,results/rene_review_returns_20261020/RESULTS.json,agreement/relevance_ordinal_judged_subset,0.7951070336391437
+clarity,unweighted agreement of final submitted labels,128,0.7265625,0.028620988725065022,nominal,results/rene_review_returns_20261020/RESULTS.json,agreement/clarity,

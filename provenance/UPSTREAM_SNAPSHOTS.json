@@ -1,0 +1,94 @@
+[
+  {
+    "repository": "RedSmallPanda/SSQR",
+    "captured_receipts": [
+      {
+        "name": "ssqr_commit.json",
+        "url": "https://api.github.com/repos/RedSmallPanda/SSQR/commits/main",
+        "status": "loaded_from_this_session_capture",
+        "bytes": 5544,
+        "sha256": "2b0ce60bce842a20d9f14fdeb65c3fca3835135f772ae25a39883ed3a05369e1",
+        "path": "results/rene_cosqa_ssqr_audit_20261019/sources/ssqr_commit.json"
+      },
+      {
+        "name": "ssqr_tree.json",
+        "url": "https://api.github.com/repos/RedSmallPanda/SSQR/git/trees/cfea08c7bf11abcc96a0aeaaef54f6dd32f365e5?recursive=1",
+        "status": "loaded_from_this_session_capture",
+        "bytes": 5367,
+        "sha256": "10d880f6891d0fee72fb29fe1d76ae058e95d6f344d36422c6f4113dfa282156",
+        "path": "results/rene_cosqa_ssqr_audit_20261019/sources/ssqr_tree.json"
+      }
+    ],
+    "commit_sha": "7fe5d780740eb4348500658ce6decf188a542d2b",
+    "commit_url": "https://github.com/RedSmallPanda/SSQR/commit/7fe5d780740eb4348500658ce6decf188a542d2b"
+  },
+  {
+    "repository": "Jun-jie-Huang/CoCLR",
+    "captured_receipts": [
+      {
+        "name": "coclr_commit.json",
+        "url": "https://api.github.com/repos/Jun-jie-Huang/CoCLR/commits/main",
+        "status": "loaded_from_this_session_capture",
+        "bytes": 7316,
+        "sha256": "ac8fd75ebf186cec868d531226fed3b637033670e1d4d8f5a1e5b2c9a6f68e51",
+        "path": "results/rene_cosqa_ssqr_audit_20261019/sources/coclr_commit.json"
+      },
+      {
+        "name": "coclr_tree.json",
+        "url": "https://api.github.com/repos/Jun-jie-Huang/CoCLR/git/trees/9c7f79921b636d175f621ef57130dbd174275bd2?recursive=1",
+        "status": "loaded_from_this_session_capture",
+        "bytes": 5493,
+        "sha256": "5dfddf44406742fd026e465f81d969efbff13fa4fbecb4a39a94d8561d296ab5",
+        "path": "results/rene_cosqa_ssqr_audit_20261019/sources/coclr_tree.json"
+      }
+    ],
+    "commit_sha": "14ebcacf9e9bc3e7109102632bc63047876f27d2",
+    "commit_url": "https://github.com/Jun-jie-Huang/CoCLR/commit/14ebcacf9e9bc3e7109102632bc63047876f27d2"
+  },
+  {
+    "repository": "microsoft/CodeXGLUE",
+    "captured_receipts": [
+      {
+        "name": "codexglue_commit.json",
+        "url": "https://api.github.com/repos/microsoft/CodeXGLUE/commits/main",
+        "status": "loaded_from_this_session_capture",
+        "bytes": 5122,
+        "sha256": "9aa1777f485849b20bbf239e11cb3b700bdb2fcca25f644a4e67e32c507ae239",
+        "path": "results/rene_cosqa_ssqr_audit_20261019/sources/codexglue_commit.json"
+      },
+      {
+        "name": "codexglue_tree.json",
+        "url": "https://api.github.com/repos/microsoft/CodeXGLUE/git/trees/0f3ed43aefd856e75c8fd1b81e993228acabb8ab?recursive=1",
+        "status": "loaded_from_this_session_capture",
+        "bytes": 137080,
+        "sha256": "8b800c65bb81b6cc4981a8d87790da55fe5e943f81a7511a621cb20cf4963957",
+        "path": "results/rene_cosqa_ssqr_audit_20261019/sources/codexglue_tree.json"
+      }
+    ],
+    "commit_sha": "ac74a62802a0dd159b3258c78a2df8ad36cdf2b9",
+    "commit_url": "https://github.com/microsoft/CodeXGLUE/commit/ac74a62802a0dd159b3258c78a2df8ad36cdf2b9"
+  },
+  {
+    "repository": "github/CodeSearchNet",
+    "captured_receipts": [
+      {
+        "name": "codesearchnet_commit.json",
+        "url": "https://api.github.com/repos/github/CodeSearchNet/commits/master",
+        "status": "loaded_from_this_session_capture",
+        "bytes": 4417,
+        "sha256": "ebe78b12c150cf6dd4a9918eeae819933c188585859126d9e2e9d2307cacdcae",
+        "path": "results/rene_cosqa_ssqr_audit_20261019/sources/codesearchnet_commit.json"
+      },
+      {
+        "name": "codesearchnet_tree.json",
+        "url": "https://api.github.com/repos/github/CodeSearchNet/git/trees/ed37a2a2a0681f5b51cea91a7402e4092a2f395d?recursive=1",
+        "status": "loaded_from_this_session_capture",
+        "bytes": 46005,
+        "sha256": "05760b051a00e78727341062f5e70a9aec2c28bed0d03f9a99524eae5ed7c71f",
+        "path": "results/rene_cosqa_ssqr_audit_20261019/sources/codesearchnet_tree.json"
+      }
+    ],
+    "commit_sha": "106e827405c968597da938f6b373d30183918869",
+    "commit_url": "https://github.com/github/CodeSearchNet/commit/106e827405c968597da938f6b373d30183918869"
+  }
+]

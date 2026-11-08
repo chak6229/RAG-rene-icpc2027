@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-10-20T06:16:32.946105+00:00",
+  "source_sha256": "1c2d6a61b478a63eff9879ca6fb6ef913abb6dc9e0633d0941af6df4bdad2430",
+  "training_protocol_sha256": "4b18123ad653f4921000fb48e5e358538c6db7157de6b07fbf6061a68a4e4677",
+  "evaluation_protocol_sha256": "326cd54903ea014cd739aae02e2ab124f1678882d60339b42d0b74115defb1f1",
+  "frozen_before_outcomes": true,
+  "role": "descriptive adjunct, no extra training and no primary-family change",
+  "contrasts": {
+    "progress_scaled_minus_literal": "PN-P",
+    "nonadditivity": "(P-L)-[(O-L)+(S-L)+(N-L)+(W-L)]"
+  },
+  "metrics": [
+    "S3",
+    "top1_gain"
+  ],
+  "views": [
+    "own",
+    "fixed"
+  ],
+  "domains": [
+    "source",
+    "cosqa"
+  ],
+  "statistic": "paired pointwise95 cluster-t and10000 original-group bootstrap",
+  "seed": 20261020,
+  "nonadditivity_interpretation": "aggregate departure from sum of single changes; not individual interaction identification"
+}

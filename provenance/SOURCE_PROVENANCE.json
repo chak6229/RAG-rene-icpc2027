@@ -1,0 +1,34 @@
+{
+  "numerical_replay_source": {
+    "archive_sha256": "cc12940fa59305b63000e023c5487440325c60011bbde77c052b747ef9f4576a",
+    "archive_size_bytes": 3453344,
+    "prior_independent_acceptance_sha256": "47dd057433de5d4a4c132ee2c570f57ff1d7cc9b76e9a37758ec7ffdc3aef44c",
+    "current_replay_acceptance": {
+      "passed": true,
+      "full_bootstrap": true,
+      "studies": 14,
+      "contrasts": 103,
+      "scope": "cached rank/metric numerical replay; no generation, retrieval, training or reannotation",
+      "statistics_tolerance": 1e-11,
+      "python": "3.9.1",
+      "numpy": "1.26.4"
+    }
+  },
+  "human_review_sources": {
+    "initial_A_export_sha256": "c4ee335e83a5b82c635376facd21814a3a8dfdaa6659932caef5219cd56c9c71",
+    "initial_B_export_sha256": "b21769ed11765c5085d7f25018bf8d386572a10359afa34556ecd32f545725ae",
+    "supplement_labels_source_sha256": "f7995ed754c2614dbefddbda9c43f7973344c27e737d576f128abc59c11e37a7",
+    "weighted_query_bounds_source_sha256": "3f172751bcec957474f5a60a25ed426d74f248f909d3a30f0b1be65818201154",
+    "shared_data_authorization_confirmed": true,
+    "reviewer_A_independent_supplement_completion_confirmed": true,
+    "exported_content": "de-identified judgments and rationales with opaque references; source text and original identifiers omitted",
+    "source_type": "人工评审"
+  },
+  "scope_limits": [
+    "author checkpoint unavailable",
+    "original training CSV unavailable",
+    "production aggregation incompletely recovered",
+    "1024-update comparison does not identify every historical full-training effect"
+  ],
+  "package_scope": "paper-free private GitHub review repository; 2026-10-27"
+}

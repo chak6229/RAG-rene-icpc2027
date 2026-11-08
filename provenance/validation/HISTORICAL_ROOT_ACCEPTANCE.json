@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "numerical_studies": 14,
+  "numerical_contrasts": 103,
+  "full_bootstrap": true,
+  "human_review": "人工评审",
+  "human_query_bounds": 6144,
+  "human_sampling_combinations": 48,
+  "elapsed_seconds": 19.8159355000098
+}

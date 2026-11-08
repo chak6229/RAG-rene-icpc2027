@@ -1,0 +1,50 @@
+{
+  "status": "FROZEN",
+  "created_utc": "2026-10-19T13:05:38.664287+00:00",
+  "supplement_to_design_sha256": "0956f89599e6c26c673a1676d70c1dbfd15669c6180c7c2e476c52be22425184",
+  "supplement_to_policy_sha256": "886a24259c82edd44b13dd6ce183b8795ae1bf00d27ffc0e8d1b14ab6eb13591",
+  "reason": "separate additional B-role gain supervision/calibration from actual CE relevance evidence",
+  "primary_comparison_unchanged": true,
+  "single_final_policy_unchanged": true,
+  "H_outcomes_opened": false,
+  "H_effects_used_to_choose_supplement": false,
+  "source_files": [
+    {
+      "path": "experiments/rene_cosqa_confirmation_20261019/auxiliary_control.py",
+      "sha256": "38cc0386546e4578831a61da8ee471126d74707e7ef7f599e1ae07b22c88f37f"
+    },
+    {
+      "path": "experiments/rene_cosqa_confirmation_20261019/control_model.py",
+      "sha256": "3de6959862702517203bb6f38fc05c8fd4b0db2ec62470a6c3878483566f324c"
+    }
+  ],
+  "controls": {
+    "CodeBERT": {
+      "training_queries": 204,
+      "training_rows": 612,
+      "same_supervision_as_full_CE_update": true,
+      "CE_column_poisoning_prediction_difference": 0.0,
+      "model": {
+        "path": "results/rene_cosqa_confirmation_20261019/models/CodeBERT_no_CE_control.joblib",
+        "sha256": "c5985209f853b73803eaded24548fbaa81bf96e4c455d597ea7c638185bdf26e"
+      }
+    },
+    "BM25": {
+      "training_queries": 107,
+      "training_rows": 321,
+      "same_supervision_as_full_CE_update": true,
+      "CE_column_poisoning_prediction_difference": 0.0,
+      "model": {
+        "path": "results/rene_cosqa_confirmation_20261019/models/BM25_no_CE_control.joblib",
+        "sha256": "cfc6cb2bfb7e6215c67a28631b4829861fc81d3d249faa6c4eeb6545921b7af3"
+      }
+    }
+  },
+  "additional_T5_calls": 0,
+  "additional_CE_pairs": 0,
+  "comparison": "RIDGE_verified minus matched_noCE_update on the same frozen allocation, ENTR pool, labels and residual coefficient .5; per retriever, allH",
+  "analysis_role": "predefined descriptive paired estimation only; no new confirmatory null rejection",
+  "cost_scope": "allocated actual CE cost held equal for the evidence ablation; noCE control can run without CE if deployed alone",
+  "stage_interval_scope": "all auxiliary stage intervals condition on sealed H batch allocation/actions; not a guarantee for a repeatedly reallocated25%-budget policy",
+  "risk_certificate_issued": false
+}

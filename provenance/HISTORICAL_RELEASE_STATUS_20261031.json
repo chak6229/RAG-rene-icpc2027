@@ -1,0 +1,32 @@
+{
+  "version": "2026.10.31",
+  "repository": "https://github.com/chak6229/RAG",
+  "repository_private": true,
+  "tag": "rene-review-20261031",
+  "release_url": "https://github.com/chak6229/RAG/releases/tag/rene-review-20261031",
+  "prepared_locally": true,
+  "published": true,
+  "remote_verified": true,
+  "remote_model_assets": [
+    {
+      "name": "SSQR_RENE_W1_CQC_T5_20261031.zip",
+      "size": 895679380,
+      "digest": "sha256:c30b796808b512a1d7ebf4d8e6babfab6756878f95a5ce827dd0b29b3f37b097",
+      "url": "https://github.com/chak6229/RAG/releases/download/rene-review-20261031/SSQR_RENE_W1_CQC_T5_20261031.zip"
+    },
+    {
+      "name": "SSQR_RENE_W3_CodeBERT_20261031.zip",
+      "size": 503428077,
+      "digest": "sha256:b2e696ea88b54e916eedc20349fc536da82d29e37ceeefbe6b21a0d1e6bf76bd",
+      "url": "https://github.com/chak6229/RAG/releases/download/rene-review-20261031/SSQR_RENE_W3_CodeBERT_20261031.zip"
+    },
+    {
+      "name": "SSQR_RENE_W5_CrossEncoder_20261031.zip",
+      "size": 500010650,
+      "digest": "sha256:b67389496bf49bb867315c73d2b78955be628530de5005c1f123307f22ca8a7c",
+      "url": "https://github.com/chak6229/RAG/releases/download/rene-review-20261031/SSQR_RENE_W5_CrossEncoder_20261031.zip"
+    }
+  ],
+  "verified_utc": "2026-10-31T10:08:45.681279+00:00",
+  "verification": "GitHub server SHA-256/size for all model attachments; Git tree object identities checked separately in the task receipt"
+}

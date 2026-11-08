@@ -1,0 +1,851 @@
+{
+  "created_utc": "2026-10-20T03:18:17.708075+00:00",
+  "role": "post_hoc_evidence_completion_not_new_confirmation",
+  "new_confirmation": false,
+  "risk_certified": false,
+  "views": {
+    "source/local": {
+      "queries": 512,
+      "groups": 512,
+      "mrr": {
+        "NoRewrite": 0.2990852693346885,
+        "ENTR_top1": 0.2688333882547344,
+        "ENTR_best3": 0.32907446550508335,
+        "Oracle_all": 0.3829649605783825,
+        "Uniform_single_exact": 0.2746537035346054,
+        "Uniform_best3_exact": 0.33313502542212803,
+        "PROB_top1": 0.27050082157806343,
+        "PROB_best3": 0.3259907581286924
+      },
+      "effects": {
+        "ENTR_top1-NoRewrite": {
+          "mean": -0.030251881079954066,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.007275920065265377,
+          "ci95_group_bootstrap": [
+            -0.04521605613498278,
+            -0.0162026454735465
+          ],
+          "ci95_cluster_t": [
+            -0.04454627894847363,
+            -0.015957483211434503
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            -0.05170186028661594,
+            -0.01129044022003053
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            -0.05022975763678117,
+            -0.010274004523126965
+          ]
+        },
+        "ENTR_best3-NoRewrite": {
+          "mean": 0.029989196170394875,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.006215061211718073,
+          "ci95_group_bootstrap": [
+            0.01828534430999452,
+            0.042346069479078374
+          ],
+          "ci95_cluster_t": [
+            0.01777897987601601,
+            0.04219941246477374
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            0.013759334023407744,
+            0.04728209801347648
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            0.012924175586458697,
+            0.04705421675433105
+          ]
+        },
+        "Oracle_all-NoRewrite": {
+          "mean": 0.08387969124369399,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.008203223559619003,
+          "ci95_group_bootstrap": [
+            0.06812307649109821,
+            0.10044649588056742
+          ],
+          "ci95_cluster_t": [
+            0.06776349695984014,
+            0.09999588552754783
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            0.062264582433396956,
+            0.10670382496290869
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            0.06135566869093291,
+            0.10640371379645507
+          ]
+        },
+        "ENTR_top1-Uniform_single_exact": {
+          "mean": -0.005820315279870978,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.005732557204983664,
+          "ci95_group_bootstrap": [
+            -0.016975312819782745,
+            0.0054874747235906665
+          ],
+          "ci95_cluster_t": [
+            -0.017082595892776005,
+            0.00544196533303405
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            -0.0216487906091591,
+            0.009828790447543197
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            -0.02156049922483249,
+            0.009919868665090535
+          ]
+        },
+        "ENTR_best3-Uniform_best3_exact": {
+          "mean": -0.0040605599170447215,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.004562318977519594,
+          "ci95_group_bootstrap": [
+            -0.012966966995329803,
+            0.004786594125239006
+          ],
+          "ci95_cluster_t": [
+            -0.01302377035404446,
+            0.004902650519955016
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            -0.016345134730141285,
+            0.00833273897612007
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            -0.016587559186989516,
+            0.008466439352900075
+          ]
+        },
+        "ENTR_top1-PROB_top1": {
+          "mean": -0.0016674333233290786,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.002434270912688921,
+          "ci95_group_bootstrap": [
+            -0.006818709805820945,
+            0.002837836618098902
+          ],
+          "ci95_cluster_t": [
+            -0.006449843882215632,
+            0.0031149772355574755
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            -0.009300316437047628,
+            0.004435281868044545
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            -0.008351339051174694,
+            0.005016472404516538
+          ]
+        }
+      },
+      "outcomes": {
+        "ENTR_top1": {
+          "beneficial_queries": 95,
+          "harmful_queries": 153
+        },
+        "ENTR_best3": {
+          "beneficial_queries": 178,
+          "harmful_queries": 73
+        },
+        "Oracle_all": {
+          "beneficial_queries": 269,
+          "harmful_queries": 12
+        }
+      },
+      "entropy_correlation_mean": -0.009303831665989633,
+      "correlation_valid_queries": 372,
+      "old_summary_max_error": 2.7755575615628914e-16,
+      "old_summary_field_errors": {
+        "NoRewrite": 0.0,
+        "ENTR_top1": 1.1102230246251565e-16,
+        "ENTR_best3": 1.1102230246251565e-16,
+        "Oracle_all": 2.7755575615628914e-16,
+        "spearman": 6.938893903907228e-18
+      },
+      "old_summary_reproduced_at_1e12": true
+    },
+    "source/t5base": {
+      "queries": 512,
+      "groups": 512,
+      "mrr": {
+        "NoRewrite": 0.2990852693346885,
+        "ENTR_top1": 0.2857188316930135,
+        "ENTR_best3": 0.3376098599525492,
+        "Oracle_all": 0.385477558991295,
+        "Uniform_single_exact": 0.27659565218244164,
+        "Uniform_best3_exact": 0.33520647208651544,
+        "PROB_top1": 0.2877364248301796,
+        "PROB_best3": 0.3297655814841559
+      },
+      "effects": {
+        "ENTR_top1-NoRewrite": {
+          "mean": -0.01336643764167496,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.005583919691317564,
+          "ci95_group_bootstrap": [
+            -0.02433999310886217,
+            -0.0026263706033192126
+          ],
+          "ci95_cluster_t": [
+            -0.0243367024353472,
+            -0.0023961728480027186
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            -0.02934958818264183,
+            0.0008911129091566497
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            -0.02869849974457405,
+            0.001965624461224131
+          ]
+        },
+        "ENTR_best3-NoRewrite": {
+          "mean": 0.038524590617860746,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.00658439874951063,
+          "ci95_group_bootstrap": [
+            0.025869494563838188,
+            0.05180257389482993
+          ],
+          "ci95_cluster_t": [
+            0.025588767435881527,
+            0.05146041379983997
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            0.02087318933049534,
+            0.05713879944037454
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            0.02044546052314986,
+            0.05660372071257164
+          ]
+        },
+        "Oracle_all-NoRewrite": {
+          "mean": 0.08639228965660652,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.008147991301581801,
+          "ci95_group_bootstrap": [
+            0.07077987405549607,
+            0.10255522870838932
+          ],
+          "ci95_cluster_t": [
+            0.07038460561812075,
+            0.10239997369509228
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            0.06489821038099823,
+            0.10938794231129348
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            0.06401992122086765,
+            0.10876465809234538
+          ]
+        },
+        "ENTR_top1-Uniform_single_exact": {
+          "mean": 0.009123179510571872,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.004869137047451712,
+          "ci95_group_bootstrap": [
+            -0.00030040482344577223,
+            0.018624759312859153
+          ],
+          "ci95_cluster_t": [
+            -0.00044281099073867174,
+            0.018689170011882417
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            -0.003899722651215964,
+            0.022851208472368136
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            -0.004246266277686102,
+            0.022492625298829845
+          ]
+        },
+        "ENTR_best3-Uniform_best3_exact": {
+          "mean": 0.002403387866033742,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.003977677776946026,
+          "ci95_group_bootstrap": [
+            -0.00525219864136507,
+            0.010186166063386118
+          ],
+          "ci95_cluster_t": [
+            -0.005411226399435253,
+            0.010218002131502736
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            -0.008513008631409098,
+            0.01306573403126933
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            -0.008518331297708029,
+            0.013325107029775515
+          ]
+        },
+        "ENTR_top1-PROB_top1": {
+          "mean": -0.00201759313716613,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.007487777007755812,
+          "ci95_group_bootstrap": [
+            -0.01677944159013442,
+            0.012612762787483254
+          ],
+          "ci95_cluster_t": [
+            -0.016728208803572658,
+            0.0126930225292404
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            -0.022385164567100355,
+            0.01828125605153931
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            -0.022577176448165266,
+            0.018541990173833005
+          ]
+        }
+      },
+      "outcomes": {
+        "ENTR_top1": {
+          "beneficial_queries": 91,
+          "harmful_queries": 131
+        },
+        "ENTR_best3": {
+          "beneficial_queries": 188,
+          "harmful_queries": 55
+        },
+        "Oracle_all": {
+          "beneficial_queries": 267,
+          "harmful_queries": 7
+        }
+      },
+      "entropy_correlation_mean": -0.05329623694034604,
+      "correlation_valid_queries": 389,
+      "old_summary_max_error": 5.551115123125783e-17,
+      "old_summary_field_errors": {
+        "NoRewrite": 0.0,
+        "ENTR_top1": 5.551115123125783e-17,
+        "ENTR_best3": 5.551115123125783e-17,
+        "Oracle_all": 5.551115123125783e-17,
+        "spearman": 6.938893903907228e-18
+      },
+      "old_summary_reproduced_at_1e12": true
+    },
+    "cosqa/local": {
+      "queries": 512,
+      "groups": 512,
+      "mrr": {
+        "NoRewrite": 0.5187525648970086,
+        "ENTR_top1": 0.4985552707711515,
+        "ENTR_best3": 0.5800603419401987,
+        "Oracle_all": 0.6181039327523816,
+        "Uniform_single_exact": 0.4774895058959089,
+        "Uniform_best3_exact": 0.5746790109316466,
+        "PROB_top1": 0.5038115806606167,
+        "PROB_best3": 0.577824074474437
+      },
+      "effects": {
+        "ENTR_top1-NoRewrite": {
+          "mean": -0.02019729412585696,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.008291822932364483,
+          "ci95_group_bootstrap": [
+            -0.036746180362961255,
+            -0.0043464903175097465
+          ],
+          "ci95_cluster_t": [
+            -0.03648755226329424,
+            -0.003907035988419679
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            -0.043419062702708934,
+            0.0012329212755242775
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            -0.042964588638156394,
+            0.002570000386442471
+          ]
+        },
+        "ENTR_best3-NoRewrite": {
+          "mean": 0.0613077770431902,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.007946816078072636,
+          "ci95_group_bootstrap": [
+            0.04602760146052284,
+            0.07699339298352308
+          ],
+          "ci95_cluster_t": [
+            0.045695325313516715,
+            0.0769202287728637
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            0.040027687860347785,
+            0.08301838817458497
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            0.03948778600378157,
+            0.08312776808259884
+          ]
+        },
+        "Oracle_all-NoRewrite": {
+          "mean": 0.09935136785537317,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.00958472481523856,
+          "ci95_group_bootstrap": [
+            0.08083947966959626,
+            0.11794521274868106
+          ],
+          "ci95_cluster_t": [
+            0.08052105241205809,
+            0.11818168329868825
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            0.07282405930608683,
+            0.12552337674325245
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            0.0730340846152625,
+            0.12566865109548384
+          ]
+        },
+        "ENTR_top1-Uniform_single_exact": {
+          "mean": 0.021065764875242678,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.0067291005556269715,
+          "ci95_group_bootstrap": [
+            0.007811386895544094,
+            0.034006328633201854
+          ],
+          "ci95_cluster_t": [
+            0.007845658032864982,
+            0.034285871717620375
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            0.0028291913702799703,
+            0.03885678338677986
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            0.0025893194177719937,
+            0.039542210332713365
+          ]
+        },
+        "ENTR_best3-Uniform_best3_exact": {
+          "mean": 0.00538133100855199,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.004605430234821373,
+          "ci95_group_bootstrap": [
+            -0.0036154555791942937,
+            0.014482116674184154
+          ],
+          "ci95_cluster_t": [
+            -0.003666576547019138,
+            0.014429238564123118
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            -0.007489286327647268,
+            0.01788938163934523
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            -0.007264041108930837,
+            0.01802670312603482
+          ]
+        },
+        "ENTR_top1-PROB_top1": {
+          "mean": -0.005256309889465224,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.006067062064325638,
+          "ci95_group_bootstrap": [
+            -0.017393661967668096,
+            0.006537927836696648
+          ],
+          "ci95_cluster_t": [
+            -0.0171757645099867,
+            0.00666314473105625
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            -0.02181348722870355,
+            0.010712322106813341
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            -0.0219149614272052,
+            0.01140234164827475
+          ]
+        }
+      },
+      "outcomes": {
+        "ENTR_top1": {
+          "beneficial_queries": 86,
+          "harmful_queries": 139
+        },
+        "ENTR_best3": {
+          "beneficial_queries": 172,
+          "harmful_queries": 44
+        },
+        "Oracle_all": {
+          "beneficial_queries": 226,
+          "harmful_queries": 19
+        }
+      },
+      "entropy_correlation_mean": -0.10954627974264554,
+      "correlation_valid_queries": 401,
+      "old_summary_max_error": 3.3306690738754696e-16,
+      "old_summary_field_errors": {
+        "NoRewrite": 1.1102230246251565e-16,
+        "ENTR_top1": 3.3306690738754696e-16,
+        "ENTR_best3": 1.1102230246251565e-16,
+        "Oracle_all": 2.220446049250313e-16,
+        "spearman": 1.3877787807814457e-17
+      },
+      "old_summary_reproduced_at_1e12": true
+    },
+    "cosqa/t5base": {
+      "queries": 512,
+      "groups": 512,
+      "mrr": {
+        "NoRewrite": 0.5187525648970086,
+        "ENTR_top1": 0.47604952512840615,
+        "ENTR_best3": 0.5754523612145168,
+        "Oracle_all": 0.6326269511802108,
+        "Uniform_single_exact": 0.44129631492299587,
+        "Uniform_best3_exact": 0.5717532073547136,
+        "PROB_top1": 0.4549685610299805,
+        "PROB_best3": 0.5527495817874614
+      },
+      "effects": {
+        "ENTR_top1-NoRewrite": {
+          "mean": -0.042703039768602354,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.010076258171547293,
+          "ci95_group_bootstrap": [
+            -0.06296258058070728,
+            -0.022992053734616397
+          ],
+          "ci95_cluster_t": [
+            -0.062499030109071416,
+            -0.022907049428133288
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            -0.07135004334799297,
+            -0.016090194526474977
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            -0.0703699520079069,
+            -0.015036127529297814
+          ]
+        },
+        "ENTR_best3-NoRewrite": {
+          "mean": 0.056699796317508426,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.008993686030665958,
+          "ci95_group_bootstrap": [
+            0.039200939684720576,
+            0.07485249065025205
+          ],
+          "ci95_cluster_t": [
+            0.039030645849429904,
+            0.07436894678558695
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            0.031890471084052796,
+            0.08242730494477787
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            0.032005359366605576,
+            0.08139423326841128
+          ]
+        },
+        "Oracle_all-NoRewrite": {
+          "mean": 0.11387438628320234,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.01052472715429153,
+          "ci95_group_bootstrap": [
+            0.09318050411396786,
+            0.1346965172824069
+          ],
+          "ci95_cluster_t": [
+            0.09319732605555296,
+            0.1345514465108517
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            0.08535690712901955,
+            0.14329520583318725
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            0.08497608916109764,
+            0.14277268340530705
+          ]
+        },
+        "ENTR_top1-Uniform_single_exact": {
+          "mean": 0.034753210205410286,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.008051041980912768,
+          "ci95_group_bootstrap": [
+            0.01882089310079814,
+            0.050446806738038245
+          ],
+          "ci95_cluster_t": [
+            0.018935994472004142,
+            0.05057042593881643
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            0.011961074397757166,
+            0.05739452055347968
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            0.012647040620568713,
+            0.05685937979025186
+          ]
+        },
+        "ENTR_best3-Uniform_best3_exact": {
+          "mean": 0.003699153859803483,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.005627647539822373,
+          "ci95_group_bootstrap": [
+            -0.007645445756997622,
+            0.014821399019048736
+          ],
+          "ci95_cluster_t": [
+            -0.00735701941813676,
+            0.014755327137743725
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            -0.011938464736520753,
+            0.01871969746794558
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            -0.011752974097542685,
+            0.01915128181714965
+          ]
+        },
+        "ENTR_top1-PROB_top1": {
+          "mean": 0.021080964098425633,
+          "queries": 512,
+          "groups": 512,
+          "se_cluster": 0.011262438377763835,
+          "ci95_group_bootstrap": [
+            -0.0006723613324296632,
+            0.04293843399124792
+          ],
+          "ci95_cluster_t": [
+            -0.001045416303963858,
+            0.04320734450081512
+          ],
+          "eight_effect_family95_bonferroni_bootstrap": [
+            -0.009628235525980803,
+            0.05083498649221127
+          ],
+          "eight_effect_family95_bonferroni_t": [
+            -0.009842905545767808,
+            0.05200483374261908
+          ]
+        }
+      },
+      "outcomes": {
+        "ENTR_top1": {
+          "beneficial_queries": 80,
+          "harmful_queries": 165
+        },
+        "ENTR_best3": {
+          "beneficial_queries": 168,
+          "harmful_queries": 62
+        },
+        "Oracle_all": {
+          "beneficial_queries": 225,
+          "harmful_queries": 26
+        }
+      },
+      "entropy_correlation_mean": -0.13826733206641742,
+      "correlation_valid_queries": 446,
+      "old_summary_max_error": 2.220446049250313e-16,
+      "old_summary_field_errors": {
+        "NoRewrite": 1.1102230246251565e-16,
+        "ENTR_top1": 2.220446049250313e-16,
+        "ENTR_best3": 2.220446049250313e-16,
+        "Oracle_all": 1.1102230246251565e-16,
+        "spearman": 0.0
+      },
+      "old_summary_reproduced_at_1e12": true
+    }
+  },
+  "paired_base_minus_local": {
+    "source": {
+      "ENTR_top1": {
+        "mean": 0.016885443438279107,
+        "queries": 512,
+        "groups": 512,
+        "se_cluster": 0.00835735223752666,
+        "ci95_group_bootstrap": [
+          0.0005308431906903301,
+          0.03352843902242639
+        ],
+        "ci95_cluster_t": [
+          0.0004664452993528717,
+          0.03330444157720534
+        ],
+        "eight_effect_family95_bonferroni_bootstrap": [
+          -0.005957488787920867,
+          0.039887197937969736
+        ],
+        "eight_effect_family95_bonferroni_t": [
+          -0.006061778335128418,
+          0.03983266521168663
+        ]
+      },
+      "ENTR_best3": {
+        "mean": 0.008535394447465866,
+        "queries": 512,
+        "groups": 512,
+        "se_cluster": 0.007032697549120085,
+        "ci95_group_bootstrap": [
+          -0.005247310928924158,
+          0.022298694826137756
+        ],
+        "ci95_cluster_t": [
+          -0.0052811642769761274,
+          0.02235195317190786
+        ],
+        "eight_effect_family95_bonferroni_bootstrap": [
+          -0.010065315432346957,
+          0.02882343331700717
+        ],
+        "eight_effect_family95_bonferroni_t": [
+          -0.010774653249257573,
+          0.027845442144189304
+        ]
+      },
+      "Oracle_all": {
+        "mean": 0.0025125984129125215,
+        "queries": 512,
+        "groups": 512,
+        "se_cluster": 0.007423281690577159,
+        "ci95_group_bootstrap": [
+          -0.011920224906941983,
+          0.0170650751221411
+        ],
+        "ci95_cluster_t": [
+          -0.012071308642605165,
+          0.01709650546843021
+        ],
+        "eight_effect_family95_bonferroni_bootstrap": [
+          -0.01741156608237303,
+          0.02247480367271595
+        ],
+        "eight_effect_family95_bonferroni_t": [
+          -0.017869896712189737,
+          0.02289509353801478
+        ]
+      }
+    },
+    "cosqa": {
+      "ENTR_top1": {
+        "mean": -0.022505745642745392,
+        "queries": 512,
+        "groups": 512,
+        "se_cluster": 0.011305676604969771,
+        "ci95_group_bootstrap": [
+          -0.04472177201920915,
+          -0.0008929519381907022
+        ],
+        "ci95_cluster_t": [
+          -0.0447170726109667,
+          -0.00029441867452408704
+        ],
+        "eight_effect_family95_bonferroni_bootstrap": [
+          -0.05398282031171445,
+          0.006990665267444646
+        ],
+        "eight_effect_family95_bonferroni_t": [
+          -0.05354833676242342,
+          0.008536845476932637
+        ]
+      },
+      "ENTR_best3": {
+        "mean": -0.0046079807256817745,
+        "queries": 512,
+        "groups": 512,
+        "se_cluster": 0.00946116053975896,
+        "ci95_group_bootstrap": [
+          -0.02255270051148427,
+          0.014030766803581214
+        ],
+        "ci95_cluster_t": [
+          -0.023195539665324845,
+          0.013979578213961298
+        ],
+        "eight_effect_family95_bonferroni_bootstrap": [
+          -0.030525762365329723,
+          0.020246719762019392
+        ],
+        "eight_effect_family95_bonferroni_t": [
+          -0.030585987033085342,
+          0.02137002558172179
+        ]
+      },
+      "Oracle_all": {
+        "mean": 0.014523018427829168,
+        "queries": 512,
+        "groups": 512,
+        "se_cluster": 0.00965564258135871,
+        "ci95_group_bootstrap": [
+          -0.004365279956257119,
+          0.033654692701950914
+        ],
+        "ci95_cluster_t": [
+          -0.00444662328017475,
+          0.03349266013583309
+        ],
+        "eight_effect_family95_bonferroni_bootstrap": [
+          -0.011156138518342977,
+          0.04179255379621021
+        ],
+        "eight_effect_family95_bonferroni_t": [
+          -0.011988987454163982,
+          0.04103502430982232
+        ]
+      }
+    }
+  },
+  "common_original_controls": {
+    "source": {
+      "original_RR_differences": 0,
+      "max_original_RR_difference": 0.0
+    },
+    "cosqa": {
+      "original_RR_differences": 0,
+      "max_original_RR_difference": 0.0
+    }
+  },
+  "not_cross_family": true,
+  "no_H_evaluation": true,
+  "no_source_causal_attribution": true
+}

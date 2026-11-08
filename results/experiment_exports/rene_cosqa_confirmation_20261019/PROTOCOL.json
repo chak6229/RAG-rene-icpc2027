@@ -1,0 +1,36 @@
+{
+  "status": "FROZEN",
+  "created_utc": "2026-10-19T12:52:37.336480+00:00",
+  "design_sha256": "0956f89599e6c26c673a1676d70c1dbfd15669c6180c7c2e476c52be22425184",
+  "primary_sample_sha256": "9ee86440bd32b2ea17bcfe5ef88f1bb5b8ad6aed1b7843e82ce49ca05ba07b0b",
+  "precision_plan_sha256": "5095031bc93ed21eb83e62051d88f2169a92157085aaeb33dbcf19f381dab9ff",
+  "single_adoption_strategy": "RIDGE_risk",
+  "primary_retriever": "CodeBERT",
+  "secondary_retriever": "BM25",
+  "primary_comparison": "CodeBERT:ENTR_minus_RAND20_best3:capped16",
+  "auxiliary_comparisons": [
+    "CodeBERT:ENTR_minus_PROB_best3",
+    "BM25:ENTR_minus_RAND20_best3",
+    "BM25:ENTR_minus_PROB_best3",
+    "per-retriever:RIDGE_gain_minus_NoRewrite",
+    "per-retriever:RIDGE_verified_minus_RIDGE_gain",
+    "per-retriever:RIDGE_risk_minus_RIDGE_verified",
+    "per-retriever:RIDGE_risk_minus_NoRewrite",
+    "per-retriever:RIDGE_gain_minus_HGB_gain_control",
+    "CodeBERT-minus-BM25 paired stage-effect differences"
+  ],
+  "models": [
+    {
+      "path": "models/CodeBERT.joblib",
+      "sha256": "ac0f4608d081977a618382f9ca013eb1e87c49e0a4b919ef0370d59ea6100aae"
+    },
+    {
+      "path": "models/BM25.joblib",
+      "sha256": "c8bc933ac8c0a35178c39fa6f7191f6c2fb5fd97012c763ab1ef72ac8e156147"
+    }
+  ],
+  "risk_certified": false,
+  "deployment_policy_promoted": false,
+  "H_predictions_started": false,
+  "source_and_protected_hashes_bound_by_design": true
+}

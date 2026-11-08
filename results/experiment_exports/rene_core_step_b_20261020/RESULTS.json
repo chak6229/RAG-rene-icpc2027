@@ -1,0 +1,2131 @@
+{
+  "created_utc": "2026-10-20T02:06:43.911864+00:00",
+  "role": "consumed_development_OOF_diagnostic",
+  "new_confirmation": false,
+  "risk_certified": false,
+  "views": {
+    "CodeBERT": {
+      "population": {
+        "queries": 1490,
+        "groups": 512,
+        "eligible": 1490,
+        "identity_text": 0,
+        "same_ranking": 0,
+        "max_feature_reconstruction_error": 0.0,
+        "folds": [
+          {
+            "fold": 0,
+            "queries": 349,
+            "eligible": 349,
+            "fixed20_adoptions": 69
+          },
+          {
+            "fold": 1,
+            "queries": 262,
+            "eligible": 262,
+            "fixed20_adoptions": 52
+          },
+          {
+            "fold": 2,
+            "queries": 310,
+            "eligible": 310,
+            "fixed20_adoptions": 62
+          },
+          {
+            "fold": 3,
+            "queries": 271,
+            "eligible": 271,
+            "fixed20_adoptions": 54
+          },
+          {
+            "fold": 4,
+            "queries": 298,
+            "eligible": 298,
+            "fixed20_adoptions": 59
+          }
+        ]
+      },
+      "baselines": {
+        "NoRewrite": {
+          "mrr": 0.5189003978705202,
+          "delta_mrr": 0.0,
+          "adopted": 0,
+          "coverage": 0.0,
+          "beneficial": 0,
+          "harmful": 0,
+          "zero_gain_adoptions": 0,
+          "harm_rate_among_adopted": null,
+          "benefit_mass_per_query": 0.0,
+          "harm_mass_per_query": -0.0,
+          "mean_loss_among_harms": null,
+          "max_loss": 0.0,
+          "retained_fixed_action_positive_mass": 0.0,
+          "per_fold": [
+            {
+              "fold": 0,
+              "queries": 349,
+              "adopted": 0,
+              "harmful": 0,
+              "delta_mrr": 0.0
+            },
+            {
+              "fold": 1,
+              "queries": 262,
+              "adopted": 0,
+              "harmful": 0,
+              "delta_mrr": 0.0
+            },
+            {
+              "fold": 2,
+              "queries": 310,
+              "adopted": 0,
+              "harmful": 0,
+              "delta_mrr": 0.0
+            },
+            {
+              "fold": 3,
+              "queries": 271,
+              "adopted": 0,
+              "harmful": 0,
+              "delta_mrr": 0.0
+            },
+            {
+              "fold": 4,
+              "queries": 298,
+              "adopted": 0,
+              "harmful": 0,
+              "delta_mrr": 0.0
+            }
+          ]
+        },
+        "ForcedENTRTop1": {
+          "mrr": 0.5052418911077782,
+          "delta_mrr": -0.013658506762742006,
+          "adopted": 1490,
+          "coverage": 1.0,
+          "beneficial": 292,
+          "harmful": 388,
+          "zero_gain_adoptions": 810,
+          "harm_rate_among_adopted": 0.26040268456375837,
+          "benefit_mass_per_query": 0.03011767011945322,
+          "harm_mass_per_query": 0.043776176882195234,
+          "mean_loss_among_harms": 0.16810954524348168,
+          "max_loss": 1.0,
+          "retained_fixed_action_positive_mass": 1.0,
+          "per_fold": [
+            {
+              "fold": 0,
+              "queries": 349,
+              "adopted": 349,
+              "harmful": 97,
+              "delta_mrr": -0.02342743556938732
+            },
+            {
+              "fold": 1,
+              "queries": 262,
+              "adopted": 262,
+              "harmful": 74,
+              "delta_mrr": -0.027024310880460388
+            },
+            {
+              "fold": 2,
+              "queries": 310,
+              "adopted": 310,
+              "harmful": 78,
+              "delta_mrr": -0.004543463124814449
+            },
+            {
+              "fold": 3,
+              "queries": 271,
+              "adopted": 271,
+              "harmful": 68,
+              "delta_mrr": -0.011572742409744747
+            },
+            {
+              "fold": 4,
+              "queries": 298,
+              "adopted": 298,
+              "harmful": 71,
+              "delta_mrr": -0.0018454491622667483
+            }
+          ]
+        }
+      },
+      "fixed_action_oracle_diagnostic_delta": 0.03011767011945322,
+      "prediction_quality": {
+        "M0": {
+          "mse": 0.03298345290407819,
+          "mae": 0.09002880120854395,
+          "mean_prediction": -0.01301253312295068,
+          "mean_observed": -0.013658506762742006,
+          "bias": 0.0006459736397913293,
+          "prediction_spearman": 0.06179200872273736,
+          "negative_predictions": 975,
+          "positive_predictions": 515,
+          "outside_target_range": 0,
+          "calibration_quintiles": [
+            {
+              "bin": 1,
+              "queries": 298,
+              "mean_prediction": -0.05934249399826644,
+              "observed_mean_delta": -0.0477063267090221,
+              "harm_rate": 0.3624161073825503,
+              "positive_rate": 0.21476510067114093
+            },
+            {
+              "bin": 2,
+              "queries": 298,
+              "mean_prediction": -0.028882105700600683,
+              "observed_mean_delta": -0.011621343522768156,
+              "harm_rate": 0.24496644295302014,
+              "positive_rate": 0.2214765100671141
+            },
+            {
+              "bin": 3,
+              "queries": 298,
+              "mean_prediction": -0.012180265619993096,
+              "observed_mean_delta": -0.00838115302707189,
+              "harm_rate": 0.2953020134228188,
+              "positive_rate": 0.21140939597315436
+            },
+            {
+              "bin": 4,
+              "queries": 298,
+              "mean_prediction": 0.0036900751261106017,
+              "observed_mean_delta": 0.0025505629206314714,
+              "harm_rate": 0.20469798657718122,
+              "positive_rate": 0.19798657718120805
+            },
+            {
+              "bin": 5,
+              "queries": 298,
+              "mean_prediction": 0.03165212457799621,
+              "observed_mean_delta": -0.0031342734754793646,
+              "harm_rate": 0.19463087248322147,
+              "positive_rate": 0.1342281879194631
+            }
+          ],
+          "mean_absolute_quintile_calibration_gap": 0.013724390463790556
+        },
+        "MT": {
+          "mse": 0.033443763815405494,
+          "mae": 0.09185680964258236,
+          "mean_prediction": -0.012755411162959572,
+          "mean_observed": -0.013658506762742006,
+          "bias": 0.0009030955997824352,
+          "prediction_spearman": 0.03275488187791439,
+          "negative_predictions": 964,
+          "positive_predictions": 526,
+          "outside_target_range": 0,
+          "calibration_quintiles": [
+            {
+              "bin": 1,
+              "queries": 298,
+              "mean_prediction": -0.06435516729001027,
+              "observed_mean_delta": -0.04093596725365365,
+              "harm_rate": 0.35906040268456374,
+              "positive_rate": 0.2348993288590604
+            },
+            {
+              "bin": 2,
+              "queries": 298,
+              "mean_prediction": -0.029929201576793754,
+              "observed_mean_delta": -0.012152714293787125,
+              "harm_rate": 0.2483221476510067,
+              "positive_rate": 0.22818791946308725
+            },
+            {
+              "bin": 3,
+              "queries": 298,
+              "mean_prediction": -0.011188017132261495,
+              "observed_mean_delta": -0.005686496550166523,
+              "harm_rate": 0.2684563758389262,
+              "positive_rate": 0.20469798657718122
+            },
+            {
+              "bin": 4,
+              "queries": 298,
+              "mean_prediction": 0.005823380968040774,
+              "observed_mean_delta": -0.0013866952886693394,
+              "harm_rate": 0.23154362416107382,
+              "positive_rate": 0.1912751677852349
+            },
+            {
+              "bin": 5,
+              "queries": 298,
+              "mean_prediction": 0.03587194921622689,
+              "observed_mean_delta": -0.008130660427433396,
+              "harm_rate": 0.19463087248322147,
+              "positive_rate": 0.12080536912751678
+            }
+          ],
+          "mean_absolute_quintile_calibration_gap": 0.019581978760365725
+        },
+        "MR": {
+          "mse": 0.03204864640216709,
+          "mae": 0.09491219648690284,
+          "mean_prediction": -0.012733239682930924,
+          "mean_observed": -0.013658506762742006,
+          "bias": 0.0009252670798110856,
+          "prediction_spearman": 0.07752509060912664,
+          "negative_predictions": 817,
+          "positive_predictions": 673,
+          "outside_target_range": 0,
+          "calibration_quintiles": [
+            {
+              "bin": 1,
+              "queries": 298,
+              "mean_prediction": -0.09890998831733847,
+              "observed_mean_delta": -0.07367842408659526,
+              "harm_rate": 0.3959731543624161,
+              "positive_rate": 0.22483221476510068
+            },
+            {
+              "bin": 2,
+              "queries": 298,
+              "mean_prediction": -0.02900757010273169,
+              "observed_mean_delta": -0.004916592675455643,
+              "harm_rate": 0.20134228187919462,
+              "positive_rate": 0.19463087248322147
+            },
+            {
+              "bin": 3,
+              "queries": 298,
+              "mean_prediction": -0.004925058541989259,
+              "observed_mean_delta": -0.0059047339461211655,
+              "harm_rate": 0.23825503355704697,
+              "positive_rate": 0.1644295302013423
+            },
+            {
+              "bin": 4,
+              "queries": 298,
+              "mean_prediction": 0.016773627528272234,
+              "observed_mean_delta": 0.008144968128666141,
+              "harm_rate": 0.22483221476510068,
+              "positive_rate": 0.20134228187919462
+            },
+            {
+              "bin": 5,
+              "queries": 298,
+              "mean_prediction": 0.05240279101913256,
+              "observed_mean_delta": 0.008062248765795903,
+              "harm_rate": 0.24161073825503357,
+              "positive_rate": 0.19463087248322147
+            }
+          ],
+          "mean_absolute_quintile_calibration_gap": 0.02065428374301878
+        },
+        "MRT": {
+          "mse": 0.032570741655770036,
+          "mae": 0.09682514791654954,
+          "mean_prediction": -0.012423822028604068,
+          "mean_observed": -0.013658506762742006,
+          "bias": 0.001234684734137938,
+          "prediction_spearman": 0.05941994259485441,
+          "negative_predictions": 825,
+          "positive_predictions": 665,
+          "outside_target_range": 0,
+          "calibration_quintiles": [
+            {
+              "bin": 1,
+              "queries": 298,
+              "mean_prediction": -0.10122289628077935,
+              "observed_mean_delta": -0.07772239501432891,
+              "harm_rate": 0.40268456375838924,
+              "positive_rate": 0.22818791946308725
+            },
+            {
+              "bin": 2,
+              "queries": 298,
+              "mean_prediction": -0.029836702172560355,
+              "observed_mean_delta": -0.0030994083247012218,
+              "harm_rate": 0.20469798657718122,
+              "positive_rate": 0.19798657718120805
+            },
+            {
+              "bin": 3,
+              "queries": 298,
+              "mean_prediction": -0.005375992968726814,
+              "observed_mean_delta": 0.0018368346955141511,
+              "harm_rate": 0.19463087248322147,
+              "positive_rate": 0.18456375838926176
+            },
+            {
+              "bin": 4,
+              "queries": 298,
+              "mean_prediction": 0.017884062162151115,
+              "observed_mean_delta": 0.004408488031247857,
+              "harm_rate": 0.2348993288590604,
+              "positive_rate": 0.18120805369127516
+            },
+            {
+              "bin": 5,
+              "queries": 298,
+              "mean_prediction": 0.056432419116895075,
+              "observed_mean_delta": 0.006283946798558083,
+              "harm_rate": 0.2651006711409396,
+              "positive_rate": 0.18791946308724833
+            }
+          ],
+          "mean_absolute_quintile_calibration_gap": 0.02421493384555816
+        }
+      },
+      "policies": {
+        "positive": {
+          "M0": {
+            "mrr": 0.51858476641112,
+            "delta_mrr": -0.0003156314594002713,
+            "adopted": 515,
+            "coverage": 0.34563758389261745,
+            "beneficial": 80,
+            "harmful": 101,
+            "zero_gain_adoptions": 334,
+            "harm_rate_among_adopted": 0.19611650485436893,
+            "benefit_mass_per_query": 0.008099971298347126,
+            "harm_mass_per_query": 0.008415602757747397,
+            "mean_loss_among_harms": 0.12415097137666953,
+            "max_loss": 0.75,
+            "retained_fixed_action_positive_mass": 0.2689441535889357,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 105,
+                "harmful": 23,
+                "delta_mrr": 0.0025544931051149095
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 108,
+                "harmful": 23,
+                "delta_mrr": -0.008197986476392794
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 123,
+                "harmful": 23,
+                "delta_mrr": -0.002028001660626601
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 86,
+                "harmful": 15,
+                "delta_mrr": 0.006224553275694132
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 93,
+                "harmful": 17,
+                "delta_mrr": -0.0009131205848840915
+              }
+            ]
+          },
+          "MT": {
+            "mrr": 0.517423615090951,
+            "delta_mrr": -0.001476782779569148,
+            "adopted": 526,
+            "coverage": 0.3530201342281879,
+            "beneficial": 76,
+            "harmful": 111,
+            "zero_gain_adoptions": 339,
+            "harm_rate_among_adopted": 0.21102661596958175,
+            "benefit_mass_per_query": 0.008428291770009136,
+            "harm_mass_per_query": 0.009905074549578282,
+            "mean_loss_among_harms": 0.13296000971956431,
+            "max_loss": 0.75,
+            "retained_fixed_action_positive_mass": 0.27984541090265946,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 112,
+                "harmful": 22,
+                "delta_mrr": 0.0020846165672932467
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 107,
+                "harmful": 25,
+                "delta_mrr": -0.008514538033402366
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 117,
+                "harmful": 29,
+                "delta_mrr": -0.007413445908952791
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 93,
+                "harmful": 15,
+                "delta_mrr": 0.005598582821053824
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 97,
+                "harmful": 20,
+                "delta_mrr": 0.00028128767945579227
+              }
+            ]
+          },
+          "MR": {
+            "mrr": 0.5217075812159517,
+            "delta_mrr": 0.0028071833454315154,
+            "adopted": 673,
+            "coverage": 0.45167785234899327,
+            "beneficial": 133,
+            "harmful": 158,
+            "zero_gain_adoptions": 382,
+            "harm_rate_among_adopted": 0.23476968796433878,
+            "benefit_mass_per_query": 0.013474743070046634,
+            "harm_mass_per_query": 0.010667559724615118,
+            "mean_loss_among_harms": 0.10059913917516788,
+            "max_loss": 0.8,
+            "retained_fixed_action_positive_mass": 0.44740323592770875,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 164,
+                "harmful": 45,
+                "delta_mrr": -0.0018684253182342622
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 120,
+                "harmful": 27,
+                "delta_mrr": 0.0037700959206370746
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 149,
+                "harmful": 35,
+                "delta_mrr": -0.004251258849263631
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 116,
+                "harmful": 25,
+                "delta_mrr": 0.008871425246055829
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 124,
+                "harmful": 26,
+                "delta_mrr": 0.009264270104497981
+              }
+            ]
+          },
+          "MRT": {
+            "mrr": 0.5215515927690156,
+            "delta_mrr": 0.002651194898495455,
+            "adopted": 665,
+            "coverage": 0.4463087248322148,
+            "beneficial": 125,
+            "harmful": 157,
+            "zero_gain_adoptions": 383,
+            "harm_rate_among_adopted": 0.23609022556390977,
+            "benefit_mass_per_query": 0.013726845769387869,
+            "harm_mass_per_query": 0.011075650870892417,
+            "mean_loss_among_harms": 0.10511286495305543,
+            "max_loss": 0.8,
+            "retained_fixed_action_positive_mass": 0.4557738269575375,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 158,
+                "harmful": 41,
+                "delta_mrr": -0.0018658852928937397
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 122,
+                "harmful": 29,
+                "delta_mrr": -0.0007873377398500208
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 142,
+                "harmful": 36,
+                "delta_mrr": -0.003004976805926292
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 118,
+                "harmful": 24,
+                "delta_mrr": 0.00784372378087665
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 125,
+                "harmful": 27,
+                "delta_mrr": 0.01212634402361888
+              }
+            ]
+          }
+        },
+        "fixed20": {
+          "M0": {
+            "mrr": 0.5202409993677711,
+            "delta_mrr": 0.0013406014972509315,
+            "adopted": 296,
+            "coverage": 0.19865771812080538,
+            "beneficial": 45,
+            "harmful": 53,
+            "zero_gain_adoptions": 198,
+            "harm_rate_among_adopted": 0.17905405405405406,
+            "benefit_mass_per_query": 0.005266299592418997,
+            "harm_mass_per_query": 0.003925698095168066,
+            "mean_loss_among_harms": 0.11036396531698903,
+            "max_loss": 0.75,
+            "retained_fixed_action_positive_mass": 0.17485746976880048,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 69,
+                "harmful": 17,
+                "delta_mrr": 0.0016754377398367402
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 52,
+                "harmful": 9,
+                "delta_mrr": 0.0020034013778502226
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 62,
+                "harmful": 9,
+                "delta_mrr": -0.001252328665851234
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 54,
+                "harmful": 6,
+                "delta_mrr": 0.007208875170074867
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 59,
+                "harmful": 12,
+                "delta_mrr": -0.0022735100200412723
+              }
+            ]
+          },
+          "MT": {
+            "mrr": 0.5182329794372371,
+            "delta_mrr": -0.0006674184332829676,
+            "adopted": 296,
+            "coverage": 0.19865771812080538,
+            "beneficial": 38,
+            "harmful": 55,
+            "zero_gain_adoptions": 203,
+            "harm_rate_among_adopted": 0.1858108108108108,
+            "benefit_mass_per_query": 0.003982833965169937,
+            "harm_mass_per_query": 0.004650252398452906,
+            "mean_loss_among_harms": 0.12597956497626964,
+            "max_loss": 0.75,
+            "retained_fixed_action_positive_mass": 0.1322424327437399,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 69,
+                "harmful": 13,
+                "delta_mrr": 4.4335877159407996e-05
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 52,
+                "harmful": 13,
+                "delta_mrr": -0.005454194653382855
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 62,
+                "harmful": 13,
+                "delta_mrr": -0.003475874244023299
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 54,
+                "harmful": 6,
+                "delta_mrr": 0.003866215013489384
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 59,
+                "harmful": 10,
+                "delta_mrr": 0.0015062048975089
+              }
+            ]
+          },
+          "MR": {
+            "mrr": 0.5199801074665636,
+            "delta_mrr": 0.0010797095960434564,
+            "adopted": 296,
+            "coverage": 0.19865771812080538,
+            "beneficial": 56,
+            "harmful": 75,
+            "zero_gain_adoptions": 165,
+            "harm_rate_among_adopted": 0.2533783783783784,
+            "benefit_mass_per_query": 0.006304274155785798,
+            "harm_mass_per_query": 0.005224564559742343,
+            "mean_loss_among_harms": 0.10379468258688122,
+            "max_loss": 0.8,
+            "retained_fixed_action_positive_mass": 0.20932144255454282,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 69,
+                "harmful": 20,
+                "delta_mrr": -0.0006288590272141801
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 52,
+                "harmful": 15,
+                "delta_mrr": -0.0020537960594845246
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 62,
+                "harmful": 15,
+                "delta_mrr": -0.002588790132878024
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 54,
+                "harmful": 15,
+                "delta_mrr": 0.008046190633247598
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 59,
+                "harmful": 10,
+                "delta_mrr": 0.003316580354931319
+              }
+            ]
+          },
+          "MRT": {
+            "mrr": 0.5202637599239988,
+            "delta_mrr": 0.0013633620534785457,
+            "adopted": 296,
+            "coverage": 0.19865771812080538,
+            "beneficial": 54,
+            "harmful": 81,
+            "zero_gain_adoptions": 161,
+            "harm_rate_among_adopted": 0.27364864864864863,
+            "benefit_mass_per_query": 0.006326453588124864,
+            "harm_mass_per_query": 0.004963091534646319,
+            "mean_loss_among_harms": 0.09129637514349401,
+            "max_loss": 0.8,
+            "retained_fixed_action_positive_mass": 0.21005786845505564,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 69,
+                "harmful": 21,
+                "delta_mrr": 0.001115485473688146
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 52,
+                "harmful": 16,
+                "delta_mrr": -0.0023976104300164522
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 62,
+                "harmful": 19,
+                "delta_mrr": -0.00583123764951909
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 54,
+                "harmful": 14,
+                "delta_mrr": 0.009718182784449199
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 59,
+                "harmful": 11,
+                "delta_mrr": 0.004846762076494514
+              }
+            ]
+          }
+        }
+      },
+      "estimates": {
+        "positive:M0-NoRewrite": {
+          "mean": -0.0003156314594002708,
+          "standard_error_cluster": 0.0022037095057281194,
+          "ci95_cluster_t": [
+            -0.00464507710736691,
+            0.004013814188566368
+          ],
+          "ci95_group_bootstrap": [
+            -0.004685728733426568,
+            0.003980337063065586
+          ],
+          "nonzero_queries": 181,
+          "groups_with_nonzero_queries": 146
+        },
+        "positive:MT-NoRewrite": {
+          "mean": -0.0014767827795691476,
+          "standard_error_cluster": 0.0022124006509838495,
+          "ci95_cluster_t": [
+            -0.005823303201186968,
+            0.0028697376420486736
+          ],
+          "ci95_group_bootstrap": [
+            -0.005844484994192535,
+            0.0028695551042437163
+          ],
+          "nonzero_queries": 187,
+          "groups_with_nonzero_queries": 144
+        },
+        "positive:MR-NoRewrite": {
+          "mean": 0.002807183345431516,
+          "standard_error_cluster": 0.0025073414424644893,
+          "ci95_cluster_t": [
+            -0.0021187828346969245,
+            0.007733149525559957
+          ],
+          "ci95_group_bootstrap": [
+            -0.0020446823382619193,
+            0.007852793335477407
+          ],
+          "nonzero_queries": 291,
+          "groups_with_nonzero_queries": 185
+        },
+        "positive:MRT-NoRewrite": {
+          "mean": 0.002651194898495455,
+          "standard_error_cluster": 0.0025677077961979034,
+          "ci95_cluster_t": [
+            -0.0023933680598269384,
+            0.0076957578568178486
+          ],
+          "ci95_group_bootstrap": [
+            -0.002370668947569803,
+            0.0077910081223577865
+          ],
+          "nonzero_queries": 282,
+          "groups_with_nonzero_queries": 185
+        },
+        "positive:MRT-MT": {
+          "mean": 0.0041279776780646016,
+          "standard_error_cluster": 0.002194737094078989,
+          "ci95_cluster_t": [
+            -0.00018384061545031766,
+            0.008439795971579522
+          ],
+          "ci95_group_bootstrap": [
+            -0.00011371754981818066,
+            0.008424150195453641
+          ],
+          "nonzero_queries": 193,
+          "groups_with_nonzero_queries": 146,
+          "family95_bonferroni_cluster_t": [
+            -0.0018982274405866363,
+            0.01015418279671584
+          ],
+          "family95_bonferroni_group_bootstrap": [
+            -0.002005751369114709,
+            0.010254858686502399
+          ]
+        },
+        "positive:MRT-MR": {
+          "mean": -0.000155988446936061,
+          "standard_error_cluster": 0.0011147689823273643,
+          "ci95_cluster_t": [
+            -0.002346082788536115,
+            0.0020341058946639935
+          ],
+          "ci95_group_bootstrap": [
+            -0.002343772238666652,
+            0.0020690212715387276
+          ],
+          "nonzero_queries": 51,
+          "groups_with_nonzero_queries": 42,
+          "family95_bonferroni_cluster_t": [
+            -0.0032168682969820174,
+            0.002904891403109896
+          ],
+          "family95_bonferroni_group_bootstrap": [
+            -0.003152618936113754,
+            0.0029154403075363497
+          ]
+        },
+        "positive:MR-M0": {
+          "mean": 0.003122814804831786,
+          "standard_error_cluster": 0.002153863511894028,
+          "ci95_cluster_t": [
+            -0.001108702545184222,
+            0.007354332154847794
+          ],
+          "ci95_group_bootstrap": [
+            -0.001087750694120623,
+            0.00742770167228174
+          ],
+          "nonzero_queries": 202,
+          "groups_with_nonzero_queries": 146
+        },
+        "positive:MT-M0": {
+          "mean": -0.0011611513201688771,
+          "standard_error_cluster": 0.001352127547847253,
+          "ci95_cluster_t": [
+            -0.003817564387456939,
+            0.001495261747119185
+          ],
+          "ci95_group_bootstrap": [
+            -0.0038057468125975574,
+            0.0014954363721417145
+          ],
+          "nonzero_queries": 80,
+          "groups_with_nonzero_queries": 69
+        },
+        "fixed20:M0-NoRewrite": {
+          "mean": 0.0013406014972509313,
+          "standard_error_cluster": 0.001664223475088958,
+          "ci95_cluster_t": [
+            -0.0019289606037153546,
+            0.0046101635982172175
+          ],
+          "ci95_group_bootstrap": [
+            -0.0018853700216146776,
+            0.004670321016688648
+          ],
+          "nonzero_queries": 98,
+          "groups_with_nonzero_queries": 84
+        },
+        "fixed20:MT-NoRewrite": {
+          "mean": -0.000667418433282968,
+          "standard_error_cluster": 0.0015520698551318229,
+          "ci95_cluster_t": [
+            -0.0037166416009347695,
+            0.0023818047343688335
+          ],
+          "ci95_group_bootstrap": [
+            -0.003665178637941656,
+            0.0025029764483803967
+          ],
+          "nonzero_queries": 93,
+          "groups_with_nonzero_queries": 81
+        },
+        "fixed20:MR-NoRewrite": {
+          "mean": 0.0010797095960434567,
+          "standard_error_cluster": 0.0018331320172685535,
+          "ci95_cluster_t": [
+            -0.00252169313588758,
+            0.004681112327974493
+          ],
+          "ci95_group_bootstrap": [
+            -0.0024941935033777974,
+            0.0047051370435704405
+          ],
+          "nonzero_queries": 131,
+          "groups_with_nonzero_queries": 112
+        },
+        "fixed20:MRT-NoRewrite": {
+          "mean": 0.0013633620534785462,
+          "standard_error_cluster": 0.001783120655197836,
+          "ci95_cluster_t": [
+            -0.002139787495216159,
+            0.004866511602173251
+          ],
+          "ci95_group_bootstrap": [
+            -0.002070560210443104,
+            0.004994053688438588
+          ],
+          "nonzero_queries": 135,
+          "groups_with_nonzero_queries": 111
+        },
+        "fixed20:MRT-MT": {
+          "mean": 0.0020307804867615133,
+          "standard_error_cluster": 0.0015113600952147744,
+          "ci95_cluster_t": [
+            -0.00093846358544032,
+            0.005000024558963347
+          ],
+          "ci95_group_bootstrap": [
+            -0.0008955434291680432,
+            0.005004537525548463
+          ],
+          "nonzero_queries": 120,
+          "groups_with_nonzero_queries": 100,
+          "family95_bonferroni_cluster_t": [
+            -0.0021190404491854987,
+            0.006180601422708525
+          ],
+          "family95_bonferroni_group_bootstrap": [
+            -0.0019325592506454963,
+            0.006319012121251286
+          ]
+        },
+        "fixed20:MRT-MR": {
+          "mean": 0.0002836524574350889,
+          "standard_error_cluster": 0.000922810736274214,
+          "ci95_cluster_t": [
+            -0.001529317408000613,
+            0.0020966223228707907
+          ],
+          "ci95_group_bootstrap": [
+            -0.0015020839807793915,
+            0.002192591835999066
+          ],
+          "nonzero_queries": 38,
+          "groups_with_nonzero_queries": 34,
+          "family95_bonferroni_cluster_t": [
+            -0.002250157536246935,
+            0.002817462451117113
+          ],
+          "family95_bonferroni_group_bootstrap": [
+            -0.0021496431059983842,
+            0.0029928165732577166
+          ]
+        },
+        "fixed20:MR-M0": {
+          "mean": -0.0002608919012074754,
+          "standard_error_cluster": 0.0017642360927138956,
+          "ci95_cluster_t": [
+            -0.0037269405132100567,
+            0.0032051567107951057
+          ],
+          "ci95_group_bootstrap": [
+            -0.0036912349202200745,
+            0.0032660737223708927
+          ],
+          "nonzero_queries": 135,
+          "groups_with_nonzero_queries": 106
+        },
+        "fixed20:MT-M0": {
+          "mean": -0.0020080199305338993,
+          "standard_error_cluster": 0.0011970384226269836,
+          "ci95_cluster_t": [
+            -0.004359742231418067,
+            0.00034370237035026823
+          ],
+          "ci95_group_bootstrap": [
+            -0.004345549229864051,
+            0.0003231042905671675
+          ],
+          "nonzero_queries": 51,
+          "groups_with_nonzero_queries": 44
+        },
+        "ForcedENTRTop1-NoRewrite": {
+          "mean": -0.013658506762742011,
+          "standard_error_cluster": 0.004608078909195846,
+          "ci95_cluster_t": [
+            -0.022711617949605575,
+            -0.004605395575878447
+          ],
+          "ci95_group_bootstrap": [
+            -0.022697006447572846,
+            -0.004789473030968412
+          ],
+          "nonzero_queries": 680,
+          "groups_with_nonzero_queries": 327
+        }
+      }
+    },
+    "BM25": {
+      "population": {
+        "queries": 1490,
+        "groups": 512,
+        "eligible": 1382,
+        "identity_text": 0,
+        "same_ranking": 108,
+        "max_feature_reconstruction_error": 0.0,
+        "folds": [
+          {
+            "fold": 0,
+            "queries": 349,
+            "eligible": 328,
+            "fixed20_adoptions": 65
+          },
+          {
+            "fold": 1,
+            "queries": 262,
+            "eligible": 243,
+            "fixed20_adoptions": 48
+          },
+          {
+            "fold": 2,
+            "queries": 310,
+            "eligible": 283,
+            "fixed20_adoptions": 56
+          },
+          {
+            "fold": 3,
+            "queries": 271,
+            "eligible": 253,
+            "fixed20_adoptions": 50
+          },
+          {
+            "fold": 4,
+            "queries": 298,
+            "eligible": 275,
+            "fixed20_adoptions": 55
+          }
+        ]
+      },
+      "baselines": {
+        "NoRewrite": {
+          "mrr": 0.2241246665013625,
+          "delta_mrr": 0.0,
+          "adopted": 0,
+          "coverage": 0.0,
+          "beneficial": 0,
+          "harmful": 0,
+          "zero_gain_adoptions": 0,
+          "harm_rate_among_adopted": null,
+          "benefit_mass_per_query": 0.0,
+          "harm_mass_per_query": -0.0,
+          "mean_loss_among_harms": null,
+          "max_loss": 0.0,
+          "retained_fixed_action_positive_mass": 0.0,
+          "per_fold": [
+            {
+              "fold": 0,
+              "queries": 349,
+              "adopted": 0,
+              "harmful": 0,
+              "delta_mrr": 0.0
+            },
+            {
+              "fold": 1,
+              "queries": 262,
+              "adopted": 0,
+              "harmful": 0,
+              "delta_mrr": 0.0
+            },
+            {
+              "fold": 2,
+              "queries": 310,
+              "adopted": 0,
+              "harmful": 0,
+              "delta_mrr": 0.0
+            },
+            {
+              "fold": 3,
+              "queries": 271,
+              "adopted": 0,
+              "harmful": 0,
+              "delta_mrr": 0.0
+            },
+            {
+              "fold": 4,
+              "queries": 298,
+              "adopted": 0,
+              "harmful": 0,
+              "delta_mrr": 0.0
+            }
+          ]
+        },
+        "ForcedENTRTop1": {
+          "mrr": 0.20377370602809602,
+          "delta_mrr": -0.020350960473266497,
+          "adopted": 1490,
+          "coverage": 1.0,
+          "beneficial": 45,
+          "harmful": 555,
+          "zero_gain_adoptions": 890,
+          "harm_rate_among_adopted": 0.3724832214765101,
+          "benefit_mass_per_query": 0.0044392113132019125,
+          "harm_mass_per_query": 0.024790171786468404,
+          "mean_loss_among_harms": 0.0665537945258341,
+          "max_loss": 0.8571428571428572,
+          "retained_fixed_action_positive_mass": 1.0,
+          "per_fold": [
+            {
+              "fold": 0,
+              "queries": 349,
+              "adopted": 349,
+              "harmful": 130,
+              "delta_mrr": -0.022206454630618808
+            },
+            {
+              "fold": 1,
+              "queries": 262,
+              "adopted": 262,
+              "harmful": 91,
+              "delta_mrr": -0.02328522284151786
+            },
+            {
+              "fold": 2,
+              "queries": 310,
+              "adopted": 310,
+              "harmful": 126,
+              "delta_mrr": -0.013441888158738343
+            },
+            {
+              "fold": 3,
+              "queries": 271,
+              "adopted": 271,
+              "harmful": 89,
+              "delta_mrr": -0.016081646719402584
+            },
+            {
+              "fold": 4,
+              "queries": 298,
+              "adopted": 298,
+              "harmful": 119,
+              "delta_mrr": -0.02666791431018943
+            }
+          ]
+        }
+      },
+      "fixed_action_oracle_diagnostic_delta": 0.0044392113132019125,
+      "prediction_quality": {
+        "M0": {
+          "mse": 0.009842007574532128,
+          "mae": 0.04256433011113036,
+          "mean_prediction": -0.02059351289536945,
+          "mean_observed": -0.020350960473266497,
+          "bias": -0.0002425524221029513,
+          "prediction_spearman": 0.1869780519779556,
+          "negative_predictions": 1187,
+          "positive_predictions": 303,
+          "outside_target_range": 0,
+          "calibration_quintiles": [
+            {
+              "bin": 1,
+              "queries": 298,
+              "mean_prediction": -0.056254158664243915,
+              "observed_mean_delta": -0.05098369432818328,
+              "harm_rate": 0.49328859060402686,
+              "positive_rate": 0.05704697986577181
+            },
+            {
+              "bin": 2,
+              "queries": 298,
+              "mean_prediction": -0.032228191764976585,
+              "observed_mean_delta": -0.02747843011926419,
+              "harm_rate": 0.44966442953020136,
+              "positive_rate": 0.03355704697986577
+            },
+            {
+              "bin": 3,
+              "queries": 298,
+              "mean_prediction": -0.019241123284627747,
+              "observed_mean_delta": -0.009169742865420874,
+              "harm_rate": 0.3523489932885906,
+              "positive_rate": 0.026845637583892617
+            },
+            {
+              "bin": 4,
+              "queries": 298,
+              "mean_prediction": -0.006772845549942475,
+              "observed_mean_delta": -0.010056373989414965,
+              "harm_rate": 0.31208053691275167,
+              "positive_rate": 0.020134228187919462
+            },
+            {
+              "bin": 5,
+              "queries": 298,
+              "mean_prediction": 0.011528754786943478,
+              "observed_mean_delta": -0.004066561064049173,
+              "harm_rate": 0.2550335570469799,
+              "positive_rate": 0.013422818791946308
+            }
+          ],
+          "mean_absolute_quintile_calibration_gap": 0.007794090138289009
+        },
+        "MT": {
+          "mse": 0.009922587874747304,
+          "mae": 0.04317866355477211,
+          "mean_prediction": -0.020469408592576094,
+          "mean_observed": -0.020350960473266497,
+          "bias": -0.00011844811930959689,
+          "prediction_spearman": 0.17356136437961953,
+          "negative_predictions": 1176,
+          "positive_predictions": 314,
+          "outside_target_range": 0,
+          "calibration_quintiles": [
+            {
+              "bin": 1,
+              "queries": 298,
+              "mean_prediction": -0.05761321288215966,
+              "observed_mean_delta": -0.046190115589365185,
+              "harm_rate": 0.49328859060402686,
+              "positive_rate": 0.06711409395973154
+            },
+            {
+              "bin": 2,
+              "queries": 298,
+              "mean_prediction": -0.03224021967417702,
+              "observed_mean_delta": -0.028215932045071633,
+              "harm_rate": 0.436241610738255,
+              "positive_rate": 0.020134228187919462
+            },
+            {
+              "bin": 3,
+              "queries": 298,
+              "mean_prediction": -0.01904378236037141,
+              "observed_mean_delta": -0.012040141546422205,
+              "harm_rate": 0.348993288590604,
+              "positive_rate": 0.030201342281879196
+            },
+            {
+              "bin": 4,
+              "queries": 298,
+              "mean_prediction": -0.006518484795090028,
+              "observed_mean_delta": -0.010387676685928618,
+              "harm_rate": 0.3221476510067114,
+              "positive_rate": 0.016778523489932886
+            },
+            {
+              "bin": 5,
+              "queries": 298,
+              "mean_prediction": 0.013068656748917648,
+              "observed_mean_delta": -0.004920936499544846,
+              "harm_rate": 0.26174496644295303,
+              "positive_rate": 0.016778523489932886
+            }
+          ],
+          "mean_absolute_quintile_calibration_gap": 0.00886196217503003
+        },
+        "MR": {
+          "mse": 0.009829602959891257,
+          "mae": 0.04373809608899262,
+          "mean_prediction": -0.020487180237969974,
+          "mean_observed": -0.020350960473266497,
+          "bias": -0.0001362197647034771,
+          "prediction_spearman": 0.15906748580379634,
+          "negative_predictions": 1094,
+          "positive_predictions": 396,
+          "outside_target_range": 0,
+          "calibration_quintiles": [
+            {
+              "bin": 1,
+              "queries": 298,
+              "mean_prediction": -0.06921853299804934,
+              "observed_mean_delta": -0.059379813312369495,
+              "harm_rate": 0.5134228187919463,
+              "positive_rate": 0.03355704697986577
+            },
+            {
+              "bin": 2,
+              "queries": 298,
+              "mean_prediction": -0.030815761642574754,
+              "observed_mean_delta": -0.014108502638167025,
+              "harm_rate": 0.3724832214765101,
+              "positive_rate": 0.0436241610738255
+            },
+            {
+              "bin": 3,
+              "queries": 298,
+              "mean_prediction": -0.013619951840469342,
+              "observed_mean_delta": -0.008727978335225256,
+              "harm_rate": 0.33557046979865773,
+              "positive_rate": 0.0436241610738255
+            },
+            {
+              "bin": 4,
+              "queries": 298,
+              "mean_prediction": -0.0019332900984221112,
+              "observed_mean_delta": -0.00911701634622857,
+              "harm_rate": 0.33221476510067116,
+              "positive_rate": 0.016778523489932886
+            },
+            {
+              "bin": 5,
+              "queries": 298,
+              "mean_prediction": 0.013151635389665668,
+              "observed_mean_delta": -0.010421491734342135,
+              "harm_rate": 0.3087248322147651,
+              "positive_rate": 0.013422818791946308
+            }
+          ],
+          "mean_absolute_quintile_calibration_gap": 0.012438961113429183
+        },
+        "MRT": {
+          "mse": 0.009913475434398458,
+          "mae": 0.044542574792333846,
+          "mean_prediction": -0.02040349204191906,
+          "mean_observed": -0.020350960473266497,
+          "bias": -5.25315686525634e-05,
+          "prediction_spearman": 0.15332007036757164,
+          "negative_predictions": 1089,
+          "positive_predictions": 401,
+          "outside_target_range": 0,
+          "calibration_quintiles": [
+            {
+              "bin": 1,
+              "queries": 298,
+              "mean_prediction": -0.0703179008854659,
+              "observed_mean_delta": -0.05835030477712711,
+              "harm_rate": 0.5,
+              "positive_rate": 0.03691275167785235
+            },
+            {
+              "bin": 2,
+              "queries": 298,
+              "mean_prediction": -0.031184239116861693,
+              "observed_mean_delta": -0.01561689045082002,
+              "harm_rate": 0.38926174496644295,
+              "positive_rate": 0.0436241610738255
+            },
+            {
+              "bin": 3,
+              "queries": 298,
+              "mean_prediction": -0.014003112661410067,
+              "observed_mean_delta": -0.005352576561492857,
+              "harm_rate": 0.33557046979865773,
+              "positive_rate": 0.040268456375838924
+            },
+            {
+              "bin": 4,
+              "queries": 298,
+              "mean_prediction": -0.001846806659969222,
+              "observed_mean_delta": -0.013824196983897908,
+              "harm_rate": 0.33221476510067116,
+              "positive_rate": 0.013422818791946308
+            },
+            {
+              "bin": 5,
+              "queries": 298,
+              "mean_prediction": 0.015334599114111579,
+              "observed_mean_delta": -0.00861083359299458,
+              "harm_rate": 0.3053691275167785,
+              "positive_rate": 0.016778523489932886
+            }
+          ],
+          "mean_absolute_quintile_calibration_gap": 0.014421660781066504
+        }
+      },
+      "policies": {
+        "positive": {
+          "M0": {
+            "mrr": 0.223303754260491,
+            "delta_mrr": -0.0008209122408714765,
+            "adopted": 241,
+            "coverage": 0.16174496644295303,
+            "beneficial": 4,
+            "harmful": 77,
+            "zero_gain_adoptions": 160,
+            "harm_rate_among_adopted": 0.31950207468879666,
+            "benefit_mass_per_query": 0.00019835682587360443,
+            "harm_mass_per_query": 0.0010192690667450812,
+            "mean_loss_among_harms": 0.019723518304547674,
+            "max_loss": 0.25,
+            "retained_fixed_action_positive_mass": 0.04468289790209011,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 64,
+                "harmful": 26,
+                "delta_mrr": -0.0020044238281465626
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 39,
+                "harmful": 10,
+                "delta_mrr": -0.0005243157477811338
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 54,
+                "harmful": 24,
+                "delta_mrr": -0.000924492381327047
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 45,
+                "harmful": 11,
+                "delta_mrr": -0.0007389827892360876
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 39,
+                "harmful": 6,
+                "delta_mrr": 0.0003376254266364817
+              }
+            ]
+          },
+          "MT": {
+            "mrr": 0.2230916323355276,
+            "delta_mrr": -0.0010330341658349076,
+            "adopted": 253,
+            "coverage": 0.1697986577181208,
+            "beneficial": 5,
+            "harmful": 84,
+            "zero_gain_adoptions": 164,
+            "harm_rate_among_adopted": 0.33201581027667987,
+            "benefit_mass_per_query": 0.00020866621050643567,
+            "harm_mass_per_query": 0.0012417003763413434,
+            "mean_loss_among_harms": 0.02202539953272145,
+            "max_loss": 0.25,
+            "retained_fixed_action_positive_mass": 0.04700524390129313,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 68,
+                "harmful": 29,
+                "delta_mrr": -0.0025343149162219275
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 41,
+                "harmful": 11,
+                "delta_mrr": -0.0005519420748346178
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 50,
+                "harmful": 21,
+                "delta_mrr": -0.0005344490428359209
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 52,
+                "harmful": 12,
+                "delta_mrr": -0.0009051304787034231
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 42,
+                "harmful": 11,
+                "delta_mrr": -0.0003327738748930418
+              }
+            ]
+          },
+          "MR": {
+            "mrr": 0.2211735606842281,
+            "delta_mrr": -0.0029511058171343614,
+            "adopted": 343,
+            "coverage": 0.2302013422818792,
+            "beneficial": 6,
+            "harmful": 123,
+            "zero_gain_adoptions": 214,
+            "harm_rate_among_adopted": 0.358600583090379,
+            "benefit_mass_per_query": 0.00013301758620009324,
+            "harm_mass_per_query": 0.0030841234033344546,
+            "mean_loss_among_harms": 0.03736051927616534,
+            "max_loss": 0.75,
+            "retained_fixed_action_positive_mass": 0.029964238423277573,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 86,
+                "harmful": 29,
+                "delta_mrr": -0.0019174686061952458
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 48,
+                "harmful": 13,
+                "delta_mrr": -0.0004611312087787292
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 75,
+                "harmful": 35,
+                "delta_mrr": -0.002327782878721941
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 69,
+                "harmful": 21,
+                "delta_mrr": -0.004799462609864825
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 65,
+                "harmful": 25,
+                "delta_mrr": -0.0053183479449357765
+              }
+            ]
+          },
+          "MRT": {
+            "mrr": 0.22109756923358143,
+            "delta_mrr": -0.0030270972677811023,
+            "adopted": 344,
+            "coverage": 0.23087248322147652,
+            "beneficial": 6,
+            "harmful": 122,
+            "zero_gain_adoptions": 216,
+            "harm_rate_among_adopted": 0.3546511627906977,
+            "benefit_mass_per_query": 0.0002092836020634245,
+            "harm_mass_per_query": 0.0032363808698445268,
+            "mean_loss_among_harms": 0.039526290951379876,
+            "max_loss": 0.75,
+            "retained_fixed_action_positive_mass": 0.04714432075829085,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 79,
+                "harmful": 29,
+                "delta_mrr": -0.0016753746021090261
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 56,
+                "harmful": 16,
+                "delta_mrr": -0.0005632507008114342
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 68,
+                "harmful": 27,
+                "delta_mrr": -0.0018149576286063463
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 74,
+                "harmful": 22,
+                "delta_mrr": -0.0047998758278827835
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 67,
+                "harmful": 28,
+                "delta_mrr": -0.006425148641010052
+              }
+            ]
+          }
+        },
+        "fixed20": {
+          "M0": {
+            "mrr": 0.22307544348600833,
+            "delta_mrr": -0.0010492230153541485,
+            "adopted": 274,
+            "coverage": 0.18389261744966443,
+            "beneficial": 4,
+            "harmful": 94,
+            "zero_gain_adoptions": 176,
+            "harm_rate_among_adopted": 0.34306569343065696,
+            "benefit_mass_per_query": 0.00019835682587360443,
+            "harm_mass_per_query": 0.001247579841227753,
+            "mean_loss_among_harms": 0.019775467696056936,
+            "max_loss": 0.25,
+            "retained_fixed_action_positive_mass": 0.04468289790209011,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 65,
+                "harmful": 26,
+                "delta_mrr": -0.0020044238281465626
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 48,
+                "harmful": 13,
+                "delta_mrr": -0.0006474503942314125
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 56,
+                "harmful": 25,
+                "delta_mrr": -0.000960334675233857
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 50,
+                "harmful": 14,
+                "delta_mrr": -0.0009835739552511735
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 55,
+                "harmful": 16,
+                "delta_mrr": -0.00043595329654475484
+              }
+            ]
+          },
+          "MT": {
+            "mrr": 0.2229458318455987,
+            "delta_mrr": -0.0011788346557637889,
+            "adopted": 274,
+            "coverage": 0.18389261744966443,
+            "beneficial": 5,
+            "harmful": 93,
+            "zero_gain_adoptions": 176,
+            "harm_rate_among_adopted": 0.33941605839416056,
+            "benefit_mass_per_query": 0.00020866621050643567,
+            "harm_mass_per_query": 0.0013875008662702247,
+            "mean_loss_among_harms": 0.022229852588630482,
+            "max_loss": 0.25,
+            "retained_fixed_action_positive_mass": 0.04700524390129313,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 65,
+                "harmful": 28,
+                "delta_mrr": -0.002505372193869463
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 48,
+                "harmful": 13,
+                "delta_mrr": -0.000662665468000759
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 56,
+                "harmful": 24,
+                "delta_mrr": -0.0008743107939879947
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 50,
+                "harmful": 11,
+                "delta_mrr": -0.000881873943617064
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 55,
+                "harmful": 17,
+                "delta_mrr": -0.000665926858909064
+              }
+            ]
+          },
+          "MR": {
+            "mrr": 0.22221876361848253,
+            "delta_mrr": -0.0019059028828799763,
+            "adopted": 274,
+            "coverage": 0.18389261744966443,
+            "beneficial": 5,
+            "harmful": 92,
+            "zero_gain_adoptions": 177,
+            "harm_rate_among_adopted": 0.3357664233576642,
+            "benefit_mass_per_query": 9.74267787972053e-05,
+            "harm_mass_per_query": 0.0020033296616771812,
+            "mean_loss_among_harms": 0.03244523039020652,
+            "max_loss": 0.5,
+            "retained_fixed_action_positive_mass": 0.021946866666938042,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 65,
+                "harmful": 21,
+                "delta_mrr": -0.0013557207774697719
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 48,
+                "harmful": 13,
+                "delta_mrr": -0.0004611312087787292
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 56,
+                "harmful": 25,
+                "delta_mrr": -0.0014519008900540854
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 50,
+                "harmful": 12,
+                "delta_mrr": -0.000856265888412902
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 55,
+                "harmful": 21,
+                "delta_mrr": -0.005247298777776928
+              }
+            ]
+          },
+          "MRT": {
+            "mrr": 0.22187195300866855,
+            "delta_mrr": -0.0022527134926939624,
+            "adopted": 274,
+            "coverage": 0.18389261744966443,
+            "beneficial": 5,
+            "harmful": 96,
+            "zero_gain_adoptions": 173,
+            "harm_rate_among_adopted": 0.35036496350364965,
+            "benefit_mass_per_query": 9.74267787972053e-05,
+            "harm_mass_per_query": 0.0023501402714911678,
+            "mean_loss_among_harms": 0.03647613546376916,
+            "max_loss": 0.5,
+            "retained_fixed_action_positive_mass": 0.021946866666938042,
+            "per_fold": [
+              {
+                "fold": 0,
+                "queries": 349,
+                "adopted": 65,
+                "harmful": 24,
+                "delta_mrr": -0.001874233368303036
+              },
+              {
+                "fold": 1,
+                "queries": 262,
+                "adopted": 48,
+                "harmful": 14,
+                "delta_mrr": -0.0005402416596117157
+              },
+              {
+                "fold": 2,
+                "queries": 310,
+                "adopted": 56,
+                "harmful": 23,
+                "delta_mrr": -0.001523883941066814
+              },
+              {
+                "fold": 3,
+                "queries": 271,
+                "adopted": 50,
+                "harmful": 11,
+                "delta_mrr": -0.0008352546812333816
+              },
+              {
+                "fold": 4,
+                "queries": 298,
+                "adopted": 55,
+                "harmful": 24,
+                "delta_mrr": -0.006248772830245021
+              }
+            ]
+          }
+        }
+      },
+      "estimates": {
+        "positive:M0-NoRewrite": {
+          "mean": -0.0008209122408714765,
+          "standard_error_cluster": 0.0002826039850834804,
+          "ci95_cluster_t": [
+            -0.0013761208970656808,
+            -0.00026570358467727226
+          ],
+          "ci95_group_bootstrap": [
+            -0.0013927135744688827,
+            -0.00029974107616631215
+          ],
+          "nonzero_queries": 81,
+          "groups_with_nonzero_queries": 64
+        },
+        "positive:MT-NoRewrite": {
+          "mean": -0.0010330341658349072,
+          "standard_error_cluster": 0.00031338314048525595,
+          "ci95_cluster_t": [
+            -0.001648712080820223,
+            -0.00041735625084959144
+          ],
+          "ci95_group_bootstrap": [
+            -0.0016712579161539236,
+            -0.0004455609922202376
+          ],
+          "nonzero_queries": 89,
+          "groups_with_nonzero_queries": 69
+        },
+        "positive:MR-NoRewrite": {
+          "mean": -0.0029511058171343622,
+          "standard_error_cluster": 0.0007584666263489078,
+          "ci95_cluster_t": [
+            -0.00444120241382225,
+            -0.0014610092204464745
+          ],
+          "ci95_group_bootstrap": [
+            -0.004594464170140789,
+            -0.0016403921978254139
+          ],
+          "nonzero_queries": 129,
+          "groups_with_nonzero_queries": 103
+        },
+        "positive:MRT-NoRewrite": {
+          "mean": -0.0030270972677811023,
+          "standard_error_cluster": 0.0007687272913925014,
+          "ci95_cluster_t": [
+            -0.004537352143726197,
+            -0.0015168423918360075
+          ],
+          "ci95_group_bootstrap": [
+            -0.004679361474933193,
+            -0.001682000724466326
+          ],
+          "nonzero_queries": 128,
+          "groups_with_nonzero_queries": 106
+        },
+        "positive:MRT-MT": {
+          "mean": -0.001994063101946193,
+          "standard_error_cluster": 0.0007463086410983342,
+          "ci95_cluster_t": [
+            -0.003460273911421965,
+            -0.0005278522924704212
+          ],
+          "ci95_group_bootstrap": [
+            -0.003610879040135971,
+            -0.0007082296946312184
+          ],
+          "nonzero_queries": 87,
+          "groups_with_nonzero_queries": 75,
+          "family95_bonferroni_cluster_t": [
+            -0.0040432420059769505,
+            5.511580208456424e-05
+          ],
+          "family95_bonferroni_group_bootstrap": [
+            -0.004432574696902976,
+            -0.00034870269769741346
+          ]
+        },
+        "positive:MRT-MR": {
+          "mean": -7.599145064674115e-05,
+          "standard_error_cluster": 0.00018060219393396072,
+          "ci95_cluster_t": [
+            -0.0004308056312400522,
+            0.0002788227299465699
+          ],
+          "ci95_group_bootstrap": [
+            -0.0004202868665305642,
+            0.0002866772344003905
+          ],
+          "nonzero_queries": 39,
+          "groups_with_nonzero_queries": 36,
+          "family95_bonferroni_cluster_t": [
+            -0.0005718803971910181,
+            0.00041989749589753584
+          ],
+          "family95_bonferroni_group_bootstrap": [
+            -0.0005535978414603769,
+            0.00047406932953968485
+          ]
+        },
+        "positive:MR-M0": {
+          "mean": -0.0021301935762628845,
+          "standard_error_cluster": 0.0007477552095724255,
+          "ci95_cluster_t": [
+            -0.0035992463390761365,
+            -0.0006611408134496327
+          ],
+          "ci95_group_bootstrap": [
+            -0.003729631273572934,
+            -0.0008540039967129563
+          ],
+          "nonzero_queries": 94,
+          "groups_with_nonzero_queries": 79
+        },
+        "positive:MT-M0": {
+          "mean": -0.000212121924963431,
+          "standard_error_cluster": 0.0001624421949598998,
+          "ci95_cluster_t": [
+            -0.0005312586588147998,
+            0.00010701480888793781
+          ],
+          "ci95_group_bootstrap": [
+            -0.0005584476073655447,
+            6.740288549262428e-05
+          ],
+          "nonzero_queries": 28,
+          "groups_with_nonzero_queries": 27
+        },
+        "fixed20:M0-NoRewrite": {
+          "mean": -0.001049223015354148,
+          "standard_error_cluster": 0.0002902064787329308,
+          "ci95_cluster_t": [
+            -0.00161936766150472,
+            -0.0004790783692035762
+          ],
+          "ci95_group_bootstrap": [
+            -0.0016356920109889162,
+            -0.000509882801748777
+          ],
+          "nonzero_queries": 98,
+          "groups_with_nonzero_queries": 77
+        },
+        "fixed20:MT-NoRewrite": {
+          "mean": -0.0011788346557637887,
+          "standard_error_cluster": 0.000319809497490122,
+          "ci95_cluster_t": [
+            -0.0018071379023977077,
+            -0.0005505314091298696
+          ],
+          "ci95_group_bootstrap": [
+            -0.0018251769843592458,
+            -0.000569663985983128
+          ],
+          "nonzero_queries": 98,
+          "groups_with_nonzero_queries": 75
+        },
+        "fixed20:MR-NoRewrite": {
+          "mean": -0.0019059028828799758,
+          "standard_error_cluster": 0.0005544384061579121,
+          "ci95_cluster_t": [
+            -0.0029951621243392177,
+            -0.0008166436414207339
+          ],
+          "ci95_group_bootstrap": [
+            -0.0031400814490490066,
+            -0.0009416132788288567
+          ],
+          "nonzero_queries": 97,
+          "groups_with_nonzero_queries": 82
+        },
+        "fixed20:MRT-NoRewrite": {
+          "mean": -0.002252713492693962,
+          "standard_error_cluster": 0.0005794309299645619,
+          "ci95_cluster_t": [
+            -0.00339107347685325,
+            -0.0011143535085346738
+          ],
+          "ci95_group_bootstrap": [
+            -0.003542306987705247,
+            -0.0012227975362409155
+          ],
+          "nonzero_queries": 101,
+          "groups_with_nonzero_queries": 82
+        },
+        "fixed20:MRT-MT": {
+          "mean": -0.001073878836930174,
+          "standard_error_cluster": 0.0005613696969099427,
+          "ci95_cluster_t": [
+            -0.0021767554115738343,
+            2.8997737713486443e-05
+          ],
+          "ci95_group_bootstrap": [
+            -0.0023007809076566856,
+            -0.00010401326190909235
+          ],
+          "nonzero_queries": 85,
+          "groups_with_nonzero_queries": 72,
+          "family95_bonferroni_cluster_t": [
+            -0.0026152611510583366,
+            0.00046750347719798856
+          ],
+          "family95_bonferroni_group_bootstrap": [
+            -0.002919961742039984,
+            0.00018167553870724633
+          ]
+        },
+        "fixed20:MRT-MR": {
+          "mean": -0.00034681060981398595,
+          "standard_error_cluster": 0.00018348084833520024,
+          "ci95_cluster_t": [
+            -0.0007072802444211092,
+            1.3659024793137391e-05
+          ],
+          "ci95_group_bootstrap": [
+            -0.0007359739612587783,
+            -2.146643532216416e-05
+          ],
+          "nonzero_queries": 32,
+          "groups_with_nonzero_queries": 27,
+          "family95_bonferroni_cluster_t": [
+            -0.0008506036292125368,
+            0.00015698240958456484
+          ],
+          "family95_bonferroni_group_bootstrap": [
+            -0.0009040983526359058,
+            8.001789235069764e-05
+          ]
+        },
+        "fixed20:MR-M0": {
+          "mean": -0.000856679867525828,
+          "standard_error_cluster": 0.0005580604686649875,
+          "ci95_cluster_t": [
+            -0.0019530550753668276,
+            0.0002396953403151715
+          ],
+          "ci95_group_bootstrap": [
+            -0.0020839053338927464,
+            0.0001130041951256929
+          ],
+          "nonzero_queries": 93,
+          "groups_with_nonzero_queries": 76
+        },
+        "fixed20:MT-M0": {
+          "mean": -0.00012961164040964045,
+          "standard_error_cluster": 0.0001772063174428465,
+          "ci95_cluster_t": [
+            -0.0004777542235636016,
+            0.00021853094274432066
+          ],
+          "ci95_group_bootstrap": [
+            -0.0004998358869174694,
+            0.00018652546529526642
+          ],
+          "nonzero_queries": 36,
+          "groups_with_nonzero_queries": 32
+        },
+        "ForcedENTRTop1-NoRewrite": {
+          "mean": -0.020350960473266528,
+          "standard_error_cluster": 0.002670445805440089,
+          "ci95_cluster_t": [
+            -0.02559736429393406,
+            -0.015104556652598997
+          ],
+          "ci95_group_bootstrap": [
+            -0.025713056947748596,
+            -0.015221408526523981
+          ],
+          "nonzero_queries": 600,
+          "groups_with_nonzero_queries": 295
+        }
+      }
+    }
+  },
+  "inference": "Fixed-score descriptive group intervals, not refitted algorithm or conditional-risk coverage guarantees"
+}

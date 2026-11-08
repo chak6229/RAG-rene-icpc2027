@@ -1,0 +1,8 @@
+{
+  "cpu": "AMD Ryzen 9 8945HX with Radeon Graphics",
+  "cores": 16,
+  "logical_processors": 32,
+  "installed_memory_gib": 32,
+  "checked_local": "2026-10-26T20:56:23.214357+08:00",
+  "scope": "current hardware recheck; CPU and RAM not recorded in historic run metadata"
+}

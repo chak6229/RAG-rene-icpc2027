@@ -1,0 +1,2 @@
+comparison,role,queries,groups,delta,ci95,practical_margin,equivalence
+CodeBERT ENTR-RAND20 best3,single frozen confirmatory comparison,7718,1963,-0.0008365211420944555,"[-0.0032547866853966396, 0.0015414627313371035]",0.005,True

@@ -1,0 +1,260 @@
+{
+  "tables": [
+    {
+      "id": "S3a",
+      "title": "Table S3 continued — zero-threshold adoption",
+      "headers": [
+        "Retriever / head",
+        "ΔMRR@100",
+        "Cluster-t 95% CI",
+        "Bootstrap 95% CI",
+        "Adopted / harmful"
+      ],
+      "rows": [
+        [
+          "CodeBERT / M0",
+          "-0.00031563",
+          "[-0.00464508, +0.00401381]",
+          "[-0.00468573, +0.00398034]",
+          "515 / 101"
+        ],
+        [
+          "CodeBERT / MT",
+          "-0.00147678",
+          "[-0.00582330, +0.00286974]",
+          "[-0.00584448, +0.00286956]",
+          "526 / 111"
+        ],
+        [
+          "CodeBERT / MR",
+          "+0.00280718",
+          "[-0.00211878, +0.00773315]",
+          "[-0.00204468, +0.00785279]",
+          "673 / 158"
+        ],
+        [
+          "CodeBERT / MRT",
+          "+0.00265119",
+          "[-0.00239337, +0.00769576]",
+          "[-0.00237067, +0.00779101]",
+          "665 / 157"
+        ],
+        [
+          "BM25 / M0",
+          "-0.00082091",
+          "[-0.00137612, -0.00026570]",
+          "[-0.00139271, -0.00029974]",
+          "241 / 77"
+        ],
+        [
+          "BM25 / MT",
+          "-0.00103303",
+          "[-0.00164871, -0.00041736]",
+          "[-0.00167126, -0.00044556]",
+          "253 / 84"
+        ],
+        [
+          "BM25 / MR",
+          "-0.00295111",
+          "[-0.00444120, -0.00146101]",
+          "[-0.00459446, -0.00164039]",
+          "343 / 123"
+        ],
+        [
+          "BM25 / MRT",
+          "-0.00302710",
+          "[-0.00453735, -0.00151684]",
+          "[-0.00467936, -0.00168200]",
+          "344 / 122"
+        ]
+      ],
+      "notes": [
+        "These descriptive head-versus-original-query results use the zero-threshold policy: adopt an eligible action only when its fitted OOF predicted gain is positive. The original S3 table reports Fixed20. All head results use every development query as the evaluation denominator. Intervals are conditional on the fitted OOF scores; they do not refit the models during resampling."
+      ],
+      "source": "results/experiment_exports/rene_core_step_b_20261020/RESULTS.json",
+      "fields": "views.<retriever>.estimates.positive:<head>-NoRewrite; views.<retriever>.policies.positive.<head>"
+    },
+    {
+      "id": "S3b",
+      "title": "Table S3 continued — conditional feature increments",
+      "headers": [
+        "Retriever / policy / contrast",
+        "ΔMRR@100",
+        "Adjusted cluster-t CI",
+        "Adjusted bootstrap CI",
+        "Nonzero groups"
+      ],
+      "rows": [
+        [
+          "CodeBERT / Fixed20\nMRT-MT",
+          "+0.00203078",
+          "[-0.00211904, +0.00618060]",
+          "[-0.00193256, +0.00631901]",
+          "100"
+        ],
+        [
+          "CodeBERT / Fixed20\nMRT-MR",
+          "+0.00028365",
+          "[-0.00225016, +0.00281746]",
+          "[-0.00214964, +0.00299282]",
+          "34"
+        ],
+        [
+          "CodeBERT / Zero threshold\nMRT-MT",
+          "+0.00412798",
+          "[-0.00189823, +0.01015418]",
+          "[-0.00200575, +0.01025486]",
+          "146"
+        ],
+        [
+          "CodeBERT / Zero threshold\nMRT-MR",
+          "-0.00015599",
+          "[-0.00321687, +0.00290489]",
+          "[-0.00315262, +0.00291544]",
+          "42"
+        ],
+        [
+          "BM25 / Fixed20\nMRT-MT",
+          "-0.00107388",
+          "[-0.00261526, +0.00046750]",
+          "[-0.00291996, +0.00018168]",
+          "72"
+        ],
+        [
+          "BM25 / Fixed20\nMRT-MR",
+          "-0.00034681",
+          "[-0.00085060, +0.00015698]",
+          "[-0.00090410, +0.00008002]",
+          "27"
+        ],
+        [
+          "BM25 / Zero threshold\nMRT-MT",
+          "-0.00199406",
+          "[-0.00404324, +0.00005512]",
+          "[-0.00443257, -0.00034870]",
+          "75"
+        ],
+        [
+          "BM25 / Zero threshold\nMRT-MR",
+          "-0.00007599",
+          "[-0.00057188, +0.00041990]",
+          "[-0.00055360, +0.00047407]",
+          "36"
+        ]
+      ],
+      "notes": [
+        "The original eight-comparison family comprises MRT−MT and MRT−MR, two policies and two retrievers. Both interval columns apply its Bonferroni adjustment. MRT−MT adds retrieval-change evidence conditional on generation uncertainty; MRT−MR adds generation uncertainty conditional on retrieval-change evidence.",
+        "For BM25 with the zero-threshold policy, MRT−MT has an adjusted bootstrap interval below zero, while the adjusted cluster-t interval includes zero. The joint decision therefore remains unresolved. These details expose existing results; no comparison family or outcome has been changed."
+      ],
+      "source": "results/experiment_exports/rene_core_step_b_20261020/RESULTS.json",
+      "fields": "views.<retriever>.estimates.<policy>:<contrast>"
+    },
+    {
+      "id": "S4a",
+      "title": "Table S4 continued — fusion versus the original query",
+      "headers": [
+        "Retriever / contrast",
+        "ΔMRR@100",
+        "Adjusted cluster-t CI",
+        "Adjusted bootstrap CI",
+        "Nonzero groups"
+      ],
+      "rows": [
+        [
+          "CodeBERT\nRRF3-NoRewrite",
+          "-0.01009966",
+          "[-0.02262627, +0.00242696]",
+          "[-0.02279004, +0.00227612]",
+          "322"
+        ],
+        [
+          "CodeBERT\nRRF4-NoRewrite",
+          "-0.00630794",
+          "[-0.01539844, +0.00278257]",
+          "[-0.01556317, +0.00252055]",
+          "297"
+        ],
+        [
+          "BM25\nRRF3-NoRewrite",
+          "-0.00357041",
+          "[-0.00675369, -0.00038712]",
+          "[-0.00681099, -0.00040266]",
+          "269"
+        ],
+        [
+          "BM25\nRRF4-NoRewrite",
+          "-0.00202436",
+          "[-0.00414045, +0.00009174]",
+          "[-0.00419819, +0.00002045]",
+          "242"
+        ]
+      ],
+      "notes": [
+        "These four RRF3/RRF4-versus-original-query comparisons retain the original four-comparison Bonferroni family. Both adjusted interval methods support a negative direction only for BM25 RRF3. The other comparisons remain unresolved; positive net utility is not established."
+      ],
+      "source": "results/experiment_exports/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "fields": "views.<retriever>.estimates.<contrast>"
+    },
+    {
+      "id": "S4b",
+      "title": "Table S4 continued — descriptive paired fusion comparisons",
+      "headers": [
+        "Retriever / contrast",
+        "ΔMRR@100",
+        "Cluster-t 95% CI",
+        "Bootstrap 95% CI",
+        "Nonzero groups"
+      ],
+      "rows": [
+        [
+          "CodeBERT\nRRF4-RRF3",
+          "+0.00379172",
+          "[-0.00125756, +0.00884100]",
+          "[-0.00116375, +0.00886707]",
+          "232"
+        ],
+        [
+          "CodeBERT\nRRF3-ENTRTop1",
+          "+0.00355885",
+          "[-0.00783924, +0.01495694]",
+          "[-0.00776614, +0.01479171]",
+          "341"
+        ],
+        [
+          "CodeBERT\nRRF4-ENTRTop1",
+          "+0.00735057",
+          "[-0.00220585, +0.01690699]",
+          "[-0.00181023, +0.01681903]",
+          "339"
+        ],
+        [
+          "BM25\nRRF4-RRF3",
+          "+0.00154605",
+          "[-0.00025732, +0.00334942]",
+          "[-0.00023031, +0.00338637]",
+          "202"
+        ],
+        [
+          "BM25\nRRF3-ENTRTop1",
+          "+0.01678055",
+          "[+0.01181982, +0.02174128]",
+          "[+0.01193765, +0.02195994]",
+          "295"
+        ],
+        [
+          "BM25\nRRF4-ENTRTop1",
+          "+0.01832660",
+          "[+0.01327651, +0.02337670]",
+          "[+0.01338007, +0.02354481]",
+          "296"
+        ]
+      ],
+      "notes": [
+        "These descriptive paired comparisons retain ordinary 95% intervals. RRF4−RRF3 measures the addition of the original-query list; RRF3/RRF4−ENTRTop1 compares fusion with direct Top1 adoption. They are not additional members of the four-comparison family above. Comparison with a negative Top1 policy does not establish a positive difference from the original query."
+      ],
+      "source": "results/experiment_exports/rene_multicandidate_fusion_20261020/RESULTS.json",
+      "fields": "views.<retriever>.estimates.<contrast>"
+    }
+  ],
+  "rounding": "Eight decimal places; exact archived source values remain unchanged."
+}

@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "numerical_studies": 14,
+  "numerical_contrasts": 103,
+  "full_bootstrap": true,
+  "human_review": "human review",
+  "human_query_bounds": 6144,
+  "human_sampling_combinations": 48,
+  "elapsed_seconds": 28.081049800035544
+}

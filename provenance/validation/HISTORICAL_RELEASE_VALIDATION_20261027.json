@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "checked_local_date": "2026-10-27",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14",
+  "numpy": "1.26.4",
+  "scipy": "1.13.1",
+  "threadpoolctl": "3.6.0",
+  "clean_venv": true,
+  "dependency_pins_installed": true,
+  "source_tree_complete_replay": {
+    "passed": true,
+    "numerical_studies": 14,
+    "numerical_contrasts": 103,
+    "full_bootstrap": true,
+    "human_review": "人工评审",
+    "human_query_bounds": 6144,
+    "human_sampling_combinations": 48,
+    "elapsed_seconds": 19.8159355000098
+  },
+  "external_zip_extraction_complete_replay": {
+    "passed": true,
+    "numerical_studies": 14,
+    "numerical_contrasts": 103,
+    "full_bootstrap": true,
+    "human_review": "人工评审",
+    "human_query_bounds": 6144,
+    "human_sampling_combinations": 48,
+    "elapsed_seconds": 23.1182073999953
+  },
+  "static_audit": {
+    "passed": true,
+    "python_sources_parsed": 340,
+    "missing_static_local_imports": [],
+    "broken_navigation_links": [],
+    "credential_pattern_files": [],
+    "personal_workstation_path_files": [],
+    "paper_or_nested_archive_files": [],
+    "source_type_for_human_review": "人工评审"
+  },
+  "core_statistics_tolerance": 1e-11,
+  "numerical_scope": "14 study units /103 comparisons; full bootstrap",
+  "human_review_scope": "人工评审: 1676 original +688 supplement labels; agreement;10 events;24 types;6144 exact bounds;48 sampling envelopes",
+  "paper_included": false,
+  "uploaded_to_github": false,
+  "new_model_experiments": false
+}

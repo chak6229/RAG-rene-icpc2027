@@ -1,0 +1,300 @@
+{
+  "status": "FROZEN_BEFORE_THIS_REPLAY",
+  "created_utc": "2026-10-20T01:50:49.449794+00:00",
+  "role": "post_hoc_paired_diagnostic_on_consumed_development_and_source",
+  "existing_effects_already_known": true,
+  "external_preregistration": false,
+  "new_confirmation": false,
+  "scope": "step A only; no B/C heads, inference, retraining, new generation or H outcomes",
+  "population": {
+    "source": {
+      "queries": 2048,
+      "groups": 594
+    },
+    "cosqa": {
+      "queries": 1490,
+      "groups": 512
+    }
+  },
+  "profile": "greedy20_source",
+  "mask": "full",
+  "scope_filter": "main",
+  "retrievers": [
+    "CodeBERT",
+    "BM25"
+  ],
+  "top_k": 3,
+  "depth": 100,
+  "include_original_in_best3": false,
+  "rand_seeds": [
+    2026101900,
+    2026101901,
+    2026101902,
+    2026101903,
+    2026101904,
+    2026101905,
+    2026101906,
+    2026101907,
+    2026101908,
+    2026101909,
+    2026101910,
+    2026101911,
+    2026101912,
+    2026101913,
+    2026101914,
+    2026101915,
+    2026101916,
+    2026101917,
+    2026101918,
+    2026101919
+  ],
+  "single_random": "uniform expectation over distinct positions, integrated exactly",
+  "three_random_primary": "same cached 20 fixed random permutations as original bridge",
+  "three_random_sensitivity": "exact expected maximum over uniformly drawn position subsets; no replacement",
+  "contrast_definitions": {
+    "a_ENTR_single_minus_uniform": {
+      "ENTR_top1": 1,
+      "Uniform_single_exact": -1
+    },
+    "b_ENTR_best3_minus_RAND20": {
+      "ENTR_best3": 1,
+      "RAND20_best3": -1
+    },
+    "j_ENTR_contract_difference": {
+      "ENTR_top1": 1,
+      "Uniform_single_exact": -1,
+      "ENTR_best3": -1,
+      "RAND20_best3": 1
+    },
+    "d_ENTR_single_minus_NoRewrite": {
+      "ENTR_top1": 1,
+      "NoRewrite": -1
+    },
+    "a_PROB_single_minus_uniform": {
+      "PROB_top1": 1,
+      "Uniform_single_exact": -1
+    },
+    "b_PROB_best3_minus_RAND20": {
+      "PROB_best3": 1,
+      "RAND20_best3": -1
+    },
+    "j_PROB_contract_difference": {
+      "PROB_top1": 1,
+      "Uniform_single_exact": -1,
+      "PROB_best3": -1,
+      "RAND20_best3": 1
+    },
+    "d_PROB_single_minus_NoRewrite": {
+      "PROB_top1": 1,
+      "NoRewrite": -1
+    },
+    "ENTR_minus_PROB_single": {
+      "ENTR_top1": 1,
+      "PROB_top1": -1
+    },
+    "ENTR_minus_PROB_best3": {
+      "ENTR_best3": 1,
+      "PROB_best3": -1
+    },
+    "ENTR_minus_PROB_contract_difference": {
+      "ENTR_top1": 1,
+      "PROB_top1": -1,
+      "ENTR_best3": -1,
+      "PROB_best3": 1
+    },
+    "ENTR_best3_minus_NoRewrite": {
+      "ENTR_best3": 1,
+      "NoRewrite": -1
+    },
+    "uniform_single_minus_NoRewrite": {
+      "Uniform_single_exact": 1,
+      "NoRewrite": -1
+    },
+    "RAND20_best3_minus_NoRewrite": {
+      "RAND20_best3": 1,
+      "NoRewrite": -1
+    },
+    "b_ENTR_best3_minus_uniform3_exact": {
+      "ENTR_best3": 1,
+      "Uniform_best3_exact": -1
+    },
+    "j_ENTR_contract_difference_exact_random3": {
+      "ENTR_top1": 1,
+      "Uniform_single_exact": -1,
+      "ENTR_best3": -1,
+      "Uniform_best3_exact": 1
+    },
+    "b_PROB_best3_minus_uniform3_exact": {
+      "PROB_best3": 1,
+      "Uniform_best3_exact": -1
+    },
+    "j_PROB_contract_difference_exact_random3": {
+      "PROB_top1": 1,
+      "Uniform_single_exact": -1,
+      "PROB_best3": -1,
+      "Uniform_best3_exact": 1
+    },
+    "RAND20_minus_uniform3_exact": {
+      "RAND20_best3": 1,
+      "Uniform_best3_exact": -1
+    }
+  },
+  "groups": "original within-domain source repositories / CoSQA connected groups; query-weighted means",
+  "bootstrap": {
+    "repetitions": 10000,
+    "seed": 20261020,
+    "shared_draws_across_contrasts": true
+  },
+  "intervals": "pointwise cluster-t95 and group-bootstrap95, descriptive",
+  "family_adjustment": "four ENTR j contrasts across 2 datasets x 2 retrievers: Bonferroni 98.75% individual intervals, descriptive robustness",
+  "equivalence": "No new equivalence decision/SESOI imposed on D or source; original H .005 rule is unchanged",
+  "cross_retriever": "direct paired difference of ENTR j within each dataset; secondary descriptive",
+  "no_policy_promotion": true,
+  "source_seals_verified": [
+    {
+      "seal": "CANDIDATES_SEALED.json",
+      "files_verified": 8
+    },
+    {
+      "seal": "RANKINGS_SEALED.json",
+      "files_verified": 8
+    }
+  ],
+  "bound_files": [
+    {
+      "path": "experiments/rene_core_step_a_20261020/__init__.py",
+      "sha256": "b004ced925a8e24c67c83c94a8fe9b786ffd87225fe2b6931b14b41fccbfdf2c"
+    },
+    {
+      "path": "experiments/rene_core_step_a_20261020/audit.py",
+      "sha256": "527a61c3433d2db9aefb07cd4fa2fd550b9a0c93115d6e5b38413ed10ad9ceb6"
+    },
+    {
+      "path": "experiments/rene_core_step_a_20261020/metrics.py",
+      "sha256": "be689ed62402ac307fa2d91dae5c17daa5c79729dec7489e6c6d275d04c2a2a7"
+    },
+    {
+      "path": "experiments/rene_core_step_a_20261020/run.py",
+      "sha256": "8c24bca910eed4a7e5bfc421ea6333ecfb68792c80cecdec467b25d9b3d72b6a"
+    },
+    {
+      "path": "experiments/rene_core_step_a_20261020/test_contract.py",
+      "sha256": "9d70dc564c5dea22b34bc36ef0566af655f39efc629acef726a68bca247f5170"
+    },
+    {
+      "path": "experiments/rene_cosqa_pilot_20261019/selection.py",
+      "sha256": "3f8280af1ea2229696c292d002c7acc58ccf48e660d6631683a2830567f586ef"
+    },
+    {
+      "path": "ResearchVault/Handoffs/RENE-核心贡献判别验证方案-20261020.md",
+      "sha256": "a1086c525e28435e19675e4e782ab0eb196c5ab678bf282a04c4e61001081c38"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/candidates/cosqa/baseline.jsonl",
+      "sha256": "661e6617bbfe375e0e356980fc1b0ff64f9491a17f5993585463da1dace79128"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/candidates/source/baseline.jsonl",
+      "sha256": "c9320f614729f694e0641d94ca3ae9fd123d9963bda53109851b5d03354ec0cb"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/CANDIDATES_SEALED.json",
+      "sha256": "1d82e0a900face619f9bc8eb00cfd706d9207f4958b98ab9335a20d871392fdf"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/data/cosqa/queries.jsonl",
+      "sha256": "6b51e8e5f3a90f867786178b9380fa7eb72401978518c0bea70e7069523bf7d8"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/data/private/cosqa_qrels.jsonl",
+      "sha256": "7947d0a0d21873337ead09a5d128981cb52321942bdb97c18f66567102133088"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/data/private/source_qrels.jsonl",
+      "sha256": "034fe50601d2ebe27352269722f255875f53805d34e0ed46832f9520b0d221ce"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/data/source/queries.jsonl",
+      "sha256": "482be16b6dd0168f04431b43a56c5a942c5bfe1eeb3d3a496785deb5e1d558b7"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/FINAL_ACCEPTANCE.json",
+      "sha256": "07c0e62e1d5be980ea5d64bb29ff4fb6e530d2ccbe6b289f4f359636fdf89957"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/metrics/per_query.jsonl",
+      "sha256": "65b55666eb77428d48d7d75c812c10e98ff00287fb3d356700e2ca450115b6d9"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/metrics/RESULTS.json",
+      "sha256": "ebee2cdba9bfde51cb0b4e2c716ce39edbe36080c2d00af0464e69ee94715b3b"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/PROTOCOL.json",
+      "sha256": "7d3d4c0728aa413a21dfc748d4a01dc4f29d5d59a0b4a44591eb48793dc3d95e"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/rankings/cosqa/BM25.jsonl",
+      "sha256": "aa70262460c61b9542adac5e44aaa0efdb076672985f35df095da650adb54b4b"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/rankings/cosqa/CodeBERT.jsonl",
+      "sha256": "5b2fbbbb847194e9ac079b8fd2c2d9526fde2277ee98f0edce7444851a7d1629"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/rankings/source/BM25.jsonl",
+      "sha256": "4003fc828313130dc016878c0fef6dab1a2b4203bfc06ed1bd7a5f33bf7f28e6"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/rankings/source/CodeBERT.jsonl",
+      "sha256": "6984e489dcdd37a462a515fe7b9fcdfc809d739ba0037cce1fc2b2c54bec938d"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/RANKINGS_SEALED.json",
+      "sha256": "81c999db3f96edbed1c54ee5b98c67dcb79c80016194643b605dabf66216c204"
+    },
+    {
+      "path": "results/rene_ssqr_bridge_20261019/selections.jsonl",
+      "sha256": "4da43cf982cca7a8d6aa2356a30ada6693b3347d0bb0e6a867515bd9d1745edf"
+    }
+  ],
+  "protected_files": [
+    {
+      "path": "configs/vac_mqr_gain_model/CURRENT.json",
+      "sha256": "74eb0553c9d489f25f82408ed2cc0521a5d3fab92159d59700d5c8496c52d371"
+    },
+    {
+      "path": "configs/vac_mqr_verification_policy/CURRENT.json",
+      "sha256": "ca9c157954527fbcfee44ea34010131ab0143ec74d0778c081409d28507315e1"
+    },
+    {
+      "path": "configs/vac_mqr_risk_module/CURRENT.json",
+      "sha256": "436c367c8f8e15d1723064e9edb780dc3544180821d03fcac61d7c3724f50693"
+    },
+    {
+      "path": "configs/uq_candidate_selection/CURRENT.json",
+      "sha256": "5bd37f87e468a878f37f8356e298e15b3517bd5acb58ced03e24e3c923d6ef27"
+    },
+    {
+      "path": "results/vac_mqr_v5/STABLE.json",
+      "sha256": "ea43301dd61510d8415391e5b5182f286e736589a0e870f79630a92320f69a72"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/PROTOCOL.json",
+      "sha256": "886a24259c82edd44b13dd6ce183b8795ae1bf00d27ffc0e8d1b14ab6eb13591"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
+      "sha256": "bc7e6e69ced0627612f13676c040d1fd025ab2712874e071731fb376126668ea"
+    },
+    {
+      "path": "results/rene_cosqa_confirmation_20261019/FINAL_ACCEPTANCE.json",
+      "sha256": "69de5d3290a5e039af18e3635cbf3ecbce86086e70cdda04dae5bd6c8f49a12e"
+    }
+  ],
+  "environment": {
+    "python": "3.10.11",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3"
+  }
+}

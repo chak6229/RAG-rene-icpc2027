@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "source_type": "人工评审",
+  "queries": 128,
+  "groups": 120,
+  "initial_annotations": 1676,
+  "supplement_annotations": 688,
+  "recomputed_exact_fraction_bounds": 6144,
+  "recomputed_relevance_combinations": 48,
+  "recomputed_sampling_envelopes": 48,
+  "recomputed_weighted_events": 10,
+  "recomputed_weighted_error_types": 24,
+  "statistics_tolerance": 1e-11,
+  "annotation_repeated": false,
+  "scope": "anonymous labels, numeric panels and derived event flags; fixed H8530 frame"
+}

@@ -1,0 +1,148 @@
+from __future__ import annotations
+
+import csv
+import json
+from pathlib import Path
+
+from experiments.rene_mechanism_review_20261020.common import ROOT, now, put, read, rows, sha
+from .analyze import OUT
+
+
+LABELS = {
+    'any_definite_semantic_issue': '至少一条改写被双方均标为偏移/不可读',
+    'any_possible_semantic_issue': '至少一条改写有任一方未标为含义保持',
+    'any_uncertain_semantics': '至少一条改写有一方标为无法判断',
+    'verified_action_definite_drift': '核验后实际采用的改写被双方均标为语义问题',
+    'verified_harm_with_preserved_meaning': '核验后有RR损失、采用改写被双方均标含义保持',
+    'missed_preserved_positive_opportunity': '存在未充分实现、且双方均标含义保持的最佳正机会',
+    'displayed_alternative_relevant': '至少一个非既有目标的展示代码被双方均判满足',
+    'known_target_both_incomplete': '至少一个既有目标展示代码被双方均判部分/不满足',
+    'rater_A_any_semantic_issue': 'A标出至少一条偏移/不可读',
+    'rater_B_any_semantic_issue': 'B标出至少一条偏移/不可读',
+}
+TYPE_LABELS = {'unsupported_constraint': '无依据新增限制', 'lost_constraint': '丢失原有限制',
+               'operation_change': '改变操作', 'entity_api_change': '改变对象/API',
+               'polarity_change': '改变否定极性', 'incoherent': '不可读/不连贯'}
+
+
+def percent(v):
+    return f'{v:.1%}'
+
+
+def ci(r):
+    return '[' + ', '.join(percent(v) for v in r['ci95_conservative_finite_frame']) + ']'
+
+
+def make_report():
+    r = read(OUT / 'RESULTS.json')
+    agreement = r['agreement']
+    rates = r['weighted_query_rates']
+    lines = ['# 双份评审返回：一致性、加权比例与分歧', '',
+        '本报告分析两位审阅者所提交的最终返回稿。用户确认已完成人工审查。当前一致性对应最终返回标签；未核对复核前的原始独立标签，因此本报告不估计原始独立判断的一致性。', '',
+        '本次保留原目录、原zip和逐项标签，只统计返回结果，没有执行附件HTML或待审代码。', '',
+        '## 完整性与证据角色', '',
+        '两份返回均覆盖同一预定128查询/120组、每人383条不同改写及327个代码面板。packet、A/B身份、条目集合、标签组合、理由长度及阶段顺序校验通过；各自最终文件内嵌的语义记录与独立第一阶段JSON一致。B附带两页HTML与原包相同。', '',
+        '这些标签补充错误类型和机制解释；统计不能将语义、相关性和收益学习因素分离为收益缺口的互斥因果来源。', '',
+        '## 一致性与判断分布', '',
+        '| 判断 | 项数/覆盖 | 精确一致率 | Cohen κ |', '|---|---:|---:|---:|',
+        f'| 改写含义，4类 | 383 | {percent(agreement["semantics"]["agreement"])} | {agreement["semantics"]["kappa"]:.3f} |',
+        f'| 代码相关性，含无法判断 | 327 | {percent(agreement["relevance_including_unknown"]["agreement"])} | {agreement["relevance_including_unknown"]["kappa"]:.3f} |',
+        f'| 双方均可判的代码，0/1/2 | 260/327（79.5%） | {percent(agreement["relevance_ordinal_judged_subset"]["agreement"])} | {agreement["relevance_ordinal_judged_subset"]["kappa"]:.3f}（线性加权） |',
+        f'| 原查询明确程度 | 128 | {percent(agreement["clarity"]["agreement"])} | {agreement["clarity"]["kappa"]:.3f} |', '',
+        '一致性按展示条目计算，未把同文本的多个位置重复计数；它不代表8530总体的加权一致性。保留全部无法判断，不以可判子集较高的κ取代全体结果。', '',
+        '| 改写标签 | A | B |', '|---|---:|---:|',
+        '| 含义保持 | 235 | 275 |', '| 含义偏移 | 129 | 73 |', '| 不可读 | 19 | 3 |', '| 无法判断 | 0 | 32 |', '',
+        '| 代码标签 | A | B |', '|---|---:|---:|',
+        '| 满足 | 96 | 34 |', '| 部分满足 | 151 | 102 |', '| 不满足 | 78 | 124 |', '| 无法判断 | 2 | 67 |', '',
+        '语义标签90项不同；连同错误类型不同，共106条改写待讨论，其中16条双方均认为偏移但类型不同。代码151项不同，65项涉及一方无法判断、另一方可判。双方可判的代码中，B比A评分更低82项、更高4项。另有35条原查询明确度分歧；A认为124条明确，B只认为94条明确。总共122/128查询存在至少一种分歧。没有自动裁决或删除分歧项。', '',
+        '## 按原抽样权重汇总', '',
+        '以下分母为固定CodeBERT H总体8530查询，指标是“查询包含某种评审标记/事件”，不是逐候选错误率。每个原层抽16条，使用N_h/n_h加权；不能把128条的裸比例当总体比例。区间按原方案对每个指标内部八层作Bonferroni超几何反演后加权，是保守有限总体95%区间；不声称全部指标同时95%覆盖。区间仅反映抽样误差，不包括标签判断误差或返回版本差异。', '',
+        '| 查询级指标（允许重叠） | 加权估计 | 保守95%区间 |', '|---|---:|---|']
+    for name, value in rates.items():
+        lines.append(f'| {LABELS[name]} | {percent(value["estimate"])} | {ci(value)} |')
+    lines += ['',
+        '“双方均标问题”的35.0%与“任一未判保持”的75.5%采用不同定义，后者包含无法判断和分歧，二者不是同一真实错误率的统计上下界。这也显示对“约束改变”的判断标准会实质影响结果。', '',
+        '| 同一改写的错误类型被双方均标出 | 加权查询比例 | 保守95%区间 |', '|---|---:|---|']
+    for tag, label in TYPE_LABELS.items():
+        value = r['weighted_query_issue_type_rates']['both_same_rewrite_' + tag]
+        lines.append(f'| {label} | {percent(value["estimate"])} | {ci(value)} |')
+    lines += ['',
+        '类型按查询内至少一条统计，彼此可以重叠，不能相加成100%。零观测也不能推断总体没有该类；例如两类零点估计的保守上界仍为30.0%。', '',
+        '为明确事件分母，另列三个条件比例；区间由无条件分子保守界除以已知事件总数，故可较宽并截断至[0,1]：', '',
+        '| 事件子总体 | 已知总体数 | 标记事件比例 | 保守95%区间 |', '|---|---:|---:|---|']
+    for name, label in [('verified_action_definite_drift', '核验后采用改写的查询中，双方均标语义问题'),
+                         ('verified_harm_with_preserved_meaning', '核验后有RR损失的查询中，双方均标采用改写保持'),
+                         ('missed_preserved_positive_opportunity', '有正候选机会的查询中，存在未充分实现的双方保持最佳机会')]:
+        value = r['conditional_query_rates'][name]
+        lines.append(f'| {label} | {value["event_frame_n"]} | {percent(value["estimate"])} | {ci(value)} |')
+    lines += ['',
+        '核验有损查询中的“双方均标保持”点估计86.0%（保守区间50.8%–100%）：它提示不能将所有RR损失直接等同于语义漂移，也不识别检索、qrels或学习误差的各自贡献。展示代码中的非目标相关线索同样只能指向需复核的标注覆盖，不能推出整个语料的标注错误率。', '',
+        '## 分歧为什么发生', '',
+        '1. **默认语境与新增限制。** `set python request headers`→`set python http request headers`：A认为新增HTTP限制，B认为只是明确常见请求头语境。47条改写是A偏移/B保持，反向只有7条。人工复核需按“动作、对象、限制是否导致所需答案改变”判断，不能仅凭出现新词认定漂移。',
+        '2. **不可读与无法判断的边界。** 16条A不可读/B无法判断涉及未知或破坏性插入（包括UNK）。两者通常都未确认含义保持，但分入不同类，影响类型比例。应保留两类及原判，明确“无法形成需求”和“存在多个合理需求”的边界。',
+        '3. **功能片段与上下文缺失。** 对调用`self.with_header`等未展示实现的代码，A按接口意图判满足，B更常保留无法判断。65个代码分歧是可判/无法判断差异；不能单靠多数投票把它当确定的相关性错误。',
+        '4. **满足需求与局部相关。** `get index of an item in list`的一个函数遇到整数直接返回参数，其余才调用`lst.index`。A判满足，B指出不能一般性查整数元素；返回代码确有该分支。另例`repeat sequence`的片段明确重复每个元素（0,0,1,1），与重复整段序列（0,1,0,1）不同。这些是有实质功能依据的分歧，不应仅当评分风格差异。',
+        '5. **类型名称不互斥。** `parse mysql get list...`可被A归为新增限制、B归为改变操作。两份允许多标签，但A所有项只用单主标签。应在保留原判后讨论主/多类型规则，不直接把全部类型差异解释为是否存在问题的分歧。', '',
+        '上述为研究者核对原文字段与静态代码后的讨论议题，不是第三位独立专家标签。原始逐项理由与未决项保存在`item_labels.jsonl`和`DISAGREEMENTS.jsonl`。', '',
+        '## 对当前论文主线的作用与下一步', '',
+        '这批返回补充了“候选机会未全部转为自动收益”的探索性线索：存在双方标出的语义改变，也存在双方标保持时的RR损失与未充分实现的正机会。它们不将语义漂移、相关性覆盖和收益学习误差分离为互斥机制，也不说明某原因解释了多少收益损失。', '',
+        '两份最终返回稿已完成统计。若正文报告复核前的独立评审一致性，需要对应原始版本重新计算；当前应标明“最终返回稿的一致性”。接下来讨论106条改写、151项代码及35条明确度分歧，保留原判，协商结果另存，不用协商后的一致率覆盖当前统计。', '',
+        '论文可将当前结果作为指定有限总体上的事后评审诊断，支持错误线索与机制讨论；不写作唯一机制识别或新的独立效果确认。', '',
+        '## 文件与核验', '',
+        '- `RESULTS.json`：完整来源、分布、混淆表、一致性、加权查询/类型比例及条件分母。',
+        '- `DISAGREEMENTS.jsonl`：106改写、151代码、35明确度分歧，全部未裁决；`item_labels.jsonl`保存全部710个双评条目。',
+        '- `weighted_query_rates.csv`：十项加权查询标记；`query_flags.jsonl`保留128条查询事件映射。',
+        '- `received/`及`RECEIPT_MANIFEST.json`：原文件字节副本与来源；`INPUT_VALIDATION.json`记录格式校验与最终返回稿的统计版本。',
+        '- `VALIDATION.json`：309项独立κ/加权/超几何区间核对通过，旧正式指针/确认与前轮交付保持。', '',
+    ]
+    with (OUT / 'FINDINGS.md').open('w', encoding='utf-8') as stream:
+        stream.write('\n'.join(lines))
+    summary = '\n'.join([
+        '# Agreement and weighted diagnostics of the final review returns', '',
+        'The researcher reports that two reviewers completed the human assessment. We analyze their submitted final returns, covering 128 sampled queries (120 groups), 383 unique rewrites and 327 code panels per reviewer. Agreement estimates describe these final returned labels; original independent labels before subsequent review have not been reconstructed, so the estimates should not be presented as original independent-assessment agreement.', '',
+        f'The semantic exact agreement was 76.5% (nominal Cohen κ={agreement["semantics"]["kappa"]:.3f}). Code relevance agreement including unknown was 53.8% (κ={agreement["relevance_including_unknown"]["kappa"]:.3f}); the jointly judged 0/1/2 subset covered 260/327 panels (79.5%) with linear-weighted κ={agreement["relevance_ordinal_judged_subset"]["kappa"]:.3f}. Unknown code labels were 2 for A and 67 for B. Semantic classes differed for 90 rewrites; including issue types, 106 rewrites differed. Code labels differed for 151 panels. All submitted judgments and disagreements were retained without automated adjudication.', '',
+        'Using the original eight-stratum query weights for the fixed H8530 frame, the query proportion with at least one rewrite marked drift/malformed by both raters was 35.0% (conservative finite-frame 95% CI 9.9%–69.6%). The proportion with any rewrite not marked preserved by at least one rater was 75.5% (39.6%–95.4%), which includes unknown and disagreements. The weighted proportion with RR loss after verification while both raters marked the adopted rewrite preserved was 12.9% (7.6%–40.3%); displayed non-target code marked fully relevant by both occurred in 12.0% (1.3%–46.2%). These overlapping indicators describe marked query events, not a causal decomposition of retrieval loss. Intervals reflect finite-frame sampling alone and omit label error and review-version uncertainty.', '',
+        'The returns expose differences in how added wording, query ambiguity, missing code context and partial functionality are treated. They support a post-hoc diagnostic discussion without identifying unique causal contributions. Raw materials, per-item disagreements, weights and numerical validation are recorded in results/rene_review_returns_20261020/.', '',
+    ])
+    paper = ROOT / 'paper/rene2027/mechanism_review_return_results.md'
+    with paper.open('w', encoding='utf-8') as stream:
+        stream.write(summary)
+    # Read-back verifies the public CSV against the fixed result.
+    with (OUT / 'weighted_query_rates.csv').open(encoding='utf-8-sig', newline='') as stream:
+        csv_rows = list(csv.DictReader(stream))
+    for row in csv_rows:
+        v = rates[row['indicator']]
+        if float(row['estimate']) != v['estimate'] or [float(row['ci95_low']), float(row['ci95_high'])] != v['ci95_conservative_finite_frame']:
+            raise AssertionError('Export differs')
+    validation = read(OUT / 'VALIDATION.json')
+    for item in validation['protected_files']:
+        if sha(ROOT / item['path']) != item['sha256']:
+            raise AssertionError('Prior protected file changed')
+    if sha(OUT / 'RESULTS.json') != validation['results_sha256']:
+        raise AssertionError('Scientific result changed')
+    files = sorted(p for p in OUT.rglob('*') if p.is_file() and p.name not in ('DELIVERY_MANIFEST.json', 'FINAL_ACCEPTANCE.json')) + list(Path(__file__).parent.glob('*.py')) + [paper]
+    manifest = {'created_utc': now(), 'files': [{'path': p.relative_to(ROOT).as_posix(), 'sha256': sha(p)} for p in files]}
+    with (OUT / 'DELIVERY_MANIFEST.json').open('w', encoding='utf-8') as stream:
+        json.dump(manifest, stream, ensure_ascii=False, indent=2)
+        stream.write('\n')
+    for item in manifest['files']:
+        if sha(ROOT / item['path']) != item['sha256']:
+            raise AssertionError('Delivery file changed')
+    acceptance = {'created_utc': now(), 'passed': True,
+        'role': r['role'], 'human_review_reported_by_user': True,
+        'review_return_analysis_complete': True, 'agreement_version': 'final_submitted_returns',
+        'original_independent_agreement_established': False,
+        'reviews_analyzed': 2, 'complete_queries': 128, 'rewrite_items': 383, 'code_panels': 327,
+        'unresolved_item_disagreements': 257, 'unresolved_clarity_disagreements': 35,
+        'independent_numeric_checks': validation['independent_kappa_estimate_and_interval_checks'],
+        'originals_and_protected_states_unchanged': True, 'csv_checked': len(csv_rows),
+        'manifest_files': len(files), 'manifest_sha256': sha(OUT / 'DELIVERY_MANIFEST.json'),
+        'results_sha256': sha(OUT / 'RESULTS.json'), 'no_causal_attribution': True}
+    with (OUT / 'FINAL_ACCEPTANCE.json').open('w', encoding='utf-8') as stream:
+        json.dump(acceptance, stream, ensure_ascii=False, indent=2)
+        stream.write('\n')
+    print({'report': str(OUT / 'FINDINGS.md'), 'manifest_files': len(files), 'agreement_version': 'final_submitted_returns'})
+
+
+if __name__ == '__main__':
+    make_report()

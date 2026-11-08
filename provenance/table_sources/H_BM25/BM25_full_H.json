@@ -1,0 +1,453 @@
+{
+  "retriever": "BM25",
+  "queries": 8530,
+  "groups": 1963,
+  "NoRewrite_mrr": 0.19814904904780892,
+  "safe_ENTR_oracle_delta": 0.019413179555758237,
+  "policy_results": {
+    "NoRewrite": {
+      "mrr": 0.19814904904780892,
+      "delta_MRR": {
+        "mean": 0.0,
+        "queries": 8530,
+        "groups": 1963,
+        "changed_groups": 0,
+        "standard_error_cluster": 0.0,
+        "ci95_cluster_t": [
+          0.0,
+          0.0
+        ],
+        "ci95_group_bootstrap": [
+          0.0,
+          0.0
+        ],
+        "p_two_sided_cluster_t": 1.0
+      },
+      "adopted": 0,
+      "coverage": 0.0,
+      "harmed": 0,
+      "improved": 0,
+      "harm_within_adopted": {
+        "value": null,
+        "ci95_group_bootstrap": null,
+        "reason": "zero denominator"
+      },
+      "positive_gain": 0.0,
+      "loss_magnitude": 0.0,
+      "positive_gain_retention": {
+        "value": 0.0,
+        "ci95_group_bootstrap": [
+          0.0,
+          0.0
+        ],
+        "not_a_risk_certificate": true
+      },
+      "verified_queries": 0,
+      "CE_pairs_charged": 0,
+      "CE_input_tokens_charged": 0
+    },
+    "ENTR_top1": {
+      "mrr": 0.18371394993186194,
+      "delta_MRR": {
+        "mean": -0.014435099115947004,
+        "queries": 8530,
+        "groups": 1963,
+        "changed_groups": 1229,
+        "standard_error_cluster": 0.0012572672586295107,
+        "ci95_cluster_t": [
+          -0.016900818756839964,
+          -0.011969379475054045
+        ],
+        "ci95_group_bootstrap": [
+          -0.016920089739388834,
+          -0.012048550735066775
+        ],
+        "p_two_sided_cluster_t": 1.408707286891561e-29
+      },
+      "adopted": 7955,
+      "coverage": 0.932590855803048,
+      "harmed": 2929,
+      "improved": 361,
+      "harm_within_adopted": {
+        "value": 0.36819610307982403,
+        "ci95_group_bootstrap": [
+          0.35505476855449236,
+          0.38141695685331645
+        ],
+        "not_a_risk_certificate": true
+      },
+      "positive_gain": 0.007591449343042247,
+      "loss_magnitude": 0.022026548458989253,
+      "positive_gain_retention": {
+        "value": 0.3910461612554606,
+        "ci95_group_bootstrap": [
+          0.33944138103419436,
+          0.44143764168092636
+        ],
+        "not_a_risk_certificate": true
+      },
+      "verified_queries": 0,
+      "CE_pairs_charged": 0,
+      "CE_input_tokens_charged": 0
+    },
+    "PROB_in_ENTR3": {
+      "mrr": 0.18274291285914648,
+      "delta_MRR": {
+        "mean": -0.015406136188662474,
+        "queries": 8530,
+        "groups": 1963,
+        "changed_groups": 1234,
+        "standard_error_cluster": 0.0012788596743396308,
+        "ci95_cluster_t": [
+          -0.017914202310103097,
+          -0.01289807006722185
+        ],
+        "ci95_group_bootstrap": [
+          -0.017933249236957497,
+          -0.012997111706141654
+        ],
+        "p_two_sided_cluster_t": 2.6986403059716083e-32
+      },
+      "adopted": 7929,
+      "coverage": 0.9295427901524033,
+      "harmed": 2959,
+      "improved": 367,
+      "harm_within_adopted": {
+        "value": 0.37318703493504857,
+        "ci95_group_bootstrap": [
+          0.3595165224547475,
+          0.3868398837088257
+        ],
+        "not_a_risk_certificate": true
+      },
+      "positive_gain": 0.00790644404348844,
+      "loss_magnitude": 0.02331258023215091,
+      "positive_gain_retention": {
+        "value": 0.40727197833717416,
+        "ci95_group_bootstrap": [
+          0.35548385906609387,
+          0.45873749955344134
+        ],
+        "not_a_risk_certificate": true
+      },
+      "verified_queries": 0,
+      "CE_pairs_charged": 0,
+      "CE_input_tokens_charged": 0
+    },
+    "HGB_gain_control": {
+      "mrr": 0.19543408551741479,
+      "delta_MRR": {
+        "mean": -0.002714963530394169,
+        "queries": 8530,
+        "groups": 1963,
+        "changed_groups": 613,
+        "standard_error_cluster": 0.0006097803051626875,
+        "ci95_cluster_t": [
+          -0.003910848704965794,
+          -0.0015190783558225443
+        ],
+        "ci95_group_bootstrap": [
+          -0.003929638748382946,
+          -0.0015431730177068973
+        ],
+        "p_two_sided_cluster_t": 8.970307288328755e-06
+      },
+      "adopted": 2615,
+      "coverage": 0.30656506447831183,
+      "harmed": 853,
+      "improved": 100,
+      "harm_within_adopted": {
+        "value": 0.32619502868068834,
+        "ci95_group_bootstrap": [
+          0.3064761764508079,
+          0.34589353473735585
+        ],
+        "not_a_risk_certificate": true
+      },
+      "positive_gain": 0.002290318947986602,
+      "loss_magnitude": 0.005005282478380771,
+      "positive_gain_retention": {
+        "value": 0.11797752868912496,
+        "ci95_group_bootstrap": [
+          0.08576326140528301,
+          0.15361545058826928
+        ],
+        "not_a_risk_certificate": true
+      },
+      "verified_queries": 0,
+      "CE_pairs_charged": 0,
+      "CE_input_tokens_charged": 0
+    },
+    "RIDGE_gain": {
+      "mrr": 0.1960696167165529,
+      "delta_MRR": {
+        "mean": -0.002079432331256027,
+        "queries": 8530,
+        "groups": 1963,
+        "changed_groups": 675,
+        "standard_error_cluster": 0.00034671644439421745,
+        "ci95_cluster_t": [
+          -0.0027594035473165537,
+          -0.0013994611151955001
+        ],
+        "ci95_group_bootstrap": [
+          -0.002771194646960858,
+          -0.001403062954189902
+        ],
+        "p_two_sided_cluster_t": 2.3794841381225845e-09
+      },
+      "adopted": 3559,
+      "coverage": 0.4172332942555686,
+      "harmed": 1072,
+      "improved": 105,
+      "harm_within_adopted": {
+        "value": 0.3012082045518404,
+        "ci95_group_bootstrap": [
+          0.28356934912067333,
+          0.3196749070294959
+        ],
+        "not_a_risk_certificate": true
+      },
+      "positive_gain": 0.0010930561297689398,
+      "loss_magnitude": 0.0031724884610249663,
+      "positive_gain_retention": {
+        "value": 0.05630484829285594,
+        "ci95_group_bootstrap": [
+          0.0373200712553106,
+          0.0777145675448039
+        ],
+        "not_a_risk_certificate": true
+      },
+      "verified_queries": 0,
+      "CE_pairs_charged": 0,
+      "CE_input_tokens_charged": 0
+    },
+    "RIDGE_verified": {
+      "mrr": 0.1964322419226088,
+      "delta_MRR": {
+        "mean": -0.0017168071252001303,
+        "queries": 8530,
+        "groups": 1963,
+        "changed_groups": 609,
+        "standard_error_cluster": 0.00029011408574816536,
+        "ci95_cluster_t": [
+          -0.0022857712769499454,
+          -0.001147842973450315
+        ],
+        "ci95_group_bootstrap": [
+          -0.0022813407795633494,
+          -0.0011538519600744273
+        ],
+        "p_two_sided_cluster_t": 3.84345630959966e-09
+      },
+      "adopted": 2926,
+      "coverage": 0.34302461899179365,
+      "harmed": 906,
+      "improved": 78,
+      "harm_within_adopted": {
+        "value": 0.30963773069036227,
+        "ci95_group_bootstrap": [
+          0.29085950112780024,
+          0.32872017373125717
+        ],
+        "not_a_risk_certificate": true
+      },
+      "positive_gain": 0.0008590967157614136,
+      "loss_magnitude": 0.002575903840961544,
+      "positive_gain_retention": {
+        "value": 0.04425327202552932,
+        "ci95_group_bootstrap": [
+          0.028402078302046104,
+          0.06286945653980185
+        ],
+        "not_a_risk_certificate": true
+      },
+      "verified_queries": 2132,
+      "CE_pairs_charged": 17056,
+      "CE_input_tokens_charged": 1394014
+    },
+    "RIDGE_risk": {
+      "mrr": 0.19814904904780892,
+      "delta_MRR": {
+        "mean": 0.0,
+        "queries": 8530,
+        "groups": 1963,
+        "changed_groups": 0,
+        "standard_error_cluster": 0.0,
+        "ci95_cluster_t": [
+          0.0,
+          0.0
+        ],
+        "ci95_group_bootstrap": [
+          0.0,
+          0.0
+        ],
+        "p_two_sided_cluster_t": 1.0
+      },
+      "adopted": 0,
+      "coverage": 0.0,
+      "harmed": 0,
+      "improved": 0,
+      "harm_within_adopted": {
+        "value": null,
+        "ci95_group_bootstrap": null,
+        "reason": "zero denominator"
+      },
+      "positive_gain": 0.0,
+      "loss_magnitude": 0.0,
+      "positive_gain_retention": {
+        "value": 0.0,
+        "ci95_group_bootstrap": [
+          0.0,
+          0.0
+        ],
+        "not_a_risk_certificate": true
+      },
+      "verified_queries": 2132,
+      "CE_pairs_charged": 17056,
+      "CE_input_tokens_charged": 1394014
+    }
+  },
+  "candidate_quality": {
+    "ENTR": {
+      "best3_mrr": 0.21173140728955664,
+      "delta": 0.01358235824174769
+    },
+    "PROB": {
+      "best3_mrr": 0.21188340274874712,
+      "delta": 0.01373435370093819
+    },
+    "RAND": {
+      "best3_mrr": 0.21333891961524218,
+      "delta": 0.015189870567433221
+    }
+  },
+  "stage_contrasts": {
+    "RIDGE_gain_minus_NoRewrite": {
+      "mean": -0.002079432331256027,
+      "queries": 8530,
+      "groups": 1963,
+      "changed_groups": 675,
+      "standard_error_cluster": 0.00034671644439421745,
+      "ci95_cluster_t": [
+        -0.0027594035473165537,
+        -0.0013994611151955001
+      ],
+      "ci95_group_bootstrap": [
+        -0.002771194646960858,
+        -0.001403062954189902
+      ],
+      "p_two_sided_cluster_t": 2.3794841381225845e-09
+    },
+    "RIDGE_verified_minus_RIDGE_gain": {
+      "mean": 0.0003626252060558962,
+      "queries": 8530,
+      "groups": 1963,
+      "changed_groups": 376,
+      "standard_error_cluster": 0.00028002576925391864,
+      "ci95_cluster_t": [
+        -0.00018655400342911888,
+        0.0009118044155409113
+      ],
+      "ci95_group_bootstrap": [
+        -0.00017839013976350904,
+        0.0009198235114857065
+      ],
+      "p_two_sided_cluster_t": 0.19548265087212333
+    },
+    "RIDGE_risk_minus_RIDGE_verified": {
+      "mean": 0.0017168071252001303,
+      "queries": 8530,
+      "groups": 1963,
+      "changed_groups": 609,
+      "standard_error_cluster": 0.00029011408574816536,
+      "ci95_cluster_t": [
+        0.001147842973450315,
+        0.0022857712769499454
+      ],
+      "ci95_group_bootstrap": [
+        0.0011538519600744273,
+        0.0022813407795633494
+      ],
+      "p_two_sided_cluster_t": 3.84345630959966e-09
+    },
+    "RIDGE_risk_minus_NoRewrite": {
+      "mean": 0.0,
+      "queries": 8530,
+      "groups": 1963,
+      "changed_groups": 0,
+      "standard_error_cluster": 0.0,
+      "ci95_cluster_t": [
+        0.0,
+        0.0
+      ],
+      "ci95_group_bootstrap": [
+        0.0,
+        0.0
+      ],
+      "p_two_sided_cluster_t": 1.0
+    },
+    "RIDGE_gain_minus_HGB_gain_control": {
+      "mean": 0.0006355311991381429,
+      "queries": 8530,
+      "groups": 1963,
+      "changed_groups": 774,
+      "standard_error_cluster": 0.000640930484557206,
+      "ci95_cluster_t": [
+        -0.000621444891961546,
+        0.001892507290237832
+      ],
+      "ci95_group_bootstrap": [
+        -0.0006226355950279119,
+        0.0018789390581726744
+      ],
+      "p_two_sided_cluster_t": 0.32152673768667633
+    }
+  },
+  "auxiliary_only": true,
+  "null_rejection_claims": false,
+  "risk_certified": false,
+  "gate_accounting": {
+    "before_delta": -0.0017168071252001299,
+    "after_delta": 0.0,
+    "rejected_nonidentity_actions": 2926,
+    "rejected_positive_actions": 78,
+    "rejected_harmful_actions": 906,
+    "missed_positive_gain": 0.0008590967157614136,
+    "avoided_loss": 0.002575903840961544,
+    "identity_max_error": 4.336808689942018e-19,
+    "missed_positive_interval": {
+      "mean": 0.0008590967157614136,
+      "queries": 8530,
+      "groups": 1963,
+      "changed_groups": 71,
+      "standard_error_cluster": 0.00017493208725641505,
+      "ci95_cluster_t": [
+        0.0005160244847699535,
+        0.0012021689467528738
+      ],
+      "ci95_group_bootstrap": [
+        0.0005434090152774511,
+        0.0012251123370761914
+      ],
+      "p_two_sided_cluster_t": 9.809898668196154e-07
+    },
+    "avoided_loss_interval": {
+      "mean": 0.002575903840961544,
+      "queries": 8530,
+      "groups": 1963,
+      "changed_groups": 571,
+      "standard_error_cluster": 0.00022984148215282057,
+      "ci95_cluster_t": [
+        0.002125144741854868,
+        0.0030266629400682197
+      ],
+      "ci95_group_bootstrap": [
+        0.0021510676389861275,
+        0.0030453523801187727
+      ],
+      "p_two_sided_cluster_t": 2.663453656657676e-28
+    },
+    "accounting_identity_is_not_a_standalone_novel_algorithm": true
+  }
+}
