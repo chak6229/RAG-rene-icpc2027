@@ -12,5 +12,21 @@
   "historical_annotations_preserved": true,
   "paper_in_artifact": false,
   "current_repository": "https://github.com/chak6229/RAG-rene-icpc2027",
-  "delivery_manuscript_sha256": "79ef48e2e3315ab145e88fecd5eeb3ca4889435033fba3bdbc44c9db8a531162"
+  "delivery_manuscript_sha256": "4a261906f57fce9fdfcabf6907b1d845d1f3f5fb8cb29df0c0cbcd1889173f3b",
+  "previous_delivery_manuscript_sha256": "79ef48e2e3315ab145e88fecd5eeb3ca4889435033fba3bdbc44c9db8a531162",
+  "disclosure_update": {
+    "statement": "docs/AI_USE_DISCLOSURE.md",
+    "main_pdf_pages": 12,
+    "main_text_pages": 10,
+    "reference_pages": [
+      11,
+      12
+    ],
+    "existing_reference_numbers_preserved": "1–35",
+    "added_tool_references": [
+      36,
+      37
+    ],
+    "scientific_content_changed": false
+  }
 }

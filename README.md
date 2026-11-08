@@ -1,10 +1,10 @@
 # SSQR external replication artifact
 
-English review materials for **Position Selection Advantage and Executable Utility: An External Replication of SSQR for Code Search**, aligned with the cumulative English manuscript dated 8 November 2026. Release version **2026.11.08**. The manuscript is delivered separately.
+English review materials for **Position Selection Advantage and Executable Utility: An External Replication of SSQR for Code Search**, aligned with the cumulative English manuscript dated 8 November 2026. Release version **2026.11.08**, with the AI disclosure update. The manuscript is delivered separately.
 
 Repository: https://github.com/chak6229/RAG-rene-icpc2027
 
-[Download the artifact ZIP and the W1/W3/W5 model attachments](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108).
+[Download the current artifact ZIP](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108-disclosure). The unchanged [W1/W3/W5 model attachments](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108) remain available in the original release.
 
 The package supports the paper's documented reconstruction, same-pool position-selection comparisons, automatic-execution analyses and independent human-review diagnostics. This release reorganizes existing evidence; it introduces no new experimental results.
 
@@ -15,6 +15,8 @@ The package supports the paper's documented reconstruction, same-pool position-s
 3. Follow [installation and replay](INSTALL.md) and [expected results](EXPECTED_RESULTS.md).
 4. Consult [environment and settings](docs/ENVIRONMENT.md), [data access](docs/DATA_AVAILABILITY.md), [model attachments](docs/MODEL_ASSETS.md) and [CODEnn reconstruction](docs/CODENN_RECONSTRUCTION.md).
 5. Read the [human-review guide](human_review/README.md), [ethics and consent statement](docs/ETHICS_AND_CONSENT.md), and [current status and historical records](docs/CURRENT_STATUS.md).
+
+The [AI use disclosure](docs/AI_USE_DISCLOSURE.md) matches the manuscript acknowledgment. This update adds disclosure documentation; study code, data, labels, results, and models are unchanged.
 
 ## Reproduce the statistical evidence
 

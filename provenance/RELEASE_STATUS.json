@@ -2,9 +2,9 @@
   "version": "2026.11.08",
   "repository": "https://github.com/chak6229/RAG-rene-icpc2027",
   "repository_private": true,
-  "release_tag": "rene-review-20261108",
-  "release_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108",
-  "status": "release_2026.11.08",
+  "release_tag": "rene-review-20261108-disclosure",
+  "release_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108-disclosure",
+  "status": "release_2026.11.08_disclosure_update",
   "model_assets_verified_online": true,
   "model_assets": [
     {
@@ -30,5 +30,6 @@
     }
   ],
   "paper_uploaded": false,
-  "verification": "Model attachments match server-computed SHA-256 and byte sizes. The release tag identifies the separately verified source commit; release notes record final Git and ZIP identities."
+  "verification": "The AI disclosure update changes documentation only. Model attachment hashes retain the earlier verified identities and download URLs. The release notes identify the verified source commit and artifact archive.",
+  "previous_release_tag": "rene-review-20261108"
 }
