@@ -1,9 +1,11 @@
 {
-  "version": "2026.11.08",
-  "files_excluding_inventory_and_checksum": 675,
-  "total_bytes_excluding_inventory_and_checksum": 33942637,
+  "version": "2026.11.10",
+  "manuscript_version": "2026.11.08",
+  "files_excluding_inventory_and_checksum": 651,
+  "total_bytes_excluding_inventory_and_checksum": 33786891,
   "max_file_bytes": 6766133,
   "includes_paper": false,
+  "embedded_obsolete_manuscript_removed": true,
   "includes_english_supplement": true,
   "github_single_file_limit_bytes": 104857600,
   "requires_git_lfs": false,
@@ -274,7 +276,7 @@
     },
     {
       "path": "docs/CURRENT_STATUS.md",
-      "bytes": 1913
+      "bytes": 2172
     },
     {
       "path": "docs/DATA_AVAILABILITY.md",
@@ -318,7 +320,7 @@
     },
     {
       "path": "docs/PUBLICATION.md",
-      "bytes": 1095
+      "bytes": 1196
     },
     {
       "path": "docs/REFERENCE_CORRECTIONS_20261108.md",
@@ -331,6 +333,10 @@
     {
       "path": "docs/RESULT_PATH_MAP.md",
       "bytes": 4500
+    },
+    {
+      "path": "docs/SCOPE_CLEANUP_20261110.md",
+      "bytes": 1966
     },
     {
       "path": "docs/settings/experiment_environment_settings.json",
@@ -394,7 +400,7 @@
     },
     {
       "path": "docs/supporting/results_contract.md",
-      "bytes": 9945
+      "bytes": 9982
     },
     {
       "path": "docs/supporting/review_disagreement_discussion.md",
@@ -441,10 +447,6 @@
       "bytes": 9604
     },
     {
-      "path": "experiments/rene_artifact_acceptance_20261018/accept.py",
-      "bytes": 4217
-    },
-    {
       "path": "experiments/rene_budget_aggregation_20261020/__init__.py",
       "bytes": 64
     },
@@ -469,16 +471,8 @@
       "bytes": 5103
     },
     {
-      "path": "experiments/rene_budget_aggregation_delivery_20261020.py",
-      "bytes": 7782
-    },
-    {
       "path": "experiments/rene_controlled_reproduction_20261018/freeze_manifest.py",
       "bytes": 10325
-    },
-    {
-      "path": "experiments/rene_core_contribution_design_20261020/inspect_pairing.py",
-      "bytes": 3966
     },
     {
       "path": "experiments/rene_core_step_a_20261020/__init__.py",
@@ -645,10 +639,6 @@
       "bytes": 8368
     },
     {
-      "path": "experiments/rene_cosqa_development_readout_20261019.py",
-      "bytes": 9197
-    },
-    {
       "path": "experiments/rene_cosqa_pilot_20261019/__init__.py",
       "bytes": 65
     },
@@ -741,10 +731,6 @@
       "bytes": 3237
     },
     {
-      "path": "experiments/rene_cqc_training_delivery_20261020.py",
-      "bytes": 11564
-    },
-    {
       "path": "experiments/rene_cqc_training_extra_contrasts_20261020.py",
       "bytes": 4468
     },
@@ -793,16 +779,8 @@
       "bytes": 7850
     },
     {
-      "path": "experiments/rene_cqc_training_figure_20261020.py",
-      "bytes": 2999
-    },
-    {
       "path": "experiments/rene_cqc_training_full_length_20261020.py",
       "bytes": 2381
-    },
-    {
-      "path": "experiments/rene_cqc_training_writeup_20261020.py",
-      "bytes": 20228
     },
     {
       "path": "experiments/rene_envelope_completion_20261020/__init__.py",
@@ -855,14 +833,6 @@
     {
       "path": "experiments/rene_evidence_integration_20261020/verify_payload.py",
       "bytes": 825
-    },
-    {
-      "path": "experiments/rene_evidence_integration_20261020/write_manuscript.py",
-      "bytes": 24087
-    },
-    {
-      "path": "experiments/rene_evidence_integration_20261020/write_reports.py",
-      "bytes": 6890
     },
     {
       "path": "experiments/rene_factor_confirmation_20261020/__init__.py",
@@ -923,18 +893,6 @@
     {
       "path": "experiments/rene_factor_confirmation_20261020/test_preflight.py",
       "bytes": 2657
-    },
-    {
-      "path": "experiments/rene_factor_confirmation_delivery_20261020.py",
-      "bytes": 5716
-    },
-    {
-      "path": "experiments/rene_factor_confirmation_delivery_review_20261020.py",
-      "bytes": 7626
-    },
-    {
-      "path": "experiments/rene_factor_confirmation_source_review_20261020.py",
-      "bytes": 5297
     },
     {
       "path": "experiments/rene_fixed_action_uq_20261019/audit.py",
@@ -1714,75 +1672,19 @@
     },
     {
       "path": "provenance/FILE_LINEAGE.json",
-      "bytes": 209112
-    },
-    {
-      "path": "provenance/historical_documents/docs/CODENN_RECONSTRUCTION_CN.md",
-      "bytes": 2614
-    },
-    {
-      "path": "provenance/historical_documents/docs/MODEL_ASSETS_CN.md",
-      "bytes": 2829
-    },
-    {
-      "path": "provenance/historical_documents/docs/PRIVATE_GITHUB_UPLOAD_CN.md",
-      "bytes": 2174
-    },
-    {
-      "path": "provenance/historical_documents/docs/REPLICATION_SCOPE_CN.md",
-      "bytes": 2571
-    },
-    {
-      "path": "provenance/historical_documents/docs/RISK_WORKING_POINT_CN.md",
-      "bytes": 1503
-    },
-    {
-      "path": "provenance/historical_documents/docs/settings/experiment_environment_settings.md",
-      "bytes": 20897
-    },
-    {
-      "path": "provenance/historical_documents/docs/supporting/budget_aggregation_results.md",
-      "bytes": 3774
-    },
-    {
-      "path": "provenance/historical_documents/docs/supporting/factor_confirmation_results.md",
-      "bytes": 2449
-    },
-    {
-      "path": "provenance/historical_documents/docs/supporting/replication_scope.md",
-      "bytes": 2571
-    },
-    {
-      "path": "provenance/historical_documents/docs/supporting/results_contract.md",
-      "bytes": 13941
-    },
-    {
-      "path": "provenance/historical_documents/docs/supporting/third_retriever_results.md",
-      "bytes": 1275
-    },
-    {
-      "path": "provenance/historical_documents/human_review/README_CN.md",
-      "bytes": 1705
-    },
-    {
-      "path": "provenance/historical_documents/README_CN.md",
-      "bytes": 2925
-    },
-    {
-      "path": "provenance/HISTORICAL_RELEASE_STATUS_20261031.json",
-      "bytes": 1474
+      "bytes": 210504
     },
     {
       "path": "provenance/MANUSCRIPT_ALIGNMENT_20261108.json",
-      "bytes": 1560
+      "bytes": 1715
     },
     {
       "path": "provenance/README.md",
-      "bytes": 1462
+      "bytes": 1764
     },
     {
       "path": "provenance/RELEASE_STATUS.json",
-      "bytes": 1765
+      "bytes": 1734
     },
     {
       "path": "provenance/review_fixes/anchor_stage_risk_clean_20261016_DESIGN.md",
@@ -1807,6 +1709,10 @@
     {
       "path": "provenance/review_fixes/versions_anchor-stage-threeway-20261016.json",
       "bytes": 5620
+    },
+    {
+      "path": "provenance/SCOPE_CLEANUP_20261110.json",
+      "bytes": 11656
     },
     {
       "path": "provenance/SETTINGS_SOURCE_INDEX.json",
@@ -2058,7 +1964,7 @@
     },
     {
       "path": "provenance/validation/RELEASE_VALIDATION.json",
-      "bytes": 1469
+      "bytes": 1935
     },
     {
       "path": "provenance/validation/ROOT_ACCEPTANCE.json",
@@ -2066,7 +1972,7 @@
     },
     {
       "path": "README.md",
-      "bytes": 4858
+      "bytes": 5080
     },
     {
       "path": "requirements.txt",

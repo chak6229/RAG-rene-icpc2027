@@ -1,6 +1,6 @@
 # Results and evidence evaluation contract
 
-This English guide records the evaluation rules used to interpret the current artifact. The complete historical integration record is preserved under `provenance/historical_documents/docs/supporting/results_contract.md`. Table labels S1–S15 correspond to historical T1–T15; their 176 result records remain unchanged. The manuscript is supplied separately.
+This English guide records the evaluation rules used to interpret the current artifact. Obsolete editorial and duplicate documentation files are kept in the author-side archive; the packaging changes are recorded in `provenance/SCOPE_CLEANUP_20261110.json`. Table labels S1–S15 correspond to historical T1–T15; their 176 result records remain unchanged. The manuscript is supplied separately.
 
 ## Outcomes and references
 

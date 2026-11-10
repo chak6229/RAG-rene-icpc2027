@@ -1,12 +1,12 @@
 # SSQR external replication artifact
 
-English review materials for **Position Selection Advantage and Executable Utility: An External Replication of SSQR for Code Search**, aligned with the cumulative English manuscript dated 8 November 2026. Release version **2026.11.08**, with the AI disclosure and reference correction updates. The manuscript is delivered separately.
+English review materials for **Position Selection Advantage and Executable Utility: An External Replication of SSQR for Code Search**, aligned with the cumulative English manuscript dated 8 November 2026. Scientific manuscript version **2026.11.08**; artifact packaging **2026.11.10**, after scope cleanup. The manuscript is delivered separately.
 
 Repository: https://github.com/chak6229/RAG-rene-icpc2027
 
-[Download the current artifact ZIP](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108-references). The unchanged [W1/W3/W5 model attachments](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108) remain available in the original release.
+[Download the current artifact ZIP](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-clean). The unchanged [W1/W3/W5 model attachments](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108) remain available in the original release.
 
-The package supports the paper's documented reconstruction, same-pool position-selection comparisons, automatic-execution analyses and independent human-review diagnostics. This release reorganizes existing evidence; it introduces no new experimental results.
+The package supports the paper's documented reconstruction, same-pool position-selection comparisons, automatic-execution analyses and independent human-review diagnostics. This release reorganizes existing evidence; it introduces no new experimental results. The [scope cleanup record](docs/SCOPE_CLEANUP_20261110.md) explains the 26 archived author-side files and the retained historical dependencies.
 
 ## Start here
 
@@ -42,7 +42,7 @@ The unified entry point verifies integrity and replays **14 numerical study unit
 | `artifact/numerical/` | Anonymous target ranks, selection orders, policy outcomes and statistical replay |
 | `human_review/` | Original independent A/B labels and rationales, supplemental judgments, sampling inputs and replay |
 | `results/` | The 176 integrated S1–S15 result records, paired-weight confirmation and frozen experiment exports |
-| `experiments/` and root scripts | Historical model, training, data-preparation and analysis implementations |
+| `experiments/` and root scripts | Current and historical model, training, data-preparation and analysis sources, including shared dependencies; use the mapped study entry points |
 | `provenance/` | Source manifests, historical records and release validation |
 | `tools/` | Bundle checks, replay and installation of model attachments |
 

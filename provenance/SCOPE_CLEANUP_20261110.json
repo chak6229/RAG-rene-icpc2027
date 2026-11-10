@@ -1,0 +1,196 @@
+{
+  "packaging_date": "2026-11-10",
+  "manuscript_version": "2026.11.08",
+  "removed_files": [
+    {
+      "path": "experiments/rene_artifact_acceptance_20261018/accept.py",
+      "sha256": "b2304f5b849b46e18f6606670cfc08d28622a2a9ba59eeb45f93bfa9f6e8ae11",
+      "role": "historical_process_tool",
+      "reason": "Delivery/readout/feasibility or auxiliary figure tooling; preserve source if needed for provenance; do not present as current replay entry.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "experiments/rene_budget_aggregation_delivery_20261020.py",
+      "sha256": "47590f18cb851f7895492c8e1f7f1123bfa1f69fc4f34ef746fb8d9beea36d53",
+      "role": "historical_process_tool",
+      "reason": "Delivery/readout/feasibility or auxiliary figure tooling; preserve source if needed for provenance; do not present as current replay entry.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "experiments/rene_core_contribution_design_20261020/inspect_pairing.py",
+      "sha256": "2199680f56808f31fb2895ad94112c55b3d33bb07dabe478d7894f379318b069",
+      "role": "historical_process_tool",
+      "reason": "Delivery/readout/feasibility or auxiliary figure tooling; preserve source if needed for provenance; do not present as current replay entry.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "experiments/rene_cosqa_development_readout_20261019.py",
+      "sha256": "bbc984299aaec9803584550201c2319509d9886047826620dc65a2827b71d8fd",
+      "role": "historical_process_tool",
+      "reason": "Delivery/readout/feasibility or auxiliary figure tooling; preserve source if needed for provenance; do not present as current replay entry.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "experiments/rene_cqc_training_delivery_20261020.py",
+      "sha256": "4645cd34eb565f2835a9fc5b20ee781cc56a748ed4cba8d2d396a9c2818d06c0",
+      "role": "historical_process_tool",
+      "reason": "Delivery/readout/feasibility or auxiliary figure tooling; preserve source if needed for provenance; do not present as current replay entry.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "experiments/rene_cqc_training_figure_20261020.py",
+      "sha256": "dfc1361c36488d3c0f8d164f7d246d004f7ff1aca61ecd9ba5e7ad59f44b98f4",
+      "role": "historical_process_tool",
+      "reason": "Delivery/readout/feasibility or auxiliary figure tooling; preserve source if needed for provenance; do not present as current replay entry.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "experiments/rene_cqc_training_writeup_20261020.py",
+      "sha256": "26fcadb2bab9372c3df481f7ee0b68a12bf8e7c79ae29ed9f1cb0d9113e87018",
+      "role": "editorial_tool",
+      "reason": "Historical prose/table write-up; retain scientific analyze/train source and numeric outputs.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "experiments/rene_evidence_integration_20261020/write_manuscript.py",
+      "sha256": "0519acb93ae5e21048f9ff86179b1e0962af6340737ea2c9581f7bcdbbdf6f72",
+      "role": "editorial_tool",
+      "reason": "Embedded obsolete outline, introduction, related work and contribution text; four RQs conflict with current three RQs.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "experiments/rene_evidence_integration_20261020/write_reports.py",
+      "sha256": "c94fc1e6c93701e18e35ea34d36a03e670639a1c04c3d676fdfe9fa737e308e2",
+      "role": "editorial_tool",
+      "reason": "Historical report/document generation; not the unified numerical or model-analysis entry.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "experiments/rene_factor_confirmation_delivery_20261020.py",
+      "sha256": "57b80629251a22f77fd10ad31a971d9c134eba983e09e42d4d832e0c235517e6",
+      "role": "historical_process_tool",
+      "reason": "Delivery/readout/feasibility or auxiliary figure tooling; preserve source if needed for provenance; do not present as current replay entry.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "experiments/rene_factor_confirmation_delivery_review_20261020.py",
+      "sha256": "74841c8c6b876f010fdf7562320d5a2717918c28cb4bb13831338450b2259706",
+      "role": "historical_process_tool",
+      "reason": "Delivery/readout/feasibility or auxiliary figure tooling; preserve source if needed for provenance; do not present as current replay entry.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "experiments/rene_factor_confirmation_source_review_20261020.py",
+      "sha256": "c2bb775e6a2bf407b6760f5b659843c477bf8936828ee190887c8b4365aae134",
+      "role": "historical_process_tool",
+      "reason": "Delivery/readout/feasibility or auxiliary figure tooling; preserve source if needed for provenance; do not present as current replay entry.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "provenance/HISTORICAL_RELEASE_STATUS_20261031.json",
+      "sha256": "decbb43e3140a9bbc149d0e2dc7b939c8bfe04b70e394f863fdeb0b24def3f95",
+      "role": "historical_publication_receipt",
+      "reason": "Receipt for deleted older repository; current RELEASE_STATUS.json supplies the access route.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "provenance/historical_documents/README_CN.md",
+      "sha256": "64f925a8584ad23577b586b640863cafcc3b3a91f589d7c7195fa1433364dfce",
+      "role": "historical_document_copy",
+      "reason": "Older-language/version documentation; current English guide exists. Keep original scientific/annotation evidence separately.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "provenance/historical_documents/docs/CODENN_RECONSTRUCTION_CN.md",
+      "sha256": "220742111df95c000e9c3990a359f440bdfa2fd0bb16f2cacc65a754b2af1eb1",
+      "role": "historical_document_copy",
+      "reason": "Older-language/version documentation; current English guide exists. Keep original scientific/annotation evidence separately.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "provenance/historical_documents/docs/MODEL_ASSETS_CN.md",
+      "sha256": "4cd9db13e8e8d1f77a974bc4b7d16661840eac0ee3a4c7c06d7ee756a0b07386",
+      "role": "historical_document_copy",
+      "reason": "Older-language/version documentation; current English guide exists. Keep original scientific/annotation evidence separately.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "provenance/historical_documents/docs/PRIVATE_GITHUB_UPLOAD_CN.md",
+      "sha256": "827bc300430c3a63e427c5eb0b1441a3aa2553756fce9fc4541a7798c1472c0a",
+      "role": "historical_document_copy",
+      "reason": "Old repository-upload operating instructions; does not support a scientific result or execute current replay.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "provenance/historical_documents/docs/REPLICATION_SCOPE_CN.md",
+      "sha256": "23077f5a82050dd2fd15133721ec99cd8345ce4766e6393cbd7c91aa047eda40",
+      "role": "historical_document_copy",
+      "reason": "Older-language/version documentation; current English guide exists. Keep original scientific/annotation evidence separately.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "provenance/historical_documents/docs/RISK_WORKING_POINT_CN.md",
+      "sha256": "0448771844df3d39fc80e276bf7026a478676364270bb69cf37c210786b7f6ec",
+      "role": "historical_document_copy",
+      "reason": "Older-language/version documentation; current English guide exists. Keep original scientific/annotation evidence separately.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "provenance/historical_documents/docs/settings/experiment_environment_settings.md",
+      "sha256": "e24bdb121190413a2b19f03253971f99969ce7c7203c78d3f6a275ce4f44d759",
+      "role": "historical_document_copy",
+      "reason": "Older-language/version documentation; current English guide exists. Keep original scientific/annotation evidence separately.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "provenance/historical_documents/docs/supporting/budget_aggregation_results.md",
+      "sha256": "211b2b54ecf499fd100b6fe4e478c90e8fc05e376e72549183f98009c66c2521",
+      "role": "historical_document_copy",
+      "reason": "Older-language/version documentation; current English guide exists. Keep original scientific/annotation evidence separately.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "provenance/historical_documents/docs/supporting/factor_confirmation_results.md",
+      "sha256": "3cdf8b2d77a31244f4c102b29c79651b2c300f7b996e979997071b71920dbd3d",
+      "role": "historical_document_copy",
+      "reason": "Older-language/version documentation; current English guide exists. Keep original scientific/annotation evidence separately.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "provenance/historical_documents/docs/supporting/replication_scope.md",
+      "sha256": "23077f5a82050dd2fd15133721ec99cd8345ce4766e6393cbd7c91aa047eda40",
+      "role": "historical_document_copy",
+      "reason": "Older-language/version documentation; current English guide exists. Keep original scientific/annotation evidence separately.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "provenance/historical_documents/docs/supporting/results_contract.md",
+      "sha256": "b94fe6ec9d7ac09b23a9d0855d2620a9ab04157f0ca29f2c1f7b98629051add9",
+      "role": "historical_document_copy",
+      "reason": "Older-language/version documentation; current English guide exists. Keep original scientific/annotation evidence separately.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "provenance/historical_documents/docs/supporting/third_retriever_results.md",
+      "sha256": "f70d4e018656d761b55a0ebaef55c2b74eb24d0106890c0d9c5219edd9134921",
+      "role": "historical_document_copy",
+      "reason": "Older-language/version documentation; current English guide exists. Keep original scientific/annotation evidence separately.",
+      "archive": "author-local; excluded from review bundle"
+    },
+    {
+      "path": "provenance/historical_documents/human_review/README_CN.md",
+      "sha256": "79d1c6afeb666f466ec4cad717f43b14ce820d8b2cceab041f4b43738b6cebf7",
+      "role": "historical_document_copy",
+      "reason": "Older-language/version documentation; current English guide exists. Keep original scientific/annotation evidence separately.",
+      "archive": "author-local; excluded from review bundle"
+    }
+  ],
+  "removed_count": 26,
+  "retained_earlier_experiment_files": 37,
+  "scientific_values_changed": false,
+  "retained_source_bytes_changed": false,
+  "human_annotations_changed": false,
+  "models_changed": false,
+  "previous_source_commit": "d51d40c0806456db248ce0bdc7a805d12f06c0d0",
+  "git_history": "Retained; this is a normal source-tree cleanup, not a history rewrite."
+}

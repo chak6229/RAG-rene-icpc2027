@@ -11,3 +11,5 @@
 - `validation/`: actual release validation receipts, including a full run from a ZIP extracted outside the repository tree.
 
 Original `results/rene_...` and `models/...` paths in receipts describe source history, not missing portable-replay inputs. Large/raw inputs are separately identified in `docs/DATA_AVAILABILITY.md`. Reference numeric-subpackage acceptance from an earlier release retains its original environment scope; current complete-package checks are in `validation/RELEASE_VALIDATION.json`.
+
+`SCOPE_CLEANUP_20261110.json` lists 26 author-side files archived outside the review bundle. FILE_LINEAGE records for these paths retain their previous identity and explicitly mark that they are no longer delivered. Scientific source receipts, experiment histories and human labels remain included.

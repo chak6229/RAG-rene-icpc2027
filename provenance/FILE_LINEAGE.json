@@ -1535,16 +1535,20 @@
   {
     "source": "experiments/rene_evidence_integration_20261020/write_reports.py",
     "source_sha256": "89d3d67c2e3961f30621395a5378ad2d8da98ebe9a3d9fcb3482e556cd1e433b",
-    "delivered": "experiments/rene_evidence_integration_20261020/write_reports.py",
-    "delivered_sha256": "c94fc1e6c93701e18e35ea34d36a03e670639a1c04c3d676fdfe9fa737e308e2",
-    "local_paths_normalized": true
+    "local_paths_normalized": true,
+    "previous_delivered": "experiments/rene_evidence_integration_20261020/write_reports.py",
+    "archived_file_sha256": "c94fc1e6c93701e18e35ea34d36a03e670639a1c04c3d676fdfe9fa737e308e2",
+    "delivered": null,
+    "status": "author-local archive; omitted after scope cleanup 2026-11-10"
   },
   {
     "source": "experiments/rene_evidence_integration_20261020/write_manuscript.py",
     "source_sha256": "4e2fb7403611b54cfbb59dc2ed97854d2df893ef53624149545fb7ab03ab2b36",
-    "delivered": "experiments/rene_evidence_integration_20261020/write_manuscript.py",
-    "delivered_sha256": "0519acb93ae5e21048f9ff86179b1e0962af6340737ea2c9581f7bcdbbdf6f72",
-    "local_paths_normalized": true
+    "local_paths_normalized": true,
+    "previous_delivered": "experiments/rene_evidence_integration_20261020/write_manuscript.py",
+    "archived_file_sha256": "0519acb93ae5e21048f9ff86179b1e0962af6340737ea2c9581f7bcdbbdf6f72",
+    "delivered": null,
+    "status": "author-local archive; omitted after scope cleanup 2026-11-10"
   },
   {
     "source": "experiments/rene_evidence_integration_20261020/verify_payload.py",
@@ -2109,9 +2113,11 @@
   {
     "source": "experiments/rene_core_contribution_design_20261020/inspect_pairing.py",
     "source_sha256": "27c8511a505499906c9f8122a69e0bc1e5e2ec216287e0d74e84dc322fd2fd44",
-    "delivered": "experiments/rene_core_contribution_design_20261020/inspect_pairing.py",
-    "delivered_sha256": "2199680f56808f31fb2895ad94112c55b3d33bb07dabe478d7894f379318b069",
-    "local_paths_normalized": true
+    "local_paths_normalized": true,
+    "previous_delivered": "experiments/rene_core_contribution_design_20261020/inspect_pairing.py",
+    "archived_file_sha256": "2199680f56808f31fb2895ad94112c55b3d33bb07dabe478d7894f379318b069",
+    "delivered": null,
+    "status": "author-local archive; omitted after scope cleanup 2026-11-10"
   },
   {
     "source": "experiments/rene_controlled_reproduction_20261018/freeze_manifest.py",
@@ -2158,37 +2164,47 @@
   {
     "source": "experiments/rene_artifact_acceptance_20261018/accept.py",
     "source_sha256": "dee11e2b47e97d624a9d2539490d164bec2edf9ec588ba186c7f50040b45877a",
-    "delivered": "experiments/rene_artifact_acceptance_20261018/accept.py",
-    "delivered_sha256": "b2304f5b849b46e18f6606670cfc08d28622a2a9ba59eeb45f93bfa9f6e8ae11",
-    "local_paths_normalized": true
+    "local_paths_normalized": true,
+    "previous_delivered": "experiments/rene_artifact_acceptance_20261018/accept.py",
+    "archived_file_sha256": "b2304f5b849b46e18f6606670cfc08d28622a2a9ba59eeb45f93bfa9f6e8ae11",
+    "delivered": null,
+    "status": "author-local archive; omitted after scope cleanup 2026-11-10"
   },
   {
     "source": "experiments/rene_factor_confirmation_source_review_20261020.py",
     "source_sha256": "60a8033119df93241d40b518cf4b148cf6ba97d88b02fdcc1c7cbccf635dc3a4",
-    "delivered": "experiments/rene_factor_confirmation_source_review_20261020.py",
-    "delivered_sha256": "c2bb775e6a2bf407b6760f5b659843c477bf8936828ee190887c8b4365aae134",
-    "local_paths_normalized": true
+    "local_paths_normalized": true,
+    "previous_delivered": "experiments/rene_factor_confirmation_source_review_20261020.py",
+    "archived_file_sha256": "c2bb775e6a2bf407b6760f5b659843c477bf8936828ee190887c8b4365aae134",
+    "delivered": null,
+    "status": "author-local archive; omitted after scope cleanup 2026-11-10"
   },
   {
     "source": "experiments/rene_factor_confirmation_delivery_review_20261020.py",
     "source_sha256": "866700fbb810b5c81b84be6560b55e74ce1996157419e2616cd9cf5f01386607",
-    "delivered": "experiments/rene_factor_confirmation_delivery_review_20261020.py",
-    "delivered_sha256": "74841c8c6b876f010fdf7562320d5a2717918c28cb4bb13831338450b2259706",
-    "local_paths_normalized": true
+    "local_paths_normalized": true,
+    "previous_delivered": "experiments/rene_factor_confirmation_delivery_review_20261020.py",
+    "archived_file_sha256": "74841c8c6b876f010fdf7562320d5a2717918c28cb4bb13831338450b2259706",
+    "delivered": null,
+    "status": "author-local archive; omitted after scope cleanup 2026-11-10"
   },
   {
     "source": "experiments/rene_factor_confirmation_delivery_20261020.py",
     "source_sha256": "a21f8671c01562e4bc7f901593555de61c2df067d281b132c9b697d6f3da6440",
-    "delivered": "experiments/rene_factor_confirmation_delivery_20261020.py",
-    "delivered_sha256": "57b80629251a22f77fd10ad31a971d9c134eba983e09e42d4d832e0c235517e6",
-    "local_paths_normalized": true
+    "local_paths_normalized": true,
+    "previous_delivered": "experiments/rene_factor_confirmation_delivery_20261020.py",
+    "archived_file_sha256": "57b80629251a22f77fd10ad31a971d9c134eba983e09e42d4d832e0c235517e6",
+    "delivered": null,
+    "status": "author-local archive; omitted after scope cleanup 2026-11-10"
   },
   {
     "source": "experiments/rene_cqc_training_writeup_20261020.py",
     "source_sha256": "7a8bb22834f99b01830c3347bed8c884593bf8e5ff939f4a84231ef539abdcb5",
-    "delivered": "experiments/rene_cqc_training_writeup_20261020.py",
-    "delivered_sha256": "26fcadb2bab9372c3df481f7ee0b68a12bf8e7c79ae29ed9f1cb0d9113e87018",
-    "local_paths_normalized": true
+    "local_paths_normalized": true,
+    "previous_delivered": "experiments/rene_cqc_training_writeup_20261020.py",
+    "archived_file_sha256": "26fcadb2bab9372c3df481f7ee0b68a12bf8e7c79ae29ed9f1cb0d9113e87018",
+    "delivered": null,
+    "status": "author-local archive; omitted after scope cleanup 2026-11-10"
   },
   {
     "source": "experiments/rene_cqc_training_full_length_20261020.py",
@@ -2200,9 +2216,11 @@
   {
     "source": "experiments/rene_cqc_training_figure_20261020.py",
     "source_sha256": "8ed1afe03bad3f97d33e50f89bb316faf5385b6815a126720fa53bff5706d4c7",
-    "delivered": "experiments/rene_cqc_training_figure_20261020.py",
-    "delivered_sha256": "dfc1361c36488d3c0f8d164f7d246d004f7ff1aca61ecd9ba5e7ad59f44b98f4",
-    "local_paths_normalized": true
+    "local_paths_normalized": true,
+    "previous_delivered": "experiments/rene_cqc_training_figure_20261020.py",
+    "archived_file_sha256": "dfc1361c36488d3c0f8d164f7d246d004f7ff1aca61ecd9ba5e7ad59f44b98f4",
+    "delivered": null,
+    "status": "author-local archive; omitted after scope cleanup 2026-11-10"
   },
   {
     "source": "experiments/rene_cqc_training_extra_contrasts_20261020.py",
@@ -2214,9 +2232,11 @@
   {
     "source": "experiments/rene_cqc_training_delivery_20261020.py",
     "source_sha256": "6f0578efd95f4400904ffcc4b8ea03bb891e21979d13c58045563ccfe75320fb",
-    "delivered": "experiments/rene_cqc_training_delivery_20261020.py",
-    "delivered_sha256": "4645cd34eb565f2835a9fc5b20ee781cc56a748ed4cba8d2d396a9c2818d06c0",
-    "local_paths_normalized": true
+    "local_paths_normalized": true,
+    "previous_delivered": "experiments/rene_cqc_training_delivery_20261020.py",
+    "archived_file_sha256": "4645cd34eb565f2835a9fc5b20ee781cc56a748ed4cba8d2d396a9c2818d06c0",
+    "delivered": null,
+    "status": "author-local archive; omitted after scope cleanup 2026-11-10"
   },
   {
     "source": "experiments/rene_cqc_training_action_diagnostic_20261020.py",
@@ -2228,16 +2248,20 @@
   {
     "source": "experiments/rene_cosqa_development_readout_20261019.py",
     "source_sha256": "cac6e59feaa4bb9c65c3b6b9cdb722e640f2d3ca67bbdb539c4e0da5a295398a",
-    "delivered": "experiments/rene_cosqa_development_readout_20261019.py",
-    "delivered_sha256": "bbc984299aaec9803584550201c2319509d9886047826620dc65a2827b71d8fd",
-    "local_paths_normalized": true
+    "local_paths_normalized": true,
+    "previous_delivered": "experiments/rene_cosqa_development_readout_20261019.py",
+    "archived_file_sha256": "bbc984299aaec9803584550201c2319509d9886047826620dc65a2827b71d8fd",
+    "delivered": null,
+    "status": "author-local archive; omitted after scope cleanup 2026-11-10"
   },
   {
     "source": "experiments/rene_budget_aggregation_delivery_20261020.py",
     "source_sha256": "d8a82401190cbe24b73e05de43d7024dbb9e52544b711d532acc6a15c4234b24",
-    "delivered": "experiments/rene_budget_aggregation_delivery_20261020.py",
-    "delivered_sha256": "47590f18cb851f7895492c8e1f7f1123bfa1f69fc4f34ef746fb8d9beea36d53",
-    "local_paths_normalized": true
+    "local_paths_normalized": true,
+    "previous_delivered": "experiments/rene_budget_aggregation_delivery_20261020.py",
+    "archived_file_sha256": "47590f18cb851f7895492c8e1f7f1123bfa1f69fc4f34ef746fb8d9beea36d53",
+    "delivered": null,
+    "status": "author-local archive; omitted after scope cleanup 2026-11-10"
   },
   {
     "source": "results/rene_private_reviewer_repo_20261022/artifact/numerical/EXPORT_CHECKS.json",

@@ -1,10 +1,10 @@
 {
-  "version": "2026.11.08",
+  "version": "2026.11.10",
   "repository": "https://github.com/chak6229/RAG-rene-icpc2027",
   "repository_private": true,
-  "release_tag": "rene-review-20261108-references",
-  "release_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108-references",
-  "status": "release_2026.11.08_reference_corrections",
+  "release_tag": "rene-review-20261110-clean",
+  "release_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-clean",
+  "status": "scope_cleaned_review_artifact",
   "model_assets_verified_online": true,
   "model_assets": [
     {
@@ -30,6 +30,7 @@
     }
   ],
   "paper_uploaded": false,
-  "verification": "Four manuscript bibliography entries were corrected against current Crossref records. This artifact update changes documentation only; all study evidence and model assets retain their verified byte identities.",
-  "previous_release_tag": "rene-review-20261108-disclosure"
+  "verification": "Original scientific evidence and model identities are retained. Current replay and remote verification are recorded in the validation receipt and release notes.",
+  "previous_release_tag": "rene-review-20261108-references",
+  "manuscript_version": "2026.11.08"
 }
