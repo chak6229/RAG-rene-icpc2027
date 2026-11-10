@@ -15,20 +15,7 @@ BRIDGE = ROOT / "results/rene_ssqr_bridge_20261019"
 OLD = ROOT / "results/rene_ssqr_rewriter_envelope_20261020"
 MODEL = ROOT / "models/codebert-ssqr-pooler-2epoch-20261019"
 DOMAINS = ("source", "cosqa")
-PROTECTED = [
-    "configs/vac_mqr_gain_model/CURRENT.json",
-    "configs/vac_mqr_verification_policy/CURRENT.json",
-    "configs/vac_mqr_risk_module/CURRENT.json",
-    "configs/uq_candidate_selection/CURRENT.json",
-    "results/vac_mqr_v5/STABLE.json",
-    "results/rene_cosqa_confirmation_20261019/PROTOCOL.json",
-    "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
-    "results/rene_cosqa_confirmation_20261019/FINAL_ACCEPTANCE.json",
-    "results/rene_core_step_a_20261020/RESULTS.json",
-    "results/rene_core_step_b_20261020/RESULTS.json",
-    "results/rene_multicandidate_fusion_20261020/RESULTS.json",
-    "results/rene_multicandidate_fusion_20261020/FINAL_ACCEPTANCE.json",
-]
+PROTECTED = []  # Unrelated author-workspace registries are not part of this release.
 
 
 def now():

@@ -15,17 +15,11 @@ from experiments.rene_cosqa_pilot_20261019.common import (
 SOURCE = Path(__file__).parent
 PARENT = ROOT / "results/rene_cosqa_development_20261019"
 OUT = ROOT / "results/rene_cosqa_confirmation_20261019"
-CE = ROOT / "results/uq_pilot_20261014/action_witness_uq/data/ce_large_dense_4096.pt"
+CE = ROOT / "models/ssqr-verifier/ce_large_dense_4096.pt"
 RETRIEVERS = ("CodeBERT", "BM25")
 TOL = 1e-10
 RELEVANCE_GUARD = contextvars.ContextVar("rene_confirmation_relevance_guard", default=False)
-PROTECTED = (
-    "configs/vac_mqr_gain_model/CURRENT.json",
-    "configs/vac_mqr_verification_policy/CURRENT.json",
-    "configs/vac_mqr_risk_module/CURRENT.json",
-    "configs/uq_candidate_selection/CURRENT.json",
-    "results/vac_mqr_v5/STABLE.json",
-)
+PROTECTED = ()  # Unrelated author-workspace registries are not part of this release.
 
 
 def require(value, message):

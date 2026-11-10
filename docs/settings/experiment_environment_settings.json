@@ -1029,8 +1029,11 @@
       "sha256": "8fa9aded2d7cf9b440db20dc1dd63fdb962e931697c2ef15ca992dc103277114"
     },
     "R27": {
-      "path": "experiments/action_witness_uq_20261014/gpu_data.py",
-      "sha256": "40265f20d5251733f5fd11c34054f34cb6901bfbc486772b5cced51e1f761895"
+      "path": "experiments/rene_verifier_training/training.py",
+      "sha256": "3d379cbb0bffb136feffeedc7e62a68994d319d22dc81c12bfa3d8b5de60e1ff",
+      "original_source_path": "experiments/action_witness_uq_20261014/gpu_data.py",
+      "original_source_sha256": "40265f20d5251733f5fd11c34054f34cb6901bfbc486772b5cced51e1f761895",
+      "scope": "Selected verifier functions; original bodies unchanged; original source identity retained for provenance"
     },
     "R28": {
       "path": "results/uq_pilot_20261014/action_witness_uq/data/ce_large_dense_4096_train_status.json",
@@ -1094,7 +1097,7 @@
     {
       "id": "W5",
       "name": "CodeBERT 交叉编码器",
-      "path": "results/uq_pilot_20261014/action_witness_uq/data/ce_large_dense_4096.pt",
+      "path": "models/ssqr-verifier/ce_large_dense_4096.pt",
       "sha256": "3a0f26dcae197b2e7cb97b62349ccd743e4211a835a8e2ab2842376a7c4c2f39"
     }
   ],

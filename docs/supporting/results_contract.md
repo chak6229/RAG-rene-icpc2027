@@ -1,6 +1,6 @@
 # Results and evidence evaluation contract
 
-This English guide records the evaluation rules used to interpret the current artifact. Obsolete editorial and duplicate documentation files are kept in the author-side archive; the packaging changes are recorded in `provenance/SCOPE_CLEANUP_20261110.json`. Table labels S1–S15 correspond to historical T1–T15; their 176 result records remain unchanged. The manuscript is supplied separately.
+This English guide records the evaluation rules used to interpret the current artifact. Obsolete editorial and duplicate documentation files are kept in the author-side archive; the packaging changes are recorded in `provenance/SCOPE_CLEANUP_20261110.json`. Table labels S1–S15 correspond to historical T1–T15; their 179 result records remain unchanged. The manuscript is supplied separately.
 
 ## Outcomes and references
 
@@ -28,7 +28,7 @@ PROB, BM25, full-H sensitivity, stage differences and matched-supervision CE inc
 | RRF3/RRF4 | D; constant 60, equal weights for unique text; four adjusted versus-original comparisons | S4 and continuations |
 | Complete H stages | 8,530/1,963; frozen selection, verification and fallback | S5 |
 | Earlier matched-weight endpoint analysis | 512/512 per domain; eight adjusted effects | S6 |
-| Historical UQ targets | Separate 1,536- and 1,024-repository targets and intervals | S7 |
+| Full-H opportunity-loss accounting | Original frozen stage outcomes; descriptive means and charged workload | S7 |
 | Same-pool B/G | AdvTest and CoSQA D; ENTR/PROB and direct component differences; 24 comparisons | S8 |
 | StaQC confirmation | 13,312 groups, 16,384 codes; two CodeBERT ENTR primary comparisons | S9 |
 | UniXcoder extension | Previously used CoSQA D and StaQC; 12 comparisons | S10 |

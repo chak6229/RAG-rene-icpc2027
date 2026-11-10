@@ -1,5 +1,5 @@
 {
-  "version": "review-20261021-v1",
+  "version": "2026.11.10",
   "distribution": "confidential-review-only",
   "files": [
     {
@@ -74,13 +74,13 @@
     },
     {
       "path": "EXPORT_CHECKS.json",
-      "bytes": 10360,
-      "sha256": "411782293cd75fb02c91378e1d4c862d6c2916fdd5531e1c54180ef03f467354"
+      "bytes": 10382,
+      "sha256": "ef6d2958affecd0338a95944e1a33a2b96b29a87c8dcd023365cfc226a70a9f6"
     },
     {
       "path": "README.md",
-      "bytes": 5883,
-      "sha256": "b7ea32d921a40b205bbd333f058dc57184b45798ab3069830f9115241765e71f"
+      "bytes": 6058,
+      "sha256": "ed6c9c3aed349bd529fd38972a1606b28839bfa0fcefd4d1258c5ecb256a6353"
     },
     {
       "path": "README_CN.md",
@@ -158,11 +158,6 @@
       "sha256": "ae019d85d71a299658828e9990c3558b3a469d69b120b3433081933a3b9cee73"
     },
     {
-      "path": "reference_tables/T7_previous_seed_UQ.csv",
-      "bytes": 561,
-      "sha256": "ed74a101118be2f7152205bbea8f8499e97312c35b47080e946733be581612d2"
-    },
-    {
       "path": "reference_tables/T8_count_aggregation.csv",
       "bytes": 8611,
       "sha256": "0aff651bb224c839ddac94879c899831d1b313286903b7ec7f81200672f9e8a5"
@@ -191,6 +186,11 @@
       "path": "STUDIES.json",
       "bytes": 83591,
       "sha256": "5ff175bf52d68f1e450e6626d699f42107544d8c2bf9f7118b4d50ee5199b799"
+    },
+    {
+      "path": "reference_tables/T7_full_H_opportunity_accounting.csv",
+      "bytes": 875,
+      "sha256": "98e85f0ae1c6ceea9dbac736ef0d1f013170fea1923a560ee74627965eff3467"
     }
   ]
 }

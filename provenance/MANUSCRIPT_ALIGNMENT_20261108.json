@@ -1,19 +1,14 @@
 {
-  "manuscript_source_sha256": "9ca3427b577c4b897384d7af97e513e9dd0531f18ae52ac1ef3df7b6e4fc4d7f",
-  "delivery_version": "2026.11.08",
+  "delivery_version": "2026.11.10",
   "core_numeric_alignment_checks": 102,
-  "source_alignment_audit_date": "2026-11-08",
-  "original_result_records": 176,
+  "source_alignment_audit_date": "2026-11-10",
   "settings_rows": 115,
   "S3_S4_additional_numeric_fields_checked": 104,
-  "protected_scientific_files_identical": 486,
   "ethics_statement": "Exact match to the latest English manuscript",
   "deleted_repository_removed_from_current_docs": true,
   "historical_annotations_preserved": true,
   "paper_in_artifact": false,
   "current_repository": "https://github.com/chak6229/RAG-rene-icpc2027",
-  "delivery_manuscript_sha256": "51d08fce3c79d88de8b64e523ade71aadcec2f1414fc0905ab6ec7a097d0c789",
-  "previous_delivery_manuscript_sha256": "4a261906f57fce9fdfcabf6907b1d845d1f3f5fb8cb29df0c0cbcd1889173f3b",
   "disclosure_update": {
     "statement": "docs/AI_USE_DISCLOSURE.md",
     "main_pdf_pages": 12,
@@ -44,5 +39,19 @@
   },
   "artifact_packaging_date": "2026-11-10",
   "obsolete_embedded_manuscript_removed": true,
-  "scope_cleanup": "provenance/SCOPE_CLEANUP_20261110.json"
+  "scope_cleanup": "docs/ARTIFACT_SCOPE.md",
+  "previous_alignment_date": "2026-11-08",
+  "current_s7": "tools/rebuild_s7.py",
+  "current_changes": "Historical multi-seed clauses removed from III.E; S7 reference added to III.D; artifact version updated. Other claims and results are retained.",
+  "historical_alignment_identities": {
+    "manuscript_source_sha256": "9ca3427b577c4b897384d7af97e513e9dd0531f18ae52ac1ef3df7b6e4fc4d7f",
+    "delivery_manuscript_sha256": "51d08fce3c79d88de8b64e523ade71aadcec2f1414fc0905ab6ec7a097d0c789",
+    "previous_delivery_manuscript_sha256": "4a261906f57fce9fdfcabf6907b1d845d1f3f5fb8cb29df0c0cbcd1889173f3b",
+    "original_result_records": 176,
+    "protected_scientific_files_identical": 486
+  },
+  "delivery_manuscript_sha256": "cf49f0d8e45df2149b99cb56ade2c3bb7387893c836866448ec608dfcb8260c3",
+  "current_result_records": 179,
+  "non_S7_result_records_unchanged": 173,
+  "numerical_and_human_inputs_byte_identical": true
 }

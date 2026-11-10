@@ -6,5 +6,6 @@
   "human_review": "human review",
   "human_query_bounds": 6144,
   "human_sampling_combinations": 48,
-  "elapsed_seconds": 28.081049800035544
+  "s7_accounting_rows": 6,
+  "elapsed_seconds": 19.535859600058757
 }

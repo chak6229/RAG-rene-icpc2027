@@ -17,3 +17,5 @@ The names below match the latest English manuscript. All links resolve within th
 S3 includes the Fixed20 head results, zero-threshold head results and all eight adjusted conditional MRT contrasts. S4 includes paired RRF4−RRF3 and fusion−Top1 comparisons as descriptive details. These extensions expose existing result fields without adding tests or changing comparison families.
 
 The reports preserve historical source identifiers where needed for provenance. [RESULT_PATH_MAP.md](RESULT_PATH_MAP.md) maps workspace result paths to the files in this release. [CURRENT_STATUS.md](CURRENT_STATUS.md) distinguishes final evidence from older pending-task records.
+
+Full-H opportunity-loss and verification accounting: [report](supporting/full_H_opportunity_accounting.md), Table S7.

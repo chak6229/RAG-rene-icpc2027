@@ -31,7 +31,7 @@ def main():
             for column,value in right.items():
                 if not cell(left[column],value): raise ValueError(f'Cell mismatch: {key} row {i} column {column}')
         total+=len(expected)
-    if len(data['tables'])!=15 or total!=176: raise ValueError('Expected 15 tables / 176 rows')
-    print(json.dumps({'passed':True,'tables':15,'rows':176,'scope':'export integrity against accepted TABLES.json'}))
+    if len(data['tables'])!=15 or total!=179: raise ValueError('Expected 15 tables / 179 rows')
+    print(json.dumps({'passed':True,'tables':15,'rows':179,'scope':'export integrity against accepted TABLES.json'}))
 
 if __name__=='__main__': main()

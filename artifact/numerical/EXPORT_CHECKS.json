@@ -237,10 +237,6 @@
       "sha256": "ae019d85d71a299658828e9990c3558b3a469d69b120b3433081933a3b9cee73"
     },
     {
-      "path": "results/rene_public_release_candidate_20261021/results/tables/T7_previous_seed_UQ.csv",
-      "sha256": "ed74a101118be2f7152205bbea8f8499e97312c35b47080e946733be581612d2"
-    },
-    {
       "path": "results/rene_public_release_candidate_20261021/results/tables/T8_count_aggregation.csv",
       "sha256": "0aff651bb224c839ddac94879c899831d1b313286903b7ec7f81200672f9e8a5"
     },
@@ -260,5 +256,7 @@
   "raw_query_or_code_text_exported": false,
   "original_identifiers_exported": false,
   "human_individual_labels_exported": false,
-  "model_or_training_files_exported": false
+  "model_or_training_files_exported": false,
+  "scope_version": "2026.11.10",
+  "scope_note": "Current files follow the paper scope in docs/ARTIFACT_SCOPE.md; original source hashes are historical identities, while SHA256SUMS.json identifies current delivery bytes."
 }

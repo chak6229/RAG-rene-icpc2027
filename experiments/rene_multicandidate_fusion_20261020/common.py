@@ -17,22 +17,7 @@ POLICIES = ("NoRewrite", "ENTRTop1", "RRF3", "RRF4")
 OFFSET, DEPTH = 60, 100
 DENOMINATOR = math.lcm(*range(OFFSET + 1, OFFSET + DEPTH + 1))
 RANK_WEIGHT = tuple(DENOMINATOR // (OFFSET + r) for r in range(1, DEPTH + 1))
-PROTECTED = [
-    "configs/vac_mqr_gain_model/CURRENT.json",
-    "configs/vac_mqr_verification_policy/CURRENT.json",
-    "configs/vac_mqr_risk_module/CURRENT.json",
-    "configs/uq_candidate_selection/CURRENT.json",
-    "results/vac_mqr_v5/STABLE.json",
-    "results/rene_cosqa_confirmation_20261019/PROTOCOL.json",
-    "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
-    "results/rene_cosqa_confirmation_20261019/FINAL_ACCEPTANCE.json",
-    "results/rene_core_step_a_20261020/PROTOCOL.json",
-    "results/rene_core_step_a_20261020/RESULTS.json",
-    "results/rene_core_step_a_20261020/AUDIT.json",
-    "results/rene_core_step_b_20261020/PROTOCOL.json",
-    "results/rene_core_step_b_20261020/RESULTS.json",
-    "results/rene_core_step_b_20261020/FINAL_ACCEPTANCE.json",
-]
+PROTECTED = []  # Unrelated author-workspace registries are not part of this release.
 
 
 def now():

@@ -2,9 +2,9 @@
   "version": "2026.11.10",
   "repository": "https://github.com/chak6229/RAG-rene-icpc2027",
   "repository_private": true,
-  "release_tag": "rene-review-20261110-clean",
-  "release_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-clean",
-  "status": "scope_cleaned_review_artifact",
+  "release_tag": "rene-review-20261110-paper",
+  "release_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-paper",
+  "status": "paper_scoped_review_materials",
   "model_assets_verified_online": true,
   "model_assets": [
     {
@@ -15,11 +15,11 @@
       "url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261108/SSQR_RENE_W1_CQC_T5_20261031.zip"
     },
     {
-      "name": "SSQR_RENE_W5_CrossEncoder_20261031.zip",
-      "id": 723577059,
-      "bytes": 500010650,
-      "sha256": "b67389496bf49bb867315c73d2b78955be628530de5005c1f123307f22ca8a7c",
-      "url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261108/SSQR_RENE_W5_CrossEncoder_20261031.zip"
+      "name": "SSQR_RENE_W5_CrossEncoder_20261110.zip",
+      "bytes": 500010714,
+      "sha256": "5d81db145dd1b973e73638123e118ae768cc0943061795d68c197e4397c7d462",
+      "url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261110-paper/SSQR_RENE_W5_CrossEncoder_20261110.zip",
+      "id": 730792823
     },
     {
       "name": "SSQR_RENE_W3_CodeBERT_20261031.zip",
@@ -30,7 +30,7 @@
     }
   ],
   "paper_uploaded": false,
-  "verification": "Original scientific evidence and model identities are retained. Current replay and remote verification are recorded in the validation receipt and release notes.",
-  "previous_release_tag": "rene-review-20261108-references",
-  "manuscript_version": "2026.11.08"
+  "verification": "Local checks are recorded in the release validation; the publication receipt records subsequent server verification.",
+  "previous_release_tag": "rene-review-20261110-clean",
+  "manuscript_version": "2026.11.10"
 }

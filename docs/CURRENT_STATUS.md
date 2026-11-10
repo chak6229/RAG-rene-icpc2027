@@ -1,6 +1,6 @@
 # Current evidence and historical records
 
-This release follows the English manuscript dated 8 November 2026. Its scientific results remain those recorded in the frozen experiments. Repackaging and translation do not create a new confirmation or change comparison families.
+This release follows the English manuscript dated 10 November 2026. Its scientific results remain those recorded in the frozen experiments. Repackaging and translation do not create a new confirmation or change comparison families.
 
 | Historical statement or record | Current interpretation and evidence |
 |---|---|
@@ -10,6 +10,6 @@ This release follows the English manuscript dated 8 November 2026. Its scientifi
 | Model files described only by historical paths | Exact W1/W3/W5 attachments are supplied through the current release; access and installation are documented in MODEL_ASSETS.md |
 | Previous repository publication receipts | Historical receipts only; current publication status is in provenance/RELEASE_STATUS.json |
 
-Artifact packaging was cleaned on 10 November 2026; see [the scope record](SCOPE_CLEANUP_20261110.md). Author-side obsolete draft generators, duplicate guides and publication/delivery tools were archived outside the review bundle. `results/experiment_exports/`, scientific `provenance/` records and retained historical source comments preserve the state at the recorded time. Their older plans, pending tasks and workspace paths must not be read as the current delivery status. The English appendix index points to the final reports. No historical observation or independent reviewer label has been rewritten to conceal this chronology.
+Artifact packaging was cleaned on 10 November 2026; see [the scope record](ARTIFACT_SCOPE.md). Author-side obsolete draft generators, duplicate guides and publication/delivery tools were archived outside the review bundle. `results/experiment_exports/`, scientific `provenance/` records and retained historical source comments preserve the state at the recorded time. Their older plans, pending tasks and workspace paths must not be read as the current delivery status. The English appendix index points to the final reports. No historical observation or independent reviewer label has been rewritten to conceal this chronology.
 
 Original source records can contain Chinese text. Current reviewer-facing reports are in English; raw rationales retain their original language to preserve the human evidence. Absolute workstation paths in the original supplement metadata are normalized to relative source identifiers in this release.

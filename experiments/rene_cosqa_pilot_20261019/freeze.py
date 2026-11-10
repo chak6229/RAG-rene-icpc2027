@@ -19,7 +19,7 @@ def main():
     if (OUT / "PROTOCOL.json").exists():
         raise ValueError("protocol already frozen; do not replace it")
     commands = [[sys.executable, "-X", "utf8", "-m", "unittest", "experiments.rene_cosqa_pilot_20261019.test_contract", "-v"],
-                [sys.executable, "-X", "utf8", "experiments/rene_independent_eval_20261019/test_rne_eval.py"]]
+                [sys.executable, "-X", "utf8", "experiments/rene_ssqr_alignment_20261019/test_rne_eval.py"]]
     tests = []
     for command in commands:
         result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, encoding="utf-8")
@@ -87,8 +87,7 @@ def main():
                                            "pilot_queries_permanently_development": len(pilot_ids)}, immutable=True)
 
     source_paths = sorted(Path(__file__).parent.glob("*.py"))
-    source_paths += [ROOT / "experiments/rene_independent_eval_20261019/run_cosqa_eval.py",
-                     ROOT / "experiments/rene_independent_eval_20261019/rne_eval.py",
+    source_paths += [ROOT / "experiments/rene_ssqr_alignment_20261019/rne_eval.py",
                      ROOT / "experiments/rene_ssqr_alignment_20261019/t5.py",
                      ROOT / "experiments/rene_ssqr_alignment_20261019/retriever.py",
                      ROOT / "experiments/rene_ssqr_alignment_20261019/pipeline.py",
@@ -99,9 +98,7 @@ def main():
                   CODEBERT / "config.json", CODEBERT / "training_complete.json", OUT / "ROLE_MANIFEST.json",
                   OUT / "data/queries.jsonl", OUT / "data/groups.json", OUT / "data/PILOT_ROLE.json",
                   OUT / "data/private/pilot_qrels.jsonl", OUT / "TEST_RESULTS.json"]
-    protected_paths = [ROOT / "configs/vac_mqr_gain_model/CURRENT.json", ROOT / "configs/vac_mqr_verification_policy/CURRENT.json",
-                       ROOT / "configs/vac_mqr_risk_module/CURRENT.json", ROOT / "configs/uq_candidate_selection/CURRENT.json",
-                       ROOT / "results/vac_mqr_v5/STABLE.json"]
+    protected_paths = []  # Author-workspace registries are outside this artifact.
     def record(path):
         return {"path": path.relative_to(ROOT).as_posix(), "sha256": sha(path)}
     protocol = {

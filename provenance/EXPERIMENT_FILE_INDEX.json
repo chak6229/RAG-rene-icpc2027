@@ -246,54 +246,6 @@
     "source_type": "计算实验"
   },
   {
-    "study": "rene_fixed_action_uq_20261019",
-    "file": "results/experiment_exports/rene_fixed_action_uq_20261019/PROTOCOL.json",
-    "source_sha256": "00f61c0e745dfe7744a90bccf56950ee113a0e5faa77e692233084c07ac1403f",
-    "source_type": "计算实验"
-  },
-  {
-    "study": "rene_fixed_action_uq_20261019",
-    "file": "results/experiment_exports/rene_fixed_action_uq_20261019/REPORT.md",
-    "source_sha256": "c2fd40994de61f779574c54e8fa35b47d6fa150c9d957bb619665d4abfcb0941",
-    "source_type": "计算实验"
-  },
-  {
-    "study": "rene_fixed_action_uq_20261019",
-    "file": "results/experiment_exports/rene_fixed_action_uq_20261019/RESULTS.json",
-    "source_sha256": "026896c18bc979c50244beb5c5be1058e1efd92cf59cf5daec46be03ed42b72c",
-    "source_type": "计算实验"
-  },
-  {
-    "study": "rene_independent_confirmation_20261018",
-    "file": "results/experiment_exports/rene_independent_confirmation_20261018/FAILED_PROTOCOL.json",
-    "source_sha256": "82235b324fbebd6ffcede25ba60f87f47e24bc2244838b23b3274b3c8257bac5",
-    "source_type": "计算实验"
-  },
-  {
-    "study": "rene_independent_confirmation_20261018",
-    "file": "results/experiment_exports/rene_independent_confirmation_20261018/PROTOCOL.json",
-    "source_sha256": "3a31a446204e8157f2f9216477a21d1ab823a1571acc8f2db690434ae5303380",
-    "source_type": "计算实验"
-  },
-  {
-    "study": "rene_independent_confirmation_20261018",
-    "file": "results/experiment_exports/rene_independent_confirmation_20261018/REPORT.md",
-    "source_sha256": "e7253fae159e111a7db7481462ca8d69ceed4f8f70923aa617e583ce1ac2e089",
-    "source_type": "计算实验"
-  },
-  {
-    "study": "rene_independent_confirmation_20261018",
-    "file": "results/experiment_exports/rene_independent_confirmation_20261018/RESULTS.json",
-    "source_sha256": "99f83d38d07185579dec50bcb7e57ea7aa0d35940be91a15568411562cbb9248",
-    "source_type": "计算实验"
-  },
-  {
-    "study": "rene_independent_eval_20261019",
-    "file": "results/experiment_exports/rene_independent_eval_20261019/REPORT.md",
-    "source_sha256": "38a780bb94f8cd5a2ea6993771a1480a48fd50b7d083844a4607f7df2983f7ce",
-    "source_type": "计算实验"
-  },
-  {
     "study": "rene_mechanism_review_20261020",
     "file": "results/experiment_exports/rene_mechanism_review_20261020/FINDINGS.md",
     "source_sha256": "8c7ff352ca3c011a61e9c01d6d9ff67d538081f2b8792f1cef9c46186e86be71",
@@ -330,24 +282,6 @@
     "source_type": "计算实验"
   },
   {
-    "study": "rene_postselection_20261019",
-    "file": "results/experiment_exports/rene_postselection_20261019/PROTOCOL.json",
-    "source_sha256": "337882088e47c08f6f1c0d447367ac100ca0ec9a29cbda24213e312f2efeef3f",
-    "source_type": "计算实验"
-  },
-  {
-    "study": "rene_postselection_20261019",
-    "file": "results/experiment_exports/rene_postselection_20261019/READOUT.md",
-    "source_sha256": "95bfd745222d21115b0ae5188e76fb5349f62bce8edad016836c41260af648fd",
-    "source_type": "计算实验"
-  },
-  {
-    "study": "rene_postselection_20261019",
-    "file": "results/experiment_exports/rene_postselection_20261019/REPORT.md",
-    "source_sha256": "4b2f96d1728f19a68d4c4ea2ae3f85b433f6c096a6402a0f2aada28ac7071618",
-    "source_type": "计算实验"
-  },
-  {
     "study": "rene_relevance_sampling_uncertainty_20261021",
     "file": "results/experiment_exports/rene_relevance_sampling_uncertainty_20261021/FINDINGS.md",
     "source_sha256": "705184988830db1702ab1e80abdb2941087425ae577e90f7204d26c416cf9976",
@@ -364,12 +298,6 @@
     "file": "results/experiment_exports/rene_relevance_sensitivity_20261021/PROTOCOL.json",
     "source_sha256": "560f640c16c0d2d9fb9c03f587f7d7d98e1819094c7c0f6e58bbfda1f3a7f44e",
     "source_type": "人工评审"
-  },
-  {
-    "study": "rene_repaired_confirmation_20261019",
-    "file": "results/experiment_exports/rene_repaired_confirmation_20261019/RESULTS.json",
-    "source_sha256": "6271c7c4d269dab78eef65dde90d64f6814b46cfd27c871dbb1dfd13edc8de07",
-    "source_type": "计算实验"
   },
   {
     "study": "rene_review_completion_20261021",
@@ -426,18 +354,6 @@
     "source_type": "计算实验"
   },
   {
-    "study": "rene_strict_confirmation_20261019",
-    "file": "results/experiment_exports/rene_strict_confirmation_20261019/REPORT.md",
-    "source_sha256": "5e24225c6c09c4b86ba010f63621b66a0fbaf78f2b68eb020c9913554719cb2f",
-    "source_type": "计算实验"
-  },
-  {
-    "study": "rene_strict_confirmation_20261019",
-    "file": "results/experiment_exports/rene_strict_confirmation_20261019/RESULTS.json",
-    "source_sha256": "46a5b68e4541dabd514a2eee6e676df2b012ed547a4ef30a9610e42278bd8dc5",
-    "source_type": "计算实验"
-  },
-  {
     "study": "rene_t5_weight_factors_20261020",
     "file": "results/experiment_exports/rene_t5_weight_factors_20261020/DESIGN.json",
     "source_sha256": "a5736815a7ffc020fbedb320e79054054d29b265134566edbbf1674b1d0ce2e9",
@@ -474,18 +390,6 @@
     "source_type": "计算实验"
   },
   {
-    "study": "rene_uq_independent_proof_20261019",
-    "file": "results/experiment_exports/rene_uq_independent_proof_20261019/REPORT.md",
-    "source_sha256": "105880cc401c713d6ee2e608042845c93d49d0be841720dae417d123c2eb88e9",
-    "source_type": "计算实验"
-  },
-  {
-    "study": "rene_uq_independent_proof_20261019",
-    "file": "results/experiment_exports/rene_uq_independent_proof_20261019/RESULTS.json",
-    "source_sha256": "54b1cc94e480f879365280ff8f82381359f17dc119a4ca1a0ceb474ce558a1cc",
-    "source_type": "计算实验"
-  },
-  {
     "study": "rene_weight_confirmation_20261021",
     "file": "results/experiment_exports/rene_weight_confirmation_20261021/DESIGN.json",
     "source_sha256": "cb03eede49db37e7a3de670904c12b93d0a2f947e541a6b2dfb1f8b149c69f5d",
@@ -507,24 +411,6 @@
     "study": "rene_weight_confirmation_20261021",
     "file": "results/experiment_exports/rene_weight_confirmation_20261021/RUNTIME.json",
     "source_sha256": "76478bc62fefa0a01511a91b839b40de741d4b981cdd466574a31578f468efec",
-    "source_type": "计算实验"
-  },
-  {
-    "study": "strong_flow_uq_20261014",
-    "file": "results/experiment_exports/strong_flow_uq_20261014/PROTOCOL.json",
-    "source_sha256": "3d3f570ddb3c9870f082400d4326a8589ecd82209f35e28d07ece6727a677afe",
-    "source_type": "计算实验"
-  },
-  {
-    "study": "strong_flow_uq_20261014",
-    "file": "results/experiment_exports/strong_flow_uq_20261014/PROTOCOL_PREFLIGHT.json",
-    "source_sha256": "e5c583b3362c0f1b282ac31d51d1f3bd16507022b8b0817eece978404b5089c7",
-    "source_type": "计算实验"
-  },
-  {
-    "study": "strong_flow_uq_20261014",
-    "file": "results/experiment_exports/strong_flow_uq_20261014/REPORT.md",
-    "source_sha256": "d2ebee67a2db24c7bad2d6171abd70325bcbec0ff1be23bd932c69a647493240",
     "source_type": "计算实验"
   }
 ]

@@ -54,8 +54,7 @@ def main():
         "models/t5-cqc-codenn-1m/best/generation_config.json"]:
         p=ROOT/relative
         metadata[relative]={"sha256":digest(p),"value":json.loads(p.read_text(encoding="utf-8"))}
-    protected=["configs/vac_mqr_gain_model/CURRENT.json","configs/vac_mqr_verification_policy/CURRENT.json",
-        "configs/vac_mqr_risk_module/CURRENT.json","configs/uq_candidate_selection/CURRENT.json","results/vac_mqr_v5/STABLE.json"]
+    protected = []  # Unrelated author-workspace registries are not part of this release.
     protected_snapshot={relative:digest(ROOT/relative) for relative in protected}
     report={"created_utc":datetime.now(timezone.utc).isoformat(),"weights":weights,"trainer_metadata":states,"configuration_files":metadata,
         "protected_snapshot":protected_snapshot,"scope":"checkpoint/header/metadata only; no model inference, training or model replacement"}

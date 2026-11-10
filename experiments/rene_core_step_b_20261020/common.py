@@ -27,19 +27,7 @@ T = [0, 1, 2, 3, 6, 7, 15, 16, 17, 18]
 R = list(range(19, 31)) + list(range(43, 65))
 BLOCKS = {"M0": sorted(M0), "MT": sorted(M0 + T),
           "MR": sorted(M0 + R), "MRT": sorted(M0 + T + R)}
-PROTECTED = [
-    "configs/vac_mqr_gain_model/CURRENT.json",
-    "configs/vac_mqr_verification_policy/CURRENT.json",
-    "configs/vac_mqr_risk_module/CURRENT.json",
-    "configs/uq_candidate_selection/CURRENT.json",
-    "results/vac_mqr_v5/STABLE.json",
-    "results/rene_cosqa_confirmation_20261019/PROTOCOL.json",
-    "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
-    "results/rene_cosqa_confirmation_20261019/FINAL_ACCEPTANCE.json",
-    "results/rene_core_step_a_20261020/PROTOCOL.json",
-    "results/rene_core_step_a_20261020/RESULTS.json",
-    "results/rene_core_step_a_20261020/AUDIT.json",
-]
+PROTECTED = []  # Unrelated author-workspace registries are not part of this release.
 
 
 def now():

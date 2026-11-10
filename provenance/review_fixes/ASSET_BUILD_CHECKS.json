@@ -1,8 +1,0 @@
-{
-  "passed": true,
-  "assets": 3,
-  "checkpoint_hashes_matched": true,
-  "codenn_raw_and_processed_hashes_matched": true,
-  "training_or_model_inference_run": false,
-  "total_asset_bytes": 1899118107
-}

@@ -16,7 +16,7 @@ Selected checks include CoSQA/CodeBERT development ENTR B = +0.01321969 and G = 
 | S4 / T4 | RRF3/RRF4 fusion | Table, protocol, aggregate reports and source; not raw list fusion/retrieval replay |
 | S5 / T5 | Frozen H stages | Yes, cached outcomes and work accounting |
 | S6 / T6 | Earlier two-weight Top1/best3 evidence | Table and source; complete later B/G weight comparison replayed as S11 |
-| S7 / T7 | Earlier seed-UQ analyses | Table and historical source; not model refitting |
+| S7 / T7 | Full-H opportunity-loss and verification accounting | Yes, descriptive arithmetic from included frozen stage records; tools/rebuild_s7.py --check |
 | S8 / T8 | Same-pool count/aggregation decomposition | Yes, original 24-comparison family |
 | S9 / T9 | StaQC confirmation and descriptive controls | Yes |
 | S10 / T10 | UniXcoder extension | Yes, original 12-comparison family |
@@ -28,7 +28,7 @@ Selected checks include CoSQA/CodeBERT development ENTR B = +0.01321969 and G = 
 | Separate paired-weight confirmation | New StaQC 25,600 groups | Yes, original six-comparison family |
 | human review relevance sensitivity and sampling | Labels, numeric Top3 panels, sample design, reference output | Yes, 6,144 exact query bounds, 48 summaries, exact finite-frame envelopes and secondary t approximations |
 
-`tools/check_tables.py` checks S1–S15 CSV exports against `results/TABLES.json` and confirms the expected 176 rows. This is export integrity, distinct from rerunning each source analysis.
+`tools/check_tables.py` checks S1–S15 CSV exports against `results/TABLES.json` and confirms the expected 179 rows. This is export integrity, distinct from rerunning each source analysis.
 
 ## human review acceptance
 

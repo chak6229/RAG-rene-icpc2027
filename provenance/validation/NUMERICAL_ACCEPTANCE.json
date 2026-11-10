@@ -3,7 +3,7 @@
   "full_bootstrap": true,
   "studies": 14,
   "contrasts": 103,
-  "seconds": 16.096601100056432,
+  "seconds": 16.335372300003655,
   "scope": "cached rank/metric numerical replay; no generation, retrieval, training or reannotation",
   "statistics_tolerance": 1e-11,
   "python": "3.12.14",

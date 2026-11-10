@@ -103,7 +103,7 @@ This provenance establishes inheritance of a fixed operating point. It does not 
 | target_harm = 0.1 | Historical target for the harm rate among adopted actions | Distinct from the prediction threshold; it does not certify population risk for full H |
 | Observed harm rate or count | Empirical result under a particular sample and policy | Reported separately from positive-gain retention, net change and the adoption denominator |
 
-Historical selected-action and three-class designs, component versions and the sealed full-H design sources are retained in `provenance/review_fixes/`. The full-H statuses `risk_certified=false` and `deployment_policy_promoted=false` remain unchanged. Stage results describe the gain–loss trade-off at this frozen operating point; they do not establish an optimal gate or a result for every threshold.
+Threshold provenance, source hashes and the current frozen-design pointer are recorded in `provenance/review_fixes/risk_working_point_provenance.json`; historical model definitions are excluded. The full-H statuses `risk_certified=false` and `deployment_policy_promoted=false` remain unchanged. Stage results describe the gain–loss trade-off at this frozen operating point; they do not establish an optimal gate or a result for every threshold.
 
 
 ## Review Cases and Disagreement Analysis
@@ -265,7 +265,7 @@ The supplementary packets show only the original query and code in independent a
 
 The fixed design is experiments/rene_relevance_sensitivity_20261021/DESIGN.md. Completed evidence is in results/rene_review_completion_20261021/: RESULTS.json contains all 48 reviewer/threshold/cutoff/policy combinations; query_bounds.jsonl contains 6,144 exact paired query records; supplement_labels.jsonl and supplement_disagreements.jsonl preserve all new labels and disagreements. REVIEW_ACCEPTANCE.json records completed collection, and FINAL_ACCEPTANCE.json validates this manuscript integration.
 
-The original existing-label analysis remains in results/rene_relevance_sensitivity_20261021/preview/. The earlier content/numerical audit remains in results/rene_review_final_reanalysis_20261021/ as a historical version. The sampling-uncertainty extension is results/rene_relevance_sampling_uncertainty_20261021/ and is integrated into the current manuscript under results/rene_contribution_strength_20261021/. These diagnostics remain separate from the frozen 15-table, 176-row bundle and do not rerun or revise its B/G, confirmation, retriever, weight or full-H effect estimates.
+The original existing-label analysis remains in results/rene_relevance_sensitivity_20261021/preview/. The earlier content/numerical audit remains in results/rene_review_final_reanalysis_20261021/ as a historical version. The sampling-uncertainty extension is results/rene_relevance_sampling_uncertainty_20261021/ and is integrated into the current manuscript under results/rene_contribution_strength_20261021/. These diagnostics remain separate from the frozen 15-table, 179-row current bundle and do not rerun or revise its B/G, confirmation, retriever, weight or full-H effect estimates.
 
 
 ## Sampling Uncertainty Analysis

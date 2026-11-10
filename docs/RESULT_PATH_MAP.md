@@ -27,7 +27,5 @@ Original `results/rene_<study>_<date>/` paths identify historical input/output b
 | `rene_relevance_sensitivity_20261021` | [Expanded relevance analysis](../results/experiment_exports/rene_relevance_sensitivity_20261021/) | human review |
 | `rene_relevance_sampling_uncertainty_20261021` | [Sampling uncertainty](../results/experiment_exports/rene_relevance_sampling_uncertainty_20261021/) | human review |
 | `rene_cqc_training_fidelity_20261020` | [Eight-arm training sensitivity](../results/experiment_exports/rene_cqc_training_fidelity_20261020/) | Computational experiment |
-| `rene_strict_confirmation_20261019` | [Historical seed-UQ confirmation](../results/experiment_exports/rene_strict_confirmation_20261019/) | Computational experiment |
-| `rene_uq_independent_proof_20261019` | [Historical risk-head confirmation](../results/experiment_exports/rene_uq_independent_proof_20261019/) | Computational experiment |
 
 The human review rows all denote human judgments. Portable replay covers the supplied numeric/label inputs, as listed in `EXPECTED_RESULTS.md`; historical model pipelines require separately obtained upstream inputs.

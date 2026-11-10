@@ -1,12 +1,6 @@
 {
   "passed": true,
   "checked_local_date": "2026-11-10",
-  "platform": "Windows-11-10.0.26200-SP0",
-  "python": "3.12.14",
-  "numpy": "1.26.4",
-  "scipy": "1.13.1",
-  "threadpoolctl": "3.6.0",
-  "environment": "Previously validated isolated pinned Python 3.12 environment, reused for this release.",
   "source_tree_complete_replay": {
     "passed": true,
     "numerical_studies": 14,
@@ -15,45 +9,46 @@
     "human_review": "human review",
     "human_query_bounds": 6144,
     "human_sampling_combinations": 48,
-    "elapsed_seconds": 29.531982299988158
+    "s7_accounting_rows": 6,
+    "elapsed_seconds": 19.535859600058757
   },
+  "python": "3.12.14",
+  "numpy": "1.26.4",
+  "scipy": "1.13.1",
+  "threadpoolctl": "3.6.0",
+  "environment": "Previously validated pinned isolated Python 3.12 environment",
+  "current_scope": "docs/ARTIFACT_SCOPE.md",
+  "removed_previous_package_files": 148,
+  "standalone_old_uq_modules": 0,
+  "generic_ranking_evaluator_files_relocated": 2,
   "models": {
     "archives": 3,
-    "internal_files": 25,
-    "archive_and_file_hashes_passed": true,
-    "new_training": false
+    "member_contents_unchanged": true,
+    "W5_layout_repacked": true,
+    "new_training": false,
+    "server_metadata_checked": true
   },
   "tables": {
-    "original_result_records": 176,
+    "current_result_records": 179,
+    "unchanged_non_S7_records": 173,
+    "new_S7_descriptive_rows": 6,
     "settings_rows": 115,
-    "additional_display_rows": 26,
-    "base_table_numbering": "S1–S25"
+    "base_numbering": "S1–S25"
   },
   "manuscript": {
-    "source_sha256": "9ca3427b577c4b897384d7af97e513e9dd0531f18ae52ac1ef3df7b6e4fc4d7f",
-    "pdf_total_pages": 11,
-    "main_text_last_page": 10,
-    "scientific_text_unchanged": true
-  },
-  "supplement_pdf_pages": 27,
-  "core_statistics_tolerance": 1e-11,
-  "new_model_experiments": false,
-  "repository": "https://github.com/chak6229/RAG-rene-icpc2027",
-  "model_attachments_remote_verified": true,
-  "publication_receipt": "Final remote verification is recorded in release notes and the author delivery receipt.",
-  "packaging_cleanup": {
-    "removed_author_side_files": 26,
-    "retained_python_sources_byte_identical": 330,
-    "retained_imports_to_removed_files": 0,
-    "supplement_and_scientific_inputs_byte_identical": true
-  },
-  "current_manuscript": {
-    "word_sha256": "51d08fce3c79d88de8b64e523ade71aadcec2f1414fc0905ab6ec7a097d0c789",
+    "source_sha256": "cf49f0d8e45df2149b99cb56ade2c3bb7387893c836866448ec608dfcb8260c3",
+    "total_pages": 12,
     "main_text_pages": 10,
     "reference_pages": [
       11,
       12
     ],
-    "unchanged_by_cleanup": true
-  }
+    "changes": "Removed historical multi-seed clauses from III.E, added S7 pointer in III.D and updated artifact version; other results retained"
+  },
+  "supplement_pdf_pages": 28,
+  "numeric_and_human_inputs_unchanged": true,
+  "core_statistics_tolerance": 1e-11,
+  "new_model_experiments": false,
+  "repository_private": true,
+  "publication_receipt": "Final GitHub verification is supplied separately in the author delivery receipt."
 }

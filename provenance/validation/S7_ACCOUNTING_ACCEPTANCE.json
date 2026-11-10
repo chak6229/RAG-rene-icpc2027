@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "rows": 6,
+  "frozen_query_records": 17060,
+  "descriptive_only": true,
+  "new_statistical_comparisons": 0,
+  "query_level_accounting_identity": true,
+  "agrees_with_original_S5": true,
+  "bootstrap_unchanged": true
+}

@@ -17,13 +17,7 @@ INVENTORY = ROOT / "results/rene_cosqa_ssqr_audit_20261019/QUERY_GROUP_INVENTORY
 SOURCE = ROOT / "data/codexglue/advtest/test.jsonl"
 T5 = ROOT / "models/t5-cqc-codenn-1m/best"
 CODEBERT = ROOT / "models/codebert-ssqr-pooler-2epoch-20261019"
-PROTECTED = [
-    "configs/vac_mqr_gain_model/CURRENT.json",
-    "configs/vac_mqr_verification_policy/CURRENT.json",
-    "configs/vac_mqr_risk_module/CURRENT.json",
-    "configs/uq_candidate_selection/CURRENT.json",
-    "results/vac_mqr_v5/STABLE.json",
-]
+PROTECTED = []  # Unrelated author-workspace registries are not part of this release.
 PROFILES = {
     "greedy20_source": {"bank": "baseline", "positions": "source_1_to_n", "max_new_tokens": 19, "sample": False},
     "greedy20_all": {"bank": "baseline", "positions": "paper_0_to_n", "max_new_tokens": 19, "sample": False},

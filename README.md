@@ -1,12 +1,12 @@
 # SSQR external replication artifact
 
-English review materials for **Position Selection Advantage and Executable Utility: An External Replication of SSQR for Code Search**, aligned with the cumulative English manuscript dated 8 November 2026. Scientific manuscript version **2026.11.08**; artifact packaging **2026.11.10**, after scope cleanup. The manuscript is delivered separately.
+English review materials for **Position Selection Advantage and Executable Utility: An External Replication of SSQR for Code Search**, aligned with the cumulative English manuscript dated 10 November 2026. Manuscript and artifact version **2026.11.10**, after alignment with the current three-RQ paper scope. The manuscript is delivered separately.
 
 Repository: https://github.com/chak6229/RAG-rene-icpc2027
 
-[Download the current artifact ZIP](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-clean). The unchanged [W1/W3/W5 model attachments](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108) remain available in the original release.
+[Download the current artifact ZIP](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-paper). W1 and W3 remain in the [original model release](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108); W5 is repackaged in the [current release](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-paper) with an independent verification-model directory and unchanged weight contents.
 
-The package supports the paper's documented reconstruction, same-pool position-selection comparisons, automatic-execution analyses and independent human-review diagnostics. This release reorganizes existing evidence; it introduces no new experimental results. The [scope cleanup record](docs/SCOPE_CLEANUP_20261110.md) explains the 26 archived author-side files and the retained historical dependencies.
+The package supports the paper's documented reconstruction, same-pool position-selection comparisons, automatic-execution analyses and independent human-review diagnostics. This release reorganizes existing evidence and recomputes descriptive S7 accounting from the same frozen outcomes; it adds no new model evaluation. The [artifact scope](docs/ARTIFACT_SCOPE.md) explains the current study contents and excluded historical branches.
 
 ## Start here
 
@@ -16,9 +16,9 @@ The package supports the paper's documented reconstruction, same-pool position-s
 4. Consult [environment and settings](docs/ENVIRONMENT.md), [data access](docs/DATA_AVAILABILITY.md), [model attachments](docs/MODEL_ASSETS.md) and [CODEnn reconstruction](docs/CODENN_RECONSTRUCTION.md).
 5. Read the [human-review guide](human_review/README.md), [ethics and consent statement](docs/ETHICS_AND_CONSENT.md), and [current status and historical records](docs/CURRENT_STATUS.md).
 
-The [AI use disclosure](docs/AI_USE_DISCLOSURE.md) matches the manuscript acknowledgment. This update adds disclosure documentation; study code, data, labels, results, and models are unchanged.
+The [AI use disclosure](docs/AI_USE_DISCLOSURE.md) matches the manuscript acknowledgment. The author-verified disclosure is retained in the current materials.
 
-The [reference correction record](docs/REFERENCE_CORRECTIONS_20261108.md) documents four bibliography corrections in the separately supplied manuscript. This update changes documentation only.
+The [reference correction record](docs/REFERENCE_CORRECTIONS_20261108.md) documents four bibliography corrections in the separately supplied manuscript. The corrected bibliography is retained in the current manuscript.
 
 ## Reproduce the statistical evidence
 
@@ -41,8 +41,8 @@ The unified entry point verifies integrity and replays **14 numerical study unit
 | `docs/supporting/` | English reports referenced by the manuscript |
 | `artifact/numerical/` | Anonymous target ranks, selection orders, policy outcomes and statistical replay |
 | `human_review/` | Original independent A/B labels and rationales, supplemental judgments, sampling inputs and replay |
-| `results/` | The 176 integrated S1–S15 result records, paired-weight confirmation and frozen experiment exports |
-| `experiments/` and root scripts | Current and historical model, training, data-preparation and analysis sources, including shared dependencies; use the mapped study entry points |
+| `results/` | The 179 integrated S1–S15 result records, paired-weight confirmation and frozen experiment exports |
+| `experiments/` and root scripts | Current and historical model, training, data-preparation and analysis sources, with only the dependencies used by the current paper; use the mapped study entry points |
 | `provenance/` | Source manifests, historical records and release validation |
 | `tools/` | Bundle checks, replay and installation of model attachments |
 
@@ -53,3 +53,5 @@ The portable replay begins at cached ranks/outcomes and does not regenerate raw 
 ## Access and integrity
 
 This private repository requires access for the intended reviewers. The current release record is [RELEASE_STATUS.json](provenance/RELEASE_STATUS.json). Run `python tools/verify_bundle.py` to check the delivered files against `SHA256SUMS.json`. Keep [the review notice](REVIEW_ONLY_NOTICE.md) and third-party notices in `docs/licenses/` with the package.
+
+Table S7 now reports frozen full-H opportunity-loss and verification accounting. See [artifact scope](docs/ARTIFACT_SCOPE.md). Superseded experimental branches are not included.

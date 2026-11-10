@@ -8,7 +8,7 @@
 | S4 | [T4_multicandidate_fusion](../results/tables/T4_multicandidate_fusion.csv) | 8 |
 | S5 | [T5_frozen_H_stages](../results/tables/T5_frozen_H_stages.csv) | 10 |
 | S6 | [T6_two_T5_weights](../results/tables/T6_two_T5_weights.csv) | 4 |
-| S7 | [T7_previous_seed_UQ](../results/tables/T7_previous_seed_UQ.csv) | 3 |
+| S7 | [T7_full_H_opportunity_accounting](../results/tables/T7_full_H_opportunity_accounting.csv) | 6 |
 | S8 | [T8_count_aggregation](../results/tables/T8_count_aggregation.csv) | 24 |
 | S9 | [T9_StaQC_confirmation](../results/tables/T9_StaQC_confirmation.csv) | 12 |
 | S10 | [T10_third_retriever](../results/tables/T10_third_retriever.csv) | 12 |

@@ -15,20 +15,7 @@ MODEL = ROOT / 'models/unixcoder-base-pinned-20261020'
 SOURCES = OUT / 'sources'
 NAME = 'UniXcoder'
 COMPONENTS = ('ENTR_B_budget_mean_1_to_3', 'ENTR_G_aggregation_at3_mean_to_max')
-PROTECTED = [
-    'configs/vac_mqr_gain_model/CURRENT.json',
-    'configs/vac_mqr_verification_policy/CURRENT.json',
-    'configs/vac_mqr_risk_module/CURRENT.json',
-    'configs/uq_candidate_selection/CURRENT.json',
-    'results/vac_mqr_v5/STABLE.json',
-    'results/rene_cosqa_confirmation_20261019/PROTOCOL.json',
-    'results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json',
-    'results/rene_cosqa_confirmation_20261019/FINAL_ACCEPTANCE.json',
-    'results/rene_budget_aggregation_20261020/FINAL_ACCEPTANCE.json',
-    'results/rene_cqc_training_fidelity_20261020/FINAL_ACCEPTANCE.json',
-    'results/rene_factor_confirmation_20261020/FINAL_ACCEPTANCE.json',
-    'results/rene_factor_confirmation_20261020/DELIVERY_ACCEPTANCE.json',
-]
+PROTECTED = []  # Unrelated author-workspace registries are not part of this release.
 
 
 def now():

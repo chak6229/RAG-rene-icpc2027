@@ -35,7 +35,7 @@ Quick mode omits all bootstrap intervals and their joint direction decisions. It
 
 The study IDs in `STUDIES.json` and replay output map these computations to the table names above. That file records the original statistical configuration and expected results. Source hashes and the source-to-export checks are recorded in `EXPORT_CHECKS.json`.
 
-`reference_tables/` contains the previously integrated T1-T15 aggregate exports and the new weight-confirmation exports for inspection. The replay recomputes the scopes listed above. T2-T4, T6-T7 and T12-T15 are reference-only here; it does not reconstruct their complete original analysis. Human-review summaries are aggregates only; original labels and notes are not included or re-created.
+`reference_tables/` contains the previously integrated T1-T15 aggregate exports and the new weight-confirmation exports for inspection. The replay recomputes the scopes listed above. T2-T4, T6 and T12-T15 are reference-only here; it does not reconstruct their complete original analysis. Human-review summaries are aggregates only; original labels and notes are not included or re-created.
 
 ## Numerical Inputs And Boundaries
 
@@ -57,3 +57,5 @@ The artifact begins at cached target ranks or cached policy outcomes. It does no
 The manuscript is submitted separately through the venue. Training code, model weights, full production implementation, raw benchmark text, qrels, individual review returns, reviewer identities, internal logs and future research plans are excluded. There is no telemetry or external callback.
 
 Please retain and handle this material according to the venue's review confidentiality and anonymity policies. This is not a public release. The submitting authors retain rights in their original material, subject to applicable third-party rights and venue policy.
+
+Current S7 is separately recomputed by ../../tools/rebuild_s7.py --check from the same frozen full-H stage records.

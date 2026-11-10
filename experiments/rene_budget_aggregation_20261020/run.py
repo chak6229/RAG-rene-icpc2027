@@ -23,21 +23,7 @@ PACKAGE=Path(__file__).resolve().parent
 OUT=ROOT/'results/rene_budget_aggregation_20261020'
 BRIDGE=ROOT/'results/rene_ssqr_bridge_20261019'
 A=ROOT/'results/rene_core_step_a_20261020'
-PROTECTED=[
-    'configs/vac_mqr_gain_model/CURRENT.json',
-    'configs/vac_mqr_verification_policy/CURRENT.json',
-    'configs/vac_mqr_risk_module/CURRENT.json',
-    'configs/uq_candidate_selection/CURRENT.json',
-    'results/vac_mqr_v5/STABLE.json',
-    'results/rene_cosqa_confirmation_20261019/PROTOCOL.json',
-    'results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json',
-    'results/rene_cosqa_confirmation_20261019/FINAL_ACCEPTANCE.json',
-    'results/rene_core_step_b_20261020/RESULTS.json',
-    'results/rene_multicandidate_fusion_20261020/RESULTS.json',
-    'results/rene_envelope_completion_20261020/RESULTS.json',
-    'results/rene_evidence_integration_20261020/TABLES.json',
-    'results/rene_evidence_release_20261020/FINAL_ACCEPTANCE.json',
-]
+PROTECTED = []  # Unrelated author-workspace registries are not part of this release.
 
 
 def now():

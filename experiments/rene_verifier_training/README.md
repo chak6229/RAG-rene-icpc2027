@@ -1,0 +1,5 @@
+# Frozen verification model
+
+This directory contains only the dense 4,096-query cross-encoder training components used by the complete-H study. The original function bodies are preserved; the output location and entry point are separated from unrelated historical experiments. The selected checkpoint is provided as W5. The binary and tokenizer files retain their recorded hashes.
+
+The source functions build one matched target pair and three benchmark non-target pairs per query, including two dense hard negatives and one random negative, then train the frozen CodeBERT classifier. Benchmark non-targets are not claimed to be semantically irrelevant. Input corpus, vectors and pair files require the lawful upstream inputs and frozen manifests described in S17/R28; raw-text preparation and retraining are not included in the cached numerical replay. Use `python -m experiments.rene_verifier_training.training --data-dir <frozen-semantic-input-directory>` only with those inputs. Install the supplied W5 checkpoint for replaying model stages.

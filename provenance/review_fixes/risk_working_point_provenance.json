@@ -1,0 +1,22 @@
+{
+  "scope": "Historical provenance of the full-H working point; not an executable historical model or additional current result",
+  "working_point": 0.075,
+  "historical_target_harm_rate": 0.1,
+  "base_threshold": 0.1,
+  "current_frozen_design": "provenance/settings_sources/R07/DESIGN.json",
+  "historical_sources": [
+    {
+      "path": "provenance/review_fixes/anchor_stage_risk_clean_20261016_DESIGN.md",
+      "sha256": "897cf7dcdef3387e3b232d7cbbf1b1009c277081e6062447c7b73383aa8de84d"
+    },
+    {
+      "path": "provenance/review_fixes/selected_action_risk_20261016_DESIGN.md",
+      "sha256": "4752e2b9603f18861f90aed55563974b911c417cd896817d2a0404567ba10076"
+    },
+    {
+      "path": "provenance/review_fixes/versions_anchor-stage-threeway-20261016.json",
+      "sha256": "375ea8366b0f7415a7ddf290a4cc6eaedc9eed59ff1521bf44683a8e62f87cdc"
+    }
+  ],
+  "interpretation": "The full-H study inherits 0.075 as a frozen working point. The value 0.1 is the historical target harm rate among adopted actions, not a fitted calibration formula or risk certificate. The current 20-feature risk model is specified in S23; this record does not import the historical model or its feature definitions."
+}

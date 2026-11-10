@@ -1,14 +1,10 @@
 {
   "version": "2026.11.10",
-  "manuscript_version": "2026.11.08",
-  "files_excluding_inventory_and_checksum": 651,
-  "total_bytes_excluding_inventory_and_checksum": 33786891,
-  "max_file_bytes": 6766133,
+  "manuscript_version": "2026.11.10",
+  "files_excluding_inventory_and_checksum": 516,
   "includes_paper": false,
-  "embedded_obsolete_manuscript_removed": true,
-  "includes_english_supplement": true,
-  "github_single_file_limit_bytes": 104857600,
-  "requires_git_lfs": false,
+  "standalone_old_uq_modules": 0,
+  "current_s7": "Full-H opportunity-loss and verification accounting",
   "files": [
     {
       "path": ".gitattributes",
@@ -104,15 +100,15 @@
     },
     {
       "path": "artifact/numerical/EXPORT_CHECKS.json",
-      "bytes": 10360
+      "bytes": 10382
     },
     {
       "path": "artifact/numerical/MANIFEST.json",
-      "bytes": 6808
+      "bytes": 6813
     },
     {
       "path": "artifact/numerical/README.md",
-      "bytes": 5883
+      "bytes": 6058
     },
     {
       "path": "artifact/numerical/README_CN.md",
@@ -175,8 +171,8 @@
       "bytes": 1745
     },
     {
-      "path": "artifact/numerical/reference_tables/T7_previous_seed_UQ.csv",
-      "bytes": 561
+      "path": "artifact/numerical/reference_tables/T7_full_H_opportunity_accounting.csv",
+      "bytes": 875
     },
     {
       "path": "artifact/numerical/reference_tables/T8_count_aggregation.csv",
@@ -215,44 +211,16 @@
       "bytes": 55154
     },
     {
-      "path": "build_crsu_pilot.py",
-      "bytes": 20792
-    },
-    {
-      "path": "build_enhanced_retrieval_feedback_dataset.py",
-      "bytes": 6724
-    },
-    {
-      "path": "build_rewrite_utility_dataset.py",
-      "bytes": 14034
-    },
-    {
-      "path": "crsu/__init__.py",
-      "bytes": 332
-    },
-    {
-      "path": "crsu/calibration.py",
-      "bytes": 3067
-    },
-    {
-      "path": "crsu/core.py",
-      "bytes": 7259
-    },
-    {
-      "path": "crsu/model.py",
-      "bytes": 5116
-    },
-    {
-      "path": "crsu/training.py",
-      "bytes": 4971
-    },
-    {
       "path": "docs/AI_USE_DISCLOSURE.md",
       "bytes": 1013
     },
     {
       "path": "docs/APPENDIX_INDEX.md",
-      "bytes": 2194
+      "bytes": 2315
+    },
+    {
+      "path": "docs/ARTIFACT_SCOPE.md",
+      "bytes": 1664
     },
     {
       "path": "docs/assets/CODENN_INPUTS.json",
@@ -264,7 +232,7 @@
     },
     {
       "path": "docs/assets/STUDY_ASSETS.json",
-      "bytes": 7155
+      "bytes": 7145
     },
     {
       "path": "docs/CHANGELOG_20261108.md",
@@ -276,7 +244,7 @@
     },
     {
       "path": "docs/CURRENT_STATUS.md",
-      "bytes": 2172
+      "bytes": 2165
     },
     {
       "path": "docs/DATA_AVAILABILITY.md",
@@ -292,7 +260,7 @@
     },
     {
       "path": "docs/EXPERIMENT_MAP.csv",
-      "bytes": 6802
+      "bytes": 6545
     },
     {
       "path": "docs/EXPERIMENT_PROCESS.md",
@@ -316,11 +284,11 @@
     },
     {
       "path": "docs/MODEL_ASSETS.md",
-      "bytes": 2868
+      "bytes": 3034
     },
     {
       "path": "docs/PUBLICATION.md",
-      "bytes": 1196
+      "bytes": 1179
     },
     {
       "path": "docs/REFERENCE_CORRECTIONS_20261108.md",
@@ -332,15 +300,11 @@
     },
     {
       "path": "docs/RESULT_PATH_MAP.md",
-      "bytes": 4500
-    },
-    {
-      "path": "docs/SCOPE_CLEANUP_20261110.md",
-      "bytes": 1966
+      "bytes": 4156
     },
     {
       "path": "docs/settings/experiment_environment_settings.json",
-      "bytes": 58574
+      "bytes": 58852
     },
     {
       "path": "docs/settings/experiment_environment_settings.md",
@@ -359,12 +323,16 @@
       "bytes": 2819
     },
     {
+      "path": "docs/supporting/full_H_opportunity_accounting.md",
+      "bytes": 1773
+    },
+    {
       "path": "docs/supporting/implementation_fidelity.md",
       "bytes": 11026
     },
     {
       "path": "docs/supporting/integrated_results.md",
-      "bytes": 23471
+      "bytes": 22365
     },
     {
       "path": "docs/supporting/mechanism_review_methods.md",
@@ -384,7 +352,7 @@
     },
     {
       "path": "docs/supporting/relevance_sensitivity_results.md",
-      "bytes": 9477
+      "bytes": 9485
     },
     {
       "path": "docs/supporting/replication_results.md",
@@ -400,7 +368,7 @@
     },
     {
       "path": "docs/supporting/results_contract.md",
-      "bytes": 9982
+      "bytes": 10007
     },
     {
       "path": "docs/supporting/review_disagreement_discussion.md",
@@ -408,15 +376,11 @@
     },
     {
       "path": "docs/supporting/risk_working_point.md",
-      "bytes": 1732
+      "bytes": 1858
     },
     {
       "path": "docs/supporting/study_design.md",
-      "bytes": 11589
-    },
-    {
-      "path": "docs/supporting/supplementary_uncertainty.md",
-      "bytes": 1760
+      "bytes": 11468
     },
     {
       "path": "docs/supporting/t5_weight_factor_results.md",
@@ -428,23 +392,11 @@
     },
     {
       "path": "docs/TABLE_INDEX.md",
-      "bytes": 1764
+      "bytes": 1790
     },
     {
       "path": "EXPECTED_RESULTS.md",
-      "bytes": 4701
-    },
-    {
-      "path": "experiments/action_witness_uq_20261014/gpu_data.py",
-      "bytes": 32249
-    },
-    {
-      "path": "experiments/anchor_stage_risk_clean_20261016/run.py",
-      "bytes": 14771
-    },
-    {
-      "path": "experiments/gain_model_registry_20261014/registry.py",
-      "bytes": 9604
+      "bytes": 4771
     },
     {
       "path": "experiments/rene_budget_aggregation_20261020/__init__.py",
@@ -464,15 +416,11 @@
     },
     {
       "path": "experiments/rene_budget_aggregation_20261020/run.py",
-      "bytes": 14135
+      "bytes": 13443
     },
     {
       "path": "experiments/rene_budget_aggregation_20261020/test_contract.py",
       "bytes": 5103
-    },
-    {
-      "path": "experiments/rene_controlled_reproduction_20261018/freeze_manifest.py",
-      "bytes": 10325
     },
     {
       "path": "experiments/rene_core_step_a_20261020/__init__.py",
@@ -488,7 +436,7 @@
     },
     {
       "path": "experiments/rene_core_step_a_20261020/run.py",
-      "bytes": 15370
+      "bytes": 14991
     },
     {
       "path": "experiments/rene_core_step_a_20261020/test_contract.py",
@@ -508,7 +456,7 @@
     },
     {
       "path": "experiments/rene_core_step_b_20261020/common.py",
-      "bytes": 9994
+      "bytes": 9451
     },
     {
       "path": "experiments/rene_core_step_b_20261020/metrics.py",
@@ -544,7 +492,7 @@
     },
     {
       "path": "experiments/rene_cosqa_confirmation_20261019/common.py",
-      "bytes": 3866
+      "bytes": 3662
     },
     {
       "path": "experiments/rene_cosqa_confirmation_20261019/control_model.py",
@@ -652,7 +600,7 @@
     },
     {
       "path": "experiments/rene_cosqa_pilot_20261019/common.py",
-      "bytes": 2349
+      "bytes": 2595
     },
     {
       "path": "experiments/rene_cosqa_pilot_20261019/evaluation.py",
@@ -660,7 +608,7 @@
     },
     {
       "path": "experiments/rene_cosqa_pilot_20261019/freeze.py",
-      "bytes": 12501
+      "bytes": 12161
     },
     {
       "path": "experiments/rene_cosqa_pilot_20261019/ranking.py",
@@ -676,7 +624,7 @@
     },
     {
       "path": "experiments/rene_cosqa_pilot_20261019/test_contract.py",
-      "bytes": 8798
+      "bytes": 8794
     },
     {
       "path": "experiments/rene_cosqa_ssqr_audit_20261019/audit_input_contract.py",
@@ -700,7 +648,7 @@
     },
     {
       "path": "experiments/rene_cosqa_ssqr_audit_20261019/check_local_models.py",
-      "bytes": 3528
+      "bytes": 3377
     },
     {
       "path": "experiments/rene_cosqa_ssqr_audit_20261019/dataset_statistics.py",
@@ -748,7 +696,7 @@
     },
     {
       "path": "experiments/rene_cqc_training_fidelity_20261020/common.py",
-      "bytes": 4094
+      "bytes": 3373
     },
     {
       "path": "experiments/rene_cqc_training_fidelity_20261020/evaluate.py",
@@ -792,7 +740,7 @@
     },
     {
       "path": "experiments/rene_envelope_completion_20261020/common.py",
-      "bytes": 5349
+      "bytes": 4721
     },
     {
       "path": "experiments/rene_envelope_completion_20261020/metrics.py",
@@ -805,34 +753,6 @@
     {
       "path": "experiments/rene_envelope_completion_20261020/test_contract.py",
       "bytes": 2264
-    },
-    {
-      "path": "experiments/rene_evidence_integration_20261020/__init__.py",
-      "bytes": 77
-    },
-    {
-      "path": "experiments/rene_evidence_integration_20261020/audit.py",
-      "bytes": 9404
-    },
-    {
-      "path": "experiments/rene_evidence_integration_20261020/build.py",
-      "bytes": 17295
-    },
-    {
-      "path": "experiments/rene_evidence_integration_20261020/finalize.py",
-      "bytes": 8691
-    },
-    {
-      "path": "experiments/rene_evidence_integration_20261020/package.py",
-      "bytes": 10280
-    },
-    {
-      "path": "experiments/rene_evidence_integration_20261020/reproduce.py",
-      "bytes": 1831
-    },
-    {
-      "path": "experiments/rene_evidence_integration_20261020/verify_payload.py",
-      "bytes": 825
     },
     {
       "path": "experiments/rene_factor_confirmation_20261020/__init__.py",
@@ -852,7 +772,7 @@
     },
     {
       "path": "experiments/rene_factor_confirmation_20261020/common.py",
-      "bytes": 4184
+      "bytes": 3731
     },
     {
       "path": "experiments/rene_factor_confirmation_20261020/download_sources.py",
@@ -895,70 +815,6 @@
       "bytes": 2657
     },
     {
-      "path": "experiments/rene_fixed_action_uq_20261019/audit.py",
-      "bytes": 15699
-    },
-    {
-      "path": "experiments/rene_fixed_action_uq_20261019/inspect_cases.py",
-      "bytes": 4239
-    },
-    {
-      "path": "experiments/rene_fixed_action_uq_20261019/model.py",
-      "bytes": 7242
-    },
-    {
-      "path": "experiments/rene_fixed_action_uq_20261019/report.py",
-      "bytes": 7072
-    },
-    {
-      "path": "experiments/rene_fixed_action_uq_20261019/run.py",
-      "bytes": 19659
-    },
-    {
-      "path": "experiments/rene_fixed_action_uq_20261019/test_contract.py",
-      "bytes": 3853
-    },
-    {
-      "path": "experiments/rene_independent_confirmation_20261018/run.py",
-      "bytes": 24265
-    },
-    {
-      "path": "experiments/rene_independent_confirmation_20261018/verify.py",
-      "bytes": 3143
-    },
-    {
-      "path": "experiments/rene_independent_eval_20261019/h_top1_check.py",
-      "bytes": 4832
-    },
-    {
-      "path": "experiments/rene_independent_eval_20261019/make_report.py",
-      "bytes": 3820
-    },
-    {
-      "path": "experiments/rene_independent_eval_20261019/rne_eval.py",
-      "bytes": 6599
-    },
-    {
-      "path": "experiments/rene_independent_eval_20261019/run_cosqa_eval.py",
-      "bytes": 662
-    },
-    {
-      "path": "experiments/rene_independent_eval_20261019/test_rne_eval.py",
-      "bytes": 1590
-    },
-    {
-      "path": "experiments/rene_independent_eval_20261019/validate_1024.py",
-      "bytes": 6974
-    },
-    {
-      "path": "experiments/rene_independent_eval_20261019/verify_cosqa_adapter.py",
-      "bytes": 6558
-    },
-    {
-      "path": "experiments/rene_independent_eval_20261019/verify_ssqr_selection.py",
-      "bytes": 1809
-    },
-    {
       "path": "experiments/rene_mechanism_review_20261020/__init__.py",
       "bytes": 83
     },
@@ -992,7 +848,7 @@
     },
     {
       "path": "experiments/rene_multicandidate_fusion_20261020/common.py",
-      "bytes": 7299
+      "bytes": 6581
     },
     {
       "path": "experiments/rene_multicandidate_fusion_20261020/metrics.py",
@@ -1005,38 +861,6 @@
     {
       "path": "experiments/rene_multicandidate_fusion_20261020/test_contract.py",
       "bytes": 2918
-    },
-    {
-      "path": "experiments/rene_postselection_20261019/__init__.py",
-      "bytes": 79
-    },
-    {
-      "path": "experiments/rene_postselection_20261019/analyze.py",
-      "bytes": 18672
-    },
-    {
-      "path": "experiments/rene_postselection_20261019/audit.py",
-      "bytes": 19463
-    },
-    {
-      "path": "experiments/rene_postselection_20261019/common.py",
-      "bytes": 4527
-    },
-    {
-      "path": "experiments/rene_postselection_20261019/freeze.py",
-      "bytes": 7371
-    },
-    {
-      "path": "experiments/rene_postselection_20261019/modeling.py",
-      "bytes": 7812
-    },
-    {
-      "path": "experiments/rene_postselection_20261019/run.py",
-      "bytes": 11176
-    },
-    {
-      "path": "experiments/rene_postselection_20261019/test_contract.py",
-      "bytes": 6723
     },
     {
       "path": "experiments/rene_relevance_sampling_uncertainty_20261021/analyze.py",
@@ -1075,88 +899,8 @@
       "bytes": 7222
     },
     {
-      "path": "experiments/rene_repaired_confirmation_20261019/__init__.py",
-      "bytes": 80
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/artifact.py",
-      "bytes": 6846
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/budget_control.py",
-      "bytes": 11082
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/common.py",
-      "bytes": 5425
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/decide.py",
-      "bytes": 11738
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/development.py",
-      "bytes": 10939
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/evaluate.py",
-      "bytes": 11933
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/features.py",
-      "bytes": 4008
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/formal_replay.py",
-      "bytes": 7296
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/fresh_data.py",
-      "bytes": 24047
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/model.py",
-      "bytes": 12877
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/plan_power.py",
-      "bytes": 2523
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/preoutcome_audit.py",
-      "bytes": 4315
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/prepare_dev.py",
-      "bytes": 6275
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/publish_report.py",
-      "bytes": 16537
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/replay_worker.py",
-      "bytes": 10918
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/test_budget_control.py",
-      "bytes": 3424
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/test_integrity.py",
-      "bytes": 9997
-    },
-    {
-      "path": "experiments/rene_repaired_confirmation_20261019/weak_control.py",
-      "bytes": 3586
-    },
-    {
       "path": "experiments/rene_review_completion_20261021/prepare.py",
       "bytes": 7809
-    },
-    {
-      "path": "experiments/rene_review_completion_20261021/validate.py",
-      "bytes": 18848
     },
     {
       "path": "experiments/rene_review_final_reanalysis_20261021/analyze.py",
@@ -1215,6 +959,10 @@
       "bytes": 3803
     },
     {
+      "path": "experiments/rene_ssqr_alignment_20261019/rne_eval.py",
+      "bytes": 6599
+    },
+    {
       "path": "experiments/rene_ssqr_alignment_20261019/smoke_t5.py",
       "bytes": 4220
     },
@@ -1233,6 +981,10 @@
     {
       "path": "experiments/rene_ssqr_alignment_20261019/test_retriever.py",
       "bytes": 3464
+    },
+    {
+      "path": "experiments/rene_ssqr_alignment_20261019/test_rne_eval.py",
+      "bytes": 1590
     },
     {
       "path": "experiments/rene_ssqr_alignment_20261019/test_t5.py",
@@ -1256,7 +1008,7 @@
     },
     {
       "path": "experiments/rene_ssqr_bridge_20261019/common.py",
-      "bytes": 6962
+      "bytes": 6786
     },
     {
       "path": "experiments/rene_ssqr_bridge_20261019/evaluation.py",
@@ -1283,34 +1035,6 @@
       "bytes": 4243
     },
     {
-      "path": "experiments/rene_ssqr_bridge_release_20261019/accept_clean.py",
-      "bytes": 6115
-    },
-    {
-      "path": "experiments/rene_ssqr_bridge_release_20261019/package.py",
-      "bytes": 10399
-    },
-    {
-      "path": "experiments/rene_ssqr_bridge_release_20261019/package_models.py",
-      "bytes": 2645
-    },
-    {
-      "path": "experiments/rene_ssqr_bridge_release_20261019/replay_bridge.py",
-      "bytes": 12720
-    },
-    {
-      "path": "experiments/rene_ssqr_bridge_release_20261019/report.py",
-      "bytes": 17709
-    },
-    {
-      "path": "experiments/rene_ssqr_bridge_release_20261019/verify_actual.py",
-      "bytes": 4981
-    },
-    {
-      "path": "experiments/rene_ssqr_bridge_release_20261019/verify_retrieval.py",
-      "bytes": 6768
-    },
-    {
       "path": "experiments/rene_ssqr_rewriter_envelope_20261020/analyze_signal.py",
       "bytes": 8070
     },
@@ -1325,90 +1049,6 @@
     {
       "path": "experiments/rene_ssqr_rewriter_envelope_20261020/make_signal_report.py",
       "bytes": 3794
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/__init__.py",
-      "bytes": 80
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/artifact.py",
-      "bytes": 6838
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/budget_control.py",
-      "bytes": 11072
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/code_representation.py",
-      "bytes": 947
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/common.py",
-      "bytes": 5423
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/decide.py",
-      "bytes": 11730
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/development.py",
-      "bytes": 10935
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/evaluate.py",
-      "bytes": 11931
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/features.py",
-      "bytes": 4008
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/formal_replay.py",
-      "bytes": 7292
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/fresh_data.py",
-      "bytes": 25466
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/model.py",
-      "bytes": 12877
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/plan_power.py",
-      "bytes": 2521
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/preoutcome_audit.py",
-      "bytes": 4779
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/prepare_dev.py",
-      "bytes": 6269
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/publish_report.py",
-      "bytes": 16761
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/replay_worker.py",
-      "bytes": 10906
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/test_budget_control.py",
-      "bytes": 3420
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/test_integrity.py",
-      "bytes": 9985
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/verify_code_representation.py",
-      "bytes": 1555
-    },
-    {
-      "path": "experiments/rene_strict_confirmation_20261019/weak_control.py",
-      "bytes": 3582
     },
     {
       "path": "experiments/rene_t5_weight_factors_20261020/__init__.py",
@@ -1452,7 +1092,7 @@
     },
     {
       "path": "experiments/rene_third_retriever_20261020/common.py",
-      "bytes": 4533
+      "bytes": 3862
     },
     {
       "path": "experiments/rene_third_retriever_20261020/download.py",
@@ -1491,40 +1131,16 @@
       "bytes": 5819
     },
     {
-      "path": "experiments/rene_uq_independent_proof_20261019/audit.py",
-      "bytes": 17547
+      "path": "experiments/rene_verifier_training/__init__.py",
+      "bytes": 0
     },
     {
-      "path": "experiments/rene_uq_independent_proof_20261019/audit_scoped.py",
-      "bytes": 18132
+      "path": "experiments/rene_verifier_training/README.md",
+      "bytes": 1050
     },
     {
-      "path": "experiments/rene_uq_independent_proof_20261019/evaluate.py",
-      "bytes": 13189
-    },
-    {
-      "path": "experiments/rene_uq_independent_proof_20261019/inference_stats.py",
-      "bytes": 3726
-    },
-    {
-      "path": "experiments/rene_uq_independent_proof_20261019/publish.py",
-      "bytes": 7065
-    },
-    {
-      "path": "experiments/rene_uq_independent_proof_20261019/publish_scoped.py",
-      "bytes": 7611
-    },
-    {
-      "path": "experiments/rene_uq_independent_proof_20261019/stages.py",
-      "bytes": 11056
-    },
-    {
-      "path": "experiments/rene_uq_independent_proof_20261019/study.py",
-      "bytes": 16465
-    },
-    {
-      "path": "experiments/rene_uq_independent_proof_20261019/test_contract.py",
-      "bytes": 5797
+      "path": "experiments/rene_verifier_training/training.py",
+      "bytes": 6407
     },
     {
       "path": "experiments/rene_weight_confirmation_20261021/__init__.py",
@@ -1565,22 +1181,6 @@
     {
       "path": "experiments/rene_weight_confirmation_20261021/test_contract.py",
       "bytes": 2909
-    },
-    {
-      "path": "experiments/risk_module_registry_20261016/registry.py",
-      "bytes": 12830
-    },
-    {
-      "path": "experiments/strong_flow_uq_20261014/build_evidence.py",
-      "bytes": 16330
-    },
-    {
-      "path": "experiments/strong_flow_uq_20261014/flow.py",
-      "bytes": 20857
-    },
-    {
-      "path": "experiments/verification_policy_registry_20261015/registry.py",
-      "bytes": 11945
     },
     {
       "path": "human_review/analysis_functions.py",
@@ -1663,20 +1263,16 @@
       "bytes": 1970
     },
     {
-      "path": "prepare_vac_mqr_cv_folds.py",
-      "bytes": 5752
-    },
-    {
       "path": "provenance/EXPERIMENT_FILE_INDEX.json",
-      "bytes": 24161
+      "bytes": 18976
     },
     {
       "path": "provenance/FILE_LINEAGE.json",
-      "bytes": 210504
+      "bytes": 159472
     },
     {
       "path": "provenance/MANUSCRIPT_ALIGNMENT_20261108.json",
-      "bytes": 1715
+      "bytes": 2239
     },
     {
       "path": "provenance/README.md",
@@ -1684,39 +1280,15 @@
     },
     {
       "path": "provenance/RELEASE_STATUS.json",
-      "bytes": 1734
+      "bytes": 1691
     },
     {
-      "path": "provenance/review_fixes/anchor_stage_risk_clean_20261016_DESIGN.md",
-      "bytes": 3466
-    },
-    {
-      "path": "provenance/review_fixes/ASSET_BUILD_CHECKS.json",
-      "bytes": 211
-    },
-    {
-      "path": "provenance/review_fixes/CHANGE_SCOPE.json",
-      "bytes": 411
-    },
-    {
-      "path": "provenance/review_fixes/PORTABLE_REPLAY.json",
-      "bytes": 255
-    },
-    {
-      "path": "provenance/review_fixes/selected_action_risk_20261016_DESIGN.md",
-      "bytes": 2779
-    },
-    {
-      "path": "provenance/review_fixes/versions_anchor-stage-threeway-20261016.json",
-      "bytes": 5620
-    },
-    {
-      "path": "provenance/SCOPE_CLEANUP_20261110.json",
-      "bytes": 11656
+      "path": "provenance/review_fixes/risk_working_point_provenance.json",
+      "bytes": 1226
     },
     {
       "path": "provenance/SETTINGS_SOURCE_INDEX.json",
-      "bytes": 13115
+      "bytes": 13436
     },
     {
       "path": "provenance/settings_sources/R01/RUNTIME_ENVIRONMENT.json",
@@ -1823,8 +1395,8 @@
       "bytes": 286823
     },
     {
-      "path": "provenance/settings_sources/R27/gpu_data.py",
-      "bytes": 32249
+      "path": "provenance/settings_sources/R27/verifier_training.py",
+      "bytes": 6407
     },
     {
       "path": "provenance/settings_sources/R28/ce_large_dense_4096_train_status.json",
@@ -1864,11 +1436,11 @@
     },
     {
       "path": "provenance/TABLE_EXPORT_VALIDATION.json",
-      "bytes": 2669
+      "bytes": 2529
     },
     {
       "path": "provenance/TABLE_SOURCE_INDEX.json",
-      "bytes": 6156
+      "bytes": 5207
     },
     {
       "path": "provenance/table_sources/A/RESULTS.json",
@@ -1903,20 +1475,8 @@
       "bytes": 13332
     },
     {
-      "path": "provenance/table_sources/previous/TABLES.json",
-      "bytes": 69695
-    },
-    {
       "path": "provenance/table_sources/review/RESULTS.json",
       "bytes": 94002
-    },
-    {
-      "path": "provenance/table_sources/risk1024/RESULTS.json",
-      "bytes": 143482
-    },
-    {
-      "path": "provenance/table_sources/seed1536/RESULTS.json",
-      "bytes": 28390
     },
     {
       "path": "provenance/table_sources/staqc/RESULTS.json",
@@ -1964,23 +1524,23 @@
     },
     {
       "path": "provenance/validation/RELEASE_VALIDATION.json",
-      "bytes": 1935
+      "bytes": 1786
     },
     {
       "path": "provenance/validation/ROOT_ACCEPTANCE.json",
-      "bytes": 256
+      "bytes": 284
+    },
+    {
+      "path": "provenance/validation/S7_ACCOUNTING_ACCEPTANCE.json",
+      "bytes": 250
     },
     {
       "path": "README.md",
-      "bytes": 5080
+      "bytes": 5483
     },
     {
       "path": "requirements.txt",
       "bytes": 40
-    },
-    {
-      "path": "results/experiment_exports/README.md",
-      "bytes": 381
     },
     {
       "path": "results/experiment_exports/rene_budget_aggregation_20261020/CONTRASTS.csv",
@@ -2167,38 +1727,6 @@
       "bytes": 681
     },
     {
-      "path": "results/experiment_exports/rene_fixed_action_uq_20261019/PROTOCOL.json",
-      "bytes": 11859
-    },
-    {
-      "path": "results/experiment_exports/rene_fixed_action_uq_20261019/REPORT.md",
-      "bytes": 5618
-    },
-    {
-      "path": "results/experiment_exports/rene_fixed_action_uq_20261019/RESULTS.json",
-      "bytes": 119084
-    },
-    {
-      "path": "results/experiment_exports/rene_independent_confirmation_20261018/FAILED_PROTOCOL.json",
-      "bytes": 4723
-    },
-    {
-      "path": "results/experiment_exports/rene_independent_confirmation_20261018/PROTOCOL.json",
-      "bytes": 4816
-    },
-    {
-      "path": "results/experiment_exports/rene_independent_confirmation_20261018/REPORT.md",
-      "bytes": 1066
-    },
-    {
-      "path": "results/experiment_exports/rene_independent_confirmation_20261018/RESULTS.json",
-      "bytes": 6395
-    },
-    {
-      "path": "results/experiment_exports/rene_independent_eval_20261019/REPORT.md",
-      "bytes": 3009
-    },
-    {
       "path": "results/experiment_exports/rene_mechanism_review_20261020/FINDINGS.md",
       "bytes": 3895
     },
@@ -2223,18 +1751,6 @@
       "bytes": 22764
     },
     {
-      "path": "results/experiment_exports/rene_postselection_20261019/PROTOCOL.json",
-      "bytes": 22613
-    },
-    {
-      "path": "results/experiment_exports/rene_postselection_20261019/READOUT.md",
-      "bytes": 5181
-    },
-    {
-      "path": "results/experiment_exports/rene_postselection_20261019/REPORT.md",
-      "bytes": 10997
-    },
-    {
       "path": "results/experiment_exports/rene_relevance_sampling_uncertainty_20261021/FINDINGS.md",
       "bytes": 1691
     },
@@ -2245,10 +1761,6 @@
     {
       "path": "results/experiment_exports/rene_relevance_sensitivity_20261021/PROTOCOL.json",
       "bytes": 4868
-    },
-    {
-      "path": "results/experiment_exports/rene_repaired_confirmation_20261019/RESULTS.json",
-      "bytes": 28452
     },
     {
       "path": "results/experiment_exports/rene_review_completion_20261021/DIAGNOSTIC_TABLES.json",
@@ -2289,14 +1801,6 @@
     {
       "path": "results/experiment_exports/rene_ssqr_bridge_20261019/READOUT.md",
       "bytes": 8501
-    },
-    {
-      "path": "results/experiment_exports/rene_strict_confirmation_20261019/REPORT.md",
-      "bytes": 6967
-    },
-    {
-      "path": "results/experiment_exports/rene_strict_confirmation_20261019/RESULTS.json",
-      "bytes": 28390
     },
     {
       "path": "results/experiment_exports/rene_t5_weight_factors_20261020/all_summaries.csv",
@@ -2371,14 +1875,6 @@
       "bytes": 124213
     },
     {
-      "path": "results/experiment_exports/rene_uq_independent_proof_20261019/REPORT.md",
-      "bytes": 6442
-    },
-    {
-      "path": "results/experiment_exports/rene_uq_independent_proof_20261019/RESULTS.json",
-      "bytes": 143482
-    },
-    {
       "path": "results/experiment_exports/rene_weight_confirmation_20261021/COMPLETE_CURVES.csv",
       "bytes": 4431
     },
@@ -2405,18 +1901,6 @@
     {
       "path": "results/experiment_exports/rene_weight_confirmation_20261021/weight_confirmation_results.md",
       "bytes": 2687
-    },
-    {
-      "path": "results/experiment_exports/strong_flow_uq_20261014/PROTOCOL.json",
-      "bytes": 37115
-    },
-    {
-      "path": "results/experiment_exports/strong_flow_uq_20261014/PROTOCOL_PREFLIGHT.json",
-      "bytes": 36493
-    },
-    {
-      "path": "results/experiment_exports/strong_flow_uq_20261014/REPORT.md",
-      "bytes": 6472
     },
     {
       "path": "results/paired_weight_confirmation_results.json",
@@ -2471,8 +1955,8 @@
       "bytes": 1745
     },
     {
-      "path": "results/tables/T7_previous_seed_UQ.csv",
-      "bytes": 561
+      "path": "results/tables/T7_full_H_opportunity_accounting.csv",
+      "bytes": 875
     },
     {
       "path": "results/tables/T8_count_aggregation.csv",
@@ -2484,7 +1968,7 @@
     },
     {
       "path": "results/TABLES.json",
-      "bytes": 460186
+      "bytes": 460176
     },
     {
       "path": "results/weight_confirmation_curves.csv",
@@ -2499,36 +1983,8 @@
       "bytes": 619
     },
     {
-      "path": "risk_bounded_ranking.py",
-      "bytes": 3255
-    },
-    {
-      "path": "run_bm25_acquisition_pilot.py",
-      "bytes": 6723
-    },
-    {
-      "path": "run_document_anchor_ablation.py",
-      "bytes": 15974
-    },
-    {
-      "path": "run_nested_relevance_adoption_pilot.py",
-      "bytes": 32652
-    },
-    {
-      "path": "run_relevance_selection_pilot.py",
-      "bytes": 23487
-    },
-    {
-      "path": "run_t5_seed_uq_pilot.py",
-      "bytes": 35936
-    },
-    {
-      "path": "run_uq_pilot.py",
-      "bytes": 30283
-    },
-    {
       "path": "supplementary/data/experiment_environment_settings.json",
-      "bytes": 58574
+      "bytes": 58852
     },
     {
       "path": "supplementary/data/paired_weight_confirmation_results.json",
@@ -2536,7 +1992,7 @@
     },
     {
       "path": "supplementary/data/reader_tables_en.json",
-      "bytes": 74634
+      "bytes": 75929
     },
     {
       "path": "supplementary/data/S3_S4_additional_details.json",
@@ -2544,15 +2000,15 @@
     },
     {
       "path": "supplementary/data/settings_tables_en.json",
-      "bytes": 34782
+      "bytes": 35088
     },
     {
       "path": "supplementary/data/SOURCE_MANIFEST.json",
-      "bytes": 9982
+      "bytes": 9747
     },
     {
       "path": "supplementary/data/TABLES.json",
-      "bytes": 460186
+      "bytes": 460176
     },
     {
       "path": "supplementary/ETHICS_AND_CONSENT.md",
@@ -2560,35 +2016,39 @@
     },
     {
       "path": "supplementary/README.md",
-      "bytes": 1601
+      "bytes": 1659
     },
     {
       "path": "supplementary/SSQR_Supplementary_S1-S25_EN.docx",
-      "bytes": 79057
+      "bytes": 79685
     },
     {
       "path": "supplementary/SSQR_Supplementary_S1-S25_EN.md",
-      "bytes": 53119
+      "bytes": 54023
     },
     {
       "path": "supplementary/SSQR_Supplementary_S1-S25_EN.pdf",
-      "bytes": 549760
+      "bytes": 554757
     },
     {
       "path": "supplementary/Supporting_Reports_EN.md",
-      "bytes": 53935
+      "bytes": 53986
     },
     {
       "path": "tools/check_tables.py",
-      "bytes": 1772
+      "bytes": 1809
     },
     {
       "path": "tools/install_study_assets.py",
       "bytes": 2192
     },
     {
+      "path": "tools/rebuild_s7.py",
+      "bytes": 3144
+    },
+    {
       "path": "tools/reproduce_all.py",
-      "bytes": 1509
+      "bytes": 1566
     },
     {
       "path": "tools/verify_bundle.py",
@@ -2609,10 +2069,6 @@
     {
       "path": "training_checkpoint.py",
       "bytes": 3275
-    },
-    {
-      "path": "vac_mqr.py",
-      "bytes": 79657
     }
   ]
 }

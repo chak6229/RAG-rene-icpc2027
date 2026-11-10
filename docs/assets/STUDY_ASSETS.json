@@ -1,8 +1,8 @@
 {
-  "version": "2026.11.08",
+  "version": "2026.11.10",
   "repository": "https://github.com/chak6229/RAG-rene-icpc2027",
-  "release_tag": "rene-review-20261108",
-  "release_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108",
+  "release_tag": "rene-review-20261110-paper",
+  "release_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-paper",
   "publication_status": "release_model_assets_verified_online",
   "assets": [
     {
@@ -122,12 +122,12 @@
     },
     {
       "identity": "W5",
-      "filename": "SSQR_RENE_W5_CrossEncoder_20261031.zip",
-      "bytes": 500010650,
-      "sha256": "b67389496bf49bb867315c73d2b78955be628530de5005c1f123307f22ca8a7c",
+      "filename": "SSQR_RENE_W5_CrossEncoder_20261110.zip",
+      "bytes": 500010714,
+      "sha256": "5d81db145dd1b973e73638123e118ae768cc0943061795d68c197e4397c7d462",
       "files": [
         {
-          "path": "results/uq_pilot_20261014/action_witness_uq/data/ce_large_dense_4096.pt",
+          "path": "models/ssqr-verifier/ce_large_dense_4096.pt",
           "bytes": 498653857,
           "sha256": "3a0f26dcae197b2e7cb97b62349ccd743e4211a835a8e2ab2842376a7c4c2f39"
         },
@@ -158,7 +158,7 @@
         }
       ],
       "download_route": "Authenticated download from the private GitHub release or the identically named review attachment.",
-      "download_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261108/SSQR_RENE_W5_CrossEncoder_20261031.zip"
+      "download_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261110-paper/SSQR_RENE_W5_CrossEncoder_20261110.zip"
     }
   ]
 }

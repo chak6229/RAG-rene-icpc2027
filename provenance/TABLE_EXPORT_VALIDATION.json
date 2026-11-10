@@ -5,92 +5,93 @@
       "table": "T1_confirmation",
       "rows": 1,
       "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": false
+      "descriptive_accounting": false
     },
     {
       "table": "T2_same_pool_contracts",
       "rows": 4,
       "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": false
+      "descriptive_accounting": false
     },
     {
       "table": "T3_adoption_fixed20",
       "rows": 8,
       "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": false
+      "descriptive_accounting": false
     },
     {
       "table": "T4_multicandidate_fusion",
       "rows": 8,
       "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": false
+      "descriptive_accounting": false
     },
     {
       "table": "T5_frozen_H_stages",
       "rows": 10,
       "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": false
+      "descriptive_accounting": false
     },
     {
       "table": "T6_two_T5_weights",
       "rows": 4,
       "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": false
+      "descriptive_accounting": false
     },
     {
-      "table": "T7_previous_seed_UQ",
-      "rows": 3,
-      "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": false
+      "table": "T7_full_H_opportunity_accounting",
+      "rows": 6,
+      "original_result_cells_unchanged": false,
+      "descriptive_accounting": true
     },
     {
       "table": "T8_count_aggregation",
       "rows": 24,
       "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": true
+      "descriptive_accounting": false
     },
     {
       "table": "T9_StaQC_confirmation",
       "rows": 12,
       "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": true
+      "descriptive_accounting": false
     },
     {
       "table": "T10_third_retriever",
       "rows": 12,
       "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": true
+      "descriptive_accounting": false
     },
     {
       "table": "T11_matched_weight_factors",
       "rows": 24,
       "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": true
+      "descriptive_accounting": false
     },
     {
       "table": "T12_review_agreement",
       "rows": 4,
       "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": true
+      "descriptive_accounting": false
     },
     {
       "table": "T13_weighted_review_events",
       "rows": 10,
       "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": true
+      "descriptive_accounting": false
     },
     {
       "table": "T14_weighted_issue_types",
       "rows": 24,
       "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": true
+      "descriptive_accounting": false
     },
     {
       "table": "T15_training_sensitivity",
       "rows": 28,
       "original_result_cells_unchanged": true,
-      "latest_source_pointer_columns_added": true
+      "descriptive_accounting": false
     }
   ],
-  "rows": 176
+  "rows": 179,
+  "scope_version": "2026.11.10"
 }

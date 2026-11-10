@@ -164,7 +164,7 @@ class Contracts(unittest.TestCase):
         self.assertEqual(lexical_tokens("loadJSON_file42"), ["load", "json", "file42"])
 
     def test_generic_loader_rejects_duplicate_queries(self):
-        source = Path(__file__).resolve().parents[1] / "rene_independent_eval_20261019/rne_eval.py"
+        source = Path(__file__).resolve().parents[1] / "rene_ssqr_alignment_20261019/rne_eval.py"
         spec = importlib.util.spec_from_file_location("independent_rne_eval", source)
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
@@ -175,7 +175,7 @@ class Contracts(unittest.TestCase):
                 module.load_rankings(str(path))
 
     def test_generic_loader_rejects_duplicate_docs(self):
-        source = Path(__file__).resolve().parents[1] / "rene_independent_eval_20261019/rne_eval.py"
+        source = Path(__file__).resolve().parents[1] / "rene_ssqr_alignment_20261019/rne_eval.py"
         spec = importlib.util.spec_from_file_location("independent_rne_eval_docs", source)
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)

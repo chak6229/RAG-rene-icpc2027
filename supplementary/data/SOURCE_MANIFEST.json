@@ -1,10 +1,10 @@
 {
   "source_hashes": {
-    "TABLES.json": "a58858d64d12372e4ca973f2b1b25b686daa3a703dda8d0cf0e186c1f52dab12",
-    "experiment_environment_settings.json": "458147e5a87707e6d890c2137503ffebad67e423d49d73a1c1417a5d2d227824",
+    "TABLES.json": "c0f8acba88fcac11f9df87fed1f62ec31c5d3d1615460a5166ace2dc6350580e",
+    "experiment_environment_settings.json": "aace57da387ea28b1938efe559a46a7039993cd5a4e29dafde97ec400babd3a1",
     "paired_weight_confirmation_results.json": "bff8ba1555c6b4fce3da07e64b24a8ea20eab1c0bcb771c9b57c9c26a597cb6b"
   },
-  "reader_table_result_rows": 176,
+  "reader_table_result_rows": 179,
   "settings_rows": 115,
   "historical_result_source_manifest": [
     {
@@ -43,21 +43,6 @@
       "sha256": "8f6e61ac172d04a97b4bca0b920867469bc10463ce24e31bc69146ed03a0e896"
     },
     {
-      "key": "seed1536",
-      "path": "results/rene_strict_confirmation_20261019/RESULTS.json",
-      "sha256": "46a5b68e4541dabd514a2eee6e676df2b012ed547a4ef30a9610e42278bd8dc5"
-    },
-    {
-      "key": "risk1024",
-      "path": "results/rene_uq_independent_proof_20261019/RESULTS.json",
-      "sha256": "54b1cc94e480f879365280ff8f82381359f17dc119a4ca1a0ceb474ce558a1cc"
-    },
-    {
-      "key": "previous",
-      "path": "results/rene_evidence_integration_20261020/TABLES.json",
-      "sha256": "e0bf0badd7d5c52a743e7096bf60feaf903e72f99dc252cfcccafe9211b6a096"
-    },
-    {
       "key": "factors",
       "path": "results/rene_budget_aggregation_20261020/RESULTS.json",
       "sha256": "da61be1ad9085de2144a09a6918419b54725274c712bb2e3c9d12106473496fc"
@@ -86,6 +71,11 @@
       "key": "training",
       "path": "results/rene_cqc_training_fidelity_20261020/RESULTS.json",
       "sha256": "94578cc08b1354616eba85278df4d843349b6b3ae62348d8c603ec388cffb8ed"
+    },
+    {
+      "key": "full_H_accounting",
+      "path": "tools/rebuild_s7.py",
+      "sha256": "recorded in SHA256SUMS.json"
     }
   ],
   "settings_source_manifest": {
@@ -230,5 +220,7 @@
       "path": "experiments/rene_cqc_training_fidelity_20261020/analyze.py",
       "sha256": "bb73c9d035934ba09c2e1d2b15f91c297d9308fbcc5fb4583b855ba5ae735a70"
     }
-  }
+  },
+  "scope_version": "2026.11.10",
+  "scope_note": "Current files follow the paper scope in docs/ARTIFACT_SCOPE.md; original source hashes are historical identities, while SHA256SUMS.json identifies current delivery bytes."
 }

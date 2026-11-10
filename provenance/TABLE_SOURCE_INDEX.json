@@ -56,30 +56,6 @@
     "source_type": "计算实验"
   },
   {
-    "key": "seed1536",
-    "path": "results/rene_strict_confirmation_20261019/RESULTS.json",
-    "sha256": "46a5b68e4541dabd514a2eee6e676df2b012ed547a4ef30a9610e42278bd8dc5",
-    "delivered": "provenance/table_sources/seed1536/RESULTS.json",
-    "delivered_sha256": "c6901a4f5c7908021331621b879704e9fc87ca6cdeb04083c031c487406cbc51",
-    "source_type": "计算实验"
-  },
-  {
-    "key": "risk1024",
-    "path": "results/rene_uq_independent_proof_20261019/RESULTS.json",
-    "sha256": "54b1cc94e480f879365280ff8f82381359f17dc119a4ca1a0ceb474ce558a1cc",
-    "delivered": "provenance/table_sources/risk1024/RESULTS.json",
-    "delivered_sha256": "ef6cc250fb1ae82d9c54928dea84c74bfb0c971140536bb5aa43cbdfd72f72e9",
-    "source_type": "计算实验"
-  },
-  {
-    "key": "previous",
-    "path": "results/rene_evidence_integration_20261020/TABLES.json",
-    "sha256": "e0bf0badd7d5c52a743e7096bf60feaf903e72f99dc252cfcccafe9211b6a096",
-    "delivered": "provenance/table_sources/previous/TABLES.json",
-    "delivered_sha256": "e0bf0badd7d5c52a743e7096bf60feaf903e72f99dc252cfcccafe9211b6a096",
-    "source_type": "计算实验"
-  },
-  {
     "key": "factors",
     "path": "results/rene_budget_aggregation_20261020/RESULTS.json",
     "sha256": "da61be1ad9085de2144a09a6918419b54725274c712bb2e3c9d12106473496fc",
@@ -126,5 +102,11 @@
     "delivered": "provenance/table_sources/training/RESULTS.json",
     "delivered_sha256": "ebb1484da973c97fd0d32b8926ef1d074f517a5302a720457a12c190b8628200",
     "source_type": "计算实验"
+  },
+  {
+    "key": "full_H_accounting",
+    "path": "tools/rebuild_s7.py",
+    "source_type": "Descriptive accounting from included frozen per-query outcomes",
+    "delivered": "tools/rebuild_s7.py"
   }
 ]

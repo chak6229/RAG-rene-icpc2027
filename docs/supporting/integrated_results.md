@@ -224,17 +224,6 @@ Both methods span zero for both reviewers and both relevance thresholds; the add
 
 Eight training configurations share 32,768 rows and 1,024 updates; T15 retains all 28 adjusted primary changes. Length settings produce identical weights and candidates in this bank. Most training contrasts remain unresolved. Author weights, original CSV bytes and production aggregation remain unavailable: these experiments do not identify a percentage of the historical replication discrepancy. Full configurations and results are in implementation_fidelity.md and cqc_training_fidelity_results.md.
 
-## Supplementary: earlier decision-specific uncertainty comparisons
-
-|Population / target|Comparison|ΔMRR|97.5% simultaneous interval|
-|---|---|---:|---|
-|1536 downstream repositories; full pipeline|uq_increment|+0.003952|[+0.001330, +0.006985]|
-|1024 downstream repositories; fixed upstream action|full_minus_common|-0.000080|[-0.003612, +0.003453]|
-|1024 downstream repositories; fixed upstream action|full_minus_support|+0.001347|[-0.001215, +0.004050]|
-
-The 1,536-query comparison supports a positive increment in that frozen full pipeline. The 1,024-query fixed-action full−common comparison meets its prespecified ±0.005 equivalence rule; full−support remains unresolved because its event guard is not met. These datasets, upstream actions and estimands differ; the later comparison is not a causal decomposition or retraction of the earlier positive result.
-
-These comparisons are retained in supplementary_uncertainty.md and T7. They remain outside the three main research questions; their different populations and actions do not provide a direct decision-stage interaction test.
 
 ## Knowledge increment and reporting implications
 
@@ -242,6 +231,6 @@ The external reconstruction establishes the outcome of a specified SSQR comparis
 
 Report selector advantage relative to exact random separately from net utility relative to the original query. Vary selected count with aggregation held fixed, and aggregation with count held fixed. Evaluate the executable policy's positive gain, ranking loss, harmful-adoption frequency and paid cost. Best-k remains a label-assisted opportunity statistic. Detailed contribution mapping is in contribution_evidence.md.
 
-Current machine source: results/rene_manuscript_integration_20261021/TABLES.json (15 tables, 176 rows). It preserves seven historical tables and adds corrected contrasts and review diagnostics, with no new model-effect estimation. Each experiment retains its correction family and population; results are not pooled.
+Current machine source: results/rene_manuscript_integration_20261021/TABLES.json (15 tables, 179 rows). It preserves seven historical tables and adds corrected contrasts and review diagnostics, with no new model-effect estimation. Each experiment retains its correction family and population; results are not pooled.
 
 Completed supplementary-review diagnostics and their accepted numerical version are supplied by results/rene_review_completion_20261021/{DIAGNOSTIC_TABLES.json,RESULTS.json,FINAL_ACCEPTANCE.json}. Current editorial integration, the sampling-uncertainty extension and independent pre-review materials are tracked in results/rene_contribution_strength_20261021/.

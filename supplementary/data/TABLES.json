@@ -37,21 +37,6 @@
       "sha256": "8f6e61ac172d04a97b4bca0b920867469bc10463ce24e31bc69146ed03a0e896"
     },
     {
-      "key": "seed1536",
-      "path": "results/rene_strict_confirmation_20261019/RESULTS.json",
-      "sha256": "46a5b68e4541dabd514a2eee6e676df2b012ed547a4ef30a9610e42278bd8dc5"
-    },
-    {
-      "key": "risk1024",
-      "path": "results/rene_uq_independent_proof_20261019/RESULTS.json",
-      "sha256": "54b1cc94e480f879365280ff8f82381359f17dc119a4ca1a0ceb474ce558a1cc"
-    },
-    {
-      "key": "previous",
-      "path": "results/rene_evidence_integration_20261020/TABLES.json",
-      "sha256": "e0bf0badd7d5c52a743e7096bf60feaf903e72f99dc252cfcccafe9211b6a096"
-    },
-    {
       "key": "factors",
       "path": "results/rene_budget_aggregation_20261020/RESULTS.json",
       "sha256": "da61be1ad9085de2144a09a6918419b54725274c712bb2e3c9d12106473496fc"
@@ -80,6 +65,11 @@
       "key": "training",
       "path": "results/rene_cqc_training_fidelity_20261020/RESULTS.json",
       "sha256": "94578cc08b1354616eba85278df4d843349b6b3ae62348d8c603ec388cffb8ed"
+    },
+    {
+      "key": "full_H_accounting",
+      "path": "tools/rebuild_s7.py",
+      "sha256": "recorded in SHA256SUMS.json"
     }
   ],
   "tables": {
@@ -700,36 +690,78 @@
         ]
       }
     ],
-    "T7_previous_seed_UQ": [
+    "T7_full_H_opportunity_accounting": [
       {
-        "population": "1536 downstream repositories; full pipeline",
-        "comparison": "uq_increment",
-        "role": "prior frozen full-pipeline comparison",
-        "delta": 0.003952390664201891,
-        "ci97_5": [
-          0.0013304265837838897,
-          0.0069847308096466455
-        ]
+        "retriever": "CodeBERT",
+        "stage": "RIDGE_gain",
+        "queries": 8530,
+        "groups": 1963,
+        "mean_available_gain": 0.06609265832739747,
+        "mean_unretained_positive_gain": 0.05086288210062273,
+        "mean_ranking_loss": 0.015151135637934493,
+        "delta_mrr100": 7.864058884024947e-05,
+        "verification_pairs": 0,
+        "verification_input_tokens": 0
       },
       {
-        "population": "1024 downstream repositories; fixed upstream action",
-        "comparison": "full_minus_common",
-        "role": "prior frozen risk-head comparison",
-        "delta": -7.970573383892871e-05,
-        "ci97_5": [
-          -0.0036124158869464784,
-          0.003453004419268621
-        ]
+        "retriever": "CodeBERT",
+        "stage": "RIDGE_verified",
+        "queries": 8530,
+        "groups": 1963,
+        "mean_available_gain": 0.06609265832739747,
+        "mean_unretained_positive_gain": 0.050000060355482524,
+        "mean_ranking_loss": 0.01524554701138309,
+        "delta_mrr100": 0.000847050960531851,
+        "verification_pairs": 17056,
+        "verification_input_tokens": 1164129
       },
       {
-        "population": "1024 downstream repositories; fixed upstream action",
-        "comparison": "full_minus_support",
-        "role": "prior frozen risk-head comparison",
-        "delta": 0.0013465287202921758,
-        "ci97_5": [
-          -0.0012146365947739283,
-          0.004049586953883786
-        ]
+        "retriever": "CodeBERT",
+        "stage": "RIDGE_risk",
+        "queries": 8530,
+        "groups": 1963,
+        "mean_available_gain": 0.06609265832739747,
+        "mean_unretained_positive_gain": 0.0655843457096304,
+        "mean_ranking_loss": 0.0006860835270285035,
+        "delta_mrr100": -0.00017777090926142717,
+        "verification_pairs": 17056,
+        "verification_input_tokens": 1164129
+      },
+      {
+        "retriever": "BM25",
+        "stage": "RIDGE_gain",
+        "queries": 8530,
+        "groups": 1963,
+        "mean_available_gain": 0.019413179555758237,
+        "mean_unretained_positive_gain": 0.018320123425989297,
+        "mean_ranking_loss": 0.0031724884610249663,
+        "delta_mrr100": -0.0020794323312560265,
+        "verification_pairs": 0,
+        "verification_input_tokens": 0
+      },
+      {
+        "retriever": "BM25",
+        "stage": "RIDGE_verified",
+        "queries": 8530,
+        "groups": 1963,
+        "mean_available_gain": 0.019413179555758237,
+        "mean_unretained_positive_gain": 0.018554082839996825,
+        "mean_ranking_loss": 0.002575903840961544,
+        "delta_mrr100": -0.00171680712520013,
+        "verification_pairs": 17056,
+        "verification_input_tokens": 1394014
+      },
+      {
+        "retriever": "BM25",
+        "stage": "RIDGE_risk",
+        "queries": 8530,
+        "groups": 1963,
+        "mean_available_gain": 0.019413179555758237,
+        "mean_unretained_positive_gain": 0.019413179555758237,
+        "mean_ranking_loss": 0.0,
+        "delta_mrr100": 0.0,
+        "verification_pairs": 17056,
+        "verification_input_tokens": 1394014
       }
     ],
     "T8_count_aggregation": [
@@ -8700,45 +8732,6 @@
       ]
     },
     {
-      "source": "results/rene_strict_confirmation_20261019/RESULTS.json",
-      "pointer": "primary_contrasts/uq_increment/mean",
-      "value": 0.003952390664201891
-    },
-    {
-      "source": "results/rene_strict_confirmation_20261019/RESULTS.json",
-      "pointer": "primary_contrasts/uq_increment/simultaneous_ci97_5",
-      "value": [
-        0.0013304265837838897,
-        0.0069847308096466455
-      ]
-    },
-    {
-      "source": "results/rene_uq_independent_proof_20261019/RESULTS.json",
-      "pointer": "primary_contrasts/full_minus_common/mean",
-      "value": -7.970573383892871e-05
-    },
-    {
-      "source": "results/rene_uq_independent_proof_20261019/RESULTS.json",
-      "pointer": "primary_contrasts/full_minus_common/simultaneous_envelope",
-      "value": [
-        -0.0036124158869464784,
-        0.003453004419268621
-      ]
-    },
-    {
-      "source": "results/rene_uq_independent_proof_20261019/RESULTS.json",
-      "pointer": "primary_contrasts/full_minus_support/mean",
-      "value": 0.0013465287202921758
-    },
-    {
-      "source": "results/rene_uq_independent_proof_20261019/RESULTS.json",
-      "pointer": "primary_contrasts/full_minus_support/simultaneous_envelope",
-      "value": [
-        -0.0012146365947739283,
-        0.004049586953883786
-      ]
-    },
-    {
       "source": "results/rene_budget_aggregation_20261020/RESULTS.json",
       "pointer": "views/0/primary_decomposition/ENTR_B_budget_mean_1_to_3",
       "value": {
@@ -15054,8 +15047,10 @@
       }
     }
   ],
-  "previous_tables_preserved": true,
+  "previous_tables_preserved": false,
   "new_effect_estimates": false,
   "no_cross_population_pooling": true,
-  "risk_certified": false
+  "risk_certified": false,
+  "scope_version": "2026.11.10",
+  "scope_note": "The superseded S7 is excluded; current S7 is descriptive accounting from frozen full-H numeric records. All other table rows retain their original values."
 }

@@ -22,16 +22,7 @@ PACKAGE = Path(__file__).resolve().parent
 OUT = ROOT / "results/rene_core_step_a_20261020"
 BRIDGE = ROOT / "results/rene_ssqr_bridge_20261019"
 DESIGN = ROOT / "ResearchVault/Handoffs/RENE-核心贡献判别验证方案-20261020.md"
-PROTECTED = [
-    "configs/vac_mqr_gain_model/CURRENT.json",
-    "configs/vac_mqr_verification_policy/CURRENT.json",
-    "configs/vac_mqr_risk_module/CURRENT.json",
-    "configs/uq_candidate_selection/CURRENT.json",
-    "results/vac_mqr_v5/STABLE.json",
-    "results/rene_cosqa_confirmation_20261019/PROTOCOL.json",
-    "results/rene_cosqa_confirmation_20261019/PRIMARY_RESULT.json",
-    "results/rene_cosqa_confirmation_20261019/FINAL_ACCEPTANCE.json",
-]
+PROTECTED = []  # Unrelated author-workspace registries are not part of this release.
 
 
 def now():

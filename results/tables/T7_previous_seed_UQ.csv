@@ -1,4 +1,0 @@
-population,comparison,role,delta,ci97_5
-1536 downstream repositories; full pipeline,uq_increment,prior frozen full-pipeline comparison,0.003952390664201891,"[0.0013304265837838897, 0.0069847308096466455]"
-1024 downstream repositories; fixed upstream action,full_minus_common,prior frozen risk-head comparison,-7.970573383892871e-05,"[-0.0036124158869464784, 0.003453004419268621]"
-1024 downstream repositories; fixed upstream action,full_minus_support,prior frozen risk-head comparison,0.0013465287202921758,"[-0.0012146365947739283, 0.004049586953883786]"

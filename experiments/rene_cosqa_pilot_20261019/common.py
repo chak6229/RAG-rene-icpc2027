@@ -18,6 +18,11 @@ def now():
 
 
 def sha(path):
+    path = Path(path)
+    legacy = "results/uq_pilot_20261014/action_witness_uq/data/ce_large_dense_4096.pt"
+    if path.as_posix().endswith(legacy) and not path.exists():
+        path = ROOT / "models/ssqr-verifier/ce_large_dense_4096.pt"
+
     result = hashlib.sha256()
     with Path(path).open("rb") as handle:
         while block := handle.read(2 ** 23):
