@@ -1,46 +1,46 @@
-# 双份评审与补审完成：结果与论文整合
+# Completed original and supplemental reviews: results and manuscript integration
 
-用户已明确确认补审 A 独立完成，未查看原实验效果、旧评分或 B 的判断；漏勾选的确认单独保存于 INDEPENDENCE_CONFIRMATION.json。原始返回文件、标签和理由均保留。B 按原返回声明通过；两位各 344 个补审判断已正式接收，共 688 条。接收依据见 REVIEW_ACCEPTANCE.json。
+The author confirmed that reviewer A completed the supplemental judgments independently without seeing the experimental effects, prior scores or reviewer B's judgments. The separately recorded confirmation for the unchecked box is in `INDEPENDENCE_CONFIRMATION.json`. Original returns, labels and rationales were retained. B met the original intake declaration, and 344 supplemental judgments per reviewer were accepted, for 688 total. See `REVIEW_ACCEPTANCE.json`.
 
-## 新增证据
+## Supplemental evidence
 
-原评审 A/B 每人 128 查询、383 改写及 327 代码面板，与上一版数据字段完全相同。新增的是原样本内 126 查询的 344 面板/人补判，未增加查询数或审阅者人数。19 个提交文件已留存，网页、文字版及 JSON 的 2,108 项判断与理由已核对；48 个分析组合、6,144 条精确配对界已独立复算通过。本轮沿用已验证数值，没有重跑训练、生成或检索。
+Each original reviewer assessed 128 queries, 383 rewrites and 327 code panels, with the original fields unchanged. The supplement adds 344 panels per reviewer across 126 queries in the original sample, retaining the query count and reviewer count. We retained 19 returned files, checked 2,108 judgments and rationales across web, text and JSON formats, and independently replayed 48 analysis combinations and 6,144 exact paired bounds. This step uses verified results without new training, generation or retrieval.
 
-新补审一致率 55.23%、名义 κ=.321；共同可判 296/344（86.05%），线性加权 κ=.484。154 项分歧中 48 项涉及 unknown，106 项为确定等级不同。610 面板合并池中两位各保留 49 个 unknown，不作自动裁决。原评审语义一致率 76.50%/κ=.525、代码含 unknown 一致率 53.82%/κ=.371 及原加权机制事件统计保持。
+Supplemental exact agreement was 55.23%, with nominal κ=.321. Both reviewers supplied known grades on 296/344 panels (86.05%), with linear-weighted κ=.484. Of 154 disagreements, 48 involved an unknown and 106 involved different known grades. In the merged pool of 610 panels, each reviewer retained 49 unknowns without automatic adjudication. Original semantic agreement remained 76.50% (κ=.525), and original code agreement including unknowns remained 53.82% (κ=.371). Original weighted event statistics were retained.
 
-## 主要诊断与敏感性
+## Primary diagnostic and sensitivities
 
-预定端点为 RIDGE_verified、阈值 2、原八层加权 RR@3，数值为政策减原查询。下列为样本未知相关性的识别界，非置信区间，不包含抽样或标注误差。
+The prespecified endpoint uses RIDGE_verified, threshold 2, and RR@3 weighted over the original eight strata. The contrast subtracts original-query RR from policy RR. The sample identification bounds reflect unknown relevance and exclude sampling and annotation error.
 
-|审阅者|补审前|补审后|可定查询|
+|Reviewer|Pre-trial rehabilitation|After re-trial|Openable Query|
 |---|---|---|---:|
 |A|[-0.017841, +0.041899]|[+0.005843, +0.018263]|102 → 121/128|
 |B|[-0.032886, +0.059318]|[+0.001279, +0.016604]|96 → 122/128|
 
-原 qrels 下同端点为 +0.001594。本结果说明未知范围收窄及相关性覆盖敏感性；该 RR@3 端点不是从负转正。相对原 qrels 的改变量为 A [+0.004250, +0.016669]; B [-0.000315, +0.015011]，B 仍含 0。
+Under the original qrels, the same endpoint is +0.001594. Supplementation narrows the unknown range and shows sensitivity to the relevance set. The change relative to original qrels is [+0.004250, +0.016669] for A and [-0.000315, +0.015011] for B. The B change still includes 0.
 
-|敏感性口径|A|B|
+|Sensitivity settings|A|B|
 |---|---|---|
-|评分 1/2 纳入、原分层加权 RR@3|[+0.003297, +0.005007]|[+0.001948, +0.010069]|
-|评分 2 纳入、未加权 RR@3|[+0.003906, +0.023438]|[-0.006510, +0.011719]|
+|Rating 1 / 2 Inclusion, original layer weighting RR@3|[+0.003297, +0.005007]|[+0.001948, +0.010069]|
+|Rating 2 Incorporated, unweighted RR@3|[+0.003906, +0.023438]|[-0.006510, +0.011719]|
 
-## 对主线的支持
+## Interpretation for the study
 
-|阈值 2、原分层加权 RR@3|A|B|
+|Threshold 2, original layer weighted RR@3|A|B|
 |---|---|---|
 |ENTR_top1|[-0.040360, -0.006583]|[-0.045258, -0.017126]|
 |RIDGE_verified|[+0.005843, +0.018263]|[+0.001279, +0.016604]|
 |RIDGE_risk|[-0.000177, +0.000324]|[+0.001755, +0.001962]|
 |SAFE_ENTR_best3_opportunity|[+0.093181, +0.118574]|[+0.047352, +0.103379]|
 
-完整补审主要加强第三贡献：**评价口径与指定自动政策效用的定量诊断**。核验政策在两位、两阈值的预定加权读数均正，同时 ENTR 直接单选仍负、安全 best3 机会仍正。这让候选机会、指定自动选择及已标注目标排名的区别有了补充数值证据。风险回退后的正收益没有跨两位、两阈值同时成立；B 的严格未加权界仍跨 0。
+The supplemental review strengthens the diagnostic of the evaluation contract and fixed automatic policy. In the prespecified weighted sample, the post-verification bounds are positive for both reviewers at both thresholds, direct ENTR single selection remains negative and the safe best3 opportunity remains positive. A positive effect after risk fallback is not established jointly across the reviewers and thresholds. B's strict unweighted bounds still span 0.
 
-第二贡献仍由同池 B/G 受控对照、StaQC 方向确认和检索器直接差承担。本次不改变这些统计结果，也不把补审升级为全 H 的 MRR@100 正收益确认、全流程稳定部署收益或互斥原因解释比例。作者权重、原训练 CSV、生产聚合及历史全量训练归因的复现范围保持原界定。
+The separate B/G, StaQC and paired retriever results retain their original interpretation. The supplement does not establish a positive full-H MRR@100 result, a stable full-pipeline gain, or mutually exclusive explanations for losses. The recovery limits for the historical weights, training CSV, production aggregation and full-training attribution remain in force.
 
-## 当前论文与交付
+## Historical manuscript and delivery records
 
-完整稿：paper/rene2027/manuscript.md。相关性分析补充稿、六个相关源章节、统一结果、大纲、贡献映射、新增知识说明与结果契约已同步。原评审的 106 改写/151 代码/35 明确度分歧及三例保留；新增补审 154 分歧、等级分布及请求/响应、辅助函数缺失、输出完整度三个案例，双方原判不改。
+The historical draft was `paper/rene2027/manuscript.md`. The relevance supplement, six associated source sections, integrated results, outline, contribution map and evaluation contracts were synchronized at that stage. The original 106 rewrite, 151 code and 35 clarity disagreements and three examples were retained. The supplement adds 154 disagreements, grade distributions and three examples about request versus response, missing helper context and completeness of output. Both reviewers' recorded judgments were retained.
 
-数值入口为本目录 RESULTS.json、DIAGNOSTIC_TABLES.json 和 query_bounds.jsonl；分歧入口为 supplement_disagreements.jsonl 与 REPRESENTATIVE_DISAGREEMENTS.json。原 15 表 176 行机器来源与既有实验结果保持，修订前论文副本在 before/。当前回收状态以本目录为准；先前核查版本保留其历史状态。
+See `RESULTS.json`, `DIAGNOSTIC_TABLES.json` and `query_bounds.jsonl` for the numerical evidence, and `supplement_disagreements.jsonl` and `REPRESENTATIVE_DISAGREEMENTS.json` for disagreements. The 15 earlier tables and their 176 machine-source rows were preserved. `before/` was the historical manuscript backup. This report supersedes the earlier provisional intake status.
 
-最终验证见 FINAL_ACCEPTANCE.json。下一投稿工作为贡献重要性整稿预审、会议模板与页数、完整公开包交付。
+`FINAL_ACCEPTANCE.json` records the verification. Manuscript review, conference formatting and the final artifact were subsequent submission steps.

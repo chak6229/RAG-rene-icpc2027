@@ -53,7 +53,7 @@ def main():
             if m['adopted']!=sum(r['policies'][policy]['adopted'] for r in fr):raise ValueError('adoption count mismatch')
     for reviewer in ('A','B'):
         folder=OUT/f'reviewer_{reviewer}'
-        p1=extract(folder/'01_查询含义.html');p2=extract(folder/'02_代码相关性.html')
+        p1=extract(folder/'01_query_meaning.html');p2=extract(folder/'02_code_relevance.html')
         if set(p1)!={'schema_version','reviewer','packet_id','phase','cases'} or set(p2)!={'schema_version','reviewer','packet_id','phase','cases','semantic_schema'}:
             raise ValueError('non-allowlisted packet metadata')
         one={r['case_id']:r for r in p1['cases']};two={r['case_id']:r for r in p2['cases']}
@@ -71,8 +71,8 @@ def main():
             for doc in b['documents']:
                 if set(doc)!={'id','code'}:raise ValueError('unblinded document metadata')
             if not 2<=len(b['documents'])<=6:raise ValueError('code panel size')
-        with zipfile.ZipFile(OUT/f'审阅者{reviewer}.zip') as z:
-            if set(z.namelist())!={'01_查询含义.html','02_代码相关性.html','先读说明.txt'}:
+        with zipfile.ZipFile(OUT/f'Reviewer{reviewer}.zip') as z:
+            if set(z.namelist())!={'01_query_meaning.html','02_code_relevance.html','README.txt'}:
                 raise ValueError('zip contains analysis/key/unexpected paths')
             for name in z.namelist():
                 if z.read(name)!=(folder/name).read_bytes():raise ValueError('zip byte mismatch')

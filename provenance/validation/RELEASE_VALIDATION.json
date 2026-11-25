@@ -1,7 +1,12 @@
 {
-  "passed": true,
-  "checked_local_date": "2026-11-10",
-  "source_tree_complete_replay": {
+  "edition": "2026.11.25",
+  "comparison_source": "2026.11.10",
+  "scientific_numeric_files_match_bytes": true,
+  "frozen_file_count": 92,
+  "annotation_labels_ids_and_numeric_values_unchanged": true,
+  "annotation_note_fields_translated": 2640,
+  "translated_python_ast_preserved_except_display_strings": true,
+  "source_tree_replay": {
     "passed": true,
     "numerical_studies": 14,
     "numerical_contrasts": 103,
@@ -10,45 +15,24 @@
     "human_query_bounds": 6144,
     "human_sampling_combinations": 48,
     "s7_accounting_rows": 6,
-    "elapsed_seconds": 19.535859600058757
+    "elapsed_seconds": 21.224465399980545
   },
-  "python": "3.12.14",
-  "numpy": "1.26.4",
-  "scipy": "1.13.1",
-  "threadpoolctl": "3.6.0",
-  "environment": "Previously validated pinned isolated Python 3.12 environment",
-  "current_scope": "docs/ARTIFACT_SCOPE.md",
-  "removed_previous_package_files": 148,
-  "standalone_old_uq_modules": 0,
-  "generic_ranking_evaluator_files_relocated": 2,
-  "models": {
-    "archives": 3,
-    "member_contents_unchanged": true,
-    "W5_layout_repacked": true,
-    "new_training": false,
-    "server_metadata_checked": true
-  },
-  "tables": {
-    "current_result_records": 179,
-    "unchanged_non_S7_records": 173,
-    "new_S7_descriptive_rows": 6,
-    "settings_rows": 115,
-    "base_numbering": "S1–S25"
-  },
-  "manuscript": {
-    "source_sha256": "cf49f0d8e45df2149b99cb56ade2c3bb7387893c836866448ec608dfcb8260c3",
-    "total_pages": 12,
-    "main_text_pages": 10,
-    "reference_pages": [
-      11,
-      12
-    ],
-    "changes": "Removed historical multi-seed clauses from III.E, added S7 pointer in III.D and updated artifact version; other results retained"
-  },
-  "supplement_pdf_pages": 28,
-  "numeric_and_human_inputs_unchanged": true,
-  "core_statistics_tolerance": 1e-11,
-  "new_model_experiments": false,
   "repository_private": true,
-  "publication_receipt": "Final GitHub verification is supplied separately in the author delivery receipt."
+  "identical_replay_data_files": 7,
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "threadpoolctl": "3.6.0"
+  },
+  "english_scan": {
+    "unicode_han_hits": 0,
+    "checked": [
+      "paths",
+      "source text",
+      "decompressed JSONL",
+      "extractable PDFs",
+      "Word XML text"
+    ]
+  }
 }

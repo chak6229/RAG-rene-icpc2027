@@ -1,41 +1,41 @@
-# 两套T5权重证据补齐与独立复核
+# Two sets of T5 weighting evidence completed and independently reviewed
 
-日期：2026-10-20。历史四臂摘要已知后的证据补齐，不是新独立确认。复用原生成候选和原512查询/512组匹配子集，不重训、不重新生成T5。新增计算是用冻结CodeBERT为base候选补存排名与全得分。
+Date: 2026 - 10 - 20. The known evidence of the historical four-arm summary is not confirmed by new independence. Reuse original to generate subsets for candidate and original 512 query/ group matching 512, without retracing or regeneration T5. The new calculation is a freeze CodeBERT for base candidate by-election ranking and full score.
 
-## 主要结果
+## Key findings
 
-以下为相对原查询的MRR@100差，区间为按关联组重采样的逐项95%区间。每域两权重使用相同512查询与原查询对照；不与2048源侧或1490开发集拼接分母。
+The following is relative to original query MRR@ 100 Discrepancies, item-by-line sampling by associated group 95% District. Two weights for each domain using the same 512 query against the original query; Not with the 2048 source or 1490 development of a cluster denominator.
 
-|数据|T5权重|Top1 Δ|95%区间|best3 Δ|95%区间|
+|Data|T5 Weight|Top1 Δ|95% Range|best3 Δ|95% Range|
 |---|---|---:|---|---:|---|
 |source|local|-0.03025188|[-0.04521606, -0.01620265]|+0.02998920|[+0.01828534, +0.04234607]|
 |source|t5base|-0.01336644|[-0.02433999, -0.00262637]|+0.03852459|[+0.02586949, +0.05180257]|
 |cosqa|local|-0.02019729|[-0.03674618, -0.00434649]|+0.06130778|[+0.04602760, +0.07699339]|
 |cosqa|t5base|-0.04270304|[-0.06296258, -0.02299205]|+0.05669980|[+0.03920094, +0.07485249]|
 
-八项比较校正后，四个best3−原查询区间均为正；Top1的source/base和CoSQA/local两格跨0，另两格为负。因此可以报告四格点估计方向相同，不能写四格Top1均在校正后显著为负。两权重的best3直接差区间跨0，不宣布base或微调权重更优。
+After correction across eight comparisons, all four best3-minus-original-query intervals are positive. For Top1, the source/base and CoSQA/local intervals span 0, while the other two are negative. All four Top1 point estimates have the same sign, and two directions remain unresolved under correction. The direct best3 differences between weights span 0, leaving the ordering of the weight conditions unresolved.
 
-CoSQA/base的ENTR单选−精确均匀单选为+.03475321，95%[+.01882089,+.05044681]。所以Top1低于原查询不等于熵排序没有信息。旧ENVELOPE.md中的“信号失败”或“生成器无问题”解释不再作为本文机制结论；旧文件保留以便追踪。
+CoSQA/base ENTR Single-precise flat single to +.03475321, 95% [+.01882089,+.05044681]. So Top1 lower than original query does not mean that entropy is sorted without information. The "sign failure" or "generator-free" interpretation in the old ENVELOPE.md is no longer a conclusion of this mechanism; The old document is kept for tracking.
 
-## 已执行的证据闭环
+## Closed chain of evidence executed
 
-- source/base 5995个候选位置、6283个唯一检索输入、19210个语料文档；CoSQA/base为3345、3855、6267。
-- 原查询与全部base候选重新编码：冻结pooler_output、无归一化、FP32、TF32关闭、最大长度256、batch16；代码向量复用并核对原文档ID顺序。
-- 保存全语料得分与Top100：按FP32原始点积分数降序、原文档ID升序打破并列。source与CoSQA检索步骤约87.46秒和50.19秒；不含原T5生成/训练及独立审计，不作为全链路在线延迟。
-- 独立重算10138条完整Top100、144855715个全语料得分，FP32误差0；18680个候选RR、16384个查询指标及组区间匹配。
-- 实际模型独立前向核对16个查询和16个语料样例，最大误差0。16次FP64点积抽查最大绝对差5.955e−5，符合1e−4检查界；不声称FP64与FP32全排序相同。
-- 四个旧摘要最大差3.33e−16；6项科学口径测试通过；59个冻结/保护文件与10个新增封存输出哈希通过。
+- source/base 5995 candidate positions, 6283 unique search input, 19210 language documents; CoSQA/base is 3345, 3855, 6267.
+- Original query and all base candidate recode: Freeze pooler_output, Ununified, FP32, TF32 Closed, maximum length 256,batch16; Code vector reuse and check the original document ID order.
+- Save hologram score with Top100: Break parallel to original document ID ascending in descending order of FP32 points. source About 87.46 seconds and 50.19 seconds with CoSQA retrieval steps; Without original T5 generation/training and independent audit, not as a full-link online delay.
+- Independent recalculation of 10138 full text Top100, 144855715 full language score, FP32 error 0; 18680 Candidates RR, 16384 Query indicators and inter-group matching.
+- Independent model forward checks for 16 queries and 16 corpus items gave maximum error 0. Across 16 FP64 dot-product checks, the maximum absolute difference was 5.955e−5, within the 1e−4 check tolerance. This check does not establish identical full FP64 and FP32 rankings.
+- The four historical summaries matched with maximum difference 3.33e−16. All 6 evaluation-contract tests passed. Hashes matched for 59 frozen and protected files and 10 newly sealed outputs.
 
-## 对论文的作用
+## The role of papers
 
-它关闭“只有base汇总、没有排名和逐query证据”的缺口，提供相同样本下两套T5-base权重的稳健性诊断。两权重属于同一家族，样本也非未见确认；不称跨模型家族泛化或四次独立确认。核心贡献仍由指定SSQR复现和A同池直接对照承担。
+It closes the gap “only base aggregate, no ranking and query evidence” by providing a robust diagnosis of two sets of T5-base weights in the same sample. The two weights belong to the same family and the sample is not unknown; It is not referred to as cross-model family extension or four independent confirmations. The core contribution remains assigned SSQR reproduction and A direct against the pool.
 
-## 复算与文件
+## Recount & File
 
-- `PROTOCOL.json`、`RANKINGS_SEALED.json`：冻结输入和排名口径。
-- `rankings/*/{Top100.jsonl,texts.json,query_vectors.npy,scores.npy}`：文本、向量、全得分和最终排名。
-- `per_query.jsonl`、`candidate_RR.jsonl`、`RESULTS.json`：完整逐项结果。
-- `AUDIT.json`、`TEST_RESULTS.json`、`FINAL_ACCEPTANCE.json`：实际验收。
-- 独立入口：`experiments/rene_envelope_completion_20261020/audit.py --root <工作区>`。完整模式需要原模型/向量/冻结输入；紧凑增量包使用`--cached`，其范围仅为排名到RR/区间。
+- `PROTOCOL.json `、`RANKINGS_SEALED.json `: Freezing input and ranking calibre.
+- `rankings/*/{Top100.jsonl,texts.json,query_vectors.npy,scores.npy}`: text, vector, full score and final ranking.
+- `per_query.jsonl `、`candidate_RR.jsonl `、`RESULTS.json `_: a complete itemized result.
+- `AUDIT.json `、`TEST_RESULTS.json `、`FINAL_ACCEPTANCE.json `: Actual acceptance and inspection.
+- Independent entrance:`experiments/rene_envelope_completion_20261020/audit.py --root <workspace>`. Complete mode requires original model/ vector/freezing input; compact incremental package use `--cached `, it's only ranked to RR/zone.
 
-本轮未重新评估H标签/排名，未修改原确认、CURRENT/STABLE或风险配置；risk_certified=false。
+No re-evaluation of H labels/ranks, no change in original confirmation, CURRENT / STABLE or risk configuration; risk_certified=false.

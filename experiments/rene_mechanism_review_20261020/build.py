@@ -215,7 +215,7 @@ def create_packets(sample, selected, rankings, decisions, qrels):
         folder = OUT / f'reviewer_{reviewer}'
         make_pages(folder, reviewer, packet_id, phase1, phase2)
         keys[reviewer] = {'packet_id': packet_id, 'cases': private_map}
-        with zipfile.ZipFile(OUT / f'审阅者{reviewer}.zip', 'x', compression=zipfile.ZIP_DEFLATED) as z:
+        with zipfile.ZipFile(OUT / f'Reviewer{reviewer}.zip', 'x', compression=zipfile.ZIP_DEFLATED) as z:
             for p in sorted(folder.iterdir()):
                 z.write(p, p.name)
     put(OUT / 'private/reviewer_keys.json', keys)
@@ -227,34 +227,34 @@ def create_packets(sample, selected, rankings, decisions, qrels):
 
 def reports(summaries, sample, packet_stats):
     strata = Counter(r['stratum'] for r in sample)
-    lines = ['# 候选机会到自动收益：阶段诊断与双人盲审', '',
-             '**缓存阶段复算已完成；双人独立人工标签尚未返回，语义/相关性机制结论待定。**', '',
-             '本轮使用已消费CoSQA H8530/1963组；是事后诊断，不产生新的确认性效果结论。', '',
-             '## 完整总体的可核对记账', '',
-             '|检索器/阶段|净ΔMRR|正收益|损失幅度|机会漏选量|正收益保留|实际采用|有害|',
+    lines = ['# Candidates to automatic benefits: stage diagnosis and double blinding', '',
+             '** The crediting phase of the cache has been completed; separate manual tags for both persons have not yet returned and semantic/relevance mechanism conclusions to be determined.**', '',
+             'This round uses the consumption group CoSQA H8530/1963; it is an ex post diagnostic and does not produce new conclusive effects.', '',
+             '## Complete overall reconciliation of accounts', '',
+             '|Retrieval/stage netting MRR',
              '|---|---:|---:|---:|---:|---:|---:|---:|']
     table = []
     for ret, summary in summaries.items():
         for policy, m in summary['stage_results'].items():
             lines.append(f"|{ret}/{policy}|{m['net']:+.8f}|{m['positive']:.8f}|{m['harm']:.8f}|{m['missed']:.8f}|{m['positive_retention']:.2%}|{m['adopted']}|{m['negative']}|")
             table.append({'retriever': ret, 'stage': policy, **m})
-    lines += ['', '每查询U=max(0,ENTR池候选ΔRR)，D=P−H；U−D=(U−P)+H。机会漏选量为U−P，包含排序与采用的经验损失，不能直接解释为语义漂移或学习误差的因果份额。', '']
+    lines += ['', 'Every query U = max (0 ENTR Pool candidate RR, D = P−H; U−D=(U−P)+H。 The opportunity leakage amount is U−P, which includes loss of experience in ranking and adoption and cannot be directly interpreted as the causal share of semantic drift or learning error.', '']
     for ret, summary in summaries.items():
         v = summary['verification_counts']; g = summary['gate_rejected_counts']
-        lines += [f"- {ret}：安全候选机会{summary['oracle']:+.8f}；核验分配{v['allocated']}条，RR改善{v['improved_RR']}、变差{v['worsened_RR']}（包括未核验的全总体分母）；分配中已知目标进入证据{v['known_target_in_evidence']}条。",
-                  f"- {ret}门拒绝：正{g.get('positive',0)}、负{g.get('negative',0)}、零{g.get('zero',0)}；移除正收益{summary['gate_removed_positive']:.8f}、避免损失{summary['gate_avoided_loss']:.8f}。目标覆盖只是可观察线索，不证明证据充分或不足。"]
-    lines += ['', '## 人工审阅准备', '',
-              '|层|完整总体条数|固定抽样|每条权重|', '|---|---:|---:|---:|']
+        lines += [f"- {ret}: Safe candidate opportunities{summary['oracle']:+.8f};validation of allocations{v['allocated']}Article, RR Improvement{v['improved_RR']}Change{v['worsened_RR']}(includes unapproved total denominator); evidence of entry of known targets in distribution{v['known_target_in_evidence']}Article.",
+                  f"- {ret}Door denied: positive{g.get('positive',0)}Negative.{g.get('negative',0)}nil{g.get('zero',0)}; removing positive gains{summary['gate_removed_positive']:.8f}and avoidance of losses{summary['gate_avoided_loss']:.8f}. Target coverage is only an observational clue and does not prove sufficient or insufficient evidence."]
+    lines += ['', '## Manual review preparation', '',
+              'The whole length of the bar in a platinum layer, the fixed sample, the weight of each bar.', '|---|---:|---:|---:|']
     for code, label in zip(STRATA, STRATUM_ZH):
         selected = [r for r in sample if r['stratum'] == code]
         lines.append(f"|{label}|{selected[0]['frame_n']}|{strata[code]}|{selected[0]['weight']:.4f}|")
-    lines += ['', f"共{packet_stats['unique_queries']}条查询/{packet_stats['unique_groups']}关联组；每人{packet_stats['unique_rewrite_judgments_per_reviewer']}条不同改写判断、{packet_stats['code_judgments_per_reviewer']}份代码判断。分层等量抽样，不能将样本裸比例当总体比例。", '',
-              '两位审阅者分别领取审阅者A.zip和审阅者B.zip。先完成01语义页，保存完整导出；再在02代码页导入该语义记录。仅将各自包交给对应审阅者；private目录、当前报告及统计结果不交给审阅者。', '',
-              '代码按官方原格式恢复，全部6267条与实际tokenized代码身份一致；显示的人工阅读信息不等同于模型可见特征。', '',
-              '## 目前能回答与等待的判断', '',
-              '阶段记账可定位候选机会在哪些动作上未被选取，以及核验/回退改变了多少正收益和损失。语义是否偏移、目标是否真正满足原需求、未标注代码是否相关，需要两位独立判断返回。收益预测错误的统计记录仍不能唯一分离训练、特征、模型和标注原因。', '',
-              '回收入口：python -m experiments.rene_mechanism_review_20261020.collect --a <A的第二阶段完整JSON> --b <B的第二阶段完整JSON> --out <新输出目录>。校验不完整/串包/重复项后拒绝统计。所有讨论在独立提交后开展，原判保留。', '',
-              '协议/抽样/匿名映射均留存；原确认和正式五指针保持。']
+    lines += ['', f"Total{packet_stats['unique_queries']}Article queries/{packet_stats['unique_groups']}Associated groups;per capita{packet_stats['unique_rewrite_judgments_per_reviewer']}It’s different to rewrite the judgment,{packet_stats['code_judgments_per_reviewer']}A copy of the code is judged. A layered equivalent sample cannot be considered as an overall proportion of the sample nudity.", '',
+              'Two examiners received the reviewer A.zip and the examiner B.zip. Finish the syntax page 01 first, save full export; Imports the semantic record again on the 02 code page. Only the respective packages will be handed over to the corresponding examiner; private Catalogues, current reports and statistical results are not submitted to reviewers.', '',
+              'The code is restored in the official original format, and all 6267 entries correspond to the actual tokenized code identity; Artificial reading information is not the same as a model visible feature.', '',
+              "## So far, we've been able to answer and wait for judgment.", '',
+              'Phased accounting allows for the identification of actions on which candidates are not selected, as well as verification/retroactivity changes in positive gains and losses. Whether semantics are transposed, whether the target really meets the original demand, and whether the unmarked code is relevant requires two independent judgments on return. The incorrect statistical record of revenue projections still cannot be the only reason for separating training, features, models and indications.', '',
+              'Recycling portal: python - m experiments.rene_mechanism_review_20261020 collect - a < A Complete Phase II JSON -- b < B Complete Phase II JSON > --out New Output Directory. Incomplete/strings/repeated items were verified and the statistics rejected. All discussions were held after the independent submission, with the original reservation.', '',
+              'The protocol/sampling/anonymous mapping is retained; original confirmation and official five pointers are maintained.']
     (OUT / 'FINDINGS.md').write_text('\n'.join(lines)+'\n', encoding='utf-8')
     with (OUT / 'STAGES.csv').open('x', encoding='utf-8-sig', newline='') as h:
         w = csv.DictWriter(h, fieldnames=list(table[0])); w.writeheader(); w.writerows(table)

@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
 OUT = ROOT / "results/rene_core_step_a_20261020"
 BRIDGE = ROOT / "results/rene_ssqr_bridge_20261019"
-DESIGN = ROOT / "ResearchVault/Handoffs/RENE-核心贡献判别验证方案-20261020.md"
+DESIGN = ROOT / 'ResearchVault/Handoffs/RENE- Core contribution validation program -20261020. md'
 PROTECTED = []  # Unrelated author-workspace registries are not part of this release.
 
 

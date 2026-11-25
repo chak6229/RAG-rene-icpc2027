@@ -58,15 +58,15 @@ def main():
         shutil.copyfile(PRIOR / name, OUT / name)
     put(OUT / "RECEIPT_MANIFEST.json", {"prior_receipt": binding(PRIOR / "RECEIPT_MANIFEST.json"),
                                          "files": receipt["files"]})
-    a_path = OUT / "received/补审A/relevance-supplement-A-complete.json"
+    a_path = OUT / 'received / Remedial review A/relevance-supplement-A-complete.json'
     a_payload = read(a_path)
     assert a_payload["independence_confirmed"] is False
     confirmation = {
         "reviewer": "A", "phase": "relevance_supplement", "packet_id": a_payload["packet_id"],
         "original_return": binding(a_path), "original_independence_flag": False,
         "evidence_source": "explicit human user reply in the current conversation",
-        "question": "补审 A 的文件中“独立完成”未勾选。请确认：A 是否独立完成了补审，且未查看原实验效果、旧评分或 B 的判断？",
-        "answer_verbatim": "是，A 确实独立完成，只是漏勾选",
+        "question": 'The document for the Supplementary Review A is not ticked. Please confirm: A has completed the remedial review independently and does not look at the original experimental results, old ratings or B judgement?',
+        "answer_verbatim": "Yes, A Yes, it is done independently. It's just an omission.",
         "confirmed_scope": {"completed_independently": True, "did_not_view_experimental_outcomes": True,
                             "did_not_view_previous_ratings": True, "did_not_view_reviewer_B_judgments": True},
         "record_type": "separate organizer confirmation; not a rewritten reviewer return",
@@ -76,7 +76,7 @@ def main():
     keys = read(ROOT / "results/rene_relevance_sensitivity_20261021/private/reviewer_keys.json")
     accepted = {}
     for reviewer in ("A", "B"):
-        payload = read(OUT / f"received/补审{reviewer}/relevance-supplement-{reviewer}-complete.json")
+        payload = read(OUT / f"received / Remedial review{reviewer}/relevance-supplement-{reviewer}-complete.json")
         normalized = normalize_supplement(payload, keys[reviewer], reviewer)
         assert len(normalized) == 344
         if reviewer == "A":

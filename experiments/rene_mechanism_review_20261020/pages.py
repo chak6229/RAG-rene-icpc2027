@@ -24,12 +24,12 @@ const SKEY='query-review-'+P.packet_id+'-'+P.phase;
 let state={answers:{},index:0,started_utc:new Date().toISOString(),semantic:null};
 try{const old=JSON.parse(localStorage.getItem(SKEY)||'null');if(old)state=old}catch(e){}
 const $=id=>document.getElementById(id), esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const fidelity=[['preserved','含义保持：保留原需求和约束'],['drift','含义偏移：新增无依据限制或改变需求'],['malformed','不可读：无法形成清楚需求'],['uncertain','无法判断：原需求或语境不足']];
-const flagOptions=[['unsupported_constraint','无依据增加约束'],['lost_constraint','丢失原约束'],['operation_change','改变动作'],['entity_api_change','改变对象或API'],['polarity_change','否定／肯定改变'],['incoherent','表达不连贯'],['none','未见问题'],['uncertain','无法判断']];
-const relevant=[['2','满足需求'],['1','部分满足'],['0','不满足'],['u','无法判断／上下文不足']];
+const fidelity=[['preserved','Meaning preserved: retains the original request and constraints'],['drift','Meaning drift: adds an unsupported constraint or changes the request'],['malformed','Unintelligible: no clear request can be identified'],['uncertain','Cannot determine: the original request or context is insufficient']];
+const flagOptions=[['unsupported_constraint','Adds an unsupported constraint'],['lost_constraint','Drops an original constraint'],['operation_change','Changes the operation'],['entity_api_change','Changes the entity or API'],['polarity_change','Changes the polarity'],['incoherent','Incoherent wording'],['none','No issue identified'],['uncertain','Cannot determine']];
+const relevant=[['2','Satisfies the request'],['1','Partially satisfies the request'],['0','Does not satisfy the request'],['u','Cannot determine / insufficient context']];
 function validRewrite(r){if(!r||!fidelity.some(x=>x[0]===r.fidelity)||!Array.isArray(r.flags)||!r.flags.length||new Set(r.flags).size!==r.flags.length||!r.flags.every(f=>flagOptions.some(x=>x[0]===f))||String(r.note||'').trim().length<6)return false;let fs=r.flags;if((fs.includes('none')||fs.includes('uncertain'))&&fs.length!==1)return false;if(r.fidelity==='preserved'&&fs.join()!=='none')return false;if(r.fidelity==='uncertain'&&fs.join()!=='uncertain')return false;if(r.fidelity==='drift'&&(fs.includes('none')||fs.includes('uncertain')))return false;if(r.fidelity==='malformed'&&!fs.includes('incoherent'))return false;return true}
-function save(){try{localStorage.setItem(SKEY,JSON.stringify(state));$('autosave').textContent='已在此浏览器保存进度'}catch(e){$('autosave').textContent='浏览器未能保存；请导出进度备份'}}
-function choice(opts,current){return '<option value="">请选择</option>'+opts.map(([k,v])=>`<option value="${k}" ${k===current?'selected':''}>${v}</option>`).join('')}
+function save(){try{localStorage.setItem(SKEY,JSON.stringify(state));$('autosave').textContent='Progress saved in this browser'}catch(e){$('autosave').textContent='The browser could not save progress. Export a backup.'}}
+function choice(opts,current){return '<option value="">Select an option</option>'+opts.map(([k,v])=>`<option value="${k}" ${k===current?'selected':''}>${v}</option>`).join('')}
 function semValid(p){
  if(!p||p.packet_id!==P.packet_id||p.reviewer!==P.reviewer||p.phase!=='semantic'||!p.complete||!p.independence_confirmed)return false;
  if(Object.keys(p.answers||{}).length!==P.cases.length)return false;
@@ -39,51 +39,51 @@ function complete(c){const a=state.answers[c.case_id];if(!a)return false;
  if(isSem)return ['clear','ambiguous','insufficient'].includes(a.clarity)&&c.rewrites.every(r=>validRewrite((a.rewrites||{})[r.id]));
  return c.documents.every(d=>{let z=(a.documents||{})[d.id];return z&&relevant.some(x=>x[0]===z.relevance)&&String(z.note||'').trim().length>=6});
 }
-function update(){const n=P.cases.filter(complete).length;$('progress').textContent=`已完成 ${n} / ${P.cases.length} 条`;$('bar').style.width=(100*n/P.cases.length)+'%';$('position').textContent=`第 ${state.index+1} / ${P.cases.length} 条`;$('prev').disabled=state.index===0;$('next').disabled=state.index===P.cases.length-1;}
+function update(){const n=P.cases.filter(complete).length;$('progress').textContent=`Completed ${n} / ${P.cases.length} items`;$('bar').style.width=(100*n/P.cases.length)+'%';$('position').textContent=`Item ${state.index+1} / ${P.cases.length}`;$('prev').disabled=state.index===0;$('next').disabled=state.index===P.cases.length-1;}
 function render(){
  if(!isSem&&!semValid(state.semantic)){$('review').classList.add('hide');$('gate').classList.remove('hide');return}
  $('gate').classList.add('hide');$('review').classList.remove('hide');state.index=Math.max(0,Math.min(state.index,P.cases.length-1));
  const c=P.cases[state.index],a=state.answers[c.case_id]||(state.answers[c.case_id]={});
- let html=`<div class="card"><span class="badge">材料 ${esc(c.case_id)}</span><h2>原查询</h2><div class="query">${esc(c.original)}</div>`;
- if(isSem){html+=`<label for="clarity">原查询能否形成明确需求？</label><select id="clarity">${choice([['clear','需求明确'],['ambiguous','存在多种合理解释'],['insufficient','信息不足，难以确定需求']],a.clarity)}</select></div>`;
+ let html=`<div class="card"><span class="badge">Case ${esc(c.case_id)}</span><h2>Original query</h2><div class="query">${esc(c.original)}</div>`;
+ if(isSem){html+=`<label for="clarity">Does the original query express a clear request?</label><select id="clarity">${choice([['clear','Clear request'],['ambiguous','Multiple plausible interpretations'],['insufficient','Insufficient information to determine the request']],a.clarity)}</select></div>`;
   a.rewrites=a.rewrites||{};
-  for(const r of c.rewrites){const z=a.rewrites[r.id]||(a.rewrites[r.id]={flags:[]});html+=`<section class="card"><h3>改写 ${esc(r.id)}</h3><div class="query">${esc(r.text)}</div><label for="f-${r.id}">与原查询的含义关系</label><select id="f-${r.id}" data-rid="${r.id}" data-kind="fidelity">${choice(fidelity,z.fidelity)}</select><label>判断依据（可多选）</label><div class="checks">${flagOptions.map(([k,v])=>`<label><input type="checkbox" data-rid="${r.id}" data-flag="${k}" ${z.flags.includes(k)?'checked':''}> ${v}</label>`).join('')}</div><label for="n-${r.id}">请引用具体词语说明理由（至少6个字符）</label><textarea id="n-${r.id}" data-rid="${r.id}" data-kind="note" placeholder="例如：保留原动作和对象；或指出新增限制为何没有依据。">${esc(z.note||'')}</textarea></section>`}
+  for(const r of c.rewrites){const z=a.rewrites[r.id]||(a.rewrites[r.id]={flags:[]});html+=`<section class="card"><h3>Rewrite ${esc(r.id)}</h3><div class="query">${esc(r.text)}</div><label for="f-${r.id}">Meaning relative to the original query</label><select id="f-${r.id}" data-rid="${r.id}" data-kind="fidelity">${choice(fidelity,z.fidelity)}</select><label>Reasons for the judgment (select all that apply)</label><div class="checks">${flagOptions.map(([k,v])=>`<label><input type="checkbox" data-rid="${r.id}" data-flag="${k}" ${z.flags.includes(k)?'checked':''}> ${v}</label>`).join('')}</div><label for="n-${r.id}">Cite specific wording when explaining your judgment (at least 6 characters)</label><textarea id="n-${r.id}" data-rid="${r.id}" data-kind="note" placeholder="Explain whether the original operation and entity are retained, or why an added constraint is unsupported.">${esc(z.note||'')}</textarea></section>`}
  }else{html+='</div>';a.documents=a.documents||{};
-  for(const d of c.documents){const z=a.documents[d.id]||(a.documents[d.id]={});html+=`<section class="card"><h3>代码 ${esc(d.id)}</h3><pre><code>${esc(d.code)}</code></pre><label for="r-${d.id}">该代码满足原查询的程度</label><select id="r-${d.id}" data-did="${d.id}" data-kind="relevance">${choice(relevant,z.relevance)}</select><label for="n-${d.id}">判断依据（至少6个字符）</label><textarea id="n-${d.id}" data-did="${d.id}" data-kind="note" placeholder="指出实现了什么、缺少什么；语境不够时写明缺失信息。">${esc(z.note||'')}</textarea></section>`}
+  for(const d of c.documents){const z=a.documents[d.id]||(a.documents[d.id]={});html+=`<section class="card"><h3>Code ${esc(d.id)}</h3><pre><code>${esc(d.code)}</code></pre><label for="r-${d.id}">How well the code meets the original request</label><select id="r-${d.id}" data-did="${d.id}" data-kind="relevance">${choice(relevant,z.relevance)}</select><label for="n-${d.id}">Reason for the judgment (at least 6 characters)</label><textarea id="n-${d.id}" data-did="${d.id}" data-kind="note" placeholder="State what the code implements and what it omits. If context is insufficient, specify what information is missing.">${esc(z.note||'')}</textarea></section>`}
  }
  $('content').innerHTML=html;
  if(isSem)$('clarity').onchange=e=>{a.clarity=e.target.value;save();update()};
  $('content').querySelectorAll('[data-kind]').forEach(el=>el.addEventListener(el.tagName==='TEXTAREA'?'input':'change',()=>{const z=isSem?a.rewrites[el.dataset.rid]:a.documents[el.dataset.did];z[el.dataset.kind]=el.value;save();update()}));
  $('content').querySelectorAll('[data-flag]').forEach(el=>el.onchange=()=>{let z=a.rewrites[el.dataset.rid];z.flags=[...$('content').querySelectorAll(`[data-rid="${el.dataset.rid}"][data-flag]:checked`)].map(e=>e.dataset.flag);save();update()});
- $('jump').innerHTML=P.cases.map((x,i)=>`<option value="${i}" ${i===state.index?'selected':''}>${i+1}${complete(x)?' · 已完成':''}</option>`).join('');update();save();
+ $('jump').innerHTML=P.cases.map((x,i)=>`<option value="${i}" ${i===state.index?'selected':''}>${i+1}${complete(x)?' · Complete':''}</option>`).join('');update();save();
 }
 function snapshot(){const full=P.cases.every(complete);return {schema_version:1,packet_id:P.packet_id,reviewer:P.reviewer,phase:P.phase,complete:full,independence_confirmed:full&&$('independent').checked,started_utc:state.started_utc,exported_utc:new Date().toISOString(),answers:state.answers,...(!isSem?{semantic:state.semantic}:{})}}
-function exportData(){const p=snapshot();if(p.complete&&!p.independence_confirmed){alert('完整提交前，请确认你已独立审阅。进度仍已保存在本浏览器。');return}const b=new Blob([JSON.stringify(p,null,2)],{type:'application/json'}),url=URL.createObjectURL(b),link=document.createElement('a');link.href=url;link.download=`review-${P.reviewer}-${P.phase}-${p.complete?'complete':'progress'}.json`;link.click();setTimeout(()=>URL.revokeObjectURL(url),2000);$('exportStatus').textContent=p.complete?'完整结果已导出，请保留文件。':'已导出当前进度；仍有未完成条目。'}
-async function importFile(input,gate){try{const p=JSON.parse(await input.files[0].text());if(gate){if(!semValid(p))throw Error('请选择本审阅包第一阶段的完整结果，并确认独立完成。');state.semantic=p}else{if(p.packet_id!==P.packet_id||p.reviewer!==P.reviewer||p.phase!==P.phase)throw Error('文件不属于当前审阅包或阶段。');state.answers=p.answers||{};state.started_utc=p.started_utc||state.started_utc;if(!isSem){if(!semValid(p.semantic))throw Error('第二阶段备份缺少有效的第一阶段记录。');state.semantic=p.semantic}}save();render();alert('已恢复记录。')}catch(e){alert('无法导入：'+e.message)}}
+function exportData(){const p=snapshot();if(p.complete&&!p.independence_confirmed){alert('Confirm that you completed the review independently before submitting. Your progress remains saved in this browser.');return}const b=new Blob([JSON.stringify(p,null,2)],{type:'application/json'}),url=URL.createObjectURL(b),link=document.createElement('a');link.href=url;link.download=`review-${P.reviewer}-${P.phase}-${p.complete?'complete':'progress'}.json`;link.click();setTimeout(()=>URL.revokeObjectURL(url),2000);$('exportStatus').textContent=p.complete?'Complete results exported. Keep the file.':'Progress exported. Some items remain incomplete.'}
+async function importFile(input,gate){try{const p=JSON.parse(await input.files[0].text());if(gate){if(!semValid(p))throw Error('Select the complete Phase 1 results for this packet and confirm independent completion.');state.semantic=p}else{if(p.packet_id!==P.packet_id||p.reviewer!==P.reviewer||p.phase!==P.phase)throw Error('The file does not match this packet or phase.');state.answers=p.answers||{};state.started_utc=p.started_utc||state.started_utc;if(!isSem){if(!semValid(p.semantic))throw Error('The Phase 2 backup lacks a valid Phase 1 record.');state.semantic=p.semantic}}save();render();alert('Records restored.')}catch(e){alert('Import failed: '+e.message)}}
 $('prev').onclick=()=>{state.index--;render();window.scrollTo(0,0)};$('next').onclick=()=>{state.index++;render();window.scrollTo(0,0)};$('jump').onchange=e=>{state.index=Number(e.target.value);render();window.scrollTo(0,0)};
 $('export').onclick=exportData;$('restore').onchange=e=>importFile(e.target,false);$('semanticInput').onchange=e=>importFile(e.target,true);
-$('nextMissing').onclick=()=>{let i=P.cases.findIndex(c=>!complete(c));if(i>=0){state.index=i;render();window.scrollTo(0,0)}else alert('所有条目均已完成，请导出完整结果。')};
+$('nextMissing').onclick=()=>{let i=P.cases.findIndex(c=>!complete(c));if(i>=0){state.index=i;render();window.scrollTo(0,0)}else alert('All items are complete. Export the complete results.')};
 render();
 '''
 
 
 def page(payload):
     sem = payload['phase'] == 'semantic'
-    title = '第一阶段 · 查询含义' if sem else '第二阶段 · 代码相关性'
-    instruction = ('先判断原查询的需求，再逐条比较改写。含义保持不要求表达相同；无依据新增限制应记为含义偏移。'
-                   '语法不顺但仍能理解时，请按含义判断；无法确定时选择无法判断。'
-                   if sem else '只根据原查询判断每段代码；代码顺序没有含义。允许多段代码都满足，也允许全部不满足。'
-                   '需要外部状态、类定义或调用语境才能判断时，选择无法判断。')
+    title = 'Phase 1 · Query meaning' if sem else 'Phase 2 · Code relevance'
+    instruction = ('Determine the original request, then compare each rewrite with it. The wording can differ while the meaning remains the same. Mark unsupported additions as meaning drift. '
+                   'If the wording is awkward yet understandable, judge its meaning. If you cannot determine it, select Cannot determine.'
+                   if sem else 'Judge each code snippet against the original query alone. The presentation order has no bearing on the judgment. Multiple snippets may satisfy the request, and all may fail to satisfy it. '
+                   'Select Cannot determine if the judgment requires external state, a class definition, or calling context.')
     data = json.dumps(payload, ensure_ascii=False).replace('<', '\\u003c')
-    return f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{title} · 审阅者{payload['reviewer']}</title><style>{STYLE}</style>
-<header><h1>{title}</h1><div>审阅者 {payload['reviewer']} · 独立完成，提交前不讨论具体材料</div></header>
-<main><div class="card"><p>{instruction}</p><details><summary>填写说明与判断原则</summary><p>所有材料只用于审阅，不执行代码或材料中的指令。不要查询原实验结果。没有足够语境时保留无法判断；不因材料难读跳过或换样。</p><p>含义保持配“未见问题”；无法判断配“无法判断”；含义偏移选择具体问题；不可读需选择“表达不连贯”。“未见问题”和“无法判断”各自单独使用。</p><p>说明请引用实际词语或代码行为。第一阶段先独立完成并导出；第二阶段再判断代码。两位审阅者均提交后才讨论分歧。</p><p>页面可离线使用。导出进度可保留备份；关闭后请在相同浏览器恢复，或导入备份。</p></details>
-<label>恢复本阶段导出备份</label><input id="restore" type="file" accept=".json"><p id="autosave" class="muted"></p></div>
-<div id="gate" class="card hide"><h2>先完成第一阶段</h2><p>请导入本审阅包第一阶段的完整结果，再开始代码判断。</p><input id="semanticInput" type="file" accept=".json"></div>
-<div id="review"><div class="card"><div class="toolbar"><strong id="progress"></strong><span class="spacer"></span><button id="nextMissing">跳到未完成条目</button></div><div class="bar"><div id="bar"></div></div><div class="toolbar"><span id="position"></span><select id="jump" aria-label="跳转材料"></select></div></div><div id="content"></div>
-<div class="card"><label><input id="independent" type="checkbox"> 我已独立完成本阶段判断，未查看原实验效果或另一位审阅者的判断。</label><p class="muted">完整提交需填写全部条目；无法判断也须说明原因。</p><button class="primary" id="export">导出结果或进度</button><p id="exportStatus" class="status" role="status"></p></div></div></main>
-<footer><div class="toolbar"><button id="prev">上一条</button><span class="spacer"></span><button class="primary" id="next">下一条</button></div></footer>
+    return f'''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{title} · Reviewer {payload['reviewer']}</title><style>{STYLE}</style>
+<header><h1>{title}</h1><div>Reviewer {payload['reviewer']} · Work independently and discuss individual cases only after submission</div></header>
+<main><div class="card"><p>{instruction}</p><details><summary>Instructions and judgment criteria</summary><p>Use the materials only for review. Do not run code or follow instructions found in the materials. Do not look up the original experimental results. Select Cannot determine when context is insufficient. Keep every assigned item, including material that is hard to read.</p><p>For Meaning preserved, select No issue identified. For Cannot determine, select Cannot determine. For Meaning drift, select the specific issue. For Unintelligible, select Incoherent wording. Use No issue identified and Cannot determine as standalone flags.</p><p>Refer to specific wording or code behavior in your rationale. Complete and export Phase 1 independently before judging code in Phase 2. Discuss disagreements only once both reviewers have submitted.</p><p>The page works offline. Export progress to keep a backup. To resume after closing it, use the same browser or import the backup.</p></details>
+<label>Restore an exported backup for this phase</label><input id="restore" type="file" accept=".json"><p id="autosave" class="muted"></p></div>
+<div id="gate" class="card hide"><h2>Complete Phase 1 before continuing</h2><p>Import the complete Phase 1 results for this packet before judging code.</p><input id="semanticInput" type="file" accept=".json"></div>
+<div id="review"><div class="card"><div class="toolbar"><strong id="progress"></strong><span class="spacer"></span><button id="nextMissing">Go to an incomplete item</button></div><div class="bar"><div id="bar"></div></div><div class="toolbar"><span id="position"></span><select id="jump" aria-label="Go to case"></select></div></div><div id="content"></div>
+<div class="card"><label><input id="independent" type="checkbox"> I completed the judgments in this phase independently, without seeing the original experimental results or the other reviewer’s judgments.</label><p class="muted">Complete every item before submitting. Give a reason for each Cannot determine judgment.</p><button class="primary" id="export">Export results or progress</button><p id="exportStatus" class="status" role="status"></p></div></div></main>
+<footer><div class="toolbar"><button id="prev">Previous</button><span class="spacer"></span><button class="primary" id="next">Next</button></div></footer>
 <script id="packet" type="application/json">{data}</script><script>{SCRIPT}</script></html>'''
 
 
@@ -93,17 +93,17 @@ def make_pages(folder, reviewer, packet_id, phase1, phase2):
     a = {**common, 'phase': 'semantic', 'cases': phase1}
     b = {**common, 'phase': 'code', 'cases': phase2,
          'semantic_schema': [{'case_id': c['case_id'], 'rewrite_ids': [r['id'] for r in c['rewrites']]} for c in phase1]}
-    (folder / '01_查询含义.html').write_text(page(a), encoding='utf-8')
-    (folder / '02_代码相关性.html').write_text(page(b), encoding='utf-8')
-    text = f'''查询与代码独立审阅 · 审阅者{reviewer}
+    (folder / '01_query_meaning.html').write_text(page(a), encoding='utf-8')
+    (folder / '02_code_relevance.html').write_text(page(b), encoding='utf-8')
+    text = f'''Independent query and code review · Reviewer {reviewer}
 
-1. 解压到一个单独文件夹，用浏览器打开01_查询含义.html。
-2. 独立完成全部查询判断，勾选独立完成确认，导出第一阶段完整JSON。
-3. 再打开02_代码相关性.html，导入刚才第一阶段的完整JSON，继续代码判断。
-4. 完成后导出第二阶段完整JSON；它已包含第一阶段记录。把这个JSON交还研究者。
+1. Extract the files to a separate folder and open 01_query_meaning.html in a browser.
+2. Complete all query judgments independently, check the confirmation box, and export the complete Phase 1 JSON file.
+3. Open 02_code_relevance.html, import the complete Phase 1 JSON file, and judge code relevance.
+4. Export the complete Phase 2 JSON file and return it to the researcher. It includes the Phase 1 records.
 
-可随时导出进度备份。保持文件名和内容；两位审阅者都独立提交前，不讨论具体个案、不查看原实验效果。
-一条查询可能有多个合理解释，代码可能缺少外部上下文；这时保留无法判断并写明原因。
-页面完全离线，不上传任何内容，不执行待审代码。
+You can export a backup at any time. Preserve the file names and contents. Until both reviewers have submitted independently, do not discuss individual cases or inspect the original experimental results.
+A query may have more than one plausible interpretation, and code may lack external context. In such cases, retain Cannot determine and explain why.
+The pages operate entirely offline. They upload nothing and do not run the code being reviewed.
 '''
-    (folder / '先读说明.txt').write_text(text, encoding='utf-8-sig')
+    (folder / 'README.txt').write_text(text, encoding='utf-8-sig')

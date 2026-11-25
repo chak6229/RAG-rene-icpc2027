@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "source_type": "人工评审",
+  "source_type": "human review",
   "queries": 128,
   "groups": 120,
   "initial_annotations": 1676,

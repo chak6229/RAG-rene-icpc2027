@@ -1,16 +1,16 @@
-# 人工相关性敏感性：抽样不确定性补充
+# Human relevance sensitivity: finite-frame sampling uncertainty
 
-沿用原八层、每层16查询的不放回设计和原权重。主方法对RR完整离散支持上的层内CDF计数反演单侧超几何分布，以Bonferroni同时覆盖两端点、八层及全部阈值，再合成分层均值界。这是设计解释下保守的有限样本95%包络；另列带有限总体修正的Neyman方差/t近似作为精度参照，不将其当作精确覆盖。两者都不包含评审判断误差。
+The analysis uses the original eight strata, with 16 queries sampled without replacement per stratum and the original weights. It inverts one-sided hypergeometric distributions for within-stratum CDF counts over the full discrete RR support. Bonferroni correction covers both endpoints, all eight strata and all thresholds, and the resulting bounds are combined for the stratified mean. This yields a conservative 95% design-based finite-frame envelope. A Neyman variance/t approximation with finite-population correction is included for comparison. Neither method accounts for error in the reviewers' judgments.
 
-主要政策为RIDGE_verified，RR@3。以下每组合主包络覆盖H8530识别区间的两个总体端点；A/B和阈值分别报告。另在RESULTS.json提供这四组合的同时95%包络，不声称全部48组合同时95%。这是已见旧结果后的诊断，不是新效应确认。
+The primary policy is RIDGE_verified with RR@3. For each combination below, the primary envelope covers both finite-frame endpoints of the H8530 identification interval. Results are reported by reviewer A/B and threshold. `RESULTS.json` also contains a simultaneous 95% envelope for these four combinations. No simultaneous 95% coverage is claimed for all 48 combinations. The analysis is a diagnostic conducted after inspection of earlier results.
 
-|阈值|审阅者|样本识别界|保守有限框95%包络|分层t近似95%包络|
+|Threshold|Reviewer|Sample identification bounds|Conservative finite-frame 95% envelope|Stratified t approximation, 95% envelope|
 |---:|---|---|---|---|
 |1|A|[+0.003297, +0.005007]|[-0.395174, +0.400332]|[-0.006890, +0.014480]|
 |2|A|[+0.005843, +0.018263]|[-0.400821, +0.417409]|[-0.008645, +0.033373]|
 |1|B|[+0.001948, +0.010069]|[-0.406116, +0.413443]|[-0.014874, +0.025913]|
 |2|B|[+0.001279, +0.016604]|[-0.401856, +0.420320]|[-0.009318, +0.033184]|
 
-样本正向识别界不会自动成为总体正效用结论。主要两位审阅者、两阈值的精确保守包络和t近似都跨零；总体正方向未建立，也不能据跨零声称无效或等效。原样本、严格未加权结果、unknown和原qrels保持。
+Positive sample identification bounds do not establish positive utility in the finite frame. Both the exact conservative envelopes and t approximations span zero for the two reviewers and both thresholds at the primary endpoint. The population direction is unresolved. These intervals establish neither a null effect nor equivalence. The original sample, strict unweighted results, unknown judgments and original qrels were retained.
 
-完整分层超几何CDF计数界、方差、自由度、有限总体修正及48组合见RESULTS.json；四组合同时95%主包络亦均跨零。输入为results/rene_review_completion_20261021/query_bounds.jsonl。
+`RESULTS.json` records the full stratified hypergeometric CDF count bounds, variances, degrees of freedom, finite-population corrections and 48 combinations. The simultaneous 95% primary envelopes for the four focal combinations also span zero. The input was `results/rene_review_completion_20261021/query_bounds.jsonl`.

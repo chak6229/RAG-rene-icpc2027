@@ -29,7 +29,7 @@ def main():
     paths = [p for p in OUT.rglob("*") if p.is_file() and p != output_path and "__pycache__" not in p.parts]
     paths.extend((ROOT / "experiments/rene_cosqa_ssqr_audit_20261019").glob("*.py"))
     paths.extend([
-        ROOT / "ResearchVault/Handoffs/RENE-CoSQA与SSQR审查-20261019.md",
+        ROOT / 'ResearchVault/Handoffs/ RENE - CoSQA and SSQR review -20261019.md',
         ROOT / "results/rene_thesis_review_20261019/SSQR.html",
         ROOT / "results/rene_thesis_review_20261019/SSQR.txt",
     ])

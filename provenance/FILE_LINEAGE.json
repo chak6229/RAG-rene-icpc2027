@@ -17,7 +17,7 @@
     "source": "prepare_codenn_cqc.py",
     "source_sha256": "028d93afc22cc7f5839159247643be1addca18af0258333225704a6ef2edbe86",
     "delivered": "prepare_codenn_cqc.py",
-    "delivered_sha256": "8a71248c777f777f834ba342a7a312403cc323b678a97845bb7f181e18ef9954",
+    "delivered_sha256": "5dd7827e5546d2c308f349981629c4e02173b0e14008eeada79cef2d70adfba2",
     "local_paths_normalized": true
   },
   {
@@ -31,7 +31,7 @@
     "source": "train_t5_cqc.py",
     "source_sha256": "cebe7f6ea0831ac6ef7f2ee0b030547412824ff5fd7a064067fd7c0cff5b063d",
     "delivered": "train_t5_cqc.py",
-    "delivered_sha256": "5df131f7b16d2484832e29be3d2cabb12f46003ee0783bf133d4460b387a1fc4",
+    "delivered_sha256": "4c36a756fc4f8902f95be1a14f7c1cc91dd2513480872c6f1ef7b6ea9fbb62e0",
     "local_paths_normalized": true
   },
   {
@@ -166,7 +166,7 @@
     "source": "experiments/rene_weight_confirmation_20261021/report.py",
     "source_sha256": "e215f6d38361e18d107c187b6c473115500d937595f73d58087b5745524cd050",
     "delivered": "experiments/rene_weight_confirmation_20261021/report.py",
-    "delivered_sha256": "fc9ec7ee9db546bff3240bd4729a6e8b51d985fd6affe174822cf276a7bd6d1d",
+    "delivered_sha256": "7c95e54c5c755f3c9f0cfd52466eb369c646ccf9fbb662bf60303ce9e714c00b",
     "local_paths_normalized": true
   },
   {
@@ -244,7 +244,7 @@
     "source": "experiments/rene_third_retriever_20261020/report.py",
     "source_sha256": "855e2b188b43c2cebfcee777c98ccb8e17e77cb3216b6a612c8865487d6658bb",
     "delivered": "experiments/rene_third_retriever_20261020/report.py",
-    "delivered_sha256": "07391c979219dde672fe2b7b0d43cb1488bd0d4be7e6330b8194c64f029dffc4",
+    "delivered_sha256": "721c5b5711792e7991d56488242ec933749d0c201a538d78ad1d259c2d363d23",
     "local_paths_normalized": true
   },
   {
@@ -272,7 +272,7 @@
     "source": "experiments/rene_third_retriever_20261020/preflight.py",
     "source_sha256": "eff5e8033ea81f773776721ed64db10990c6d0ec87fc28c448e0628d49943333",
     "delivered": "experiments/rene_third_retriever_20261020/preflight.py",
-    "delivered_sha256": "1b7e3af90bea19449b667cb2cfc62be4e64a6e84991d9047dfcc52a414e552a5",
+    "delivered_sha256": "dc9416c73440ec6b23a921c96988f64d3a27a9ee443d1d3d904b9013d93af81f",
     "local_paths_normalized": true
   },
   {
@@ -314,7 +314,7 @@
     "source": "experiments/rene_t5_weight_factors_20261020/deliver.py",
     "source_sha256": "a1cd2dd325efb81b2c96554afc24b452871b4e5c688a50bff7614eae93722362",
     "delivered": "experiments/rene_t5_weight_factors_20261020/deliver.py",
-    "delivered_sha256": "1da5afa63bfdfc9876f603b626292a1967b43db1246bfc3990f3e54841235e59",
+    "delivered_sha256": "027e2846dbdfda7e9ce9b6e0159999a8c80c58d4fd20873803b83200d863f448",
     "local_paths_normalized": true
   },
   {
@@ -328,14 +328,14 @@
     "source": "experiments/rene_ssqr_rewriter_envelope_20261020/make_signal_report.py",
     "source_sha256": "9248288321d7ef101dc9a52f2a6bb1f06613893137cbb2616529710ea04ce796",
     "delivered": "experiments/rene_ssqr_rewriter_envelope_20261020/make_signal_report.py",
-    "delivered_sha256": "c38f9e5d0e48ef0e475f73eaa3cd850d8ecbb75a991d16e38ee31adf8a1dad5a",
+    "delivered_sha256": "84db5d865941d19a41284f41058126cfd169ba6be8a6234216c2da3bdc75ce3a",
     "local_paths_normalized": true
   },
   {
     "source": "experiments/rene_ssqr_rewriter_envelope_20261020/make_envelope_report.py",
     "source_sha256": "6598f6f046934d72ca83e36f2591d69acd55b815c715cf4c515814fc11c20633",
     "delivered": "experiments/rene_ssqr_rewriter_envelope_20261020/make_envelope_report.py",
-    "delivered_sha256": "bc286dac76db03fc94d42ae353135f0f89e757413d790c6f30300ede7b1e02f9",
+    "delivered_sha256": "6749f97f804461ba964a4e29ecee946691d309bb414144dc81992c23ec18262f",
     "local_paths_normalized": true
   },
   {
@@ -476,7 +476,7 @@
     "source": "experiments/rene_ssqr_alignment_20261019/acceptance.py",
     "source_sha256": "e7550502fc8907063d0fdd0c6efbb45784c8ca40fe97072a4a2d174a93b70acb",
     "delivered": "experiments/rene_ssqr_alignment_20261019/acceptance.py",
-    "delivered_sha256": "90424712b778bc0bc4fb2a1a83268e6ca37b8a363b8fcc27ca50ac9223831ef3",
+    "delivered_sha256": "8289e96638ce16c0ff4ff4c42b17cc6cd87c56c608410794cf00bab73213139b",
     "local_paths_normalized": true
   },
   {
@@ -490,7 +490,7 @@
     "source": "experiments/rene_ssqr_aggregation_audit_20261019/run.py",
     "source_sha256": "b1ab6fafe4898cbe9f7cbba4d3d6c853e114be52c091a3bc576a762fc02b3f52",
     "delivered": "experiments/rene_ssqr_aggregation_audit_20261019/run.py",
-    "delivered_sha256": "4014e779ac3dae0cb199ec85297c86e06a40ba74938120ac0cd6ca1b367f5ca2",
+    "delivered_sha256": "ee20769c24b71534cc5ce445ef2cb9694d195e979f131a3c7566f627cd4b44fe",
     "local_paths_normalized": true
   },
   {
@@ -504,28 +504,28 @@
     "source": "experiments/rene_review_returns_20261020/report.py",
     "source_sha256": "dda20ac45e485e585a1b63528bd49cd52853fb7983000af8130398c4628c407e",
     "delivered": "experiments/rene_review_returns_20261020/report.py",
-    "delivered_sha256": "e58d837504650e1112348497ab969bff8ec796b28c7ccac67347ff929405e122",
+    "delivered_sha256": "440b66efead3ae6118518baccd2800bed63c7bb77b7f6adb62083c7be4581536",
     "local_paths_normalized": true
   },
   {
     "source": "experiments/rene_review_returns_20261020/analyze.py",
     "source_sha256": "4a1046a1bbd72e3b069abe7a9c86b339031eece1e570c4b4040ec7b6ef05eeff",
     "delivered": "experiments/rene_review_returns_20261020/analyze.py",
-    "delivered_sha256": "592ae0d97748edcfe19f1ba41367a8c94f1641ef60ca4f4b41bc1d6bbbb4af11",
+    "delivered_sha256": "959cdc93569b132dbbc55ce27f3a547bba6b9d121512937b6cb3a9a48b36eef1",
     "local_paths_normalized": true
   },
   {
     "source": "experiments/rene_mechanism_review_20261020/common.py",
     "source_sha256": "04d1f92a3b459917cbd70e891bf831dc36224bf223cc0aa6379770d484fac98d",
     "delivered": "experiments/rene_mechanism_review_20261020/common.py",
-    "delivered_sha256": "75dafca132ba0ada93b0d52bf6143f1a4d2cc20bd8cc516093ca8936e5c7a119",
+    "delivered_sha256": "aabb753683f86258156af1d9e7d1f0a6514e1c82424c2bbb7a5ad2b538106cb6",
     "local_paths_normalized": true
   },
   {
     "source": "experiments/rene_mechanism_review_20261020/collect.py",
     "source_sha256": "f3571367c08d77620bedca7bf08d761d0323ccc5ae6f23ab5d76576c65f67bec",
     "delivered": "experiments/rene_mechanism_review_20261020/collect.py",
-    "delivered_sha256": "e9dfc824711f0bdd4a0cb7e3125d04c3a08d6b6b4370fb18679000484e151c46",
+    "delivered_sha256": "cab746ff6e1162d849b3d0caf808ae5b5dec950a22823bd0a5f8725ddc28cef5",
     "local_paths_normalized": true
   },
   {
@@ -546,7 +546,7 @@
     "source": "experiments/rene_review_final_reanalysis_20261021/analyze.py",
     "source_sha256": "e5d253d025b161135f7f7778c95a0c18374e1180788f44131a749cd6b2e6f834",
     "delivered": "experiments/rene_review_final_reanalysis_20261021/analyze.py",
-    "delivered_sha256": "851d071d493f2ce99c1d57fe4aad146b41a38fd47e0d8eef520687749a78beab",
+    "delivered_sha256": "693eda77373f425be2c4778c0ea6add3df644f0b31ba3f75de6b2178489e3473",
     "local_paths_normalized": true
   },
   {
@@ -560,35 +560,35 @@
     "source": "experiments/rene_relevance_sensitivity_20261021/analyze.py",
     "source_sha256": "0b1f495157b1b9c107d86873916100a8028978e851bb8328c49fb85c5a072c8c",
     "delivered": "experiments/rene_relevance_sensitivity_20261021/analyze.py",
-    "delivered_sha256": "60cf096ec423070779c5c302029769e912389e93d7718975101a1eb5dc9c158d",
+    "delivered_sha256": "240d14dc79b9621f3cb0234a5f12638c05b6f90d97b01bcd3d692df5be7529bc",
     "local_paths_normalized": true
   },
   {
     "source": "experiments/rene_review_final_reanalysis_20261021/report.py",
     "source_sha256": "7743db36d8e6ea94df95369c134fffd0c59d7cce7c4c99fa2fc474893aad2755",
     "delivered": "experiments/rene_review_final_reanalysis_20261021/report.py",
-    "delivered_sha256": "9e99e310ee6428e9030b2b2ff83373f536ab8af587734e6fd58ba53580c79503",
+    "delivered_sha256": "ae3f256db08e3fb2eedd23ef100fd6e7f29a123ad67c9950f004cb60ef0612c3",
     "local_paths_normalized": true
   },
   {
     "source": "experiments/rene_review_completion_20261021/prepare.py",
     "source_sha256": "12ba29f826a92b0dfadfc59cac2eacc7e2e9436227fe9675919f66dd0719f8f5",
     "delivered": "experiments/rene_review_completion_20261021/prepare.py",
-    "delivered_sha256": "6eb877b06e4bcc8c7b5f00a20198390b9081f479ecf0d1ac9b8c3a8ac47d5d48",
+    "delivered_sha256": "eb54e4b76fd498641dd080b03b8a9639a6cfd505024c7913754feeca1ca2c609",
     "local_paths_normalized": true
   },
   {
     "source": "experiments/rene_relevance_sensitivity_20261021/validate.py",
     "source_sha256": "99ae7e04fe18c4bcf2517ecb4a24e69090581f48d692af2752efc50c1ade764a",
     "delivered": "experiments/rene_relevance_sensitivity_20261021/validate.py",
-    "delivered_sha256": "932b2f1843477094c9674907599f7f08c2e5b13249fe84f9e1b9b8c04c82b599",
+    "delivered_sha256": "e355d5e8dcede30e0eb68b9c9d73311c5cb6d9335f2bf4c2843db2f80b75ad07",
     "local_paths_normalized": true
   },
   {
     "source": "experiments/rene_relevance_sensitivity_20261021/test_contract.py",
     "source_sha256": "fd717a40af8ee83f231d8017189a10ce79c2b44aef9a29ee50e2c2c5d35f53f9",
     "delivered": "experiments/rene_relevance_sensitivity_20261021/test_contract.py",
-    "delivered_sha256": "b819c85bcd8328eadddc27205ff357cbac0b6e482743855d007be2813f2b8817",
+    "delivered_sha256": "7f8f1afa675e81db925c324927d9a6c18fa1664ed91376e8dbe4cfd1f287aafd",
     "local_paths_normalized": true
   },
   {
@@ -616,7 +616,7 @@
     "source": "experiments/rene_relevance_sampling_uncertainty_20261021/analyze.py",
     "source_sha256": "acaf43a05986420ed4cb83b13e942cdcc23f0d2f5e5e11d495a222ebf0a2d235",
     "delivered": "experiments/rene_relevance_sampling_uncertainty_20261021/analyze.py",
-    "delivered_sha256": "4310b69647479f7caaed55dd9b7dbfd361f23783fcb467eb86c54a73d4aeb27c",
+    "delivered_sha256": "37bff167b1df68a04882e5b14c88a5bb28f0a6e69310c93185ebe67dcef5a8bf",
     "local_paths_normalized": true
   },
   {
@@ -665,7 +665,7 @@
     "source": "experiments/rene_multicandidate_fusion_20261020/common.py",
     "source_sha256": "0d490667fc5d54c274aa3eae3c2a47db971e40e451f833784c5a3843acd44862",
     "delivered": "experiments/rene_multicandidate_fusion_20261020/common.py",
-    "delivered_sha256": "ec87f16250c75bf22b47610fd9cb67106076e68bf3c158cd742c161672ef0805",
+    "delivered_sha256": "0da91ef017517bd350a9976178362df0ec8b060823557f7b23a7254581862310",
     "local_paths_normalized": true,
     "delivery_adapter_changed": true
   },
@@ -673,7 +673,7 @@
     "source": "experiments/rene_multicandidate_fusion_20261020/run.py",
     "source_sha256": "8cb0f53747d6e3649a6bf83c3fa4311385927abe91c7b5cf819d9127e6e0fd18",
     "delivered": "experiments/rene_multicandidate_fusion_20261020/run.py",
-    "delivered_sha256": "787969c62de94f97d4adaeb423f79720294b85a36783a1cffffb63d0a2b5e240",
+    "delivered_sha256": "b00924f4db2e190143ba7b2737b3a9dfcf29c31f9a15461dbd7ee4b6a0bfe6c5",
     "local_paths_normalized": true
   },
   {
@@ -694,21 +694,21 @@
     "source": "experiments/rene_mechanism_review_20261020/pages.py",
     "source_sha256": "4179e4120f8c973f6878e2bb877c42a0f204c2ea076aa24c8b60fe7f389b9d1a",
     "delivered": "experiments/rene_mechanism_review_20261020/pages.py",
-    "delivered_sha256": "250df389d22f6f8a927c90f1a3851450a7074de04ca4f39ce302143f18696770",
+    "delivered_sha256": "7c1bae2ca43e31436384543c091e8c47713df8b8885768fc1451825ce39a279f",
     "local_paths_normalized": true
   },
   {
     "source": "experiments/rene_mechanism_review_20261020/build.py",
     "source_sha256": "6121ff1e56b00cec6638277dff0c1e8837ce87829c9236382addcfad60878c92",
     "delivered": "experiments/rene_mechanism_review_20261020/build.py",
-    "delivered_sha256": "dad45376cb1fd635aaf719a7f11dab9a1e4c3e3c8681e8fdbc67cfbf8310d1f1",
+    "delivered_sha256": "f1c7e5a0a0f504ac346c22bd69b80daf63a8851b8b7c8bd3e62b136fd64b67a3",
     "local_paths_normalized": true
   },
   {
     "source": "experiments/rene_mechanism_review_20261020/accept.py",
     "source_sha256": "4b43291411f7025313f7858afe71f9b593f81d3b526acb10bbb4e1824e18d3f9",
     "delivered": "experiments/rene_mechanism_review_20261020/accept.py",
-    "delivered_sha256": "22830f092bf8426cdf2cb6696868d11a9d6c55800cf50f25823a5b97f79a9e7a",
+    "delivered_sha256": "e92ff746ba518ad252ef5cd8734d833bc635b3266107bb42aed5e98abca92534",
     "local_paths_normalized": true
   },
   {
@@ -778,7 +778,7 @@
     "source": "experiments/rene_factor_confirmation_20261020/report.py",
     "source_sha256": "bbf5afd8d4cfbf79c6fd333297b62ae9d476b9fc9dc2da566dd961ab1a93c19e",
     "delivered": "experiments/rene_factor_confirmation_20261020/report.py",
-    "delivered_sha256": "b8e74531226d2d78eba85b563bfdf9309f8d997eff4f268ce3dcaea5f137814a",
+    "delivered_sha256": "f76b7106fc5a6e69b0be96e685e1bd762e9ddfc9de7627a1b23b885019383be9",
     "local_paths_normalized": true
   },
   {
@@ -906,7 +906,7 @@
     "source": "experiments/rene_cqc_training_fidelity_20261020/report.py",
     "source_sha256": "b63e6cf4d45856bcaee8de371c849bdfddbfd27368ca358a2fafc5a959ea3273",
     "delivered": "experiments/rene_cqc_training_fidelity_20261020/report.py",
-    "delivered_sha256": "579b28adff6297d1a4bf82d712a18f500a7460be3ba38584b702c6af9e1b2524",
+    "delivered_sha256": "ad50867d05635bf08c4c41d00925c904cebac9fd2637acd4a4ee45903e8ec5ca",
     "local_paths_normalized": true
   },
   {
@@ -948,7 +948,7 @@
     "source": "experiments/rene_cosqa_ssqr_audit_20261019/finalize_delivery.py",
     "source_sha256": "ff783ca27db581192cca1e8cf91aa4ef17a5b615cf4edaef82d60cb4423d6efb",
     "delivered": "experiments/rene_cosqa_ssqr_audit_20261019/finalize_delivery.py",
-    "delivered_sha256": "bf2443294c52d4a107b59167e22b52347a060867b4b6758cebda2a3914b64b68",
+    "delivered_sha256": "e635206a1afa7bc4cad3ea78df64dcd1c0b99db2769baba43a1428351b231917",
     "local_paths_normalized": true
   },
   {
@@ -1047,7 +1047,7 @@
     "source": "experiments/rene_cosqa_pilot_20261019/analyze.py",
     "source_sha256": "d094e57d37da72c98fe9b855a751a8b9a0edb41f0300a612f2cf0213fba0be35",
     "delivered": "experiments/rene_cosqa_pilot_20261019/analyze.py",
-    "delivered_sha256": "3529074e5d8088b95f0118fbd9b2b86b686249ff377839d93c7308ee5767abb6",
+    "delivered_sha256": "611d5bbe04ff4cbc7cd9e285f37104e6a0e6eadd4111f78ea96a7bac609a2248",
     "local_paths_normalized": true
   },
   {
@@ -1110,7 +1110,7 @@
     "source": "experiments/rene_cosqa_development_20261019/analyze.py",
     "source_sha256": "99cf00bd1fd078048f3b9d9116d11f41e6c2f0cbf246a5936b2ad67f8190a77d",
     "delivered": "experiments/rene_cosqa_development_20261019/analyze.py",
-    "delivered_sha256": "3091130a4588effe2dc7464101356ce061427bba4a42cda0c3ca58230b6a883a",
+    "delivered_sha256": "51fe0b21bc481a1395d989f128b299ea2b25551eccc637f88b704f869e223219",
     "local_paths_normalized": true
   },
   {
@@ -1181,7 +1181,7 @@
     "source": "experiments/rene_cosqa_confirmation_20261019/report.py",
     "source_sha256": "ab1ca2cc8e6640c5609f727674aa81a4900d0cc16a5c820a5fda9a4fccc7028d",
     "delivered": "experiments/rene_cosqa_confirmation_20261019/report.py",
-    "delivered_sha256": "577dc6ae97515d3608a2b0865e27063ee4e8d59fd96d4dd7b8bf49c85496920d",
+    "delivered_sha256": "239114289ad55a51ce9a95c6854630b2c6120f31a1ead042e94da3ea34563588",
     "local_paths_normalized": true
   },
   {
@@ -1223,7 +1223,7 @@
     "source": "experiments/rene_cosqa_confirmation_20261019/auxiliary_control.py",
     "source_sha256": "38cc0386546e4578831a61da8ee471126d74707e7ef7f599e1ae07b22c88f37f",
     "delivered": "experiments/rene_cosqa_confirmation_20261019/auxiliary_control.py",
-    "delivered_sha256": "da139a9840b39249231b75cf1e6797e117fed7b0fe1c08643e6ed6c0ce30636d",
+    "delivered_sha256": "6853724957b4e958e286ef4679214ccc807a72dfa0c8ee3e73dcd0206000a4dd",
     "local_paths_normalized": true
   },
   {
@@ -1258,7 +1258,7 @@
     "source": "experiments/rene_core_step_b_20261020/common.py",
     "source_sha256": "73542db6c2235c3ef9aa327b32eb9a6b28b8179c1aa39fde428e9ecf2bd97d1f",
     "delivered": "experiments/rene_core_step_b_20261020/common.py",
-    "delivered_sha256": "7b8baccf822233eaedc7b5c75399459386f1ebd839dee8e7b5bca770afef33f2",
+    "delivered_sha256": "af47edea27824b3e4d043e7fdd365d97784cfb79ca5da73d4a81715efb1b0603",
     "local_paths_normalized": true,
     "delivery_adapter_changed": true
   },
@@ -1273,7 +1273,7 @@
     "source": "experiments/rene_core_step_b_20261020/run.py",
     "source_sha256": "301bf54fa3bf982a1e51c858f1c4f5c740a4a24b628cb048ecf60ebdd8dbdf75",
     "delivered": "experiments/rene_core_step_b_20261020/run.py",
-    "delivered_sha256": "ff0e5c1ea5bde939882c6728b5712bb45c267627178b54fd0d2a103fc1858d4e",
+    "delivered_sha256": "5eab5448bf83f39ee165dc3b097b5d374463880582ba1b081d91d43d150d56cb",
     "local_paths_normalized": true
   },
   {
@@ -1315,7 +1315,7 @@
     "source": "experiments/rene_core_step_a_20261020/run.py",
     "source_sha256": "8c24bca910eed4a7e5bfc421ea6333ecfb68792c80cecdec467b25d9b3d72b6a",
     "delivered": "experiments/rene_core_step_a_20261020/run.py",
-    "delivered_sha256": "fb380c6ba156c81bacb198683c46b56243a85da1942b52b8d5d48769bb1af848",
+    "delivered_sha256": "8d3539f0bacc8fc540637d588a37ccd5f1529c1be19acaef9213e89358815885",
     "local_paths_normalized": true,
     "delivery_adapter_changed": true
   },
@@ -1352,7 +1352,7 @@
     "source": "experiments/rene_budget_aggregation_20261020/report.py",
     "source_sha256": "c2677c53dbb6abb2bf0ca9088c51a38bf3026e835856e036c079ba9741213b8f",
     "delivered": "experiments/rene_budget_aggregation_20261020/report.py",
-    "delivered_sha256": "9b73d1ab8d9d00006b2efcf8457f1a8d2be5597d0957e8529b0224764decb102",
+    "delivered_sha256": "23c89489e426535d98e6b43356406141e981b60d0aa6fe5a3427aecf886d1f70",
     "local_paths_normalized": true
   },
   {
@@ -1395,7 +1395,7 @@
     "source": "results/rene_private_reviewer_repo_20261022/artifact/numerical/MANIFEST.json",
     "source_sha256": "5da81618b9a573af61ec5998666cd4ce25e68d612f6716d2dac3577d792fe5f4",
     "delivered": "artifact/numerical/MANIFEST.json",
-    "delivered_sha256": "3661cce5e815af960389aa23dadedd8a49cfd143689b3b54825583a9171f05f7",
+    "delivered_sha256": "03cf007413f8a66db72f9796446d810e231e917680e8a652d1ab17b3e92999e5",
     "local_paths_normalized": false,
     "delivery_adapter_changed": true
   },
@@ -1410,8 +1410,8 @@
   {
     "source": "results/rene_private_reviewer_repo_20261022/artifact/numerical/README_CN.md",
     "source_sha256": "4a4ac26caa4595a9d6863a2c6302c96dc68fbb9cdc59fb0c5f1e45c27404054d",
-    "delivered": "artifact/numerical/README_CN.md",
-    "delivered_sha256": "4a4ac26caa4595a9d6863a2c6302c96dc68fbb9cdc59fb0c5f1e45c27404054d",
+    "delivered": "artifact/numerical/HISTORICAL_REPLAY_GUIDE.md",
+    "delivered_sha256": "af9167964ec82073f85bd5b279ff8dbf429c82343583e08b2f91af22b4753f92",
     "local_paths_normalized": false,
     "delivery_adapter_changed": true
   },
@@ -1815,14 +1815,14 @@
     "source": "results/rene_private_reviewer_repo_20261022/results/experiment_exports/rene_budget_aggregation_20261020/FINDINGS.md",
     "source_sha256": "8c11efbf414154540899cff46b4a3a2c1518ad78ff3434c0f3213fea04693dfa",
     "delivered": "results/experiment_exports/rene_budget_aggregation_20261020/FINDINGS.md",
-    "delivered_sha256": "1a278e3f821c64bf6d4e3f174b69c5cf1a5bea11887731c3333848aac3eff3e1",
+    "delivered_sha256": "2ed331d2542f39e8a9bb25e339b9fb0f5d0ecd9d64296e8f2abde897d32a13d8",
     "local_paths_normalized": true
   },
   {
     "source": "results/rene_private_reviewer_repo_20261022/results/experiment_exports/rene_budget_aggregation_20261020/READOUT.md",
     "source_sha256": "e570659113e31b91c1e86bf8b06c86108c0160f3fdd778df8a65e8f217fdf55e",
     "delivered": "results/experiment_exports/rene_budget_aggregation_20261020/READOUT.md",
-    "delivered_sha256": "e570659113e31b91c1e86bf8b06c86108c0160f3fdd778df8a65e8f217fdf55e",
+    "delivered_sha256": "32f0009b3f3530b5845beb353d05a58d845ee68f9ace7a7e5b424e8242307594",
     "local_paths_normalized": false
   },
   {
@@ -1850,14 +1850,14 @@
     "source": "results/rene_private_reviewer_repo_20261022/results/experiment_exports/rene_cqc_training_fidelity_20261020/FINDINGS.md",
     "source_sha256": "0f0d49fb3307320d254b9de5ca809f31de7891bcc9a69810265245a2153a8a27",
     "delivered": "results/experiment_exports/rene_cqc_training_fidelity_20261020/FINDINGS.md",
-    "delivered_sha256": "e25714d7c0504b0d0768bc98505a7d9bd5c6d572d93d11eb789c563a202fb6c4",
+    "delivered_sha256": "dcfc126112f39a17e7101c7008783777b149767c18254d0f17d9d367670d2b39",
     "local_paths_normalized": true
   },
   {
     "source": "results/rene_private_reviewer_repo_20261022/results/experiment_exports/rene_cqc_training_fidelity_20261020/METHODS.md",
     "source_sha256": "10869812b5c5a42538a1a2f7091c7261972e299c47d521d271884223cf79d7fa",
     "delivered": "results/experiment_exports/rene_cqc_training_fidelity_20261020/METHODS.md",
-    "delivered_sha256": "c048429cabbec670db26842c1a4e3f757143ec80ea809aafb025d1f9a85fa15d",
+    "delivered_sha256": "a538eccedf67b18d3dbbf1541886aacc45727e8bbd7263036499bc0926218eb9",
     "local_paths_normalized": true
   },
   {
@@ -1871,7 +1871,7 @@
     "source": "results/rene_private_reviewer_repo_20261022/results/experiment_exports/rene_cqc_training_fidelity_20261020/READOUT.md",
     "source_sha256": "a8e6f5f65e7d5a3064da7133a385fabbc5b88c75bc2d07c3c62e435d242ac6e6",
     "delivered": "results/experiment_exports/rene_cqc_training_fidelity_20261020/READOUT.md",
-    "delivered_sha256": "a8e6f5f65e7d5a3064da7133a385fabbc5b88c75bc2d07c3c62e435d242ac6e6",
+    "delivered_sha256": "91edf099e685ec934fe26ebf41396db9d38d1c213bd3d6a5e191c762ea509936",
     "local_paths_normalized": false
   },
   {
@@ -1899,7 +1899,7 @@
     "source": "results/rene_private_reviewer_repo_20261022/results/experiment_exports/rene_factor_confirmation_20261020/FINDINGS.md",
     "source_sha256": "3cd11de044052be655be1e7975a4e66fc814c4f53e51d5e39f0bf7a8156fa0e6",
     "delivered": "results/experiment_exports/rene_factor_confirmation_20261020/FINDINGS.md",
-    "delivered_sha256": "3cd11de044052be655be1e7975a4e66fc814c4f53e51d5e39f0bf7a8156fa0e6",
+    "delivered_sha256": "f0a7ac6bdfae568501cdd38895bdc20ecf31f0e9eb531cdf8acf4f37202c257d",
     "local_paths_normalized": false
   },
   {
@@ -1920,7 +1920,7 @@
     "source": "results/rene_private_reviewer_repo_20261022/results/experiment_exports/rene_relevance_sampling_uncertainty_20261021/FINDINGS.md",
     "source_sha256": "705184988830db1702ab1e80abdb2941087425ae577e90f7204d26c416cf9976",
     "delivered": "results/experiment_exports/rene_relevance_sampling_uncertainty_20261021/FINDINGS.md",
-    "delivered_sha256": "705184988830db1702ab1e80abdb2941087425ae577e90f7204d26c416cf9976",
+    "delivered_sha256": "09749c228f71814c00b6627cec7e00fcf52f368313991a7c16e1ab89d72e7d6b",
     "local_paths_normalized": false
   },
   {
@@ -1969,7 +1969,7 @@
     "source": "results/rene_private_reviewer_repo_20261022/results/experiment_exports/rene_t5_weight_factors_20261020/FINDINGS.md",
     "source_sha256": "f7083f7d5d844684e6b19eb546520882d8924200cc21c84360799ebd2923b96c",
     "delivered": "results/experiment_exports/rene_t5_weight_factors_20261020/FINDINGS.md",
-    "delivered_sha256": "f7083f7d5d844684e6b19eb546520882d8924200cc21c84360799ebd2923b96c",
+    "delivered_sha256": "3820902ca573142bbb7eaa663e05f10553303c99bc57f648959bca51b3adcf2a",
     "local_paths_normalized": false
   },
   {
@@ -2018,7 +2018,7 @@
     "source": "results/rene_private_reviewer_repo_20261022/results/experiment_exports/rene_third_retriever_20261020/FINDINGS.md",
     "source_sha256": "4cae5d4ca196a3614f853ba43904bfa6cdab0a5f6b9a0fa1b88798ea9eee1934",
     "delivered": "results/experiment_exports/rene_third_retriever_20261020/FINDINGS.md",
-    "delivered_sha256": "4cae5d4ca196a3614f853ba43904bfa6cdab0a5f6b9a0fa1b88798ea9eee1934",
+    "delivered_sha256": "2aef5362c7ba1ea34540c0d366990450641b0275bd4dfd7c320239d79e6c19c7",
     "local_paths_normalized": false
   },
   {
@@ -2067,7 +2067,7 @@
     "source": "results/rene_private_reviewer_repo_20261022/results/experiment_exports/rene_weight_confirmation_20261021/REPORT.md",
     "source_sha256": "864172b624318518bfb51465980e898441fc720ce8804ce6bace5d9dbeae07cc",
     "delivered": "results/experiment_exports/rene_weight_confirmation_20261021/REPORT.md",
-    "delivered_sha256": "864172b624318518bfb51465980e898441fc720ce8804ce6bace5d9dbeae07cc",
+    "delivered_sha256": "11dcf8d3b61ec06c0de252e947aa6095cdef6d1e774dea3f2f9766073d442c61",
     "local_paths_normalized": false
   },
   {
@@ -2271,7 +2271,7 @@
     "source": "paper/rene2027/ieee_submission/supplementary/experiment_environment_settings.json",
     "source_sha256": "458147e5a87707e6d890c2137503ffebad67e423d49d73a1c1417a5d2d227824",
     "delivered": "docs/settings/experiment_environment_settings.json",
-    "delivered_sha256": "aace57da387ea28b1938efe559a46a7039993cd5a4e29dafde97ec400babd3a1",
+    "delivered_sha256": "323e69114493354b3b65a66344b23ffd6845bc6fb47f7701f94561306fcbc7bc",
     "local_paths_normalized": true,
     "delivery_adapter_changed": true
   },
@@ -2343,14 +2343,14 @@
     "source": "results/rene_core_step_b_20261020/PROTOCOL.json",
     "source_sha256": "7f4ac3795fe7ee7adf9e8d662e8fe71cd28b53caf70e8c841718a75b06b9c295",
     "delivered": "provenance/settings_sources/R09/PROTOCOL.json",
-    "delivered_sha256": "7f4ac3795fe7ee7adf9e8d662e8fe71cd28b53caf70e8c841718a75b06b9c295",
+    "delivered_sha256": "e2231d0fedaf678d486532d14d069eee7ce0f0bd3f62660ffa1ebdfaefedd577",
     "local_paths_normalized": false
   },
   {
     "source": "results/rene_multicandidate_fusion_20261020/PROTOCOL.json",
     "source_sha256": "51a55d9398b864e50d1432ffd3f1061c40711a72246497da1b29b36eef618185",
     "delivered": "provenance/settings_sources/R10/PROTOCOL.json",
-    "delivered_sha256": "51a55d9398b864e50d1432ffd3f1061c40711a72246497da1b29b36eef618185",
+    "delivered_sha256": "6b1f06bb82f6fff80241fdf01402cfdc2925d5945911460636b640c0e6a813bf",
     "local_paths_normalized": false
   },
   {
@@ -2441,7 +2441,7 @@
     "source": "experiments/rene_mechanism_review_20261020/common.py",
     "source_sha256": "04d1f92a3b459917cbd70e891bf831dc36224bf223cc0aa6379770d484fac98d",
     "delivered": "provenance/settings_sources/R23/common.py",
-    "delivered_sha256": "75dafca132ba0ada93b0d52bf6143f1a4d2cc20bd8cc516093ca8936e5c7a119",
+    "delivered_sha256": "aabb753683f86258156af1d9e7d1f0a6514e1c82424c2bbb7a5ad2b538106cb6",
     "local_paths_normalized": true
   },
   {
@@ -2476,7 +2476,7 @@
     "source": "train_t5_cqc.py",
     "source_sha256": "cebe7f6ea0831ac6ef7f2ee0b030547412824ff5fd7a064067fd7c0cff5b063d",
     "delivered": "provenance/settings_sources/R29/train_t5_cqc.py",
-    "delivered_sha256": "5df131f7b16d2484832e29be3d2cabb12f46003ee0783bf133d4460b387a1fc4",
+    "delivered_sha256": "4c36a756fc4f8902f95be1a14f7c1cc91dd2513480872c6f1ef7b6ea9fbb62e0",
     "local_paths_normalized": true
   },
   {
@@ -2532,7 +2532,7 @@
     "source": "experiments/rene_github_package_20261027/human_reproduce.py",
     "source_sha256": "9c5eb7346b8fa3e1e43d7f3dbf7efdf7f3949daf5e292308de881f1b54ff8d54",
     "delivered": "human_review/reproduce.py",
-    "delivered_sha256": "9c5eb7346b8fa3e1e43d7f3dbf7efdf7f3949daf5e292308de881f1b54ff8d54",
+    "delivered_sha256": "cf3b6a93abf58af493dc69cfdb3f1aa7ed70c4c244301149b6df6b9cb324368c",
     "local_paths_normalized": false
   },
   {
@@ -2546,7 +2546,7 @@
     "source": "results/rene_private_reviewer_repo_20261022/human_review/RESULTS_AND_SCOPE.md",
     "source_sha256": "6e188527094a14ad78ed6ae9ed4d4acfe8b31e9edc7564358374fc373f246017",
     "delivered": "human_review/RESULTS_AND_SCOPE.md",
-    "delivered_sha256": "f1817cd22c7efbabadd07223e4b0363a01c5f1fcdcf2398ac471c81687456887",
+    "delivered_sha256": "e6ad4f7a560bd4060bd3d7604bd22a83082d386668313220799fc6e30fd01a16",
     "local_paths_normalized": false,
     "delivery_adapter_changed": true
   },
@@ -2586,7 +2586,7 @@
     "source": "experiments/rene_github_package_20261027/template/README.md",
     "source_sha256": "a6b72a61eb57130013ee92f86e7e8404eb815a38cdc0a1ac703b8dbb46f16590",
     "delivered": "README.md",
-    "delivered_sha256": "eaebe71f751f8255e3920c76eff4fc6ede3ddabcbc4e90e31fe95951a2865259",
+    "delivered_sha256": "334192aaa6ba6da451d7719a2af296ad4f596727aa5bb173bb826f2c1347279b",
     "local_paths_normalized": false,
     "delivery_adapter_changed": true
   },
@@ -2640,7 +2640,7 @@
     "source": "experiments/rene_github_package_20261027/template/human_review/README.md",
     "source_sha256": "b6fe6fa3452544d59a571822ff7ed12ad2f658aabf424fbc9dd53edab0184dfd",
     "delivered": "human_review/README.md",
-    "delivered_sha256": "d64a498f324c9d4a006a61d765472945ce179e9361f81811c459625fd1e27d80",
+    "delivered_sha256": "041e4fcaafd9f718e5ac1670bcb09a6d0c09ece44723a3b7e57089559cb988f3",
     "local_paths_normalized": false,
     "delivery_adapter_changed": true
   },
@@ -2749,7 +2749,7 @@
     "source": "results/rene_review_returns_20261020/RESULTS.json",
     "source_sha256": "c703b1c544a61e3f8272c4df9dfe4bba51288d0e1f1484b490185dd433cf8262",
     "delivered": "provenance/table_sources/review/RESULTS.json",
-    "delivered_sha256": "9e21de9a77f4293848d92763f50d8555a0556001d4ac5a85935284eb8ccfea19",
+    "delivered_sha256": "4e9de12c8c574af68dc1d092f5070df50d03997fa55c35b972e7564338e0732c",
     "transformation": "structured export; local paths normalized; review process date omitted where applicable"
   },
   {
@@ -2811,5 +2811,15 @@
     "delivered": "experiments/rene_ssqr_alignment_20261019/test_rne_eval.py",
     "delivered_sha256": "a0cb5ec819fad3c68a7c1d6f5468c492e98bcd21442c41a960d8d50e9a735027",
     "scope": "Unchanged generic ranking evaluator required by the retained reconstruction tests; old study pipelines excluded"
+  },
+  {
+    "source": "English edition validation, 2026-11-25",
+    "delivered": "provenance/ENGLISH_EDITION.json",
+    "delivered_sha256": "4f4bc6a7c03bf308ee1e540565dec9b829c421dcf6c87edbb291a44d197d990b"
+  },
+  {
+    "source": "English edition validation, 2026-11-25",
+    "delivered": "provenance/validation/RELEASE_VALIDATION.json",
+    "delivered_sha256": "a9e374f2c18f9d128c65bed6a962988c07057c3ae1887c8247020a57262fb18c"
   }
 ]

@@ -145,10 +145,10 @@ def evaluate():
     result = {"descriptive_only": True, "H_used_to_fit_or_select": False, "additional_T5_calls": 0, "additional_CE_pairs": 0,
               "same_training_labels_queries_and_update_rule": True, "intervals_condition_on_sealed_batch_allocation": True,
               "models_reloaded_on_H_without_relevance_access": 17060, "retrievers": {}}
-    report = ["# 核验额外监督与CE证据匹配对照", "",
-              "在H效果开封前追加冻结的辅助分析，不改变原主检验或唯一完整采纳策略。上下文对照与真实CE分支使用完全相同的B角色训练查询/标签、Ridge正则、.5残差更新、H核验分配及候选池，移除18列CE证据。没有增加T5或CE调用。", "",
-              "所有辅助阶段区间以本次已封存批次分配/动作为条件，不作为未来重新分配25%预算策略的总体保证。", "",
-              "| 检索器 | 原收益选择Δ | 无CE但同监督更新Δ | 真实CE更新Δ | CE独立差 | 配对95%描述区间 |", "|---|---:|---:|---:|---:|---|"]
+    report = ['# Check for additional monitoring against CE evidence', "",
+              'Add a supporting analysis of the freeze before the effect H is closed, without changing the primary test or the only complete adoption strategy. The context contrasts with the real CE branch using exactly the same B role training query/label, Ridge positive. 5 Disability update, H check allocation and candidate pool, remove 18 Column CE Evidence. T5 or CE Call.', "",
+              'All ancillary phases are conditional on this sealed batch distribution/movement and do not serve as an overall guarantee of the budget strategy for future redistribution 25%.', "",
+              '| Retrieve | original revenue selection Δ CE None but with supervision update Δ real Δ CE Update Δ CE Independence difference | pair 95% Description of the zone', "|---|---:|---:|---:|---:|---|"]
     for ret in RETRIEVERS:
         full = {r["query_id"]: r for r in readl(OUT / f"metrics/{ret}_per_query.jsonl")}
         rows = readl(OUT / f"matched_control/{ret}_decisions.jsonl")

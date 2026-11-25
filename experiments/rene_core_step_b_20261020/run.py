@@ -196,36 +196,36 @@ def evaluate():
 
 
 def report(views):
-    lines = ["# 第二步B：固定改写动作的生成置信与原查询参照检验", "",
-             "本实验只问：同一个ENTR Top1改写是否值得替代原查询，原检索参照R和生成置信T各增加了多少决策价值？",
-             "", "CoSQA已消费开发集1490条查询/512关联组，双检索器，沿用5折组隔离OOF。固定候选、标签、学习器和训练折；40个StandardScaler+Ridge(alpha=1, SVD)小模型，无调参。标准化仅拟合训练折，原查询与改写Top100完整排名之间回退。",
-             "", "M0为27项共同文本/候选检索/词汇覆盖特征；MT加10项生成置信，MR加34项原查询参照，MRT为71项。token长度属于共同特征；T是单次teacher-forcing概率/熵及ENTR3池内统计，未解耦认知/偶然不确定性。R无qrels、目标ID或真实正确排名。",
-             "", "所有头共享可观测的非恒等、Top100排序改变门，M0/MT学习器没有原检索输入，但也使用此共同结构门。固定20%在各评估折内采用floor(可用动作数/5)，同分按query ID，允许负预测。它是批次预算诊断。零阈值则预测ΔRR>0时采用。风险认证未加入本次机制对照。", ""]
+    lines = ['# Step 2 B: Establishes the creation of a trust and original query reference check for rewriting actions', "",
+             'This experiment only asks: How much value does the same ENTR Top1 rewrite add to the original query, the original search reference R and the creation of confidence T?',
+             "", 'CoSQA Consumerd development set 1490 Article queries/ 512 Link group, double searcher, follow. 5 Collapse group isolation OOF. Fixed candidates, labels, learning devices and training discounts; 40 StandardScaler+Ridge (alpha = 1, SVD) small models without reference. Standardization is only done by matching training discounts, and backsliding between original query and rewriting Top100 full ranking.',
+             "", 'M0 is the common text/candidate search/word cover feature for 27 items; MT Add 10 Entries generate confidence, MR add 34 Item original query reference, MRT is 71 Item. 1 token Length is a common feature; T is a single teacher-forcing probability/entropy and ENTR3 pool count, unsolved cognition/accidental uncertainty. No qrels, target ID or real correct ranking.',
+             "", 'All heads share the observed insular equivalent, Top100 sorted change doors, M0/MT learners do not have original search input but also use this common structure door. Fixed 20% uses floor (number of available actions/5) in each evaluation discount, with the same score as query ID to allow negative projections. It is a batch budget diagnosis. The zero threshold is used when predicting ΔRR > 0. Risk certification is not included in the comparison of this mechanism.', ""]
     for retriever, view in views.items():
-        lines += [f"## {retriever}", "", f"可用动作{view['population']['eligible']}/1490；原文恒等{view['population']['identity_text']}；完整排序相同{view['population']['same_ranking']}。NoRewrite MRR={view['baselines']['NoRewrite']['mrr']:.8f}。强制ENTR Top1 ΔMRR={view['baselines']['ForcedENTRTop1']['delta_mrr']:+.8f}。", "",
-                  "|规则|模型|采用数|覆盖率|ΔMRR|描述性组bootstrap95%|有害/采用|每查询损失量|正收益量保留|",
+        lines += [f"## {retriever}", "", f"Available Actions{view['population']['eligible']}/ 1490; original equivalent{view['population']['identity_text']};full sorting same{view['population']['same_ranking']}。NoRewrite MRR={view['baselines']['NoRewrite']['mrr']:.8f}ENTR Top1 ΔMRR ={view['baselines']['ForcedENTRTop1']['delta_mrr']:+.8f}。", "",
+                  'The |-synthesis model uses the |Δ MRR |-synthetic group bootstrap95% |-synthetic/use the |-synthetic value of positive earnings per search',
                   "|---|---|---:|---:|---:|---|---:|---:|---:|"]
         for p in POLICIES:
             for h in HEADS:
                 u = view["policies"][p][h]
                 ci = view["estimates"][f"{p}:{h}-NoRewrite"]["ci95_group_bootstrap"]
                 lines.append(f"|{p}|{h}|{u['adopted']}|{u['coverage']:.2%}|{u['delta_mrr']:+.8f}|[{ci[0]:+.8f}, {ci[1]:+.8f}]|{u['harmful']}/{u['adopted']}|{u['harm_mass_per_query']:.8f}|{u['retained_fixed_action_positive_mass']:.2%}|")
-        lines += ["", "主条件增量：MRT−MT检验加入原查询参照；MRT−MR检验加入生成置信。八项家族包含两个检索器和两条采用规则。", "",
-                  "|规则|比较|ΔMRR差|点式bootstrap95%|八项Bonferroni家族95%区间|",
+        lines += ["", 'Increase in main condition: MRT - MT Check to add original search references; MRT - MR Check to add confidence. The eight families consist of two searchers and two adoption rules.', "",
+                  'MRR Zero pointer type bootstrap95% Eight lines Bonferroni family 95% Intersections',
                   "|---|---|---:|---|---|"]
         for p in POLICIES:
             for c in ("MRT-MT", "MRT-MR"):
                 e = view["estimates"][f"{p}:{c}"]
                 ci, fc = e["ci95_group_bootstrap"], e["family95_bonferroni_group_bootstrap"]
                 lines.append(f"|{p}|{c}|{e['mean']:+.8f}|[{ci[0]:+.8f}, {ci[1]:+.8f}]|[{fc[0]:+.8f}, {fc[1]:+.8f}]|")
-        lines += ["", "|预测质量|M0|MT|MR|MRT|", "|---|---:|---:|---:|---:|"]
+        lines += ["", '| M0 | MT MR | MRT |', "|---|---:|---:|---:|---:|"]
         for metric in ("mse", "mae", "prediction_spearman", "bias", "mean_absolute_quintile_calibration_gap"):
             lines.append("|" + metric + "|" + "|".join(f"{view['prediction_quality'][h][metric]:.8f}" for h in HEADS) + "|")
-        lines += ["", "每折收益、实际有害率/损失幅度、五分位校准明细、次要MR−M0与MT−M0比较均在RESULTS.json；逐查询固定动作、预测、采用与真实RR在per_query.jsonl。", ""]
-    lines += ["## 解释范围与验收", "",
-              "正的MRT−MT只说明这套固定动作Ridge模型加入可观测原参照后改善所测采用，不证明独特算法或所有检索器泛化。MRT−MR若区间跨零，不能将T写成已验证的额外决策收益，也不能反向宣称全部UQ无效。预测误差改善与实际采用收益分别判定；改善有害Top1不等于胜过NoRewrite。未设置开发集等效阈值。",
-              "", "区间对既有OOF预测按关联组重采样，保留query加权与配对；未在每次抽样内重训，也未重排固定预算，故为条件于固定OOF输出的描述性精度，不是学习算法泛化置信区间。开发集已用于提出方案；本次冻结在新拟合前，但不是新独立确认。",
-              "", "独立审计结果见AUDIT.json，验收见FINAL_ACCEPTANCE.json：独立Fraction RR、线性代数重拟合、外折标签投毒、独立特征复算/配额/指标区间复放及哈希检查。保持原H确认、正式配置和NoRewrite部署；risk_certified=false。"]
+        lines += ["", 'For each discount, the actual hazard rate/loss range, a calibration breakdown of five-points, minor MR−M0 and MT−M0 is in RESULTS.json; Query-on-the-fix actions, predicting, using and authentic RR in per_query.jsonl.', ""]
+    lines += ['## Scope of interpretation and acceptance', "",
+              "The positive MRT−MT indicates only that this fixed action Ridge model has been improved with the observationable original reference and does not prove unique algorithms or a generalization of all searchers. MRT -MR can't write T as a certified extra benefit for decision-making, or reverse the claim that all UQs are invalid. Projected errors are determined separately from actual adoption gains; Improving the harmful Top1 is not equal to overNoRewrite. No development set equivalent threshold is set.",
+              "", '(a) Inter-area sampling of existing OOF projections by association group, retaining query weights and matching; The descriptive precision of OOF output, which is conditioned on fixed, is not a learning algorithm extended confidence interval. The development package has been used to present the programme; This freeze is pending new proposals, but is not confirmed by the newly independents.',
+              "", 'See the results of the independent audit AUDIT.json, acceptance and inspection FINAL_ACCEPTANCE.json: independence Fraction RR, linear algebra re-formulation, external label poisoning, independent feature recovery/quota/indicator area recurrence and Hashi inspection. Maintenance of H identification, configuration and deployment of NoRewrite; risk_certified=false。']
     with (OUT / "READOUT.md").open("x", encoding="utf-8") as handle:
         handle.write("\n".join(lines) + "\n")
 

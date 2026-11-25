@@ -1,10 +1,10 @@
 # SSQR external replication artifact
 
-English review materials for **Position Selection Advantage and Executable Utility: An External Replication of SSQR for Code Search**, aligned with the cumulative English manuscript dated 10 November 2026. Manuscript and artifact version **2026.11.10**, after alignment with the current three-RQ paper scope. The manuscript is delivered separately.
+English review materials for **Position Selection Advantage and Executable Utility: An External Replication of SSQR for Code Search**. The materials follow the three research questions and the study version **2026.11.10** cited in the manuscript. This English review edition is dated 25 November 2026. The manuscript is delivered separately.
 
 Repository: https://github.com/chak6229/RAG-rene-icpc2027
 
-[Download the current artifact ZIP](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-paper). W1 and W3 remain in the [original model release](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108); W5 is repackaged in the [current release](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-paper) with an independent verification-model directory and unchanged weight contents.
+[Download the English artifact ZIP](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261125-english). W1 and W3 are in the [original model release](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108). W5 is in the [10 November model release](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-paper).
 
 The package supports the paper's documented reconstruction, same-pool position-selection comparisons, automatic-execution analyses and independent human-review diagnostics. This release reorganizes existing evidence and recomputes descriptive S7 accounting from the same frozen outcomes; it adds no new model evaluation. The [artifact scope](docs/ARTIFACT_SCOPE.md) explains the current study contents and excluded historical branches.
 
@@ -40,13 +40,13 @@ The unified entry point verifies integrity and replays **14 numerical study unit
 | `supplementary/` | English S1–S25, additional S3/S4 comparison details, exact table data and source mapping |
 | `docs/supporting/` | English reports referenced by the manuscript |
 | `artifact/numerical/` | Anonymous target ranks, selection orders, policy outcomes and statistical replay |
-| `human_review/` | Original independent A/B labels and rationales, supplemental judgments, sampling inputs and replay |
+| `human_review/` | Original independent A/B labels, English rationale translations, supplemental judgments, sampling inputs and replay |
 | `results/` | The 179 integrated S1–S15 result records, paired-weight confirmation and frozen experiment exports |
 | `experiments/` and root scripts | Current and historical model, training, data-preparation and analysis sources, with only the dependencies used by the current paper; use the mapped study entry points |
 | `provenance/` | Source manifests, historical records and release validation |
 | `tools/` | Bundle checks, replay and installation of model attachments |
 
-All current reading guides and supplementary documents are in English. Original annotations and frozen historical records retain their source language and bytes; they are evidence, not newly translated reviewer judgments. The current English reports provide the interpretation and navigation needed for review.
+The review package is in English. Historical records and de-identified human-review rationales use locally assisted English translations. The rationale text is a reading aid. The numeric replay uses the study data and the original categorical judgments. [English edition provenance](provenance/ENGLISH_EDITION.json) identifies the archived originals and translated files.
 
 The portable replay begins at cached ranks/outcomes and does not regenerate raw query text or all retrieval lists. Model stages require the three separately hashed W1/W3/W5 attachments and lawful upstream data acquisition. Full retraining, arbitrary new-sample generation and online-latency validation are outside the checked replay. Table-specific coverage is stated in `EXPECTED_RESULTS.md`.
 

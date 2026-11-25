@@ -1,14 +1,14 @@
-# 第三个检索器：UniXcoder 固定候选扩展
+# Third retriever: UniXcoder with fixed candidates
 
-本轮检验数量分量B、聚合分量G如何迁移到一个额外的代码检索系统，并直接比较与CodeBERT、BM25的分量差。
-采用作者公开的UniXcoder-base零样本检索权重和官方code256/nl128、encoder-only、归一化均值池化。没有本地训练或新增T5候选。
+This study evaluates the selected-count component B and the aggregation component G for an additional code retriever and compares their values directly with CodeBERT and BM25.
+We used the authors' public UniXcoder-base zero-shot retrieval weights and official code256/nl128, encoder-only and normalized mean-pooling settings. The study reused the T5 candidates and required no local training.
 
-## 主要比较
+## Primary comparisons
 
-B为ENTR相对精确随机的优势从单候选mean到三候选mean的减少量；G为三候选mean到标签辅助best3的进一步减少量。正值表示所测相对优势减弱，负值表示反向。
-两个场景各自包含新模型的B/G，以及新模型分别减CodeBERT/BM25的B/G，共12项，统一Bonferroni校正；以下两套区间同时用于方向判断。
+B measures the reduction in ENTR's advantage over exact random selection from one candidate under mean aggregation to three candidates under mean aggregation. G measures the further reduction from three candidates under mean aggregation to label-assisted best3. Positive values indicate that the measured advantage shrinks. Negative values indicate that it grows.
+In each of the two settings, the family includes UniXcoder's B/G and its paired B/G differences with CodeBERT and BM25. The 12 comparisons share a Bonferroni correction. Directional decisions require both corrected intervals to meet the rule.
 
-|场景|比较|分量|估计|校正cluster-t区间|校正bootstrap区间|方向|
+|scene|Comparison|Size|estimate|Correction cluster-t|Correction bootstrap|Direction|
 |---|---|---|---:|---|---|---|
 |cosqa|UniXcoder|B|+0.00552941|[-0.003520, +0.014579]|[-0.003408, +0.014635]|unresolved|
 |cosqa|UniXcoder|G|+0.00988737|[+0.004591, +0.015184]|[+0.004386, +0.015018]|positive|
@@ -23,11 +23,11 @@ B为ENTR相对精确随机的优势从单候选mean到三候选mean的减少量�
 |staqc|UniXcoder_minus_BM25|B|+0.00331365|[+0.001269, +0.005358]|[+0.001149, +0.005387]|positive|
 |staqc|UniXcoder_minus_BM25|G|+0.00182083|[+0.000419, +0.003222]|[+0.000380, +0.003179]|positive|
 
-## 同预算选择优势与原查询参照
+## Matched-count selection advantage and original-query reference
 
-下表为描述性点估计，逐项95%区间见ALL_EFFECTS.csv/RESULTS.json。best3依赖相关标签，不是可执行部署收益。
+The table gives descriptive point estimates. Individual 95% intervals are in `ALL_EFFECTS.csv` and `RESULTS.json`. The best3 estimates use relevance labels and measure candidate opportunity.
 
-|场景|检索器|ENTR−随机：1 mean|3 mean|3 best3|Top1−原查询|best3−原查询|
+|scene|retriever|ENTR− Random: 1 mean|3 mean|3 best3|Top1− Original query|best3− Original query|
 |---|---|---:|---:|---:|---:|---:|
 |cosqa|UniXcoder|+0.01473342|+0.00920401|-0.00068337|-0.00108584|+0.06026182|
 |cosqa|CodeBERT|+0.02793583|+0.01471615|+0.00277941|-0.01365851|+0.06037845|
@@ -36,19 +36,19 @@ B为ENTR相对精确随机的优势从单候选mean到三候选mean的减少量�
 |staqc|CodeBERT|+0.00635826|+0.00310135|-0.00050817|-0.00836347|+0.02147861|
 |staqc|BM25|-0.00127785|-0.00016466|-0.00083002|-0.00931813|+0.00563239|
 
-## 对主线的作用和范围
+## Interpretation and scope
 
-- cosqa：部分分量在校正后正向；其余仍未决，不能写成两项均已推广。
-- staqc：B/G两项均在校正后正向，支持所测数量、聚合分解扩展到这一UniXcoder检索条件。
+- CoSQA: Some components have a positive direction after correction. The remaining directions are unresolved, so the evidence does not establish both components in this setting.
+- StaQC: B and G are both positive after correction, supporting the selected-count and aggregation decomposition for the tested UniXcoder setting.
 
-相对旧检索器的分量差须依据同查询配对区间，而不是比较各自显著与否。分量差不是检索器整体性能排名。PROB和ENTR−PROB为描述对照，不以B/G大小宣称某种分数总体更优。
-本研究固定同一改写池、代码文本和标签，比较完整检索系统。模型训练、池化、归一化和官方输入长度共同变化；不宣称单独的架构因果。UniXcoder仍是RoBERTa架构，本轮未扩展改写器家族。
-CoSQA和StaQC均已消费；这是新检索器效果前固定的模型扩展，不是新独立样本确认，也未做外部预注册。CoSQA为1490查询/512组；StaQC为13312查询/13312组。固定现有全样本，不根据效果扩样；功效仅有旧模型方差情景，不保证新模型精度。
-UniXcoder使用CodeSearchNet的NL-PL预训练，未知预训练暴露和语义克隆仍有边界。StaQC的单已知正例标签与Bing/函数场景不同。新增一个模型不建立所有检索器或所有自动采纳政策的普遍结论。
+Retriever differences are assessed using paired intervals on the same queries. Differences in individual directional decisions do not establish a paired difference. Components measure changes in selection advantage. PROB and ENTR−PROB are descriptive controls and component magnitudes do not rank overall retriever or scoring performance.
+The rewrite pools, code text and labels are fixed. The complete retrieval systems vary jointly in training, pooling, normalization and official input lengths. UniXcoder uses a RoBERTa architecture, and the same rewriter family is used throughout this extension.
+Both data sets had already been used. The extension was fixed before inspecting the new retriever effects, reused the existing samples and had no external preregistration. CoSQA contains 1490 queries in 512 groups and StaQC contains 13312 queries in 13312 groups. Sample sizes were fixed independently of these outcomes. Power was assessed using variance scenarios from existing retrievers, which do not guarantee precision for UniXcoder.
+UniXcoder uses CodeSearchNet NL–PL pretraining. Unknown pretraining exposures and semantic clones remain possible. StaQC's single known positive differs from the Bing-query and function-corpus setting. The extension supports conclusions about the evaluated retriever and settings.
 
-## 复核与复算
+## Verification and replay
 
-9项契约测试、官方例子/独立实际模型前向、完整向量→Top100审计先于新效果；随后用Fraction RR、独立CDF随机期望及配对统计复算。具体计数与误差见PREOPEN_AUDIT.json和FINAL_ACCEPTANCE.json。
-MODEL_PROVENANCE.json记录上游commit、Git/LFS哈希、许可及镜像传输；DESIGN.json绑定输入、代码、权重和保护状态。
-完整重放入口：python -m experiments.rene_third_retriever_20261020.audit --after；需要本地绑定数据/排名。新推理使用run模块，已完成效果不会再次开结果。
-risk_certified=false；本轮不改原确认或生产配置。
+Before opening the new effects, we ran 9 contract tests, checked the official examples and independent model forward passes, and audited the complete vector-to-Top100 path. We then independently replayed RR with `Fraction`, exact random expectations using a separate CDF expression, and paired statistics. Counts and errors are in `PREOPEN_AUDIT.json` and `FINAL_ACCEPTANCE.json`.
+`MODEL_PROVENANCE.json` records the upstream commit, Git/LFS hashes, license and mirror transfer. `DESIGN.json` binds the inputs, code, weights and protected files.
+The full historical replay requires the bound local data and rankings and uses `python -m experiments.rene_third_retriever_20261020.audit --after`. The `run` module performs new inference. The recorded effects were opened once.
+`risk_certified=false`. The original confirmation and production configuration remained as recorded.

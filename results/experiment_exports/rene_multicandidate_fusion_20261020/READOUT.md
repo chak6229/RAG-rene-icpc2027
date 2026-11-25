@@ -1,12 +1,12 @@
-# 同池多候选融合：可执行基线实验
+# Multi-candidacy integration: implementable baseline experiment
 
-CoSQA D1490查询/512关联组，CodeBERT/BM25，同一冻结本地T5的ENTR三候选。比较NoRewrite、ENTRTop1、RRF3（三候选）与RRF4（原查询+三候选），ENTRBest3仅作标签机会指标。
+CoSQA D1490 Query/ 512 Associated group, CodeBERT/BM25, the same ENTR candidate for freezing local T5. Compare NoRewrite, ENTRTop1, RRF3 (three candidates) with RRF4 (original query + three candidates), ENTRBest3 only as a labeled opportunity indicator.
 
-RRF常数60、输入Top100、按完全相同输入文本去重、等权、精确有理分数排序、文档ID确定并列、输出并集Top100。动作无qrels，构造后封存再评测。没有新生成、训练、检索、CE或风险门，没有扫参数。
+RRF Constant 60, enter Top100 to reweight the text by exactly the same input, equal, precise fractional sorting, document ID determine parallel rows, output and set Top100. No action qrels, reassembly after construction. No new generation, training, retrieval, CE or risk doors, no sweep parameters.
 
 ## CodeBERT
 
-|方案|MRR|ΔMRR|组bootstrap95%|四主要效应校正区间|有益/有害查询|每查询损失量|
+|Programme|MRR|ΔMRR|Group bootstrap95%|Four main effect correction compartments|Useful/harmful queries|Losses per query|
 |---|---:|---:|---|---|---:|---:|
 |NoRewrite|0.51890040|+0.00000000|[+0.00000000, +0.00000000]|—|0/0|0.00000000|
 |ENTRTop1|0.50524189|-0.01365851|[-0.02269701, -0.00478947]|—|292/388|0.04377618|
@@ -14,24 +14,24 @@ RRF常数60、输入Top100、按完全相同输入文本去重、等权、精确
 |RRF4|0.51259246|-0.00630794|[-0.01356337, +0.00068063]|[-0.01556317, +0.00252055]|287/284|0.02826442|
 |ENTRBest3|0.57927884|+0.06037845|[+0.05146242, +0.06938687]|—|528/125|0.00774419|
 
-|次要配对比较|ΔMRR差|组bootstrap95%|
+|Secondary pairing|Δ MRR|Group bootstrap95%|
 |---|---:|---|
 |RRF4-RRF3|+0.00379172|[-0.00116375, +0.00886707]|
 |RRF3-ENTRTop1|+0.00355885|[-0.00776614, +0.01479171]|
 |RRF4-ENTRTop1|+0.00735057|[-0.00181023, +0.01681903]|
 
-|在线策略所需唯一检索输入|总数|每query均值|位置生成数（共用同池）|
+|Only search input required for online policy|Total|Average value per query|Location generation (shared pool)|
 |---|---:|---:|---:|
 |NoRewrite|1490|1.0000|0|
 |ENTRTop1|1490|1.0000|9915|
 |RRF3|4440|2.9799|9915|
 |RRF4|5930|3.9799|9915|
 
-受控比较中四列表共同可用的总检索输入为5930；原query+Top1为2980。这不是策略在线成本相同的证明。原实验实际采用批量/缓存执行，表中是每query所需唯一输入次数；不把次数当延迟、token或金额。
+The total search input common to the four lists in the controlled comparison is 5930; Original query+Top1 is 2980. This is not proof of the same cost of strategy online. The original experiment was actually carried out in bulk/cachel and the table is the only input required per query; Do not delay, token or amount.
 
 ## BM25
 
-|方案|MRR|ΔMRR|组bootstrap95%|四主要效应校正区间|有益/有害查询|每查询损失量|
+|Programme|MRR|ΔMRR|Group bootstrap95%|Four main effect correction compartments|Useful/harmful queries|Losses per query|
 |---|---:|---:|---|---|---:|---:|
 |NoRewrite|0.22412467|+0.00000000|[+0.00000000, +0.00000000]|—|0/0|0.00000000|
 |ENTRTop1|0.20377371|-0.02035096|[-0.02571306, -0.01522141]|—|45/555|0.02479017|
@@ -39,25 +39,25 @@ RRF常数60、输入Top100、按完全相同输入文本去重、等权、精确
 |RRF4|0.22210031|-0.00202436|[-0.00375980, -0.00041231]|[-0.00419819, +0.00002045]|81/349|0.00417705|
 |ENTRBest3|0.23390096|+0.00977629|[+0.00518148, +0.01468792]|—|128/319|0.00499119|
 
-|次要配对比较|ΔMRR差|组bootstrap95%|
+|Secondary pairing|Δ MRR|Group bootstrap95%|
 |---|---:|---|
 |RRF4-RRF3|+0.00154605|[-0.00023031, +0.00338637]|
 |RRF3-ENTRTop1|+0.01678055|[+0.01193765, +0.02195994]|
 |RRF4-ENTRTop1|+0.01832660|[+0.01338007, +0.02354481]|
 
-|在线策略所需唯一检索输入|总数|每query均值|位置生成数（共用同池）|
+|Only search input required for online policy|Total|Average value per query|Location generation (shared pool)|
 |---|---:|---:|---:|
 |NoRewrite|1490|1.0000|0|
 |ENTRTop1|1490|1.0000|9915|
 |RRF3|4440|2.9799|9915|
 |RRF4|5930|3.9799|9915|
 
-受控比较中四列表共同可用的总检索输入为5930；原query+Top1为2980。这不是策略在线成本相同的证明。原实验实际采用批量/缓存执行，表中是每query所需唯一输入次数；不把次数当延迟、token或金额。
+The total search input common to the four lists in the controlled comparison is 5930; Original query+Top1 is 2980. This is not proof of the same cost of strategy online. The original experiment was actually carried out in bulk/cachel and the table is the only input required per query; Do not delay, token or amount.
 
-## 解释边界
+## Interpretation of the boundary
 
-融合产生新排名，可能超过best3，best3不能作融合上界或收益保留率分母。RRF4含原查询不意味着保证无损；有害查询和损失幅度均报告。三候选仍由原生熵筛选，故本实验是无需额外UQ预测头的融合，不是消除全部熵信息的对照。
+Integration produces new rankings, which may exceed best3 and best3 cannot be the denominator of integration upward or yield retention rates. RRF4 The inclusion of original queries does not mean that the guarantees are intact; Harmful inquiries and loss ranges are reported. The three candidates are still screened for primary entropy, so the experiment does not require any extra UQ integration of the predictor head, rather than eliminating all the cross-references to entropy information.
 
-数据已消费，协议只在此次新融合效果计算前冻结。组区间描述该开发集上的差异，不构成新独立确认；四项主要效应提供Bonferroni敏感性。跨检索器直接配对差在RESULTS.json，未通过一边显著一边不显著推断差异。标准RRF不是本文新算法；主线作用与近邻差异见FINDINGS.md和PRIOR_WORK_COMPARISON.md。
+The data have been consumed and the agreement has been frozen only before this new integration effect is calculated. (b) Inter-group descriptions of the differences in the development and do not constitute new independent confirmations; Four main effects provide Bonferroni sensitivity. Cross-retrieval is directly modulated at RESULTS.json, and no significant inferences are made by the obvious side. Standard RRF is not a new algorithm; See FINDINGINGS.md and PRIOR_WORK_COMPARISON.md.
 
-独立验收见AUDIT.json、FINAL_ACCEPTANCE.json，涵盖Fraction全排序、去重、动作/成本、逐queryRR、指标区间及冻结哈希。旧A/B、旧H确认及正式五指针不改。
+Independent acceptance and inspection AUDIT.json, FINAL_ACCEPTANCE json, covering full sorting of Fraction, weighting, action/cost, by queryRR, indicator ranges and freezing of Hashi. Old A/B, old H confirmation and official five pointers.

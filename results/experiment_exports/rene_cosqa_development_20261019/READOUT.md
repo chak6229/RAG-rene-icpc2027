@@ -1,41 +1,41 @@
-# 开发扩展结果解读
+# Development Extension Interpretation
 
-本页在结果打开后作损益算术分解，无新增模型、阈值或方法选择。正式四项 RQ1 比较和预设主收益模型保持不变。
+This page is broken down by gain-and-loss algorithms after the result has been opened, with no new model, threshold or method selection. Four formal RQ1 comparisons and presets of the main revenue model remain unchanged.
 
-1,490 条查询 / 512 个关联组的扩展、五折收益选择与独立复算已完成。确认池 8,530 条 / 1,963 组尚未运行。
+The extension of 1,490 / 512 associated groups, the five-sum benefit option and independent recovery have been completed. Confirms that the pool 8,530/1,963 group is not yet operational.
 
-## 当前结果支持什么
+## What does the current result support?
 
-- 同一 ENTR 三候选池内，主收益模型相对原熵 Top1 改善 CodeBERT +.01242189、BM25 +.01040205（开发 OOF）；选择任务相关监督能减少部分原排序损失。
-- 对原查询的正净收益尚未建立：主模型加零收益 NoRewrite 动作后为 +.00020512 / −.00499483。线性辅助对照为 +.00409250 / −.00248255；CodeBERT 正点估计的区间跨零。
-- ENTR 对 RAND、PROB 的四项候选质量比较区间均跨零；BM25 的 ENTR−RAND 点估计为负。保留复现与检索器边界问题，不据此宣称熵普遍无效或等效。
+- In the same ENTR three candidate pools, the main yield model improves relative to original entropy Top1 CodeBERT +.01242189, BM25 +.01040205 (development OOF); The selection of task-related oversight reduces some of the original ranking losses.
+- Positive net gain over the original query was not established. With the zero-gain NoRewrite action, the main model gives +.00020512 / −.00499483. The linear control gives +.00409250 / −.00248255. The intervals for the positive CodeBERT point estimates span zero.
+- All four candidate-quality intervals for ENTR versus RAND and PROB span zero. The BM25 ENTR−RAND point estimate is negative. The results leave general ineffectiveness and equivalence unestablished.
 
-## 损失具体发生在哪
+## Where exactly did the loss occur?
 
-本轮没有运行后置风险门。直接按预测收益选择并保留原查询，已经出现误选和收益抵消。
+This round does not have a back-to-back risk door.
 
-| 检索器 | 池中存在更好候选的查询 | 三候选全部更差 | 主模型获得正收益 / 查询 | 主模型损失 / 查询 | 主模型净收益 |
+| retriever | There are better candidate queries in the pool | All three candidates are worse. | The main model gets positive returns/ queries | Main Model Loss/ Query | Net proceeds from the main model |
 |---|---:|---:|---:|---:|---:|
 | CodeBERT | 528/1490 | 125/1490 | +0.02018953 | −0.01998441 | +0.00020512 |
 | BM25 | 128/1490 | 319/1490 | +0.00114914 | −0.00614396 | -0.00499483 |
 
-CodeBERT 主模型捕获约 29.6% 的候选可用正收益，但产生的损失几乎全部抵消收益；BM25 捕获约 7.8%，说明该检索器上既有候选正机会较少，也有选择识别问题。这里的可用收益使用标签，只是诊断上限。
+CodeBERT The main model captures approximately 29.6% candidates with positive returns, but the resulting losses almost fully offset the gains; BM25 The catch margin 7.8% indicates that the searcher has both fewer candidates and selective identification issues. The available proceeds here use labels, only the diagnostic ceiling.
 
-## 预测为正为何还会损失
+## What do you expect to lose?
 
-| 检索器 | 主模型选择后平均预测 ΔRR | 实际 ΔRR | 预测偏高 |
+| retriever | Average projection after selection of the main model | Actual | High forecast. |
 |---|---:|---:|---:|
 | CodeBERT | +0.01276952 | +0.00020512 | +0.01256440 |
 | BM25 | +0.00316669 | -0.00499483 | +0.00816152 |
 
-候选总体均值接近真实均值，不意味着取最大值、再筛选预测正收益之后仍校准。上表是观察到的选择后预测偏差，不能单独归因为某一种统计机制。
+The overall candidate average is close to the real average and does not mean that it will be calibrated after taking the maximum value and re-screening the projected positive returns. The above table is an observed post-selection prediction deviation that cannot be attributed to a statistical mechanism alone.
 
-主模型在原试跑子集与新增开发子集（同一次五折 OOF）CodeBERT 净收益分别为 +.01555543 / −.00297939。线性对照在新增子集为 +.00371982，区间仍跨零；因此不把全开发主模型 +.00020512 当作稳定正收益。
+The CodeBERT main model's net gains for the original pilot subset and the additional development subset under the same five-fold OOF procedure are +.01555543 / −.00297939. The linear control gives +.00371982 on the additional subset, with an interval spanning zero. The full development estimate of +.00020512 does not establish a stable positive gain.
 
-## 下一步的决策依据
+## Basis for further decision-making
 
-保留预定主模型和线性对照；先在现有开发缓存检验选择后的任务收益证据与校准，再冻结单一确认政策。没有依据仅靠放宽风险阈值解决本轮误选。
+Retain predefined master models and linear comparisons; The single recognition policy will be frozen first by evidence of and calibration of mission benefits after the existing development of a cache test option. There is no basis for resolving the wrong selection of this round by simply easing the risk threshold.
 
-功效缺口仍在：CodeBERT ENTR−RAND 的 .005 / 80% / 四比较保守规划需要 2,475 组，确认池仅 1,963 组；已知组大小差异的工作假设敏感性为 3,662 组。其余三项达到原变化事件数条件。确认前需明确精度目标与联合比较家族，保持原 .005 目标，不按当前结果改成更宽门槛。
+The effectiveness gap is still: CodeBERT ENTR − RAND It's...005  /  80% / Four relative conservative planning needs 2,475 Group, confirm the pool only 1,963 Groups; The working assumption for known group size differences is 3,662 group sensitive. The remaining three meet the original variable number of events. Prior to confirmation, the precision target and the joint comparison family need to be clearly identified and maintained.005 Objectives are not changed to a broader threshold based on current results.
 
-完整数值、区间、审计和冻结证据见 REPORT.md、RQ1_DEVELOPMENT.json、RQ2_DEVELOPMENT.json、POWER_PLAN.json。旧模型与正式指针保留，risk_certified=false，部署仍为 NoRewrite。
+Full values, compartments, audits and freezing of evidence are available in REPORT.md, RQ1_DEVELOPMENT.json, RQ2_DEVELOPMENT.json, POWER_PLAN.json. The old model is retained with the official pointer, risk_certified = false and deployment remains NoRewrite.

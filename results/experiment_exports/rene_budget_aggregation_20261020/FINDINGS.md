@@ -1,60 +1,60 @@
-# 同池因素分解：结果与论文作用
+# Same-pool factor decomposition: results and interpretation
 
-2026-10-20。已完成固定候选数量比较聚合、固定聚合比较1/2/3候选，保留ENTR、PROB、精确随机。源侧2048查询/594仓库、CoSQA开发1490查询/512关联组，均使用同一本地CQC T5候选和CodeBERT/BM25缓存。
+2026-10-20. The analysis compares aggregation at fixed selected counts and compares 1/2/3 candidates under fixed aggregation for ENTR, PROB and exact random selection. The source setting contains 2048 queries in 594 repositories, and CoSQA development contains 1490 queries in 512 linked groups. Both reuse the local CQC T5 candidates and cached CodeBERT/BM25 rankings.
 
-**核心发现：CoSQA/CodeBERT中，候选数量扩展与标签选优聚合都会削弱ENTR相对随机的优势。两部分在预设24项比较校正后均保持正值。** 这补齐原A中两种变化共同发生、未分开度量的缺项。
+**Main finding: In CoSQA/CodeBERT, increasing the selected count and using label-assisted best-of-k aggregation both reduce the advantage of ENTR over exact random selection. Both components remain positive after the specified 24-comparison correction.** This separates the two changes that occurred together in the earlier comparison A.
 
-## 1. 同池、同数量的完整结果
+## 1. Complete results at matched pools and selected counts
 
-下表为CoSQA/CodeBERT相对原query的ΔMRR；原query MRR为0.51890040。mean是在选中集合中均匀采用一条的期望；best-k为同一集合内使用真实相关性标签取最大RR。
+The table gives ΔMRR relative to the original query for CoSQA/CodeBERT. The original-query MRR is 0.51890040. Mean aggregation is the expected RR from uniformly adopting one selected candidate. Best-k is the maximum RR in the same set, using the relevance labels.
 
-|选择规则|聚合方式|1候选|2候选|3候选|
+|Selection rule|Aggregation|1 candidate|2 candidates|3 candidates|
 |---|---|---:|---:|---:|
 |ENTR|mean|−0.01365851|−0.02007243|−0.02687819|
 |PROB|mean|−0.01577175|−0.01898857|−0.02639018|
-|精确随机|mean|−0.04159434|−0.04159434|−0.04159434|
+|exact random selection|mean|−0.04159434|−0.04159434|−0.04159434|
 |ENTR|best-k|−0.01365851|+0.03780419|+0.06037845|
 |PROB|best-k|−0.01577175|+0.03656354|+0.05942630|
-|精确随机|best-k|−0.04159434|+0.02778825|+0.05759904|
+|exact random selection|best-k|−0.04159434|+0.02778825|+0.05759904|
 
-ENTR前缀扩展后，mean下降而best-k上升：增加候选提供更多机会，但使用方式决定这些机会如何进入指标。first锚点始终执行第一条，因此随候选数增加保持不变。mean不是文档融合，best-k依赖真实标签，不是线上选择器。可执行RRF另有已完成的受控实验，不能与此表混合解释。
+For ENTR, expanding the selected prefix decreases mean RR and increases best-k RR. A larger set offers more opportunities, and the aggregation rule determines how those opportunities enter the metric. The `first` reference always executes the first candidate, so its result is invariant to the selected count. Mean aggregation averages candidate RRs. Best-k uses relevance labels, which are unavailable for automatic selection. Executable RRF is evaluated separately under its own comparison.
 
-## 2. 原A差异的路径分解
+## 2. Path decomposition of the earlier contrast A
 
-令S(k,a)为ENTR相对同k精确随机的MRR优势。CoSQA/CodeBERT中：
+Let S(k,a) be the MRR advantage of ENTR over exact random selection at the same k. For CoSQA/CodeBERT:
 
 - S(1,mean)=+0.02793583。
 - S(3,mean)=+0.01471615。
 - S(3,best-k)=+0.00277941。
 
-|预设分量|估计|24项Bonferroni校正组bootstrap区间|校正cluster-t区间|
+|Prespecified component|Estimate|Group bootstrap interval, Bonferroni-corrected over 24 comparisons|Corrected cluster-t interval|
 |---|---:|---|---|
-|B：固定mean，候选数1→3时优势减弱|+0.01321969|[+0.00088210,+0.02481866]|[+0.00088510,+0.02555428]|
-|G：固定3候选，mean→best-k时优势减弱|+0.01193674|[+0.00490738,+0.01893323]|[+0.00488512,+0.01898835]|
+|B: reduction in advantage when the selected count increases from 1 to 3 under mean aggregation|+0.01321969|[+0.00088210,+0.02481866]|[+0.00088510,+0.02555428]|
+|G: reduction in advantage when aggregation changes from mean to best-k at 3 candidates|+0.01193674|[+0.00490738,+0.01893323]|[+0.00488512,+0.01898835]|
 
-逐query恒等式为J_exact=B+G=+0.02515642。原A使用20次随机重放，J20为+0.02556783，差额+0.00041141来自RAND20与精确随机best3的有限重复误差，原A结果保持原值。
+The per-query identity gives J_exact=B+G=+0.02515642. The earlier analysis A used 20 random replays and gave J20=+0.02556783. The +0.00041141 difference is the finite-repeat discrepancy between RAND20 and the exact random best3 expectation. The earlier result remains as reported.
 
-固定3候选，ENTR从mean到best-k提升+0.08725664，精确随机提升+0.09919338；随机多获得+0.01193674，正好对应G。因此，best-k下相对优势较小，不能据此推出ENTR单选没有信息。
+At a fixed count of 3, changing mean to best-k increases ENTR by +0.08725664 and exact random selection by +0.09919338. The extra +0.01193674 for exact random selection equals G. The smaller best-k advantage does not rule out an informative ENTR ordering for single selection.
 
-这是指定参考路径下的配对算术分解。k=1时聚合退化为同一结果，不将B/G解释为唯一因果贡献，也不报告“主因占比”。
+This paired arithmetic decomposition follows the specified evaluation path. At k=1 the aggregation rules coincide. The components do not identify unique causal contributions or shares of the effect.
 
-## 3. PROB与第二检索器给出的解释范围
+## 3. Interpretation across PROB and the second retriever
 
-- PROB在CoSQA/CodeBERT中B=+0.01061844，校正区间跨0；G=+0.01337689，校正区间[+0.00640977,+0.02045887]。ENTR−PROB的B/G直接差均跨0，不能用各自显著性不同推出ENTR独有机制。
-- 源侧CodeBERT中，ENTR/PROB的G分别为+0.00638704/+0.00611574，校正区间均为正；候选数量分量B均未决。单个分量成立不代替原A总差的区间判断。
-- source/BM25和CoSQA/BM25中，B/G的全部校正区间跨0。结论定位为所测数据、检索器和指标契约下的受控发现，不推广为所有检索器的规律。
+- For PROB in CoSQA/CodeBERT, B=+0.01061844 has a corrected interval spanning 0, while G=+0.01337689 has a corrected interval of [+0.00640977,+0.02045887]. The direct ENTR−PROB intervals for B and G both span 0. Different individual decisions do not establish an ENTR-specific mechanism.
+- For source/CodeBERT, the corrected intervals for G are positive for ENTR and PROB, with estimates +0.00638704 and +0.00611574. The B directions are unresolved for both. A resolved component does not determine the interval for the original total contrast A.
+- For source/BM25 and CoSQA/BM25, all corrected B/G intervals span 0. The finding concerns the tested data, retrievers and evaluation contract.
 
-## 4. 对主线和贡献的作用
+## 4. Role in the paper
 
-这次新增证据加强“候选机会如何转化为执行收益”的主线：在同池、同数量下，标签选优改变了选择规则与随机基线的相对表现；固定聚合时，扩展前缀也能改变该相对表现。它超出单独列Top1负、best3正，直接度量两种变化各自对应的差异。
+Under a matched pool and selected count, choosing the best candidate with labels changes a rule's measured advantage over random selection. Expanding the selected prefix at fixed aggregation can also change that advantage. The two components quantify the changes that the signs of forced Top1 and best3 alone cannot separate.
 
-当前支持的是具体复现配置的机制诊断。尚未由此建立新的自动采纳策略正收益、熵相对PROB的独有增量、认知/偶然UQ解耦或总体风险证书。CQC训练配置差异的受控排除、该新增发现的新样本稳定性仍属于其他问题，本轮不重启相关实验。
+This is a mechanism diagnostic within the specified replication configuration. It does not establish positive net gain for a new automatic policy, a distinct advantage of entropy over PROB, disentangled epistemic and aleatoric uncertainty, or population risk certification. Controlled CQC training contrasts and stability on a new sample are separate questions and were outside this run.
 
-## 5. 验证与交付
+## 5. Verification and delivery
 
-- 10项科学口径测试全部通过，源码和3538条无标签查询动作在新增因素计算前封存；旧A效果已知，整体身份为已消费数据上的事后诊断。
-- 独立审计不导入生产指标模块，从原排名/qrels以Fraction重算66306项候选RR和7076项原query RR；用另一CDF组合公式重算精确随机best-k。
-- 108因素单元、全部440对照、24预设分量及28304逐query分解恒等式通过；统计最大差1.67e−15。39项冻结/保护文件一致。
-- 全部结果复用缓存，无新T5生成、训练或检索。k为生成后的下游候选数，不代表T5生成/熵打分成本降低；重放耗时不作为线上延迟。
+- All 10 evaluation-contract tests passed. The source and unlabeled actions for 3538 queries were sealed before the new factor calculations. The earlier A results were known, so the study remains a post-hoc diagnostic on previously used data.
+- The independent audit used `Fraction` to recalculate 66306 candidate RRs and 7076 original-query RRs from rankings and qrels without importing the production metrics module. It cross-checked exact random best-k using a separate CDF formula.
+- The checks covered 108 factor cells, 440 contrasts, 24 specified components and 28304 per-query decomposition identities. The maximum statistical discrepancy was 1.67e−15. All 39 frozen or protected files matched.
+- All results reuse cached outputs without additional T5 generation, training or retrieval. k counts the selected candidates after generation. It does not lower generation or entropy-scoring cost. Replay time does not measure online latency.
 
-完整四条件表及区间：`READOUT.md`、`FACTORIAL.csv`、`CONTRASTS.csv`、`DECOMPOSITION.csv`。科学复核：`AUDIT.json`；最终导出/哈希验收：`FINAL_ACCEPTANCE.json`。论文独立补充源稿：`paper/rene2027/budget_aggregation_results.md`。原H确认与正式配置保持，new_confirmation=false、risk_certified=false。
+See `READOUT.md`, `FACTORIAL.csv`, `CONTRASTS.csv` and `DECOMPOSITION.csv` for all four conditions and intervals, `AUDIT.json` for the numerical checks, and `FINAL_ACCEPTANCE.json` for export and hash verification. The historical manuscript source was `paper/rene2027/budget_aggregation_results.md`. The H confirmation and study configuration were retained. `new_confirmation=false`, `risk_certified=false`.

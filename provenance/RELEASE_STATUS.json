@@ -1,10 +1,10 @@
 {
-  "version": "2026.11.10",
+  "version": "2026.11.25",
   "repository": "https://github.com/chak6229/RAG-rene-icpc2027",
   "repository_private": true,
-  "release_tag": "rene-review-20261110-paper",
-  "release_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-paper",
-  "status": "paper_scoped_review_materials",
+  "release_tag": "rene-review-20261125-english",
+  "release_url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261125-english",
+  "status": "english_review_materials",
   "model_assets_verified_online": true,
   "model_assets": [
     {
@@ -30,7 +30,9 @@
     }
   ],
   "paper_uploaded": false,
-  "verification": "Local checks are recorded in the release validation; the publication receipt records subsequent server verification.",
-  "previous_release_tag": "rene-review-20261110-clean",
-  "manuscript_version": "2026.11.10"
+  "verification": "Scientific replay and language-edition checks are recorded in provenance/validation/RELEASE_VALIDATION.json. GitHub verification is in the author delivery receipt.",
+  "previous_release_tag": "rene-review-20261110-paper",
+  "manuscript_version": "2026.11.10",
+  "edition": "English review edition",
+  "previous_source_commit": "3fb7179239576a0493fe349c84e35e2bae4222a4"
 }

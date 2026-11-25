@@ -1,22 +1,22 @@
-# 两套 T5 权重的完整 B/G 匹配对照
+# Matched B/G contrasts for two sets of T5 weights
 
-完整对照已补齐。CoSQA 的 ENTR 在两套权重下均呈 B、G 正向点估计，源域 B 的点估计随权重变号。24 项统一校正后，ENTR 的八项权重内 B/G 均未决；八项 ENTR/PROB 的权重直接差异也均未决。因此，这轮支持将完整分解纳入权重敏感性证据，尚未建立“B/G 不依赖权重”的结论。
+ENTR B and G have positive point estimates under both weight conditions on CoSQA. The source-domain B estimate changes sign between the two conditions. After joint correction over 24 comparisons, all eight within-weight ENTR components and all eight ENTR/PROB direct weight contrasts are unresolved. The full decomposition adds evidence about weight sensitivity. Independence of B/G from the weights is not established.
 
-PROB 在基础 T5 下的 G 在两域均为正向且通过校正；其余 22 项主比较未决。没有校正后反向项。ENTR−PROB 的 B/G 及其权重交互均为次要描述比较，95% 区间跨零，未建立熵独有分量。
+With base T5, PROB has positive G in both domains after correction. The remaining 22 primary comparisons are unresolved, and no component has a negative direction after correction. ENTR−PROB B/G and their weight contrasts are secondary descriptive comparisons. Their 95% intervals span zero, leaving an entropy-specific component unestablished.
 
-## 匹配与估计对象
+## Matching and estimands
 
-- AdvTest、CoSQA 各 512 条查询 / 512 个仓库或关联组；两套权重共享查询、原查询 RR、语料、标注、检索器及位置池规模。仅重用原匹配 512 样本，未替换成 2,048/1,490 全量结果。
-- local 为已有 CQC T5，t5base 为已有基础 T5；两者都属于 T5 家族。比较的是整套权重条件，不能单独归因为 CQC 训练。
-- 原始位置池逐候选 RR 共 18,680 项；所有重复文本保留位置概率质量。ENTR/PROB 仅使用原生成分数排序，按原位置打破并列。
-- k=1/2/3 指从已有生成池选取的候选数，不是生成预算。mean 是所选候选均匀采用的期望 RR；best-k 是依赖标签选最好的候选机会，不是自动采纳或融合收益。
-- S(k,a)=规则 RR−同位置池精确均匀随机 RR；B=S(1,mean)−S(3,mean)，G=S(3,mean)−S(3,best3)，J=B+G。它是指定路径的算术分解。
+- AdvTest and CoSQA each contain 512 queries in 512 repositories or linked groups. Within each domain both weights share queries, original-query RR, corpus, labels, retriever and position pool size. The study reuses the matched 512-query samples, not the full 2,048/1,490 samples.
+- `local` uses the existing CQC T5 weights and `t5base` uses the existing base T5 weights. Both belong to the same T5 family. The paired contrast compares complete weight conditions and does not isolate CQC training.
+- The original position pools contain 18,680 candidate RRs. Duplicate text retains its probability mass by position. ENTR and PROB use their original generation scores and break ties by position.
+- k=1/2/3 is the selected count from the existing pool. Mean aggregation is the expected RR from uniform adoption within the selected set. Best-k is the candidate opportunity when choosing with labels. The comparison does not measure generation budget, automatic adoption gain or fusion gain.
+- S(k,a)=rule RR−exact uniform random RR from the same pool; B=S(1,mean)−S(3,mean), G=S(3,mean)−S(3,best3), and J=B+G. These are arithmetic contrasts along the stated path.
 
-## 完整分量与权重差
+## Full component and direct weight contrasts
 
-以下为 24 项全族双侧 Bonferroni 校正的 cluster-t 区间。机器结果同时提供独立组 bootstrap 校正区间；方向判定要求两套区间一致且至少 20 个非零组。
+The table shows two-sided cluster-t intervals with a Bonferroni correction for the full family of 24 comparisons. Machine-readable results also contain corrected independent-group bootstrap intervals. A direction requires agreement between the two interval methods and at least 20 nonzero groups.
 
-| 数据 | 权重 | 规则 | B（校正区间） | G（校正区间） |
+| Data | weights | Rule | B (correction interval) | G (correction interval) |
 |---|---|---|---|---|
 | AdvTest | local | ENTR | -0.005239 [-0.019681, +0.009203] | +0.003479 [-0.006850, +0.013808] |
 | AdvTest | local | PROB | -0.002036 [-0.016130, +0.012057] | +0.005028 [-0.005560, +0.015615] |
@@ -27,36 +27,36 @@ PROB 在基础 T5 下的 G 在两域均为正向且通过校正；其余 22 项�
 | CoSQA | t5base | ENTR | +0.018967 [-0.003537, +0.041472] | +0.012087 [-0.001941, +0.026114] |
 | CoSQA | t5base | PROB | +0.014316 [-0.006975, +0.035607] | +0.018360 [+0.003595, +0.033124] |
 
-| 数据 | 规则 | ΔB：base−local（校正区间） | ΔG：base−local（校正区间） |
+| Data | Rule | Δ B: base−local (correction interval) | Δ G: base−local (correction interval) |
 |---|---|---|---|
 | AdvTest | ENTR | +0.006476 [-0.014390, +0.027341] | +0.002004 [-0.011352, +0.015360] |
 | AdvTest | PROB | +0.009274 [-0.009496, +0.028045] | +0.004316 [-0.009061, +0.017693] |
 | CoSQA | ENTR | +0.013152 [-0.016157, +0.042461] | +0.002217 [-0.016541, +0.020975] |
 | CoSQA | PROB | +0.002764 [-0.026959, +0.032488] | +0.006734 [-0.012763, +0.026232] |
 
-两权重的直接差异区间跨零，且范围宽于 ±0.005，不能解释为等效、不变或训练影响很小。CoSQA ENTR 的 ΔB 为 +0.013152，但校正区间 [−0.016157,+0.042461]，目前无法区分有意义的权重变化与抽样不确定性。
+The direct weight intervals span zero and extend beyond ±0.005. Equivalence, invariance and small training effects are not established. CoSQA ENTR ΔB is +0.013152, with corrected interval [−0.016157,+0.042461]. The interval leaves meaningful weight differences unresolved.
 
-## 同池 ENTR 优势路径
+## Same-pool ENTR advantage along the evaluation path
 
-| 数据 | 权重 | S(1,mean) | S(3,mean) | S(3,best3) |
+| Data | weights | S(1,mean) | S(3,mean) | S(3,best3) |
 |---|---|---:|---:|---:|
 | AdvTest | local | -0.005820 | -0.000581 | -0.004061 |
 | AdvTest | t5base | +0.009123 | +0.007886 | +0.002403 |
 | CoSQA | local | +0.021066 | +0.015251 | +0.005381 |
 | CoSQA | t5base | +0.034753 | +0.015786 | +0.003699 |
 
-CoSQA 两权重的点估计都随候选数量及 best3 聚合而减弱。描述性 95% 区间中，两权重 G 为正、基础 T5 的 B 为正；这些不能替代 24 项校正结论。AdvTest 的局部 CQC 权重 B 点估计为负，提示数量分量应按场景与权重报告。
+In CoSQA, point estimates under both weights show a smaller ENTR advantage at larger selected counts and with best3 aggregation. Descriptive 95% intervals are positive for G under both weights and for B under base T5. The decisions for the family of 24 use the corrected intervals. The local CQC weight B estimate is negative in AdvTest, so the count component is reported by setting and weight.
 
-## 对论文主线的作用
+## Role in the study
 
-本轮将“两权重 Top1/best3 包络”推进为完整、匹配查询上的数量/聚合分解，并提供直接权重交互，关闭了“完整 B/G 未覆盖”的分析缺项。它补充候选机会与自动收益之区分及评价契约敏感性；目前跨权重证据应表述为“CoSQA 点估计同向，正式校正下仍未决”。既有 StaQC 冻结确认和第三检索器结果继续承担各自明确的结论。
+The matched analysis extends the earlier two-weight Top1/best3 envelope to separate count and aggregation components and provides paired direct weight contrasts. For CoSQA both sets of point estimates have the same direction, and the corresponding ENTR comparisons remain unresolved under correction. The frozen StaQC confirmation and the third-retriever extension answer their own specified comparisons.
 
-这些都是已消费样本上的事后敏感性分析，方案在本轮新分解计算前本地封存；历史 Top1/best3 与全量本地分解已知，不称新独立确认。没有恢复作者 checkpoint、原训练 CSV 或生产聚合，也不支持跨改写器家族、历史全量训练归因或完整采纳政策的迁移。
+These are post-hoc sensitivity analyses on previously used samples. The protocol was sealed locally before the new decomposition. Earlier Top1/best3 and the full-sample local-weight results were known. The reconstruction has not recovered the original authors' checkpoint, training CSV or production aggregation. The comparison does not establish effects across rewriter families, identify the effect of historical full training, or show that the complete adoption policy transfers.
 
-## 核验与交付
+## Verification and delivery
 
-- 9 项契约测试通过；16,384 项旧 Top1/best3/PROB/随机/原句等逐查询锚点精确复现（最大差 0）。
-- 独立从已验收 Top100 排名与 qrels 复算 18,680 候选及 2,048 原查询 Fraction RR；独立 CDF 精确随机、131,072 因素字段、65,536 配对字段、384 个汇总均值、24 项主统计通过。最大因素/配对误差 2.37e−16。
-- 使用 20,000 次共享整组 bootstrap；两权重配对后再统计。没有新训练、生成、模型前向或检索；既有正式指针及历史交付哈希保持。
-- 结果：RESULTS.json、per_query.jsonl、paired_per_query.jsonl；表格：factorial_cells.csv（72 格）、primary_contrasts.csv（24 项）、all_summaries.csv（384 项）；图：selection_curves、factor_contrasts（PNG/PDF）。
-- 论文补充稿：paper/rene2027/t5_weight_factor_results.md；重放说明：REPLAY.md。
+- All 9 contract tests passed. Replay reproduced 16,384 per-query historical references for Top1, best3, PROB, random selection and the original query with maximum difference 0.
+- Independent `Fraction` RR calculations from accepted Top100 ranks and qrels verified 18,680 candidates and 2,048 original queries. An independent CDF calculation and checks of 131,072 factor fields, 65,536 paired fields, 384 summary means and 24 primary comparisons passed. Maximum factor and paired discrepancy: 2.37e−16.
+- The analysis pairs weights before drawing 20,000 shared whole-group bootstrap resamples. It required no new training, generation, model passes or retrieval. Historical pointers and delivery hashes were retained.
+- Results: `RESULTS.json`, `per_query.jsonl` and `paired_per_query.jsonl`. Tables: `factorial_cells.csv` (72 cells), `primary_contrasts.csv` (24 comparisons) and `all_summaries.csv` (384 summaries). Figures: `selection_curves` and `factor_contrasts` (PNG/PDF).
+- The historical manuscript supplement was `paper/rene2027/t5_weight_factor_results.md`. See `REPLAY.md` for replay instructions.

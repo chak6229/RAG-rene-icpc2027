@@ -205,12 +205,12 @@ def main():
     put_rows(dest/'DISAGREEMENTS.jsonl',disagreements)
     put_rows(dest/'query_flags.jsonl',({'query_id':q,**v} for q,v in query_flags.items()))
     put(dest/'reviewer_A_original.json',load_return(args.a));put(dest/'reviewer_B_original.json',load_return(args.b))
-    lines=['# 双人独立审阅回收结果','','本表为预定分层抽样在既定8530条有限总体内的加权诊断。错误类型不是因果解释比例。',
-           '', '|指标|总体比例估计|保守95%区间|','|---|---:|---|']
+    lines=['# Double review of recovery results','','This table is the weighted diagnosis of a predefined stratification sample within a limited total of established Article 8530. The error type is not the causal interpretation ratio.',
+           '', 'The overall ratio of indicators is conservative 95%','|---|---:|---|']
     for name,v in rates.items():
         l,u=v['ci95_conservative_finite_frame'];lines.append(f"|{name}|{v['estimate']:.2%}|[{l:.2%}, {u:.2%}]|")
-    lines += ['',f'待讨论分歧{len(disagreements)}项；独立原判已保存。kappa及可判子集覆盖见HUMAN_RESULTS.json。',
-              '相关性只覆盖展示代码；语义保持下的RR下降不能直接断言模型相关性能力不足，需结合未标注相关代码线索。']
+    lines += ['',f'Differences to be discussed{len(disagreements)}Entries; independent originals saved. kappa and retrievable subset coverage is found in HUMAN_RESULTS.json.',
+              "Relevance only covers presentation codes; RR Declines kept in semantic terms do not directly assert that the model ' s relevance is insufficient, but need to be combined with unmarked code threads."]
     (dest/'FINDINGS.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     print(json.dumps({'output':str(dest),'reviews':2,'queries':len(a),'disagreements':len(disagreements)},ensure_ascii=False))
 

@@ -8,7 +8,7 @@ The three study-specific model archives are supplied separately from the small s
 | SSQR_RENE_W3_CodeBERT_20261031.zip | Final two-epoch CodeBERT weights, tokenizer and representation contract | `models/codebert-ssqr-pooler-2epoch-20261019/` |
 | SSQR_RENE_W5_CrossEncoder_20261110.zip | Frozen large_dense_4096 verifier and its base configuration/tokenizer | `models/ssqr-verifier/ce_large_dense_4096.pt` and `models/codebert-base/` |
 
-Download W1/W3 from the [original model release](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108) and W5 from the [current release](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-paper). Place all three archives in a directory named `release-assets` next to the extracted artifact folder. From the artifact root, run:
+Download W1/W3 from the [original model release](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108) and W5 from the [10 November model release](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-paper). Place all three archives in a directory named `release-assets` next to the extracted artifact folder. From the artifact root, run:
 
 ```sh
 python tools/install_study_assets.py --asset-dir ../release-assets --check-only

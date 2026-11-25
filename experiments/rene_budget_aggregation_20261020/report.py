@@ -21,12 +21,12 @@ def csv_write(name,records):
 def main():
     result=json.loads((OUT/'RESULTS.json').read_text(encoding='utf-8'))
     cells=[];effects=[];components=[]
-    lines=['# 同池候选数量与聚合方式分解','',
-           '源侧2048查询/594仓库，CoSQA开发1490查询/512关联组；固定本地CQC T5候选和双检索器缓存。k为下游候选数，全部位置生成与打分成本保持。无新生成、训练、检索或H效果评估。此轮为事后配对诊断。','',
-           'mean是在选中集合中均匀采用一条的期望RR；max为标签辅助best-k机会；first始终执行前缀第一条。精确随机按原位置无放回积分，重复文本位置不合并。mean不是融合，max不是可部署选择器。','',
-           '## 同数量下聚合、同聚合下数量的完整对照','',
-           '下表为选择规则相对同k精确随机的优势。每格为mean / max；完整MRR、相对原query差及逐项区间见FACTORIAL.csv。first优势对所有k相同。','',
-           '|数据 / 检索器|规则|k=1 mean / max|k=2 mean / max|k=3 mean / max|',
+    lines=['# The number of candidates for the pool is broken down by aggregation.','',
+           'Source side 2048 query/594 repository, CoSQA development 1490 query/512 associated group; Fixed local CQC T5 candidate and double searcher cache. k For downstream candidates, all positions are generated and the scoring cost is maintained. No new generation, training, retrieval or H impact assessment. This round is followed by a pair of diagnostics.','',
+           'mean is the expectation of evenly applying a single article in the selection pool RR; max Tag support best-k opportunities; first Always execute prefix one. Accurate randomly does not return points, and repeats text positions do not merge. mean Not integration, max not deployable selection.','',
+           '## Quantified and fully compared to aggregated','',
+           'The following table shows the relative homogeneity of the selection rule k. mean / max per cell; Full MRR, relative to original query difference and line-by-line range FACTORIAL.csv. first The advantage is the same for all k.','',
+           '|Data / Retrieval |K=1 mean / max|k=2 mean / max|k=3 mean / max|',
            '|---|---|---:|---:|---:|']
     n=lambda value:f'{value:+.8f}'
     ci=lambda values:'['+', '.join(map(n,values))+']'
@@ -50,28 +50,28 @@ def main():
             for k in (1,2,3):
                 values.append(' / '.join(n(index[p,k,a]['advantage_vs_random']['mean']) for a in ('mean','max')))
             lines.append('|'+f"{view['domain']} / {view['retriever']}|{p}|"+'|'.join(values)+'|')
-    lines+=['','## 预设路径分解','',
-            'S为相对同k精确随机的优势。B=S(1,mean)−S(3,mean)，G=S(3,mean)−S(3,max)，J_exact=B+G。B和G的正值表示原优势在相应变化下减弱，负值表示增强。','',
-            '预设24项为四个数据×检索器格、ENTR/PROB/ENTR−PROB、B/G两个分量。表内为Bonferroni校正的组bootstrap区间；完整结果同时提供cluster-t校正区间。不新增等效判定。','',
-            '|数据 / 检索器|规则|B 固定mean的1→3变化|24项校正区间|G 固定3的mean→max变化|24项校正区间|J_exact|',
+    lines+=['','## Preset Path Decomposition','',
+            'S is relative to k the advantage of precise randomity. B=S(1,mean)−S(3,mean)，G=S(3,mean)−S(3,max)，J_exact=B+G。 The positive values for B and G represent a weakening of the original advantage under corresponding changes, while negative values represent an increase.','',
+            'Presets that 24 items are two parts of four data x searcher cells, ENTR/PROB/ENTR−PROB and B/G. The Bonferroni correction group bootstrap slots in the table; The complete result also provides cluster-t correction slots. Do not add an equivalent determination.','',
+            '|Data / Retriever |1/3 change in B fixedmean | 24 correction zones |G 3 fix mean→max change | 24 correction sites |J_exact|',
             '|---|---|---:|---|---:|---|---:|']
     for view in result['views']:
         for p in ('ENTR','PROB','ENTR_minus_PROB'):
             B=view['effects'][p+'_B_budget_mean_1_to_3'];G=view['effects'][p+'_G_aggregation_at3_mean_to_max']
             total=view['effects'][p+'_J_exact']['mean'] if p!='ENTR_minus_PROB' else view['effects']['ENTR_J_exact']['mean']-view['effects']['PROB_J_exact']['mean']
             lines.append(f"|{view['domain']} / {view['retriever']}|{p}|{n(B['mean'])}|{ci(B['family24_ci95_group_bootstrap'])}|{n(G['mean'])}|{ci(G['family24_ci95_group_bootstrap'])}|{n(total)}|")
-    lines+=['','## 原A的RAND20记账','',
-            '原A不覆盖：J20=J_exact+(RAND20_best3−RAND_exact_best3)。此轮主分解用精确随机，有限重复误差另列。','',
-            '|数据 / 检索器|ENTR J20|ENTR J_exact|RAND20−精确随机best3|','|---|---:|---:|---:|']
+    lines+=['','## RAND20 for old A.','',
+            'Original A does not cover: J20 = J_exact+ (RAND20_best3−RAND_exact_best3). The main decomposition of the wheel is based on precise randomity and a limited number of duplicate errors are shown separately.','',
+            'Data / Retriever ENTR  J20| ENTR J_exact | RAND20− Accurate Random best3 |','|---|---:|---:|---:|']
     for v in result['views']:
         fx=v['effects']
         lines.append(f"|{v['domain']} / {v['retriever']}|{n(fx['ENTR_J_RAND20']['mean'])}|{n(fx['ENTR_J_exact']['mean'])}|{n(fx['RAND20_minus_exact3']['mean'])}|")
-    lines+=['','## 对解释的约束','',
-            '- k1时三种聚合相同；first下增加k不改变实际动作。mean→max改变了利用标签选择候选的权利，不能写成免费增加的线上能力。',
-            '- B/G是指定参考路径下的算术分解，不是独立可操纵的两个因果机制，不报告无依据的“主因占比”。',
-            '- 相对随机优势和相对原query净收益分别报告，不能用前者代替后者；ENTR与PROB差别需直接比较，不能仅比较显著性。',
-            '- 关联组bootstrap10000次、查询加权；数据为已消费开发/源侧。旧H确认、正式配置及risk_certified=false保持。','',
-            '完整机器结果RESULTS.json；FACTORIAL.csv有108个含first锚点的因素单元，主mean/max单元72个；CONTRASTS.csv含固定聚合的数量变化和固定数量的聚合变化；DECOMPOSITION.csv为24项预设分量。独立Fraction/CDF重放见AUDIT.json，验收范围见FINAL_ACCEPTANCE.json。','']
+    lines+=['','## Limitation on interpretation','',
+            '- k1 The three are the same aggregates; first Add k without changing the actual action. mean → max has changed the right to choose candidates using labels and cannot be written as free additional online capacity.',
+            '- B/G is the arithmetical decomposition under the specified reference path, which is not an independent and manageable cause-and-effect mechanism that does not report unjustified “principal ratio”.',
+            '- Relative random advantages and relative original query net proceeds are reported separately, and the former cannot be replaced by the latter; ENTR Differences with PROB need to be directly compared, and not only more prominent.',
+            '- linked groups bootstrap10000 times, query weights; Data are developed/source side of consumption. Old H confirmed, fully configured and risk_certified = false maintained.','',
+            'Full machine results RESULTS.json; FACTORIAL csv Yes 108 Factor unit with first anchor, main mean/max unit 72 One; CONTRASTS. csv Volume changes containing fixed aggregates and aggregate changes in fixed quantities; DECOMPOSITION csv with 24 Predefined amount of the item. Independent Fraction/CDF Reopen AUDIT.json, accept and accept FINAL_ACCEPTANCE.json.','']
     csv_write('FACTORIAL.csv',cells)
     csv_write('CONTRASTS.csv',effects)
     csv_write('DECOMPOSITION.csv',components)

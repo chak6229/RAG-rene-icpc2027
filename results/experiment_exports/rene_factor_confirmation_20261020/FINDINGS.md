@@ -1,39 +1,39 @@
-# 新样本资格、功效与B/G冻结确认
+# New-sample eligibility, precision and frozen B/G confirmation
 
-完成时间：2026-10-20T10:27:46.954001+00:00。本轮是新StaQC单代码答案场景的预先冻结确认，不是重用CoSQA的确认。原H比较及正式组件保持。
+Completed at 2026-10-20T10:27:46.954001+00:00. This confirmation was frozen in advance for a new single-code-answer StaQC setting. The original H comparison and the existing study components were retained.
 
-## 样本与精度
+## Sample and precision planning
 
-- 原始CodeSearchNet valid/test经严格已知重叠排除后420查询/103关联组，未通过0.005分辨率规划，因此未计算其新方法效果。
-- StaQC作者原件固定commit；单代码答案子集审查后84905条/84618关联组。
-- 按哈希抽取每关联组一条，共13312查询/13312组；固定16384代码片段语料，额外语料来自其他独立关联组。
-- 预开效果前独立复核发现最初规划的组内多查询方差与新抽样不匹配；已撤销该功效数值，保留初版封存与无标签候选，改用匹配单查询方差/敏感性上界后重新封存。最终功效及样本以本表为准。
-- 两个主比较：每项双侧alpha=.025，目标边际功效90%；在方差可迁移假设下，两项同时检出的功效下界80%。不是用新样本效果反选规模。
+- Strict removal of documented overlaps from the original CodeSearchNet valid/test sets left 420 queries in 103 linked groups. This sample did not meet the 0.005 resolution target, so its new method effects were not evaluated.
+- The StaQC source was fixed by commit. The audit identified 84905 single-code-answer records in 84618 linked groups.
+- Hash selection yielded one query per linked group, for 13312 queries in 13312 groups. The fixed corpus comprised 16384 code snippets, with the additional snippets drawn from separate linked groups.
+- Before opening efficacy results, an independent check found that the original power calculation used within-group variation from groups with multiple queries, whereas the new sample had one query per group. The initial calculation was withdrawn. The original seal and unlabeled candidates were retained, and the revised plan based on matched single-query variances and a sensitivity upper bound was sealed locally. This table records the final sample and power plan.
+- There were two primary comparisons. Each used a two-sided alpha of .025 and a target marginal power of 90%. Under the variance-transfer assumption, the lower bound on detecting both effects was 80%. Outcomes from the new sample did not determine its size.
 
-|主比较|所需组数（0.005）|实际规划功效|估计|校正cluster-t区间|校正组bootstrap区间|判断|
+|Main comparison|Required (0.005)|Practical planning effectiveness|estimate|Correction cluster-t|Correction Group bootstrap|Judgement.|
 |---|---:|---:|---:|---|---|---|
 |ENTR_B_budget_mean_1_to_3|11842|93.241%|+0.00325690|[+0.001721, +0.004792]|[+0.001740, +0.004814]|positive|
 |ENTR_G_aggregation_at3_mean_to_max|4440|99.994%|+0.00360952|[+0.002577, +0.004642]|[+0.002576, +0.004649]|positive|
 
-## 次比较与实际采纳参照
+## Descriptive comparisons and adoption reference
 
-|检索器|ENTR Top1−原句|ENTR best3−原句|ENTR Top1−精确随机|ENTR best3−精确随机|
+|retriever|ENTR Top1− Original sentence|ENTR best3− Original sentence|ENTR Top1− Exact Random|ENTR best3− Exact Random|
 |---|---:|---:|---:|---:|
 |CodeBERT|-0.00836347|+0.02147861|+0.00635826|-0.00050817|
 |BM25|-0.00931813|+0.00563239|-0.00127785|-0.00083002|
 
-次比较只作描述估计，PROB、ENTR−PROB、BM25和直接检索器差区间见RESULTS.json。best3使用相关标签，不是可执行采用收益。
+Secondary estimates are descriptive. See `RESULTS.json` for the intervals for PROB, ENTR−PROB, BM25 and the direct contrasts between retrievers. The best3 calculation uses relevance labels and measures candidate opportunity.
 
-## 对论文贡献的作用与范围
+## Interpretation and scope
 
-这次直接检验位置选择相对优势在候选数量及聚合契约改变时的变化。判断按两个预定分量的校正区间，而不是只看Top1负/best3正。
-两个分量若均正，支持两项发现迁移到此新场景；只有一项为正，仅确认该分量；跨零按未决报告。不能以事后新解释改变确认主比较。
-StaQC是经过挖掘的Stack Overflow问题标题和accepted-answer代码片段，单目标RR不同于完整函数语料及Bing查询。它补充新场景证据，不替代原CoSQA冻结确认，也不证明真实查询来源因果、熵独有机制或新UQ有效。
-审查覆盖已知训练/开发/确认、原始与规范化查询/代码/URL/函数/仓库。基础模型预训练暴露及语义克隆无法完全排除。单代码来源只有一个已知正例，不把其他未标注片段称为人工负例。
-原始标签在来源审查时可见；确认冻结的是新方法预测和效果。仅本地时间戳/哈希封存，external_preregistration=false。
+The primary test measures how changing the selected count and aggregation affects the relative position-selection advantage. The decision follows the corrected intervals for the two prespecified components. The Top1 and best3 signs alone do not determine the result.
+Two positive components support both directions in this setting. A single positive component confirms only that component. Intervals spanning zero leave the direction unresolved. The primary comparisons remain as specified before inspection of the effects.
+StaQC pairs Stack Overflow question titles with accepted-answer code snippets. Single-target RR in this setting differs from evaluation on Bing queries and a full-function corpus. StaQC adds evidence for a distinct setting. It does not replace the frozen CoSQA confirmation, isolate a causal effect of query source, establish an entropy-specific mechanism, or validate new UQ methods.
+The audit covered documented training, development and confirmation uses, as well as original and normalized queries, code, URLs, functions and repositories. Unknown pretraining exposure and semantic clones cannot be fully ruled out. Each single-code record has one known positive. Other snippets lack exhaustive human relevance judgments.
+The source labels were visible during the provenance check. The new predictions and effects remained closed until the confirmation was frozen with local timestamps and hashes. `external_preregistration=false`.
 
-## 复核
+## Verification
 
-- 预开效果前全量核对查询、源答案映射、关联组、已知重叠、候选位置、选择与导出排名结构。
-- 独立Fraction RR、另一CDF组合公式及校正区间复算；真实T5再生成/FP64熵和CodeBERT向量抽查。具体数量和误差见各审计收据，不把抽查写成全量模型复算。
-- 旧正式指针、原H确认、两个开发因素/训练对照验收哈希保持。risk_certified=false，无新训练、扩seed或策略调参。
+- Before opening results, all queries, source-answer mappings, linked groups, known overlaps, candidate positions, selections and exported ranking structures were checked.
+- RR was independently recomputed with `Fraction`, exact random expectation was checked with an alternative CDF formula, and corrected intervals were replayed. T5 regeneration, FP64 entropy and CodeBERT vectors were spot-checked. The receipts distinguish these checks from a full model rerun and provide counts and errors.
+- Previously frozen pointers, the original H comparison and the acceptance hashes for the development factor analysis and training controls were retained. `risk_certified=false`. No additional training, seeds or policy tuning were performed.

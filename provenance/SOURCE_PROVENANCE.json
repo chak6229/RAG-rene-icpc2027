@@ -22,7 +22,7 @@
     "shared_data_authorization_confirmed": true,
     "reviewer_A_independent_supplement_completion_confirmed": true,
     "exported_content": "de-identified judgments and rationales with opaque references; source text and original identifiers omitted",
-    "source_type": "人工评审"
+    "source_type": "human review"
   },
   "scope_limits": [
     "author checkpoint unavailable",

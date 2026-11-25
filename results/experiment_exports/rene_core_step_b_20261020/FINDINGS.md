@@ -1,50 +1,50 @@
-# 第二步B结果判定
+# Step B: fixed-action adoption results
 
-第二步已完成。**没有建立生成置信T的额外采纳收益；原查询参照R在CodeBERT的零阈值策略上呈正向趋势，但区间跨零，且在BM25上恶化。** 不据此把“原参照+UQ”升级成已证实有效的核心算法。
+**The incremental adoption utility of generation confidence T was not established.** Adding original-query evidence R gives a positive point estimate for the CodeBERT zero-threshold policy, with an interval spanning zero. The corresponding BM25 contrast is negative. The comparison does not validate a new adoption algorithm.
 
-实验与完整数表见`READOUT.md`、`RESULTS.json`。这是1490条查询/512关联组的已消费开发角色，沿用5组隔离OOF；候选固定为每条查询既有ENTR Top1，四组同监督Ridge(alpha=1)。不是新确认。
+See `READOUT.md` and `RESULTS.json` for the experiment and full tables. The study reuses 1490 development queries in 512 linked groups and the same 5 group-separated OOF folds. It fixes the existing ENTR Top1 action for each query and compares four equally supervised Ridge heads (alpha=1). This is a development diagnostic.
 
-## 同采用量结果
+## Same as the quantity result
 
-M0=共同文本/候选检索特征，MT=M0+生成置信，MR=M0+原查询参照，MRT=两者都有。固定各折可用动作的20%，按整数向下取整：CodeBERT每头296条，BM25每头274条。下列ΔMRR以全1490查询为分母，以NoRewrite为基线。
+M0 = common text/candidate search feature, MT = M0+ generation of confidence, MR = M0+ original query reference, MRT = both. 20%, which fixes the action available for each discount, to take the whole number down: CodeBERT Article 296 per head, BM25 Article 274 per head. The following Δ MRR for all 1490 Query is the denominator with NoRewrite as the baseline.
 
-|模型|CodeBERT ΔMRR|CodeBERT 有害/采用|BM25 ΔMRR|BM25 有害/采用|
+|Model|CodeBERT ΔMRR|CodeBERT Harmful/used|BM25 ΔMRR|BM25 Harmful/used|
 |---|---:|---:|---:|---:|
 |M0|+0.00134060|53/296|-0.00104922|94/274|
 |MT|-0.00066742|55/296|-0.00117883|93/274|
 |MR|+0.00107971|75/296|-0.00190590|92/274|
 |MRT|+0.00136336|81/296|-0.00225271|96/274|
 
-CodeBERT关键成分：
+CodeBERT Key constituents:
 
-- 加入R：MRT−MT=+0.00203078，描述性组bootstrap95%为[-0.00089554,+0.00500454]。
-- 加入T：MRT−MR=+0.00028365，95%为[-0.00150208,+0.00219259]。
-- MRT与M0点差仅+0.00002276；不能因为它略大就判定完整模块有用。
-- M0→MRT：正收益量/查询0.00526630→0.00632645，损失量/查询0.00392570→0.00496309，净差几乎抵消。有害数53→81，平均有害损失约0.11036→0.09130。收益目标可接受更多小损害，并不自动构成防损策略。
+- Add R: MRT−MT = +0.00203078, the descriptive group bootstrap95% is [-0.00089554, +0.00500454.
+- Add T: MRT−MR = +0.00028365, 95% to [-0.00150208, +0.00219259.
+- MRT and M0 point only +0.00002276; can't judge the whole module to be useful because it's a little large.
+- M0 → MRT: Positive yield/Query 0.00526630 0.00632645, Loss/Query 0.00392570 0.00496309, net difference almost offset. Harmful number 53→ 81, average harmful loss approximately 0.11036→ 0.09130. The objective of the proceeds can accept more minor damage and does not automatically constitute a strategy for protection against harm.
 
-## 零阈值结果
+## Zero threshold result
 
-预测ΔRR>0则采用：CodeBERT M0/MT/MR/MRT分别为-0.00031563/-0.00147678/+0.00280718/+0.00265119。四头相对NoRewrite的描述性95%区间均跨零。MR为673采用/158害，MRT为665采用/157害；点式正值不是已确立的部署收益。
+The zero-threshold rule adopts when predicted ΔRR>0. CodeBERT M0/MT/MR/MRT yield -0.00031563/-0.00147678/+0.00280718/+0.00265119. All four descriptive 95% intervals relative to NoRewrite span zero. MR made 673 adoptions with 158 harmful outcomes, and MRT made 665 adoptions with 157 harmful outcomes.
 
-CodeBERT MRT−MT=+0.00412798，95%[-0.00011372,+0.00842415]，八项家族Bonferroni区间[-0.00200575,+0.01025486]。MRT−MR=-0.00015599，95%[-0.00234377,+0.00206902]。
+CodeBERT MRT-MT=+0.00412798, 95% [-0.00011372, +0.00842415], eight family Bonferroni district[-0.00200575, +0.01025486]. MRT−MR=-0.00015599, 95%[-0.00234377,+0.00206902].
 
-BM25四头均负。MRT−MT=-0.00199406，95%[-0.00361088,-0.00070823]，八项校正[-0.00443257,-0.00034870]；这是所测配置中加入R的负向诊断。BM25固定预算下的部分点式区间负向，但经家族校正均跨零，不能混用点式与校正判定。
+All four BM25 point estimates are negative. MRT−MT=-0.00199406, with 95% interval [-0.00361088,-0.00070823] and eight-comparison corrected interval [-0.00443257,-0.00034870]. This is a negative diagnostic for adding R in the tested configuration. Some BM25 fixed-budget pointwise intervals are negative, while all the family-corrected intervals span zero.
 
-## 预测质量与主线含义
+## Forecast quality and main line meaning
 
-CodeBERT MR的MSE最低0.03204865；加入T后MRT为0.03257074，MAE也从0.09491220增至0.09682515。BM25对应MSE 0.00982960→0.00991348。生成置信没有在本轮显示额外预测质量优势；这是指定单次teacher-forcing信号与Ridge头的结果，不覆盖所有UQ算法。
+CodeBERT MR Minimum MSE 0.03204865; Add T after MRT is 0.03257074 MAE Also from 0.09491220 Increase to 0.09682515. BM25 Corresponding to MSE 0.00982960 → 0.00991348. The generation of confidence does not show additional forecast quality advantages during the current round; This is the result of specifying a single time teacher-forcing signal with Ridge head, not covering all UQ algorithms.
 
-第一步A已支持特定CoSQA/CodeBERT候选池内的熵排序价值；第二步B未建立同一生成置信在采用判定中的条件增量，两者并不冲突。它们的估计对象不同，不能仅凭“A显著、B不显著”宣称阶段差异已被统计证明。当前能增加的知识是所测信号在两个任务上的具体证据及跨检索器边界，不是新UQ有效证明。
+Step A supports the use of entropy to order candidates in the tested CoSQA/CodeBERT pool. Step B did not establish conditional gains from the same generation-confidence signal for adoption. The studies estimate different quantities. Their individual decisions do not establish a statistical interaction between stages. The results describe the tested tasks and retrievers.
 
-本轮未加入风险门，所以当前弱收益不能单独归咎于风险认证回退。共同特征基线已保留，完整头额外收益尚未建立。B也没有证明新算法创新性或RENE录用充分性；文献近邻全文增量审查仍是下一优先工作。不要因本轮符号继续扫描阈值或更换学习器。C只在确需查询来源解释时执行，新策略有效主张需要先解决新数据资格与单一确认问题。
+Step B did not apply a risk gate, so the observed adoption results cannot be attributed to fallback. The common-feature baseline remains a separate comparator, and extra gain from the full head is unestablished. Planned work at the time called for comparison with related studies. Additional threshold searches or a different learner were outside this result. A query-source explanation would require the separate C comparison, and confirming a new policy would require eligible new data and a frozen primary comparison.
 
-输入块含派生分数差和池内统计，Ridge在增加这些列时也改变表示和有效正则，因此结果是指定输入/学习器组合的可复算对照，不是“原查询证据”作为抽象信息的纯因果效应。
+The input block contains fractional differences and intra-pool statistics, Ridge also changes the expression and validity rule when adding these columns, so that the result is to assign a recalcitrant comparison of the input/leaving combination rather than " original search evidence" as the pure causal effect of abstract information.
 
-## 审计与恢复
+## Audit and recovery
 
-- 6项契约测试通过；40个模型独立线性代数重拟合，预测最大差2.73e-14；40次外折标签投毒差为0。
-- 独立重建2980个71维特征向量、2980组Fraction原/候选/差分RR、23840个逐查询政策收益及34个效应/220区间字段，全部通过。
-- 44项冻结输入/源码/保护文件及43个模型/决策封存文件一致。正式指针、旧H确认与第一步结果保持；risk_certified=false。
-- 首次审计发现辅助Spearman的并列口径不同：生产按浮点RR相减，精确Fraction差会恢复数学并列。保留原冻结`audit.py`和所有结果，另存`audit_v2.py`及`AUDIT_REPAIR.json`，独立复放报告口径并同时保存精确分数敏感性；最大Spearman差0.00009954，不改变策略、损害或ΔMRR。
-- 最终验收`FINAL_ACCEPTANCE.json`为PASS。独立审计入口使用`experiments.rene_core_step_b_20261020.audit_v2`；原入口保留作为冻结历史。完整输出不可覆盖重跑。
-- 所有区间为固定OOF输出上的描述性组重采样，没有每次重训和预算重排；不作为新策略泛化证书。
+- 6 Contract tests passed; 40 Recompositation of separate linear algebras for models, with maximum projected deviations 2.73e-14; 40 Distortion label input difference 0.
+- Independent reconstruction 2980 individual 71 (a) the dimensional characteristic vector, 2980 Group Fraction original/candidacy/disparity RR, 23840 On a case-by-case basis 34 Effects/ 220 Fields, all through.
+- The freezing of input/source code/protection files and 43 model/decision storage documents for Division 44 are consistent. Formal guidance, old H confirmation and maintenance of the first step results; risk_certified=false.
+- The first audit found that the parallel calibre of the auxiliary Spearman was different: production reduced by floating point RR, accuracy Fraction restored mathematically parallels. Retain original freeze `audit.py `And all the results, save `audit_v2.py `and `AUDIT_REPAIR.json `(b) Independent re-aligning of report calibres while preserving the sensitivity of precise scores; Max. Spearman 0.00009954, do not change strategy, damage or damage MRR...
+- Final acceptance and inspection `FINAL_ACCEPTANCE.json `For PASS. Independent audit portal `experiments.rene_core_step_b_20261020.audit_v2 `; the original entry is kept as a freeze history. Full output cannot overwrite runback.
+- (a) Re-sampling of the descriptive groups on all sectors with fixed output OOF, without each retrainment and budget reordering; Could not close temporary folder: %s

@@ -3624,5 +3624,5 @@
   "human_review_reported_by_user": true,
   "original_independent_agreement_established": false,
   "risk_certified": false,
-  "source_type": "人工评审"
+  "source_type": "human review"
 }

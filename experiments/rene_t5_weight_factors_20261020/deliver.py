@@ -140,7 +140,7 @@ def reports(results):
     def effect(domain, view, name):
         return results['domains'][domain]['views'][view]['contrasts'][name]
 
-    table = ['| 数据 | 权重 | 规则 | B（校正区间） | G（校正区间） |', '|---|---|---|---|---|']
+    table = ['| Data | weights | rules B (corrected area) | G (corrected area) |', '|---|---|---|---|---|']
     en_table = ['| Dataset | Weight | Selector | B (adjusted CI) | G (adjusted CI) |', '|---|---|---|---|---|']
     for domain in DOMAINS:
         for arm in WEIGHTS:
@@ -149,42 +149,42 @@ def reports(results):
                 entries = [f'{number(r["mean"])} {interval(r["family24_ci_cluster_t"])}' for r in (b, g)]
                 row = f'| {"AdvTest" if domain == "source" else "CoSQA"} | {arm} | {p} | {entries[0]} | {entries[1]} |'
                 table.append(row); en_table.append(row)
-    paired_table = ['| 数据 | 规则 | ΔB：base−local（校正区间） | ΔG：base−local（校正区间） |', '|---|---|---|---|']
+    paired_table = ['| Data | Rules | B: base−local (correction interval) | G: base−local (correction zone) |', '|---|---|---|---|']
     for domain in DOMAINS:
         for p in ('ENTR', 'PROB'):
             b, g = effect(domain, 'base_minus_local', p + '_B'), effect(domain, 'base_minus_local', p + '_G')
             paired_table.append(f'| {"AdvTest" if domain == "source" else "CoSQA"} | {p} | {number(b["mean"])} {interval(b["family24_ci_cluster_t"])} | {number(g["mean"])} {interval(g["family24_ci_cluster_t"])} |')
-    path_table = ['| 数据 | 权重 | S(1,mean) | S(3,mean) | S(3,best3) |', '|---|---|---:|---:|---:|']
+    path_table = ['| Data | Weight S (1, mean) S (3, mean) S (3, best3) |', '|---|---|---:|---:|---:|']
     for domain in DOMAINS:
         for arm in WEIGHTS:
             vals = [effect(domain, arm, 'S_ENTR_' + suffix)['mean'] for suffix in ('k1_mean', 'k3_mean', 'k3_max')]
             path_table.append(f'| {"AdvTest" if domain == "source" else "CoSQA"} | {arm} | ' + ' | '.join(number(v) for v in vals) + ' |')
     counts = Counter(effect(d, v, p + '_' + c)['direction'] for d in DOMAINS for v in VIEWS for p in ('ENTR', 'PROB') for c in ('B', 'G'))
     findings = '\n'.join([
-        '# 两套 T5 权重的完整 B/G 匹配对照', '',
-        '完整对照已补齐。CoSQA 的 ENTR 在两套权重下均呈 B、G 正向点估计，源域 B 的点估计随权重变号。24 项统一校正后，ENTR 的八项权重内 B/G 均未决；八项 ENTR/PROB 的权重直接差异也均未决。因此，这轮支持将完整分解纳入权重敏感性证据，尚未建立“B/G 不依赖权重”的结论。', '',
-        'PROB 在基础 T5 下的 G 在两域均为正向且通过校正；其余 22 项主比较未决。没有校正后反向项。ENTR−PROB 的 B/G 及其权重交互均为次要描述比较，95% 区间跨零，未建立熵独有分量。', '',
-        '## 匹配与估计对象', '',
-        '- AdvTest、CoSQA 各 512 条查询 / 512 个仓库或关联组；两套权重共享查询、原查询 RR、语料、标注、检索器及位置池规模。仅重用原匹配 512 样本，未替换成 2,048/1,490 全量结果。',
-        '- local 为已有 CQC T5，t5base 为已有基础 T5；两者都属于 T5 家族。比较的是整套权重条件，不能单独归因为 CQC 训练。',
-        '- 原始位置池逐候选 RR 共 18,680 项；所有重复文本保留位置概率质量。ENTR/PROB 仅使用原生成分数排序，按原位置打破并列。',
-        '- k=1/2/3 指从已有生成池选取的候选数，不是生成预算。mean 是所选候选均匀采用的期望 RR；best-k 是依赖标签选最好的候选机会，不是自动采纳或融合收益。',
-        '- S(k,a)=规则 RR−同位置池精确均匀随机 RR；B=S(1,mean)−S(3,mean)，G=S(3,mean)−S(3,best3)，J=B+G。它是指定路径的算术分解。', '',
-        '## 完整分量与权重差', '',
-        '以下为 24 项全族双侧 Bonferroni 校正的 cluster-t 区间。机器结果同时提供独立组 bootstrap 校正区间；方向判定要求两套区间一致且至少 20 个非零组。', '',
+        '# Fullness of two sets of T5 weights B/G matching contrast', '',
+        'Complete cross-reference completed. CoSQA ENTR is presented under both weights B, G is estimating the point of source area B with a weight change. The eight weights of ENTR remain outstanding after the unification of 24; Direct differences in weights between eight items ENTR/PROB are also outstanding. Therefore, this round supports the incorporation of complete decomposition into evidence of weight sensitivity and has not yet established a conclusion that “B/G does not rely on weights”.', '',
+        'PROB Under base T5 G is positive and corrected in both domains; The remaining 22 master comparison is pending. No correction inverted entry. ENTR−PROB B/G and its interactive weights are secondary description comparisons, 95% spans zero and does not create a unique mass of entropy.', '',
+        '## Matches with Estimated Object', '',
+        '- AdvTest, CoSQA each 512 article query / 512 repositories or associated groups; Two sets of weights to share queries, original queries RR, terms, labels, searchers and position pool size. Renumber only the original matching 512 sample and not replace it with 2,048/1,490 full result.',
+        '- local is already CQC T5, t5base is the foundation T5; Both belong to the T5 family. A comparison is made with a whole set of weight conditions, which cannot be attributed to CQC training alone.',
+        '- Original position pool candidate RR for a total of 18,680 items; All duplicate text retains the probability quality of location. ENTR/PROB Sorts only the original generation fraction and breaks parallel rows by location.',
+        '- k = 1/2 / 3 means the candidate selected from an existing generating pool, not the budget. mean is the expectation for balanced application of the selected candidate RR; best-k is the best candidate for a label, not an automatic adoption or integration of benefits.',
+        "- S (k, a) = rule RR− Accurately even and random with the position pool RR; B=S(1,mean)−S(3,mean)，G=S(3,mean)−S(3,best3)，J=B+G。 It's the algorithm decomposition of the specified path.", '',
+        '## Full weight and weight difference', '',
+        'The following is the cluster-t correction range for 24 national two-sided Bonferroni. The results of the machine also provide an independent group bootstrap correction space; The direction determination requires a consistent set of two and at least 20 non-zero groups.', '',
         *table, '', *paired_table, '',
-        '两权重的直接差异区间跨零，且范围宽于 ±0.005，不能解释为等效、不变或训练影响很小。CoSQA ENTR 的 ΔB 为 +0.013152，但校正区间 [−0.016157,+0.042461]，目前无法区分有意义的权重变化与抽样不确定性。', '',
-        '## 同池 ENTR 优势路径', '', *path_table, '',
-        'CoSQA 两权重的点估计都随候选数量及 best3 聚合而减弱。描述性 95% 区间中，两权重 G 为正、基础 T5 的 B 为正；这些不能替代 24 项校正结论。AdvTest 的局部 CQC 权重 B 点估计为负，提示数量分量应按场景与权重报告。', '',
-        '## 对论文主线的作用', '',
-        '本轮将“两权重 Top1/best3 包络”推进为完整、匹配查询上的数量/聚合分解，并提供直接权重交互，关闭了“完整 B/G 未覆盖”的分析缺项。它补充候选机会与自动收益之区分及评价契约敏感性；目前跨权重证据应表述为“CoSQA 点估计同向，正式校正下仍未决”。既有 StaQC 冻结确认和第三检索器结果继续承担各自明确的结论。', '',
-        '这些都是已消费样本上的事后敏感性分析，方案在本轮新分解计算前本地封存；历史 Top1/best3 与全量本地分解已知，不称新独立确认。没有恢复作者 checkpoint、原训练 CSV 或生产聚合，也不支持跨改写器家族、历史全量训练归因或完整采纳政策的迁移。', '',
-        '## 核验与交付', '',
-        f'- 9 项契约测试通过；16,384 项旧 Top1/best3/PROB/随机/原句等逐查询锚点精确复现（最大差 0）。',
-        '- 独立从已验收 Top100 排名与 qrels 复算 18,680 候选及 2,048 原查询 Fraction RR；独立 CDF 精确随机、131,072 因素字段、65,536 配对字段、384 个汇总均值、24 项主统计通过。最大因素/配对误差 2.37e−16。',
-        '- 使用 20,000 次共享整组 bootstrap；两权重配对后再统计。没有新训练、生成、模型前向或检索；既有正式指针及历史交付哈希保持。',
-        '- 结果：RESULTS.json、per_query.jsonl、paired_per_query.jsonl；表格：factorial_cells.csv（72 格）、primary_contrasts.csv（24 项）、all_summaries.csv（384 项）；图：selection_curves、factor_contrasts（PNG/PDF）。',
-        '- 论文补充稿：paper/rene2027/t5_weight_factor_results.md；重放说明：REPLAY.md。', '',
+        'The direct difference between the two weights is zero and is wider than ±0.005, which cannot be interpreted as equivalent, constant or training-related. CoSQA ENTR The ΔB is +0.013152, but the correction range [[−0.016157, +0.042461] does not distinguish between meaningful weight changes and sample uncertainty at this time.', '',
+        '## Pool ENTR Advantage Path', '', *path_table, '',
+        'CoSQA Both weight points are estimated to decrease with the number of candidates and best3 aggregation. Descriptive 95% of the compartments, two weights G is positive and base T5 B is positive; These cannot replace 24 correction conclusions. The local AdvTest CQC weight B points are estimated to be negative, and the quantity of the hint shall be reported according to the scene and weight.', '',
+        "## The role of thesis's main line", '',
+        'This round advances the "two weights Top1/best3 package" to complete, matching the quantity/polymer decomposition on queries and provides direct weight interaction by closing the "complete B/G uncovered " analytical missing items. It complements the distinction between candidate opportunities and automatic returns and evaluates contractual sensitivity; The current evidence of cross-weight should be presented as “CoSQA points are estimated in the same direction and formal correction is still pending”. The results of the existing StaQC freeze confirmers and the third searcher continue to bear clear conclusions.', '',
+        'These are ex post sensitisation analyses on consumer samples and the programme is stored locally before the new decomposition in this round; History Top1/best3 and full local decomposition are known, not called new independent confirmation. Authors checkpoint, original training CSV or production aggregation were not restored, nor was migration across the rewrite family, history full-scale training attribution or complete adoption of policies supported.', '',
+        '## Verification and delivery', '',
+        f'- 9 Contract tests passed; Accurate recurrence of search anchor points, such as old 16,384 Top1/best3/PROB/random/original sentence (maximum difference 0).',
+        '- Independently ranked from accepted Top100 and recalculated qrels 18,680 Candidates and 2,048 Original query Fraction RR; Independent CDF Accurate random, 131,072 factor fields, 65,536 pairing fields, 384 summary averages, and 24 master statistics are adopted. Maximum factor/ pair error 2.37 e− 16.',
+        '- Share whole groups bootstrap with 20,000; Two weights are paired and then counted. No new training, generation, model forwarding or retrieval; It has official guidelines and historical delivery for Hashi to maintain.',
+        '- Results: RESULTS.json, per_query.jsonl, paired_per_query.jsonl; Table: factorial_cells.csv (72 grids), primary_contrasts.csv (subdivision 24), all_summaries.csv (subdivision 384); Figure: selection_curves, factor_contrasts (PNG/PDF).',
+        '- Supplementary papers: paper/rene2027/t5_weight_factor_results.md; Replay description: REPLAY.md.', '',
     ])
     (OUT / 'FINDINGS.md').write_text(findings, encoding='utf-8')
     paper = '\n'.join([

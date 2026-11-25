@@ -1,105 +1,105 @@
-# CoSQA 三项补齐任务：独立确认、精度与完整阶段
+# CoSQA independent confirmation, precision and full-stage analysis
 
-状态：真实实验、主链独立验收和额外终检均已完成。所有 H 结果现已消费；没有依据 H 效果重新选择模型、阈值或主比较。
+The experiment, independent primary-pipeline verification and additional final checks are complete. All H results were inspected. The H effects did not determine the models, thresholds or primary comparison.
 
-**第一步：冻结与独立确认**
+**Step 1: freezing and independent confirmation**
 
-开发 D 为 1490 查询/512 关联组。收益、核验和风险拟合分别使用 953/307、288/103、249/102 查询/组，角色按关联组互斥。完整 H 为 8530 查询/1963 组，使用固定 6267 文档语料。
+Development D contains 1490 queries in 512 linked groups. Gain, verification and risk fitting used 953/307, 288/103 and 249/102 queries/groups, respectively, with disjoint linked groups. Full H contains 8530 queries in 1963 groups against a fixed corpus of 6267 documents.
 
-唯一完整采纳策略：Ridge71 正收益选择 → 最高正收益优先级的至多25%查询、每条8个不同真实文档的原用户查询—代码 CE 核验 → 91维残差更新、系数.5 → 20维三分类风险头、固定.075门 → 拒绝恢复原完整Top100。保留同输入HGB对照。
+The full policy selects positive predicted gain with Ridge71. It allocates verification to at most 25% of queries by descending positive gain and scores each original query against 8 distinct real documents with a cross-encoder. A 91-feature residual model updates the scores with coefficient .5. The 20-feature three-class risk head applies a fixed .075 gate and restores the full original Top100 after rejection. The HGB control uses the same inputs.
 
-这是 CoSQA 纯改写研究适配器，未将缺失的跨seed特征填零，不能称作历史strong84或融合正式流程的等价复现。旧正式版及五个CURRENT/STABLE指针保留。
+The CoSQA implementation adapts the rewrite study to single-pass features and does not impute absent across-seed features with zeros. It does not establish equivalence to the historical strong84 or fused production pipeline. The previous production version and five CURRENT/STABLE pointers were retained.
 
-唯一确认检验为 CodeBERT ENTR−RAND20 best3 RR@100；best3不额外包含NoRewrite，候选不足时取min(3,N)。20个RAND次序共享一次生成/检索缓存，不是20倍独立样本。PROB、BM25、阶段差及匹配对照均为预定义描述估计。
+The sole confirmation contrast is CodeBERT ENTR−RAND20 best3 RR@100. Best3 excludes NoRewrite, and the selected count is min(3,N). The 20 random orders share one generation and retrieval cache and are repeated baselines on the same queries. PROB, BM25, stage differences and matched controls were prespecified as descriptive estimates.
 
-实际开效果时间：`2026-10-19T13:37:05.741621+00:00`。额外监督匹配对照的决策在 `2026-10-19T13:36:08.968117+00:00` 已封存，先于效果开封。
+Effects were opened at `2026-10-19T13:37:05.741621+00:00`. The matched control for additional supervision was sealed earlier at `2026-10-19T13:36:08.968117+00:00`.
 
-| 主比较口径 | 查询/组 | ENTR−RAND20 ΔMRR | 组t 95%区间 | 组bootstrap 95%区间 |
+| Main comparative calibration | Query/group | ENTR−RAND20 ΔMRR | Group t 95% | Group bootstrap 95% |
 |---|---:|---:|---|---|
-| 冻结主样本，每组最多16条 | 7718/1963 | -0.00083652 | [-0.00320993, +0.00153688] | [-0.00325479, +0.00154146] |
-| 全H事前敏感性 | 8530/1963 | -0.00106661 | [-0.00333560, +0.00120237] | [-0.00337214, +0.00123976] |
+| Freezing of master samples, maximum in each group 16 | 7718/1963 | -0.00083652 | [-0.00320993, +0.00153688] | [-0.00325479, +0.00154146] |
+| All H Presensitive | 8530/1963 | -0.00106661 | [-0.00333560, +0.00120237] | [-0.00337214, +0.00123976] |
 
-主比较实际变化组数：1500。冻结规则结论：`{"direction": "difference from zero unresolved", "practical_equivalence_within_prespecified_plusminus005": true, "advantage_above005_excluded": true, "does_not_imply_all_UQ_is_ineffective": true}`。
+The primary contrast has 1500 nonzero groups. The frozen decision was `{"direction": "difference from zero unresolved", "practical_equivalence_within_prespecified_plusminus005": true, "advantage_above005_excluded": true, "does_not_imply_all_UQ_is_ineffective": true}`.
 
-跨零与实质等效分开：只有两个95%区间均完全位于事前±.005内，且至少20个变化组，才对指定比较判实质等效；该结论不推广为全部UQ无效。
+An interval spanning zero leaves direction unresolved. Practical equivalence for the specified contrast requires both 95% intervals to be fully within the prespecified ±.005 margin and at least 20 nonzero groups. The inference applies to the designated contrast.
 
-**第二步：精度短缺的处理**
+**Step 2: addressing limited precision**
 
-原四项共同主比较的2475组需求没有被现有1963组满足。本次明确替换设计：一个主比较、保留全部组、组内以固定哈希最多16查询，得到7718条主样本。全8530条另报敏感性，不冒称同样获得80%功效。
+The earlier plan for four primary contrasts required 2475 groups and had only 1963 available. The revised design uses one primary contrast, retains every group, caps each group at 16 queries using a fixed hash order, and yields 7718 queries. The full 8530-query sensitivity is reported separately without claiming the same 80% power.
 
-上限在4/8/12/16/全部中按D方差选最大可行项，要求保守组需求≤容量95%、至少20个变化D组；不用H预测/效果，不按D效应正负选择。估计对象因此改为该冻结抽样设计内的常规查询加权MRR。
+Candidate caps were 4/8/12/16/all. The largest cap with a conservative group requirement within 95% of capacity and at least 20 nonzero D groups was selected using D variance. The rule used neither H predictions and effects nor the sign of D effects. The estimand is query-weighted MRR under the frozen sampling design.
 
-δ=.005、双侧α=.05、目标功效80%保持。D方差bootstrap95%上界0.00553101176，大小敏感性乘数1.05585196；需要1836组，现有1963组；规划功效82.58%，MDE80=0.00483432。独立非中心t和D方差重算另见PREOPEN_NUMERICAL_CHECK、PREOPEN_VARIANCE_CHECK。
+The design retains δ=.005, two-sided α=.05 and 80% target power. The bootstrap 95% upper bound on D variance was 0.00553101176. The group-size multiplier was 1.05585196. The design required 1836 groups out of 1963 available. Planned power was 82.58% and MDE80=0.00483432. `PREOPEN_NUMERICAL_CHECK` and `PREOPEN_VARIANCE_CHECK` document independent noncentral t and D variance checks.
 
-这是在关联组独立、D→H条件方差可迁移假设下的事前规划；不是未知H精度保证，也没有承诺80%的等效检验功效。实际判断以上述区间为准。
+Planning assumes independent linked groups and transferable conditional variance from D to H. It does not guarantee the realized H precision or 80% power for the equivalence test. The observed intervals determine the decision.
 
-**第三步：完整阶段证据**
+**Step 3: full-stage evidence**
 
-下表全部使用完整8530查询作为分母，两个检索器独立执行同一冻结流程；阶段结果为预定义描述估计。安全oracle是在同ENTR候选池与NoRewrite中借助真值取最大，仅表示可用机会。
+Both retrievers run the same frozen pipeline separately and use the full 8530 queries as denominator. Stage results are prespecified descriptive estimates. The safe oracle takes the label-assisted maximum across the same ENTR candidates and NoRewrite and measures available opportunity.
 
-**CodeBERT**：NoRewrite MRR=0.51832406；同候选安全oracle Δ=+0.06609266。
+**CodeBERT**: NoRewrite MRR=0.51832406. Same-candidate safe-oracle Δ=+0.06609266.
 
-| 阶段 | ΔMRR | 采用/有害 | 覆盖率 | 采用内有害率 | 正收益保留 | CE计费对 |
+| Phase | ΔMRR | Use/harmful | Coverage | Use of internal harmful rates | Retention of positive proceeds | CE Counting pairs |
 |---|---:|---:|---:|---:|---:|---:|
-| 负熵Top1 | -0.02110467 | 8530/2328 | 100.00% | 27.29% | 42.52% | 0 |
-| 同输入HGB收益对照 | -0.00287610 | 5305/1277 | 62.19% | 24.07% | 27.02% | 0 |
-| Ridge收益选择 | +0.00007864 | 6034/1317 | 70.74% | 21.83% | 23.04% | 0 |
-| 真实CE核验后 | +0.00084705 | 5890/1280 | 69.05% | 21.73% | 24.35% | 17056 |
-| 风险回退后 | -0.00017777 | 1006/60 | 11.79% | 5.96% | 0.77% | 17056 |
+| Negative entropy Top1 | -0.02110467 | 8530/2328 | 100.00% | 27.29% | 42.52% | 0 |
+| Compare with input HGB returns | -0.00287610 | 5305/1277 | 62.19% | 24.07% | 27.02% | 0 |
+| Ridge Proceed selection | +0.00007864 | 6034/1317 | 70.74% | 21.83% | 23.04% | 0 |
+| True CE | +0.00084705 | 5890/1280 | 69.05% | 21.73% | 24.35% | 17056 |
+| Risk back. | -0.00017777 | 1006/60 | 11.79% | 5.96% | 0.77% | 17056 |
 
-| 阶段配对差 | ΔMRR | 组bootstrap 95%描述区间 |
+| Phase Pair | ΔMRR | Group bootstrap 95% Description interval |
 |---|---:|---|
-| 核验−收益选择 | +0.00076841 | [-0.00013923, +0.00169727] |
-| 风险回退−核验 | -0.00102482 | [-0.00336725, +0.00133546] |
-| 完整流程−NoRewrite | -0.00017777 | [-0.00055106, +0.00019457] |
+| Validation - selection of proceeds | +0.00076841 | [-0.00013923, +0.00169727] |
+| Risk retreat - verification | -0.00102482 | [-0.00336725, +0.00133546] |
+| Full Process - NoRewrite | -0.00017777 | [-0.00055106, +0.00019457] |
 
-风险门的逐项记账：门前 +0.00084705 − 误拒正收益 0.01558429 + 避免损失 0.01455946 = 门后 -0.00017777。
+Risk fallback accounting: before the gate +0.00084705 − forgone positive gain 0.01558429 + avoided loss 0.01455946 = after the gate -0.00017777.
 
-共拒绝4884个实际改排名动作，其中1090个正收益、1220个有害；记账误差1.65e-18。零收益动作也计入覆盖分母。该记账用于解释机制，不单独当作新算法。
+The gate rejected 4884 actions that changed ranks, including 1090 with positive gains and 1220 with losses. Accounting error was 1.65e-18. Zero-gain actions remain in the coverage denominator. The decomposition describes the observed stages.
 
-**BM25**：NoRewrite MRR=0.19814905；同候选安全oracle Δ=+0.01941318。
+**BM25**: NoRewrite MRR=0.19814905. Same-candidate safe-oracle Δ=+0.01941318.
 
-| 阶段 | ΔMRR | 采用/有害 | 覆盖率 | 采用内有害率 | 正收益保留 | CE计费对 |
+| Phase | ΔMRR | Use/harmful | Coverage | Use of internal harmful rates | Retention of positive proceeds | CE Counting pairs |
 |---|---:|---:|---:|---:|---:|---:|
-| 负熵Top1 | -0.01443510 | 7955/2929 | 93.26% | 36.82% | 39.10% | 0 |
-| 同输入HGB收益对照 | -0.00271496 | 2615/853 | 30.66% | 32.62% | 11.80% | 0 |
-| Ridge收益选择 | -0.00207943 | 3559/1072 | 41.72% | 30.12% | 5.63% | 0 |
-| 真实CE核验后 | -0.00171681 | 2926/906 | 34.30% | 30.96% | 4.43% | 17056 |
-| 风险回退后 | +0.00000000 | 0/0 | 0.00% | 未定义 | 0.00% | 17056 |
+| Negative entropy Top1 | -0.01443510 | 7955/2929 | 93.26% | 36.82% | 39.10% | 0 |
+| Compare with input HGB returns | -0.00271496 | 2615/853 | 30.66% | 32.62% | 11.80% | 0 |
+| Ridge Proceed selection | -0.00207943 | 3559/1072 | 41.72% | 30.12% | 5.63% | 0 |
+| True CE | -0.00171681 | 2926/906 | 34.30% | 30.96% | 4.43% | 17056 |
+| Risk back. | +0.00000000 | 0/0 | 0.00% | Undefined | 0.00% | 17056 |
 
-| 阶段配对差 | ΔMRR | 组bootstrap 95%描述区间 |
+| Phase Pair | ΔMRR | Group bootstrap 95% Description interval |
 |---|---:|---|
-| 核验−收益选择 | +0.00036263 | [-0.00017839, +0.00091982] |
-| 风险回退−核验 | +0.00171681 | [+0.00115385, +0.00228134] |
-| 完整流程−NoRewrite | +0.00000000 | [+0.00000000, +0.00000000] |
+| Validation - selection of proceeds | +0.00036263 | [-0.00017839, +0.00091982] |
+| Risk retreat - verification | +0.00171681 | [+0.00115385, +0.00228134] |
+| Full Process - NoRewrite | +0.00000000 | [+0.00000000, +0.00000000] |
 
-风险门的逐项记账：门前 -0.00171681 − 误拒正收益 0.00085910 + 避免损失 0.00257590 = 门后 +0.00000000。
+Risk fallback accounting: before the gate -0.00171681 − forgone positive gain 0.00085910 + avoided loss 0.00257590 = after the gate +0.00000000.
 
-共拒绝2926个实际改排名动作，其中78个正收益、906个有害；记账误差4.34e-19。零收益动作也计入覆盖分母。该记账用于解释机制，不单独当作新算法。
+The gate rejected 2926 actions that changed ranks, including 78 with positive gains and 906 with losses. Accounting error was 4.34e-19. Zero-gain actions remain in the coverage denominator. The decomposition describes the observed stages.
 
-**排除额外监督的替代解释**
+**Control for additional supervision**
 
-在效果开封前冻结匹配对照：相同核验训练查询、标签、行权、Ridge正则、.5残差、H预算分配与ENTR候选，仅移除18列CE输入。下面把真实CE与同监督的无CE更新直接比较，不把核验阶段的全部变化都归给CE。
+The matched control was fixed before effect inspection. It uses the same verification training queries, labels, row weights, Ridge regularization, .5 residual coefficient, H allocation and ENTR candidates. The control removes only 18 CE columns. The direct contrast compares actual CE with the equally supervised update without CE.
 
-| 检索器 | 同监督无CE更新 ΔMRR | 真实CE更新 ΔMRR | CE条件增量 | 配对95%描述区间 |
+| retriever | CE Update MRR | Real CE Update Δ MRR | CE Increase in condition | Match 95% Description interval |
 |---|---:|---:|---:|---|
 | CodeBERT | +0.00055187 | +0.00084705 | +0.00029518 | [-0.00050908, +0.00110818] |
 | BM25 | -0.00171310 | -0.00171681 | -0.00000371 | [-0.00029280, +0.00029104] |
 
-辅助阶段及匹配对照区间以本批已封存的核验分配/动作为条件，不提供未来反复重新分配25%预算策略的总体保证。没有新增确认性优效或等效检验。
+The auxiliary-stage intervals condition on the sealed verification allocations and actions for this batch. They do not provide a population guarantee for repeatedly allocating a 25% budget. No confirmatory superiority or equivalence tests were added.
 
-**成本与验收**
+**Workload and acceptance**
 
-两检索器共享真实CE缓存的物理唯一对数为33631，实际输入tokens为2522373；每检索器策略计费见上表。同一检索器的核验后与风险后成本完全相同；匹配对照按相同已付成本比较，单独部署无CE对照可省去CE。
+The two retrievers share 33631 distinct physical pairs in the CE cache, with 2522373 input tokens. The table reports per-policy charges separately by retriever. For each retriever, the verified and risk-gated stages have the same incurred cost. The matched comparison holds paid cost fixed, although the standalone no-CE policy could skip CE inference.
 
-主链32项契约检查通过，实际重载119420个模型决策；独立干净目录完成249102次Fraction RR计算，最大指标误差2.22e-16。
+The primary chain passed 32 contract checks and reloaded 119420 model decisions. The independent clean-directory replay recomputed 249102 Fraction RRs with maximum metric discrepancy 2.22e-16.
 
-额外终检对匹配对照完成51180次Fraction RR计算并独立复算区间，重新核对源码、模型、结果与报告哈希；从真实CE权重独立重算64个原query-code对，最大logits差0。这部分重算是审计开销，未改变策略预算或动作。
+The final matched-control audit independently recomputed 51180 Fraction RRs and their intervals, and rechecked source, model, result and report hashes. Recomputing 64 original-query/code pairs directly from the CE weights gave maximum logit discrepancy 0. This verification was audit work outside the policy budget.
 
-干净目录重放重建缓存排名/决策→指标，不冒称重新训练T5、CodeBERT或CE。真实T5全词表FP64、全部dense缓存排名和独立BM25公式另经开效果前审计。
+The clean-directory replay reconstructs metrics from cached rankings and decisions. T5 full-vocabulary FP64, the complete dense ranking cache and the independent BM25 formula were checked in the pre-opening audit. Training the models was outside the cached replay.
 
-CoSQA单已知正目标标注、固定语料、已披露上游代码重叠及未知仓库映射的边界保留；独立性指本次下游拟合与确认的已知关联组隔离，不声称全部代码从未参与上游训练。
+The comparison is bounded by the single known CoSQA positive, fixed corpus, disclosed upstream code overlap and missing repository mappings. Independence refers to separation of documented linked groups in downstream fitting and confirmation. It does not establish absence of all upstream exposures.
 
-经验有害率及关联组区间不等于总体风险证书：risk_certified=false。本轮完成研究证据，不自动升级正式部署。H8530/1963已消费，后续新优化不可再把它当未见确认。
+Empirical harm frequencies and group intervals do not certify population risk. `risk_certified=false`. The deployment decision remains as recorded. H8530/1963 is a previously used evaluation set.
 
-机器证据：PRIMARY_RESULT.json、AUXILIARY_RESULTS.json、metrics/*_full_H.json、MATCHED_CONTROL_RESULTS.json、FINAL_ACCEPTANCE.json、../rene_cosqa_confirmation_review_20261019/FINAL_REVIEW.json。
+Machine-readable evidence: `PRIMARY_RESULT.json`, `AUXILIARY_RESULTS.json`, `metrics/*_full_H.json`, `MATCHED_CONTROL_RESULTS.json`, `FINAL_ACCEPTANCE.json`, and `../rene_cosqa_confirmation_review_20261019/FINAL_REVIEW.json`.

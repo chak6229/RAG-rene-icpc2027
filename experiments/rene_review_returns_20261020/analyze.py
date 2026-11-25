@@ -21,8 +21,8 @@ from experiments.rene_mechanism_review_20261020.common import (
     require_frozen, rows, sha)
 
 OUT = ROOT / 'results/rene_review_returns_20261020'
-A_DIR = Path('external_inputs/reviewer_returns/审阅者A')
-B_ZIP = Path('external_inputs/reviewer_returns/审阅者B_已完成.zip')
+A_DIR = Path('external_inputs/reviewer_returns / Reviewer A')
+B_ZIP = Path('external_inputs/reviewer_returns / Reviewer B_ Completed. zip')
 
 
 def receipt():
@@ -36,7 +36,7 @@ def receipt():
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(p, dest)
             originals.append({'original_path': str(p), 'copy': dest.relative_to(ROOT).as_posix(), 'sha256': sha(p)})
-    archive = OUT / 'received/审阅者B_已完成.zip'
+    archive = OUT / 'received / Reviewer B_ Completed. zip'
     shutil.copyfile(B_ZIP, archive)
     originals.append({'original_path': str(B_ZIP), 'copy': archive.relative_to(ROOT).as_posix(), 'sha256': sha(B_ZIP)})
     with zipfile.ZipFile(archive) as z:
@@ -90,7 +90,7 @@ def run():
     }
     # Check the returned B pages are precisely the fixed original pages; do not execute them.
     html_identity = []
-    with zipfile.ZipFile(PRIOR / '审阅者B.zip') as z:
+    with zipfile.ZipFile(PRIOR / 'Reviewer B.zip') as z:
         for name in z.namelist():
             if name.endswith('.html'):
                 p = OUT / 'received/B' / Path(name).name

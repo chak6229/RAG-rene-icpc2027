@@ -98,28 +98,28 @@ def main():
     write(OUT / "POWER_PLAN.json", power, immutable=True)
     candidates = read(OUT / "CANDIDATES_SEALED.json")
     audit = read(OUT / "POSTOUTCOME_AUDIT.json")
-    report = ["# CoSQA 全开发集与同候选直接收益选择", "",
-              f"开发集：1,490 条正查询、512 个关联组；新增 1,234 条 / 426 组。候选共 {candidates['candidates']:,}，其中 {candidates['reused_candidates']:,} 个来自原封存试跑。",
-              "确认池 8,530 条 / 1,963 组保持未运行。所有结果为开发证据；原试跑与新增组分别保留。", "",
-              "## RQ1：候选集质量与自动 Top1", "",
-              "| 子集 | 检索器 | 原查询 MRR | ENTR best3 Δ | PROB best3 Δ | RAND20 best3 Δ | ENTR Top1 Δ |",
+    report = ['# CoSQA Full development and same candidate direct benefit selection', "",
+              f"Developments: 1,490 Articles enquiring, 512 associated groups; Add a new 1,234/426 group. Candidates {candidates['candidates']:,}, where {candidates['reused_candidates']:,} A test run from the original seal.",
+              'Confirms that the pool 8,530/1,963 group remains inactive. All results are evidence of development; Keep the original run and the new group separately.', "",
+              '## RQ1: Candidate set quality and automatic Top1', "",
+              '| Subset | Retrieves | original queries MRR  |  ENTR  best3 Δ |  PROB  best3 Δ | RAND20 best3 Δ |  ENTR  Top1 Δ |',
               "|---|---|---:|---:|---:|---:|---:|"]
-    for subset, label in (("all_development", "全部开发"), ("remaining_development", "新增开发"), ("original_pilot", "原试跑")):
+    for subset, label in (("all_development", 'Develop All'), ("remaining_development", 'Add Development'), ("original_pilot", 'Original Run')):
         for name in protocol["retrievers"]:
             m = rq1[name]["subsets"][subset]
             b = m["candidate_set_quality"]
             report.append(f'| {label} | {name} | {m["NoRewrite_mrr"]:.8f} | {b["ENTR"]["delta_vs_NoRewrite"]["mean"]:+.8f} | {b["PROB"]["delta_vs_NoRewrite"]["mean"]:+.8f} | {b["RAND"]["delta_vs_NoRewrite"]["mean"]:+.8f} | {m["automatic_top1"]["ENTR"]["delta_vs_NoRewrite"]["mean"]:+.8f} |')
-    report += ["", "best3 使用真实相关性标签选最好候选，是候选质量上限；自动收益由下一表的实际决策给出。", "",
-               "| 全开发主比较 | 差值 | 95% 组区间 | 四比较同时 98.75% 区间 | Holm p | 变化组 |",
+    report += ["", 'best3 Select the best candidate using a true relevance label, which is the ceiling; automatic benefits are given by actual decision-making in the next table.', "",
+               '| Total developer comparison 95% ♪ In the middle of a group ♪ ♪ In the same time ♪ 98.75% Intersectional | Holm p | Change Group',
                "|---|---:|---|---|---:|---:|"]
     for key in protocol["main_contrasts"]:
         name, contrast = key.split(":")
         m = rq1[name]["subsets"]["all_development"]["paired_contrasts"][contrast]
         report.append(f'| {key} | {m["mean"]:+.8f} | {m["ci95_cluster"]} | {m["ci98_75_four_contrast_family"]} | {families["all_development"][key]["p_holm"]:.6g} | {m["changed_groups"]} |')
-    report += ["", "## RQ2：固定 ENTR 三候选池的自动决策", "",
-               f"预先固定 {len(protocol['direct_gain']['feature_names'])} 项特征、五折关联组隔离、模型参数与零收益采纳阈值。GEN_HGB 为生成/文本特征对照，GAIN_RIDGE 与主基线 GAIN_HGB 使用检索证据；全部复用现有缓存。",
-               "forced 在同一池内选择候选；selective 把原查询作为已知零收益动作。采用按完整 Top100 排名是否改变计算。", "",
-               "| 检索器 | 决策 | ΔMRR | 95% 组区间 | 实际采用 | 有害 | 采用内有害率 |",
+    report += ["", '## RQ2: Fixed ENTR Auto-decision of the Triple Pool', "",
+               f"Prefix {len(protocol['direct_gain']['feature_names'])} Item characteristics, 50% correlation group isolation, model parameters and zero revenue adoption threshold... GEN_HGB For the purposes of generating/text characteristics, GAIN_RIDGE uses search evidence against the main baseline GAIN_HGB; Reuse all existing caches.",
+               'forced Selection of candidates in the same pool; selective Use the original query as a known zero-gain action. Calculate using a change in ranking by full Top100.', "",
+               'Z Retrieves | Decision making Δ MRR | 95% Inter-group | Actual use of | Harmful | Use of internal harmful rate |',
                "|---|---|---:|---|---:|---:|---:|"]
     for name in protocol["retrievers"]:
         policies = rq2[name]["subsets"]["all_development"]["policies"]
@@ -127,26 +127,26 @@ def main():
             m = policies[policy]
             harm = f'{100*m["harmful_within_adopted"]:.2f}%' if m["harmful_within_adopted"] is not None else "—"
             report.append(f'| {name} | {policy} | {m["delta"]["mean"]:+.8f} | {m["delta"]["ci95_cluster"]} | {m["adopted"]}/1490 | {m["harmful"]} | {harm} |')
-    report += ["", "| 主选择比较 | 配对增量 | 95% 组区间 | 四比较 Holm p |", "|---|---:|---|---:|"]
+    report += ["", '| Master choice compares | pair increments | 95% The group size, four-by-four. Holm pium.', "|---|---:|---|---:|"]
     for key in protocol["rq2_contrasts"]:
         name, contrast = key.split(":")
         m = rq2[name]["subsets"]["all_development"]["contrasts"][contrast]
         report.append(f'| {key} | {m["mean"]:+.8f} | {m["ci95_cluster"]} | {rq2_families["all_development"][key]["p_holm"]:.6g} |')
-    report += ["", "OOF 区间描述固定外折预测的组间变化，未包含完整重训的不确定性。确认时需冻结全开发拟合的单一政策。此轮无风险门或认证。", "",
-               "## 确认功效规划", "", "目标差 .005、80% 功效；下表沿用 RQ1 四比较方案。另存 RQ1+RQ2 八比较敏感性。", "",
-               "| RQ1 对比 | 原 86 组规划 | 512 组保守规划 | 变化组 | 1,963 组容量够 | 组大小敏感性规划 |",
+    report += ["", 'OOF Intersections describe inter-group variations for fixed external discount projections and do not contain full retrainment uncertainties. This will require freezing the single policy to be developed in its entirety. This round is open to door or authentication.', "",
+               '## Identification of effectiveness planning', "", 'Poor target... 005, 80% efficacy; The following table follows RQ1 of the four ICPs. Save RQ1+RQ2 Eight is more sensitive.', "",
+               '| RQ1 Comparison | 86 Group Planning | 512 Group Conservative Planning | Change Group | 1,963 Group Capacity Sufficient | Group Sensitivity Planning',
                "|---|---:|---:|---:|---|---:|"]
     old_power = read(PILOT / "POWER_PLAN.json")
     for row in primary:
         old = next(r for r in old_power["primary_planning_rows"] if r["contrast"] == row["contrast"])
         report.append(f'| {row["contrast"]} | {old["conservative_required_groups"]} | {row["conservative_required_groups"]} | {plans[row["contrast"]]["changed_groups"]} | {row["available_group_capacity_sufficient"]} | {row["size_imbalance_sensitivity_required_groups"]} |')
-    report += ["", f'D/H 正查询组大小中位数为 {size_info["D"]["group_size_quantiles"]["median"]:g}/{size_info["H"]["group_size_quantiles"]["median"]:g}，最大为 {size_info["D"]["group_size_quantiles"]["max"]:g}/{size_info["H"]["group_size_quantiles"]["max"]:g}。组均值方差同质假设下，H/D 设计因子比为 {size_info["H_to_D_design_factor_ratio"]:.4f}；这是规划敏感性，不是已知确认方差。',
-               "确认规模、联合多重性和完整采纳政策尚未冻结，不能用上述开发点估计作为已确认结论。", "",
-               "## 验收与复现", "",
-               f'独立排名/全词表 FP64 熵复算通过；{audit["exact_rr_fields_checked"]:,} 个 RR 字段有理数复算，最大误差 {audit["metric_max_error"]:.3g}。30 个外折模型重载与全部预测复算误差 {audit["prediction_max_error"]:.3g}。',
-               "原 256 条候选、排名与每查询结果完整保留；语料向量未重算，无新增 T5 seed/mask。五个正式指针与模型权重不变，risk_certified=false，部署仍为 NoRewrite。",
-               "本轮是源码主导重建：位置1…n、greedy19、冻结本地权重；原论文的0…n/采样m10等差异继续按原协议披露。单已知正目标与已知上游代码暴露沿用数据审查范围。", "",
-               "主要证据：PROTOCOL.json、DECISIONS_SEALED.json、PREOUTCOME_AUDIT.json、POSTOUTCOME_AUDIT.json、RQ1_DEVELOPMENT.json、RQ2_DEVELOPMENT.json、POWER_PLAN.json。", ""]
+    report += ["", f'D/H Query group size medium to {size_info["D"]["group_size_quantiles"]["median"]:g}/{size_info["H"]["group_size_quantiles"]["median"]:g}, Max {size_info["D"]["group_size_quantiles"]["max"]:g}/{size_info["H"]["group_size_quantiles"]["max"]:g}. Under the group average variance equal, H/D design factor ratio {size_info["H_to_D_design_factor_ratio"]:.4f}; this is planning sensitivity, not known confirmation variance.',
+               'The determination of size, joint multiplicity and complete adoption policy has not yet been frozen and the above development point estimates cannot be used as a confirmed conclusion.', "",
+               '## Receiving and Inspection and Restatement', "",
+               f'Independent ranking/full wordsheet FP64 recalculated pass;{audit["exact_rr_fields_checked"]:,} RR Fields are rationalized, with maximum error {audit["metric_max_error"]:.3g}. 30 Reloading of a folding model with all predictions due to error {audit["prediction_max_error"]:.3g}。',
+               'The original 256 list of candidates, rankings and the results of each query are kept in full; Language vector is not recalculated and T5 seed/mask is not added. Five formal points and model weights are unchanged, risk_certified = false, with deployment remaining NoRewrite.',
+               'This round is a source code-led reconstruction: position 1 n, greedy19, freezing local weights; Discrepancies such as 0... n/sampling m10 of the original paper continue to be disclosed according to the original agreement. Only known positive targets and known upstream code exposures follow the data review range.', "",
+               'Main evidence: PROTOCOL.json, DECISIONS_SEALED.json, PREOUTCOME_AUDIT.json, POSTOUTCOME_AUDIT.json, RQ1_DEVELOPMENT.json, RQ2_DEVELOPMENT.json, POWER_PLAN.json.', ""]
     with (OUT / "REPORT.md").open("x", encoding="utf-8") as handle:
         handle.write("\n".join(report))
     write(OUT / "FINAL_ACCEPTANCE.json", {"passed": True, "created_utc": now(), "scope": "development extension and same-pool OOF baselines",

@@ -24,62 +24,62 @@ def main():
     supplement = result["supplement_agreement"]
     pooled = result["pooled_top3_agreement"]
     lines = [
-        "# 重新提交的评审 A/B 与补审 A/B：核查和结果解读",
+        '# Resubmission of review A/B and re-examination A/B: verification and interpretation of results',
         "",
-        "四组材料的条目与固定审阅包匹配，网页、文字版与 JSON 的 2,108 项判断及理由已核对。"
-        "原评审 A/B 的所有数据字段与上一版相同；本次新增的是两人各 344 个补审判断。"
-        "补审后，预定主要诊断端点的两位审阅者加权相关性扩充收益界均在正侧，"
-        "从而加强评价口径和自动采纳的诊断证据。",
+        "The entries for the four sets of materials match the regular review package and the web page, text version and JSON's 2,108 judgements and justifications have been checked."
+        'All the data fields of the original review A/B were identical to those of the previous edition; this time, two additional sections 344 were added.'
+        'After the retrospect, both examiners at their main diagnostic end-points were on the positive side of the expanded benefit community.'
+        'This has resulted in enhanced evaluation calibration and automatic admission of diagnostic evidence.',
         "",
-        "状态：补审 B 通过原回收规则；补审 A 内容完整，但返回文件的独立完成确认值为 false，"
-        "原回收程序拒绝正式接收。已向用户询问是否漏勾选，尚待答复。"
-        "下文保留 A 的返回状态，按两份已返回标签作描述分析，不将其写成双份独立补审已正式验收。",
+        'Status: Additional review B adopts the original recovery rules; Additional review A is complete, but returns the file with an independent completion confirmation value of false,'
+        'The original recovery program refuses to receive it formally. The user has been asked if the tick is missing and an answer remains pending.'
+        'The return status of A is maintained below, with two returned labels being analysed for description and not written as a double independent review having been formally accepted.',
         "",
-        "## 材料和原评审比较",
+        '## Comparison of material and original evaluation',
         "",
-        "|材料|查询数|改写判断|代码判断|结果|",
+        'Query of material Query Question Quest Quest Quest Quest',
         "|---|---:|---:|---:|---|",
-        "|评审 A|128|383|327|与前版数据字段逐项相同|",
-        "|评审 B|128|383|327|与前版数据字段逐项相同|",
-        "|补审 A|126|—|344|项目完整；独立完成确认待补|",
-        "|补审 B|126|—|344|项目完整；通过原回收规则|",
+        '| A 128 | 383 | 327 | is the same itemized as previous data fields',
+        '| B 128 | 383 | 327 | is the same itemized as previous data fields',
+        'A | 126 | 344 Project integrity; independent confirmation to be completed',
+        'Supplementary review B|126|-|344| complete; original recovery rules adopted',
         "",
-        "原评审文件仅存在序列化格式差异，不是新增样本或新增两位审阅者。"
-        "语义一致率仍为 76.50%、κ=0.525；代码含 unknown 的一致率仍为 53.82%、κ=0.371；"
-        "共同可判代码 260/327，线性加权 κ=0.569。原有加权错误比例和分歧统计保持。",
+        'The original evaluation document contained only a sequencing format difference and was not a new sample or two additional reviewers.'
+        'Semantic Consistency Rate remains 76.50%,κ= 0.525; Consistency rate for code contains unknown 53.82%,κ= 0.371;'
+        'Common legible code 260 / 327, linear weights 0.569...old weighted error and disagreement statistics maintained...',
         "",
-        "## 新增补审的一致性",
+        '## Consistency of new additions',
         "",
-        "|补审判断|A|B|",
+        'A B',
         "|---|---:|---:|",
     ]
-    for label, name in (("2", "满足"), ("1", "部分满足"), ("0", "不满足"), ("u", "无法判断")):
+    for label, name in (("2", 'Satisfied'), ("1", 'Partially satisfied'), ("0", 'Unsatisfactory'), ("u", 'cannot determine')):
         lines.append(f"|{name}|{counts['A'][label]}|{counts['B'][label]}|")
     lines += [
         "",
-        f"344 个新面板的精确一致率 {supplement['including_unknown']['agreement']:.2%}，"
-        f"名义 κ={supplement['including_unknown']['kappa']:.3f}；"
-        f"共同可判 {supplement['jointly_judged']['n']}/344"
+        f"344 Accurate Consistency Rate for New Panels {supplement['including_unknown']['agreement']:.2%}，"
+        f"Nominal 100={supplement['including_unknown']['kappa']:.3f}；"
+        f"We’re gonna get it together. {supplement['jointly_judged']['n']}/344"
         f"（{supplement['jointly_judged_coverage']:.2%}），"
-        f"线性加权 κ={supplement['jointly_judged']['kappa']:.3f}。",
+        f"Linear weight 100 ={supplement['jointly_judged']['kappa']:.3f}。",
         "",
-        "154 项分歧中，48 项是 A 的 unknown 与 B 的确定判断不同，另外 106 项是双方均可判但等级不同。"
-        "后一组中 B 高于 A 为 83 项，低于 A 为 23 项。新旧两批面板不同，κ 的差不能直接解释为评审质量升降，"
-        "也不能用某人一贯宽松或严格概括所有分歧。",
+        'Of the differences 154, 48 is unknown of A, which differs from B in its determination and 106 is one that can be judged by both parties but has different degrees.'
+        'in the latter group B is higher than A to 83 and less than A to 23. The difference between the old and new batches is not directly explained by the increase or decrease in quality.'
+        'Nor can a person be used to consistently loosely or narrowly summarize all differences.',
         "",
-        f"合并 Top-3 池共有 610 个不同代码面板，其中 266 个继承原评审、344 个来自补审。"
-        f"池内 A/B 各有 49 个 unknown；双方共同可判 {pooled['jointly_judged']['n']}/610，"
-        f"线性加权 κ={pooled['jointly_judged']['kappa']:.3f}。"
-        "补审条目齐全与全部相关性已知分别报告，未将 unknown 填为不相关或自动裁决。",
+        f"The Top-3 pool is composed of 610 different code panels, of which 266 succeeds the original review and 344 comes from a complementary review."
+        f"Inner pool A/B with 49 each unknown; both parties are jointly liable {pooled['jointly_judged']['n']}/610，"
+        f"Linear weight 100 ={pooled['jointly_judged']['kappa']:.3f}。"
+        'The re-examination entries are reported separately for all known relevance, and unknown is not entered as irrelevant or automatic.',
         "",
-        "## 预定主要诊断端点",
+        '## Predicate main diagnostic endpoints',
         "",
-        "沿用原 128 查询/120 组、八层权重和固定动作，主要端点为 RIDGE_verified、RR@3、仅评分 2 纳入新增相关集合。"
-        "扩充集合保留原 qrels 正例及池内相同代码文本；两个审阅者分别计算，未知面板按共享文本变量穷举。"
-        "以下数值均为政策 RR 减原查询 RR 的加权样本识别界，"
-        "不是置信区间，也不替换全 H 的 MRR@100。",
+        'Follow the original 128 Query/ 120 group, eight layer weights and fixed actions with main endpoints of RIDGE_verified, RR@3, rating only 2 to include additional relevant pools.'
+        'Expand the collection to retain the original qrels text of the code and the same code in the pool; The two reviewers calculate separately, and the unknown panel is exhaustive on shared text variables.'
+        'The following values are the weighted sample identification community for policy RR minus query RR,'
+        'MRR@100 is not a confidence interval, nor does it replace all H.',
         "",
-        "|审阅者|补审前范围|补审后范围|该配对差可确定的查询|",
+        'The scope of the retrofitted pretrial trials is determined by the examiner.',
         "|---|---|---|---:|",
     ]
     for row in result["primary_before_after"]:
@@ -91,32 +91,32 @@ def main():
         )
     lines += [
         "",
-        "原 qrels 下同一 RR@3 端点本身为 +0.001594，不能将本表描述成该端点从负收益翻转为正收益。"
-        "相对于原 qrels 差值的改变量，A 为 "
+        'The same RR@3 endpoint below the original qrels is itself +0.001594 and this table cannot be described as a turning point from negative to positive.'
+        'Changes relative to the original qrels margin, A is '
         + interval(selected(result, "A", "RIDGE_verified")["weighted_change_from_original_delta_bounds"])
-        + "，B 为 "
+        + ', B '
         + interval(selected(result, "B", "RIDGE_verified")["weighted_change_from_original_delta_bounds"])
-        + "；B 的改变量仍含 0。",
+        + '; B still contains 0.',
         "",
-        "|敏感性口径|A：RIDGE_verified 差范围|B：RIDGE_verified 差范围|",
+        'Sensitivity caliber A: RIDGE_verified Range | B: RIDGE_verified Gap |',
         "|---|---|---|",
-        "|评分 1 或 2 均纳入，原分层加权 RR@3|"
+        '| Rating 1 or 2 are incorporated, original layer weighted RR@3 |'
         + interval(selected(result, "A", "RIDGE_verified", threshold=1)["weighted_expanded_delta_identification_bounds"])
         + "|"
         + interval(selected(result, "B", "RIDGE_verified", threshold=1)["weighted_expanded_delta_identification_bounds"])
         + "|",
-        "|仅评分 2 纳入，不加权 RR@3|"
+        '| Rating only 2 Inclusion, not authorized RR@3 |'
         + interval(selected(result, "A", "RIDGE_verified")["unweighted_expanded_delta_bounds"])
         + "|"
         + interval(selected(result, "B", "RIDGE_verified")["unweighted_expanded_delta_bounds"])
         + "|",
         "",
-        "按预定分层加权，两种相关阈值下的两位审阅者收益界均为正；严格相关标准下 B 的未加权范围仍跨 0。"
-        "因此结论限定于固定样本及其原加权分析，不能扩大为所有样本口径下都获益。",
+        'The two examiners under both relevant thresholds are on the positive side, weighted by a predetermined layer; The unweighted scope of B under the strict relevant criteria still extends 0.'
+        'The conclusions are therefore limited to fixed samples and their original weighted analysis, which cannot be expanded to benefit all sample calibres.',
         "",
-        "## 对主线和贡献的影响",
+        '## Impact on main lines and contributions',
         "",
-        "|固定政策，评分 2、加权 RR@3|A 差范围|B 差范围|",
+        '| Fixed Policy, Rating 2, Weighted RR@3 | A Difference range B',
         "|---|---|---|",
     ]
     for policy in ("ENTR_top1", "RIDGE_verified", "RIDGE_risk", "SAFE_ENTR_best3_opportunity"):
@@ -125,28 +125,28 @@ def main():
                      + "|" + interval(selected(result, "B", policy)["weighted_expanded_delta_identification_bounds"]) + "|")
     lines += [
         "",
-        "1. 直接选择 ENTR 第一条改写的加权差仍在负侧，两个相关阈值和两位审阅者均保持该方向。"
-        "标签辅助的安全 best3 机会仍在正侧，继续支持候选机会与指定自动选择效果分开衡量。",
-        "2. 核验阶段的可执行效用读数对相关性集合有实质敏感性。"
-        "原先按单一目标排名计入的损失，不能全部等同于查询含义损坏或用户效用下降。",
-        "3. 风险回退后尚无跨两位审阅者、两个相关阈值都可确定为正的结果，"
-        "不能据本次补审宣布完整自动政策稳定获益。",
-        "4. 本次主要补强第三贡献中的评价口径与固定政策诊断。"
-        "B/G 受控比较、StaQC 确认、检索器和权重对照没有重新运行，其原结论保持。"
-        "当前仍不识别语义、相关性覆盖与收益学习误差分别解释多少损失。",
+        '1. Directly select ENTR the first recast weighted margin remains negative and both relevant thresholds and examiners maintain that direction.'
+        'The security of tag-aided best3 opportunities are still on the right side, continuing to support candidate opportunities and assigning automatic selections as separate measures.',
+        '2. Executable utility readings at the verification stage are materially sensitive to relevance clusters.'
+        'Losses previously included in a single target ranking cannot all be equated with search meaning damage or reduced user utility.',
+        '3. The risk retreat has not been followed by two reviewers, and both relevant thresholds can be identified as positive results.'
+        'A complete automatic policy stability cannot be declared beneficial under this re-examination.',
+        '4. This is a major complement to the evaluation calibration and fixed policy diagnosis of the third contribution.'
+        'B/G Controlled comparison, StaQC recognition, searcher and weight control were not re-engineered and its original conclusions maintained.'
+        'Semantics, relevance coverage and benefit learning errors are still not recognized to explain how much loss.',
         "",
-        "## 代表性分歧",
+        '## Differences in representation',
         "",
-        "下列案例分别来自 0/2、u/2 和 1/2 三类分歧，每类取 query_id/panel_id 字典序第一项；"
-        "用于说明判断边界，保留双方标签，不作第三方裁决。",
+        'The following cases are taken from the three categories of disagreement 0/2, u/2 and 1/2 respectively, each taking the first in the dictionary order of query_id/panel_id;'
+        'It is used to describe the boundary, keep a label on both sides and do not make third-party decisions.',
         "",
     ]
     disagreements = list(rows(OUT / "supplement_disagreements.jsonl"))
     examples = []
     for pair, description in (
-        (("0", "2"), "请求与响应的功能对象"),
-        (("u", "2"), "缺少辅助函数与可见功能"),
-        (("1", "2"), "字符串转换与完成输出"),
+        (("0", "2"), 'Functional Object for Request and Response'),
+        (("u", "2"), 'Missing auxiliary and visible functions'),
+        (("1", "2"), 'String conversion and finished output'),
     ):
         options = sorted((r for r in disagreements if (r["A"]["relevance"], r["B"]["relevance"]) == pair),
                          key=lambda r: (r["query_id"], r["panel_id"]))
@@ -155,7 +155,7 @@ def main():
         lines += [
             "### " + description,
             "",
-            "查询：" + example["original"] + "（" + example["query_id"] + "）。",
+            'Query:' + example["original"] + "（" + example["query_id"] + "）。",
             "",
             "A：" + example["A"]["relevance"] + "；" + example["A"]["note"],
             "",
@@ -165,14 +165,14 @@ def main():
     put(OUT / "REPRESENTATIVE_DISAGREEMENTS.json", {"selection": "lexicographic first in fixed label-pair categories",
                                                    "examples": examples, "labels_adjudicated": False})
     lines += [
-        "## 完成状态与交接",
+        '## Completion status and handover',
         "",
-        "已完成四份内容核查、344×2 新判断映射、610 面板合并池分析、48 组合及 6,144 条精确配对界的独立复算。"
-        "收到 688 个补审标签；原回收规则当前可接收 B 的 344 个，A 的 344 个独立完成确认待回复。"
-        "原文件、原预览、原统计、论文源稿均保留。",
+        'Four content verifications, 344 x 2 new judgement mapping, 610 panel merger pool analysis, 48 combination and independent recalculation of 6,144 precise matching boundaries have been completed.'
+        'Received 688 complementary review labels; The original recovery rules can currently receive 344 of B and 344 of A independently confirmed pending response.'
+        'The original document, the original preview, the original statistics and the source of the paper were retained.',
         "",
-        "待办为确认 A 的实际独立完成状态，之后统一更新主稿中的补判状态、相关性敏感性表和评审分歧说明。"
-        "不以提高 κ 为目的重写原判断。数值、逐查询界和分歧明细分别在 RESULTS.json、"
+        'To-do to confirm the actual independent completion status of A, and then update uniformly the compensatory status in the master draft, the table of relevance sensitivity and the statement of evaluation differences.'
+        'Do not rewrite the original judgement with a view to increasing it. Values, search-by-source and differences are specified in RESULTS.json,'
         "query_bounds.jsonl、supplement_disagreements.jsonl。",
         "",
     ]

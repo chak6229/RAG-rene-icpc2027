@@ -1,4 +1,4 @@
-"""Replay the 人工评审 statistics from anonymous labels and numeric panels."""
+'Replay the Manual evaluation statistics from anonymous labels and numeric panels.'
 from __future__ import annotations
 
 import argparse
@@ -145,7 +145,7 @@ def main():
     write(out/'SAMPLING_UNCERTAINTY.json',{'combinations':sampling})
     out.mkdir(parents=True,exist_ok=True)
     (out/'query_bounds.jsonl').write_text(''.join(json.dumps(x,ensure_ascii=False)+'\n' for x in bounds),encoding='utf-8')
-    acceptance={'passed':True,'source_type':'人工评审','queries':128,'groups':120,
+    acceptance={'passed':True,'source_type':'human review','queries':128,'groups':120,
                 'initial_annotations':len(original),'supplement_annotations':len(supplement),
                 'recomputed_exact_fraction_bounds':len(bounds),'recomputed_relevance_combinations':48,
                 'recomputed_sampling_envelopes':len(sampling),'recomputed_weighted_events':len(rates),

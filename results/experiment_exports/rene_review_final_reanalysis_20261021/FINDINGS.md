@@ -1,97 +1,97 @@
-# 重新提交的评审 A/B 与补审 A/B：核查和结果解读
+# Resubmitted reviews A/B and supplemental reviews A/B: verification and interpretation
 
-四组材料的条目与固定审阅包匹配，网页、文字版与 JSON 的 2,108 项判断及理由已核对。原评审 A/B 的所有数据字段与上一版相同；本次新增的是两人各 344 个补审判断。补审后，预定主要诊断端点的两位审阅者加权相关性扩充收益界均在正侧，从而加强评价口径和自动采纳的诊断证据。
+All four sets matched the fixed review packets. We checked 2,108 judgments and rationales across the web, text and JSON forms. All fields of the original A/B reviews matched the prior version. Each reviewer supplied 344 new supplemental judgments. After supplementation, both reviewers' weighted relevance-expansion bounds for the prespecified diagnostic endpoint were positive in the sample.
 
-状态：补审 B 通过原回收规则；补审 A 内容完整，但返回文件的独立完成确认值为 false，原回收程序拒绝正式接收。已向用户询问是否漏勾选，尚待答复。下文保留 A 的返回状态，按两份已返回标签作描述分析，不将其写成双份独立补审已正式验收。
+At the time of this report, supplemental review B passed the original intake rule. The A return was complete, but its independence checkbox was `false`, so the original intake program did not accept it. Confirmation was pending. The analysis below describes both returned sets of labels and records that historical status. See the later review-completion report for the final intake status.
 
-## 材料和原评审比较
+## Materials and initial reviews
 
-|材料|查询数|改写判断|代码判断|结果|
+|Materials|Query Number|Rewrite the judgement|Code judgement|Results|
 |---|---:|---:|---:|---|
-|评审 A|128|383|327|与前版数据字段逐项相同|
-|评审 B|128|383|327|与前版数据字段逐项相同|
-|补审 A|126|—|344|项目完整；独立完成确认待补|
-|补审 B|126|—|344|项目完整；通过原回收规则|
+|Review A|128|383|327|Same item by item as the previous data field|
+|Review B|128|383|327|Same item by item as the previous data field|
+|Supplementary review A|126|—|344|Project complete; independently confirmed to be completed|
+|Supplementary review B|126|—|344|Project integrity; adoption of original recovery rules|
 
-原评审文件仅存在序列化格式差异，不是新增样本或新增两位审阅者。语义一致率仍为 76.50%、κ=0.525；代码含 unknown 的一致率仍为 53.82%、κ=0.371；共同可判代码 260/327，线性加权 κ=0.569。原有加权错误比例和分歧统计保持。
+The original review files differed only in serialization. The sample and the two reviewers were unchanged. Semantic agreement remained 76.50% with κ=0.525. Code relevance agreement including unknowns remained 53.82% with κ=0.371. Both reviewers could judge 260/327 panels, with linear-weighted κ=0.569. The existing weighted error shares and disagreement statistics were retained.
 
-## 新增补审的一致性
+## Agreement on supplemental judgments
 
-|补审判断|A|B|
+|Compensatory trial.|A|B|
 |---|---:|---:|
-|满足|21|58|
-|部分满足|103|146|
-|不满足|172|140|
-|无法判断|48|0|
+|Satisfied|21|58|
+|Partially satisfied|103|146|
+|Unsatisfactory|172|140|
+|cannot determine|48|0|
 
-344 个新面板的精确一致率 55.23%，名义 κ=0.321；共同可判 296/344（86.05%），线性加权 κ=0.484。
+Exact agreement on the 344 new panels was 55.23%, with nominal κ=0.321. Both reviewers assigned known grades to 296/344 panels (86.05%), with linear-weighted κ=0.484.
 
-154 项分歧中，48 项是 A 的 unknown 与 B 的确定判断不同，另外 106 项是双方均可判但等级不同。后一组中 B 高于 A 为 83 项，低于 A 为 23 项。新旧两批面板不同，κ 的差不能直接解释为评审质量升降，也不能用某人一贯宽松或严格概括所有分歧。
+Of 154 disagreements, 48 paired A's unknown rating with a definite rating from B. The other 106 had definite but different grades. Among those, B rated 83 higher and 23 lower than A. The original and supplemental sets contain different panels, so changes in κ do not isolate review quality. The two reviewers' ordering varies across disagreements.
 
-合并 Top-3 池共有 610 个不同代码面板，其中 266 个继承原评审、344 个来自补审。池内 A/B 各有 49 个 unknown；双方共同可判 513/610，线性加权 κ=0.527。补审条目齐全与全部相关性已知分别报告，未将 unknown 填为不相关或自动裁决。
+The merged Top-3 pool contains 610 distinct panels: 266 inherited from the original reviews and 344 assessed in the supplemental review. Each reviewer retains 49 unknowns. Both assigned known grades to 513/610 panels, with linear-weighted κ=0.527. Submission completeness and known relevance are reported separately, without converting unknowns to irrelevant or adjudicating them automatically.
 
-## 预定主要诊断端点
+## Prespecified primary diagnostic endpoint
 
-沿用原 128 查询/120 组、八层权重和固定动作，主要端点为 RIDGE_verified、RR@3、仅评分 2 纳入新增相关集合。扩充集合保留原 qrels 正例及池内相同代码文本；两个审阅者分别计算，未知面板按共享文本变量穷举。以下数值均为政策 RR 减原查询 RR 的加权样本识别界，不是置信区间，也不替换全 H 的 MRR@100。
+The analysis retains the original 128 queries in 120 groups, eight-stratum weights and fixed actions. The primary endpoint uses RIDGE_verified and RR@3, adding only grade 2 items to the relevant set. Extended relevance retains the known qrels positives and equivalent code texts in the pool. Each reviewer is analyzed separately, with unknown judgments enumerated by shared text variables. The table reports weighted sample identification bounds for policy RR minus original-query RR. The full-H MRR@100 results remain a separate endpoint.
 
-|审阅者|补审前范围|补审后范围|该配对差可确定的查询|
+|Reviewer|Compensatory pre-trial coverage|Post-retroactivity scope|This pairing is a definite query|
 |---|---|---|---:|
 |A|[-0.017841, +0.041899]|[+0.005843, +0.018263]|102 → 121/128|
 |B|[-0.032886, +0.059318]|[+0.001279, +0.016604]|96 → 122/128|
 
-原 qrels 下同一 RR@3 端点本身为 +0.001594，不能将本表描述成该端点从负收益翻转为正收益。相对于原 qrels 差值的改变量，A 为 [+0.004250, +0.016669]，B 为 [-0.000315, +0.015011]；B 的改变量仍含 0。
+Under the original qrels, the same RR@3 endpoint is already +0.001594. The change relative to that contrast is [+0.004250, +0.016669] for A and [-0.000315, +0.015011] for B. The interval for the B change includes 0.
 
-|敏感性口径|A：RIDGE_verified 差范围|B：RIDGE_verified 差范围|
+|Sensitivity settings|A: RIDGE_verified Gap|B: RIDGE_verified Gap|
 |---|---|---|
-|评分 1 或 2 均纳入，原分层加权 RR@3|[+0.003297, +0.005007]|[+0.001948, +0.010069]|
-|仅评分 2 纳入，不加权 RR@3|[+0.003906, +0.023438]|[-0.006510, +0.011719]|
+|Rating 1 or 2 are incorporated, original layer weighted RR@3|[+0.003297, +0.005007]|[+0.001948, +0.010069]|
+|Rating only 2 Inclusion, not authorized RR@3|[+0.003906, +0.023438]|[-0.006510, +0.011719]|
 
-按预定分层加权，两种相关阈值下的两位审阅者收益界均为正；严格相关标准下 B 的未加权范围仍跨 0。因此结论限定于固定样本及其原加权分析，不能扩大为所有样本口径下都获益。
+Under the prespecified stratified weights, both reviewers' bounds are positive at both relevance thresholds. Under strict relevance B's unweighted bounds still span 0. The positive direction pertains to this sample and weighting rule.
 
-## 对主线和贡献的影响
+## Interpretation for the study
 
-|固定政策，评分 2、加权 RR@3|A 差范围|B 差范围|
+|Fixed policy, rating 2, weighting RR@3|A Gap range|B Gap range|
 |---|---|---|
 |ENTR_top1|[-0.040360, -0.006583]|[-0.045258, -0.017126]|
 |RIDGE_verified|[+0.005843, +0.018263]|[+0.001279, +0.016604]|
 |RIDGE_risk|[-0.000177, +0.000324]|[+0.001755, +0.001962]|
 |SAFE_ENTR_best3_opportunity|[+0.093181, +0.118574]|[+0.047352, +0.103379]|
 
-1. 直接选择 ENTR 第一条改写的加权差仍在负侧，两个相关阈值和两位审阅者均保持该方向。标签辅助的安全 best3 机会仍在正侧，继续支持候选机会与指定自动选择效果分开衡量。
-2. 核验阶段的可执行效用读数对相关性集合有实质敏感性。原先按单一目标排名计入的损失，不能全部等同于查询含义损坏或用户效用下降。
-3. 风险回退后尚无跨两位审阅者、两个相关阈值都可确定为正的结果，不能据本次补审宣布完整自动政策稳定获益。
-4. 本次主要补强第三贡献中的评价口径与固定政策诊断。B/G 受控比较、StaQC 确认、检索器和权重对照没有重新运行，其原结论保持。当前仍不识别语义、相关性覆盖与收益学习误差分别解释多少损失。
+1. Forced ENTR Top1 remains negative for both thresholds and reviewers in the weighted sample. Safe label-assisted best3 remains positive. These contrasts separate candidate opportunity from the outcome of a fixed automatic policy.
+2. The measured utility after verification depends on the relevance set. Target-rank losses alone cannot identify changes in query meaning or user utility.
+3. Positive utility after risk fallback is not established across both reviewers and both thresholds. The supplemental diagnostics do not establish a stable gain for the full policy.
+4. The supplemental review adds evidence about the evaluation contract and fixed policy. The controlled B/G analyses, StaQC confirmation and retriever and weight contrasts were not rerun. The diagnostics do not apportion losses among semantic change, relevance coverage and gain prediction errors.
 
-## 代表性分歧
+## Representative disagreements
 
-下列案例分别来自 0/2、u/2 和 1/2 三类分歧，每类取 query_id/panel_id 字典序第一项；用于说明判断边界，保留双方标签，不作第三方裁决。
+The examples are the first query_id/panel_id in lexicographic order from the 0/2, u/2 and 1/2 disagreement types. They illustrate judgment boundaries and preserve both reviewers' labels without adjudication.
 
-### 请求与响应的功能对象
+### Request versus response API
 
-查询：python get post content type（cosqa-train-13132）。
+Query: `python get post content type` (`cosqa-train-13132`).
 
-A：0；检查响应头来决定如何解码响应，没有读取 POST 请求的内容类型。
+A: 0. The code examines response headers to decide how to decode the response. It does not read the POST request's content type.
 
-B：2；按 Content-Type 头判类型并解析，能用。
+B: 2. It identifies the type from the Content-Type header and parses it, which meets the request.
 
-### 缺少辅助函数与可见功能
+### Missing helper and visible behavior
 
-查询：python if type array（cosqa-dev-169）。
+Query: `python if type array` (`cosqa-dev-169`).
 
-A：u；整数 dtype 的限制可见，但数组类型检测依赖缺失的 is_np_array；无法确认完整判断。
+A: u. The integer dtype restriction is visible, but array detection depends on the missing `is_np_array` helper. The full behavior cannot be determined.
 
-B：2；判 numpy 整数数组，能判数组类型。
+B: 2. It tests for a NumPy integer array, so it can determine the array type.
 
-### 字符串转换与完成输出
+### String conversion versus output
 
-查询：python output colors from a string（cosqa-dev-400）。
+Query: `python output colors from a string` (`cosqa-dev-400`).
 
-A：1；返回带 ANSI 颜色控制码的字符串，可用于彩色显示，但没有输出步骤，也不从字符串内容解析颜色。
+A: 1. The code returns a string with ANSI color control codes that can be used to display color. It does not perform output or parse a color from the string contents.
 
-B：2；ANSI 码包字符串，能出颜色。
+B: 2. The ANSI codes wrap the string to produce color.
 
-## 完成状态与交接
+## Historical intake status
 
-已完成四份内容核查、344×2 新判断映射、610 面板合并池分析、48 组合及 6,144 条精确配对界的独立复算。收到 688 个补审标签；原回收规则当前可接收 B 的 344 个，A 的 344 个独立完成确认待回复。原文件、原预览、原统计、论文源稿均保留。
+The audit checked the four returns, mapped 344×2 new judgments, analyzed the merged 610-panel pool and independently recomputed 48 combinations and 6,144 exact paired bounds. The intake received 688 supplemental labels. At this stage the original rule accepted B's 344 judgments and the independence confirmation for A's 344 remained pending. Files, previews, statistics and manuscript sources were retained.
 
-待办为确认 A 的实际独立完成状态，之后统一更新主稿中的补判状态、相关性敏感性表和评审分歧说明。不以提高 κ 为目的重写原判断。数值、逐查询界和分歧明细分别在 RESULTS.json、query_bounds.jsonl、supplement_disagreements.jsonl。
+The recorded next step was to confirm A's independence and update the manuscript's supplemental status, relevance sensitivity table and disagreement description. Original judgments were retained. See `RESULTS.json`, `query_bounds.jsonl` and `supplement_disagreements.jsonl` for the evidence.

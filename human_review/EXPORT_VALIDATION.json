@@ -1,5 +1,5 @@
 {
-  "source_type": "人工评审",
+  "source_type": "human review",
   "reviewers": [
     "A",
     "B"
@@ -8,8 +8,10 @@
   "sample_groups": 120,
   "initial_annotations": 1676,
   "supplement_annotations": 688,
-  "initial_labels_and_rationales_multiset_unchanged": true,
-  "supplement_labels_and_rationales_multiset_unchanged": true,
   "cross_file_query_references_consistent": true,
-  "identities_and_process_times_omitted": true
+  "identities_and_process_times_omitted": true,
+  "initial_labels_unchanged": true,
+  "supplement_labels_unchanged": true,
+  "only_note_fields_translated_for_edition": true,
+  "reason_language_edition": "English translations; original files identified in provenance/ENGLISH_EDITION.json"
 }

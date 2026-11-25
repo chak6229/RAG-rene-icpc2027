@@ -1,25 +1,25 @@
-# CQC训练配置影响：受控比较口径
+# CQC training configurations: controlled comparison
 
-2026-10-20。此文件记录执行方法；检索结果以全部评测与独立审计完成后的RESULTS/FINDINGS为准。
+2026-10-20. This document records the execution method. See `RESULTS` and `FINDINGS` for retrieval results after independent verification.
 
-## 回答的问题
+## Research question
 
-在同一CQC数据、样本顺序、掩码、初始化和更新预算下，本地优化设置与公开源码设置会使SSQR的位置选择比较及自动单选效用改变多少？
+With CQC data, order, masks, initialization and update budget held fixed, how do the local and public-source optimization settings affect SSQR position selection and automatic single-selection utility?
 
-源数据桥接、六种生成设置和熵/聚合审计是既有证据；本轮以训练设置为变化因素，补充量化重建保真度。
+Source bridging, six generation configurations and entropy and aggregation audits provide prior evidence. This experiment varies training settings to quantify reconstruction fidelity.
 
-## 共同条件
+## Shared conditions
 
-- 初始化：本地原始t5-base；每组重新初始化，不从历史适配权重续训。
-- 数据：原CODEnn百万条中固定抽取32,768行，共用一次连续15%单span掩码；样本顺序逐步一致。32,768是训练行数，其中26,155条不同文本。
-- 预算：每组1,024次更新，microbatch8×梯度累积4，有效batch32，一次完整遍历；起始lr=.001，梯度裁剪1，BF16计算/FP32参数。
-- 权重：固定最后一步；不早停，不按验证或检索结果选checkpoint。验证样本1,024条，仅报告token NLL。
-- 训练种子：101；PS单独改42，数据、掩码和顺序保持不变。
-- CuBLAS环境在初始化前统一为`:4096:8`。首次缺该环境的部分启动已在开效果前归档，正式八组均从头运行，无resume。
+- Initialize every arm from local original t5-base weights, without resuming the historical adapted checkpoint.
+- Draw a fixed 32,768 rows from the original one-million-row CODEnn set and apply a shared contiguous 15% single-span mask once. Row order matches at each step. The 32,768 training rows contain 26,155 distinct texts.
+- Each arm uses 1,024 updates, microbatch8×gradient accumulation4, effective batch32 and one complete pass. The initial learning rate is .001 with gradient clipping at 1, BF16 computation and FP32 parameters.
+- Use the fixed final-step weights without early stopping or checkpoint selection on validation or retrieval. The 1,024 validation examples supply token NLL only.
+- Use training seed 101, except PS uses 42 with the same data, masks and order.
+- Set CuBLAS to `:4096:8` before initialization. Partial launches without this environment setting were archived before effects were opened. All eight official arms started from scratch.
 
-## 配置与比较
+## Configurations and contrasts
 
-|ID|优化器|调度总步数|长度上限|weight decay|种子|
+|ID|Optimizer|Total movement control steps|Maximum length|weight decay|Seed|
 |---|---|---|---:|---:|---:|
 |L|AdamW|constant|512|.01|101|
 |O|Adafactor|constant|512|.01|101|
@@ -30,27 +30,27 @@
 |PN|Adafactor|linear1093|128|0|101|
 |PS|Adafactor|linear100000|128|0|42|
 
-Adafactor显式设置`scale_parameter=False, relative_step=False`。公开源码的100000是硬编码总步数；1024更新末步的字面调度学习率仍为.00098977。PN的1093由ceil(1024×100000/93750)确定，用于训练进度缩放敏感性，末步lr=.00006404。PN不冒充字面公开配置。
+Adafactor explicitly uses `scale_parameter=False, relative_step=False`. The public source hard-codes 100000 total steps. Its literal schedule is still at .00098977 at update 1024. PN uses 1093 steps from ceil(1024×100000/93750) to assess training-progress scaling, with a final learning rate of .00006404. PN is a sensitivity arm.
 
-P只对齐表内超参数。作者CSV、公共预处理的多段mask和完整训练器未被替换进来，因此本轮不是作者不可得checkpoint的重建，也不替代历史93750步训练。
+P aligns only the listed hyperparameters. It retains the local data and training pipeline instead of substituting the authors' unavailable CSV, the public preprocessing's multiple masks or the full trainer. The experiment does not recover the original checkpoint or replace the historical 93750-step training.
 
-## 两域、两视角
+## Two domains and two evaluation views
 
-沿用已有source512查询/512仓库、CoSQA开发512查询/512关联组与原19210/6267完整语料；使用同一冻结CodeBERT pooler，不重训检索器。
+Reuse the existing source512 queries in 512 repositories and CoSQA development512 queries in 512 linked groups, with complete corpora of 19210/6267. Use the same frozen CodeBERT pooler without retraining.
 
-1. 各组生成自己的候选后检索：测训练配置的端到端影响。
-2. 固定历史local候选文本/排名，只替换CQC权重重评分：测相同候选下的选择变化。
+1. Generate and retrieve each arm's own candidates to measure end-to-end changes across training settings.
+2. Hold historical local candidate text and ranks fixed and rescore with the CQC weights for each arm to measure selection changes on the same candidates.
 
-相同1…n位置、greedy19新token、batch8、FP32、TF32关闭、无dropout。ENTR用全词表teacher-forcing熵；PROB用平均标签log概率；RAND为原位置均匀无放回的精确期望，重复文本位置的概率质量保留。RAND20兼容旧口径另列。
+All arms use positions 1…n, greedy19 new tokens, batch8, FP32, TF32 disabled and dropout disabled. ENTR uses full-vocabulary teacher-forcing entropy, and PROB uses mean label log probability. RAND is the exact uniform expectation over original positions without replacement. Duplicate texts retain their positions' probability mass. RAND20 is reported separately for the historical comparison.
 
-S3=ENTR best3−RAND_exact best3；Top1净收益=ENTR Top1−NoRewrite。best3用真实标签选优，是机会指标，不是可执行选择器。相对随机的优势与相对原句的净收益分别解释。
+S3=ENTR best3−RAND_exact best3. Top1 net utility=ENTR Top1−NoRewrite. Best3 uses relevance labels to measure candidate opportunity. Report advantage over random separately from net gain over the original query.
 
-## 统计与复核
+## Statistical analysis and verification
 
-主比较族在开效果前固定：7个非L分支×2域×{S3变化、Top1净收益变化}=28项。均使用同一查询配对差、10000次原组bootstrap和cluster-t，以Bonferroni控制该族。固定候选、PROB、PS−P和PN−P等补充分析为描述性；不按结果扩展主比较或选择正式配置。
+Before opening effects, the primary family was fixed at 7 non-L arms×2 domains×{change in S3, change in Top1 net utility}=28 contrasts. Pair queries and use 10000 original-group bootstrap resamples and cluster-t intervals with Bonferroni correction. Fixed-candidate, PROB, PS−P and PN−P results are descriptive. Effects did not determine the family or production configuration.
 
-区间条件于实际训练实例，不包含训练种子总体方差。跨零不解释为无效或等效；两域差异须直接检验，不能从一域显著、另一域不显著推断。
+Intervals condition on the actual training runs and do not cover seed-to-seed variation. An interval spanning zero leaves direction unresolved and does not establish equivalence. Cross-domain differences require direct contrasts.
 
-独立审计分三层：重推训练bank及全部更新/lr/真实权重；从原排名以Fraction/CDF重算RR、精确随机和组区间；真实T5再生成、FP64熵与CodeBERT前向抽查。全新持久化dense得分对应的Top100顺序逐行独立复核。
+Independent checks reconstructed the training bank, updates, learning rates and weights, recalculated RR, exact random selection and group intervals from ranks with Fraction/CDF, and spot-checked T5 regeneration, FP64 entropy and CodeBERT forward passes. Every Top100 order was independently checked against the newly retained dense scores.
 
-这轮是已消费数据上的训练保真度诊断，不打开H、不形成新确认或风险证书。正式五指针、历史T5/CodeBERT及旧确认和既有结果保持。
+This training-fidelity diagnostic reused previously used data and left H closed. It supplies neither a new confirmation nor risk certification. The five production pointers, historical T5/CodeBERT and earlier confirmation and results were retained.

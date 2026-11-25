@@ -19,10 +19,10 @@ from experiments.rene_relevance_sensitivity_20261021.common import (
     OLD, OUT as SENSITIVITY, REVIEW, ROOT, frozen, read, rows, sha)
 
 
-SOURCE = ROOT / "results/评审AB与补审AB_最终文件"
+SOURCE = ROOT / 'results / Evaluation AB and Review AB_ Final documents'
 OUT = ROOT / "results/rene_review_final_reanalysis_20261021"
-RELEVANCE = {"2": "满足需求", "1": "部分满足", "0": "不满足", "u": "无法判断／上下文不足"}
-FIDELITY = {"preserved": "含义保持", "drift": "含义偏移", "malformed": "不可读", "uncertain": "无法判断"}
+RELEVANCE = {"2": 'Meeting needs', "1": 'Partially satisfied', "0": 'Unsatisfactory', "u": 'Unable to judge/failure context'}
+FIDELITY = {"preserved": 'meaning preserved', "drift": 'meaning drift', "malformed": 'Unreadable', "uncertain": 'cannot determine'}
 
 
 def put(path, value):
@@ -122,8 +122,8 @@ def agreement(left, right):
 
 
 def check_display(folder, prefix, case_order, case_map, raw, query_map, main):
-    html = (folder / (prefix + "结果.html")).read_text(encoding="utf-8-sig")
-    text = compact((folder / (prefix + "结果.txt")).read_text(encoding="utf-8-sig"))
+    html = (folder / (prefix + 'Results. html')).read_text(encoding="utf-8-sig")
+    text = compact((folder / (prefix + 'Results. txt')).read_text(encoding="utf-8-sig"))
     sections = re.findall(r"<section>(.*?)</section>", html, re.S)
     assert len(sections) == len(case_order)
     checked = 0
@@ -168,7 +168,7 @@ def main():
     raw_main, mapped, raw_supplement, supplements = {}, {}, {}, {}
     comparison, display_checks, statuses = {}, {}, {}
     for reviewer in ("A", "B"):
-        main_folder = SOURCE / ("评审" + reviewer)
+        main_folder = SOURCE / ('Review' + reviewer)
         semantic_path = main_folder / ("review-" + reviewer + "-semantic-complete.json")
         code_path = main_folder / ("review-" + reviewer + "-code-complete.json")
         semantic, code = load_return(semantic_path), load_return(code_path)
@@ -183,7 +183,7 @@ def main():
         raw_main[reviewer] = code
         mapped[reviewer] = normalize_original(code, original_keys[reviewer], reviewer)
         packet = supplement_keys[reviewer]
-        supplement_folder = SOURCE / ("补审" + reviewer)
+        supplement_folder = SOURCE / ('Retroactivity' + reviewer)
         payload = load_return(supplement_folder / ("relevance-supplement-" + reviewer + "-complete.json"))
         raw_supplement[reviewer] = payload
         supplements[reviewer] = normalize_supplement(payload, packet, reviewer)
@@ -200,10 +200,10 @@ def main():
                                   "independence_confirmed_in_return": False, "accepted_labels": 0,
                                   "pending": "independence confirmation; judgments retained without modification"}
         display_checks["main_" + reviewer] = check_display(
-            main_folder, "评审" + reviewer, list(semantic["answers"]),
+            main_folder, 'Review' + reviewer, list(semantic["answers"]),
             {c["case_id"]: c for c in original_keys[reviewer]["cases"]}, code, query_map, True)
         display_checks["supplement_" + reviewer] = check_display(
-            supplement_folder, "补审" + reviewer, list(payload["answers"]),
+            supplement_folder, 'Retroactivity' + reviewer, list(payload["answers"]),
             {c["case_id"]: c for c in packet["cases"]}, payload, query_map, False)
     original_semantics = {r: [] for r in ("A", "B")}
     original_code = {r: [] for r in ("A", "B")}

@@ -1,14 +1,14 @@
-# 同池候选数量与聚合方式分解
+# Same-pool decomposition of selected count and aggregation
 
-源侧2048查询/594仓库，CoSQA开发1490查询/512关联组；固定本地CQC T5候选和双检索器缓存。k为下游候选数，全部位置生成与打分成本保持。无新生成、训练、检索或H效果评估。此轮为事后配对诊断。
+The source sample contains 2048 queries in 594 repositories. CoSQA development contains 1490 queries in 512 linked groups. Both use the frozen local CQC T5 candidates and both retrievers' caches. The selected count k is determined after generating and scoring all positions. The post-hoc paired diagnostic adds no generation, training, retrieval or H evaluation.
 
-mean是在选中集合中均匀采用一条的期望RR；max为标签辅助best-k机会；first始终执行前缀第一条。精确随机按原位置无放回积分，重复文本位置不合并。mean不是融合，max不是可部署选择器。
+Mean aggregation gives the expected RR from uniformly adopting one selected candidate. `max` is the label-assisted best-of-k opportunity. `first` always executes the first candidate in the prefix. Exact random selection integrates the uniform distribution over distinct positions without replacement. Positions with identical text retain their probability mass. Mean aggregation averages RRs, and `max` depends on labels.
 
-## 同数量下聚合、同聚合下数量的完整对照
+## Aggregation at fixed counts and selected count under fixed aggregation
 
-下表为选择规则相对同k精确随机的优势。每格为mean / max；完整MRR、相对原query差及逐项区间见FACTORIAL.csv。first优势对所有k相同。
+The table gives the selection rule's advantage over exact random selection at the same k. Each cell lists mean / max. See `FACTORIAL.csv` for the full MRR values, differences from the original query and individual intervals. The advantage under `first` is constant across k.
 
-|数据 / 检索器|规则|k=1 mean / max|k=2 mean / max|k=3 mean / max|
+|Data / Retrieval|Rule|k=1 mean / max|k=2 mean / max|k=3 mean / max|
 |---|---|---:|---:|---:|
 |source / CodeBERT|ENTR|+0.00083866 / +0.00083866|+0.00232108 / -0.00232957|+0.00203055 / -0.00435649|
 |source / CodeBERT|PROB|+0.00304005 / +0.00304005|+0.00148662 / -0.00215254|+0.00243968 / -0.00367606|
@@ -19,13 +19,13 @@ mean是在选中集合中均匀采用一条的期望RR；max为标签辅助best-
 |cosqa / BM25|ENTR|-0.00169972 / -0.00169972|+0.00244249 / +0.00188731|-0.00002198 / -0.00113711|
 |cosqa / BM25|PROB|-0.00062378 / -0.00062378|+0.00106614 / -0.00085339|-0.00014547 / -0.00170806|
 
-## 预设路径分解
+## Specified decomposition path
 
-S为相对同k精确随机的优势。B=S(1,mean)−S(3,mean)，G=S(3,mean)−S(3,max)，J_exact=B+G。B和G的正值表示原优势在相应变化下减弱，负值表示增强。
+S is the advantage over exact random selection at the same k. B=S(1,mean)−S(3,mean), G=S(3,mean)−S(3,max), and J_exact=B+G. A positive B or G means the original advantage shrinks across the specified step. A negative value means it grows.
 
-预设24项为四个数据×检索器格、ENTR/PROB/ENTR−PROB、B/G两个分量。表内为Bonferroni校正的组bootstrap区间；完整结果同时提供cluster-t校正区间。不新增等效判定。
+The specified family has 24 comparisons from four data-by-retriever settings, the ENTR and PROB rules and their direct difference ENTR−PROB, and the B and G components. The table shows Bonferroni-corrected group bootstrap intervals. The full results also contain corrected cluster-t intervals. This analysis adds no equivalence decision.
 
-|数据 / 检索器|规则|B 固定mean的1→3变化|24项校正区间|G 固定3的mean→max变化|24项校正区间|J_exact|
+|Data / Retrieval|Rule|1/3 change in fixed-mean|24 Correction slots|G fixed 3 mean→max variation|24 Correction slots|J_exact|
 |---|---|---:|---|---:|---|---:|
 |source / CodeBERT|ENTR|-0.00119189|[-0.00793894, +0.00546475]|+0.00638704|[+0.00195385, +0.01072038]|+0.00519515|
 |source / CodeBERT|PROB|+0.00060037|[-0.00568646, +0.00742975]|+0.00611574|[+0.00137037, +0.01093849]|+0.00671611|
@@ -40,22 +40,22 @@ S为相对同k精确随机的优势。B=S(1,mean)−S(3,mean)，G=S(3,mean)−S(
 |cosqa / BM25|PROB|-0.00047832|[-0.00624677, +0.00497573]|+0.00156260|[-0.00213394, +0.00545720]|+0.00108428|
 |cosqa / BM25|ENTR_minus_PROB|-0.00119942|[-0.00592436, +0.00301265]|-0.00044746|[-0.00277231, +0.00215915]|-0.00164688|
 
-## 原A的RAND20记账
+## RAND20 accounting in the earlier analysis A
 
-原A不覆盖：J20=J_exact+(RAND20_best3−RAND_exact_best3)。此轮主分解用精确随机，有限重复误差另列。
+The earlier A is retained: J20=J_exact+(RAND20_best3−RAND_exact_best3). The primary decomposition here uses exact random selection and reports the finite-repeat discrepancy separately.
 
-|数据 / 检索器|ENTR J20|ENTR J_exact|RAND20−精确随机best3|
+|Data / Retrieval|ENTR J20|ENTR J_exact|RAND20− Accurate Random best3|
 |---|---:|---:|---:|
 |source / CodeBERT|+0.00519168|+0.00519515|-0.00000347|
 |source / BM25|-0.00082678|-0.00080625|-0.00002053|
 |cosqa / CodeBERT|+0.02556783|+0.02515642|+0.00041141|
 |cosqa / BM25|+0.00024798|-0.00056260|+0.00081058|
 
-## 对解释的约束
+## Interpretation and scope
 
-- k1时三种聚合相同；first下增加k不改变实际动作。mean→max改变了利用标签选择候选的权利，不能写成免费增加的线上能力。
-- B/G是指定参考路径下的算术分解，不是独立可操纵的两个因果机制，不报告无依据的“主因占比”。
-- 相对随机优势和相对原query净收益分别报告，不能用前者代替后者；ENTR与PROB差别需直接比较，不能仅比较显著性。
-- 关联组bootstrap10000次、查询加权；数据为已消费开发/源侧。旧H确认、正式配置及risk_certified=false保持。
+- At k1 all three aggregation rules coincide. Under `first`, increasing k leaves the executed action unchanged. The change from mean to `max` adds the ability to use labels to select the candidate. This differs from executable automatic selection.
+- B/G form an arithmetic decomposition along a specified reference path. The decomposition does not identify independent causal mechanisms or their shares.
+- Report selection advantage over exact random selection separately from net gain over the original query. Assess ENTR versus PROB by their direct difference using paired queries.
+- The bootstrap used 10000 linked-group resamples and query weighting. The development and source samples had already been used. The original H confirmation and study configuration were retained. `risk_certified=false`.
 
-完整机器结果RESULTS.json；FACTORIAL.csv有108个含first锚点的因素单元，主mean/max单元72个；CONTRASTS.csv含固定聚合的数量变化和固定数量的聚合变化；DECOMPOSITION.csv为24项预设分量。独立Fraction/CDF重放见AUDIT.json，验收范围见FINAL_ACCEPTANCE.json。
+`RESULTS.json` contains all machine-readable results. `FACTORIAL.csv` contains 108 factor cells including `first` references, and 72 mean/max cells. `CONTRASTS.csv` contains counts at fixed aggregation and aggregation at fixed counts. `DECOMPOSITION.csv` contains the 24 specified components. See `AUDIT.json` for independent Fraction/CDF replay and `FINAL_ACCEPTANCE.json` for the scope of acceptance.

@@ -1,93 +1,93 @@
-# 同池多候选融合完成：结果与贡献判定
+# Same-pool candidate fusion: results and interpretation
 
-日期：2026-10-20。实验、独立排名/效用/区间复算和最终验收全部通过。
+Date: 2026-10-20. The experiment passed independent rank, utility and interval replay and the final acceptance checks.
 
-**三候选融合与加入原查询的四列表融合均未建立相对NoRewrite的正收益。融合能够减轻强制Top1的一部分损害，BM25上的相对改善明确；这补充了“同池候选如何自动利用”的受控证据，但不证明自动采纳普遍不可行，也不证明新UQ算法有效。**
+**Positive net gain over NoRewrite was not established for three-candidate fusion or for fusion of four lists including the original query. Fusion reduced some of the loss from forced Top1, with a clear improvement relative to forced Top1 in the tested BM25 setting.** This is a controlled comparison of executable candidate use. Automatic adoption in general and new UQ methods are outside this finding.
 
-## 实验及数据
+## Data and design
 
-只使用已消费CoSQA开发D的1490条查询、512个关联组、6267文档。两检索器CodeBERT/BM25使用同一冻结本地CQC T5的ENTR三候选及原有Top100排名。RRF固定常数60、等权、完全相同检索输入文本去重、精确有理分数排序、文档ID升序并列、输出Top100。无标签构造动作，封存后才读取本次评测标签。
+The analysis uses 1490 queries in 512 linked groups and 6267 documents from previously used CoSQA development D. CodeBERT and BM25 use the same three ENTR candidates and frozen Top100 lists from the local CQC T5. RRF uses constant 60 and equal weights, deduplicates identical input text, computes exact rational scores, breaks ties by ascending document ID and returns Top100. Actions were built without labels and sealed before the evaluation labels were opened.
 
-本轮没有训练、生成、重新检索、CE或风险门，也没有权重/阈值搜索。三候选仍由SSQR原生熵选出，“不用额外UQ头”不能改写为“消除了全部熵信息”。
+The study added no training, generation, retrieval, CE, risk gate, or searches over weights and thresholds. SSQR entropy still selects the three candidates. Fusion uses these candidates without an additional UQ head.
 
-## 主要结果
+## Primary results
 
-ΔMRR全部相对NoRewrite；点式区间为关联组bootstrap95%。四项主要效应额外给出Bonferroni校正区间，即每项98.75%。
+All ΔMRR values use NoRewrite as reference. Pointwise intervals are 95% linked-group bootstrap intervals. The four primary effects also have Bonferroni-corrected 98.75% intervals.
 
-|策略|CodeBERT ΔMRR|BM25 ΔMRR|CodeBERT有益/有害|BM25有益/有害|
+|Policy|CodeBERT ΔMRR|BM25 ΔMRR|CodeBERT Useful/harmful|BM25 Useful/harmful|
 |---|---:|---:|---:|---:|
 |NoRewrite|0|0|0/0|0/0|
 |ENTR Top1|−.01365851|−.02035096|292/388|45/555|
-|RRF3：三候选|−.01009966|−.00357041|303/352|92/411|
-|RRF4：原query+三候选|−.00630794|−.00202436|287/284|81/349|
-|ENTR best3，标签辅助机会|+.06037845|+.00977629|528/125|128/319|
+|RRF3: Three candidates|−.01009966|−.00357041|303/352|92/411|
+|RRF4: Original query+ Three Candidates|−.00630794|−.00202436|287/284|81/349|
+|ENTR best3 Labels support opportunities|+.06037845|+.00977629|528/125|128/319|
 
-|主要比较|点式95%区间|四项家族校正区间|判定|
+|Main comparisons|Points 95%|Four family correction blocks.|Decision|
 |---|---|---|---|
-|CodeBERT RRF3−原query|[−.01971797,−.00039499]|[−.02279004,+.00227612]|校正后跨0；未建立正收益|
-|CodeBERT RRF4−原query|[−.01356337,+.00068063]|[−.01556317,+.00252055]|跨0；未建立正收益|
-|BM25 RRF3−原query|[−.00605671,−.00109454]|[−.00681099,−.00040266]|校正后负向|
-|BM25 RRF4−原query|[−.00375980,−.00041231]|[−.00419819,+.00002045]|校正后跨0；未建立正收益|
+|CodeBERT RRF3−original query|[−.01971797,−.00039499]|[−.02279004,+.00227612]|Corrected interval spans 0; positive gain not established|
+|CodeBERT RRF4−original query|[−.01356337,+.00068063]|[−.01556317,+.00252055]|Interval spans 0; positive gain not established|
+|BM25 RRF3− Original query|[−.00605671,−.00109454]|[−.00681099,−.00040266]|Correct negative direction|
+|BM25 RRF4−original query|[−.00375980,−.00041231]|[−.00419819,+.00002045]|Corrected interval spans 0; positive gain not established|
 
-**四个负点估计不等于四个已经确定有害的总体效应。** 其中只有BM25的RRF3在四项家族校正后仍为负，其余三项未决；此次没有设等效界，不将跨零写成等效或无作用。
+After correction across the four primary effects, only BM25 RRF3 remains negative. The other three effects are unresolved. No equivalence margin was specified for these contrasts.
 
-## 改善发生在哪里
+## Comparisons with forced Top1 and the contribution of the original query
 
-RRF4相对ENTR Top1：CodeBERT +.00735057，95%区间[−.00181023,+.01681903]；BM25 +.01832660，[+.01338007,+.02354481]。BM25的三候选RRF3相对Top1也为正：+.01678055，[+.01193765,+.02195994]。这些是次要配对描述，不冒称四项主比较之外的预注册确认。
+RRF4 minus ENTR Top1 is +.00735057 for CodeBERT (95% interval [−.00181023,+.01681903]) and +.01832660 for BM25 ([+.01338007,+.02354481]). BM25 RRF3 minus Top1 is also positive, +.01678055 ([+.01193765,+.02195994]). These paired contrasts are descriptive secondary results.
 
-加入原query后的RRF4相对RRF3，CodeBERT +.00379172、BM25 +.00154605，但区间分别为[−.00116375,+.00886707]、[−.00023031,+.00338637]。**原query参与有正向点趋势，条件增益尚未确立。** 两检索器对应效应的直接配对差亦跨0，不能据一边显著、一边不显著就宣布检索器交互。
+For RRF4 minus RRF3, the point estimates are +.00379172 for CodeBERT and +.00154605 for BM25. Their intervals are [−.00116375,+.00886707] and [−.00023031,+.00338637]. The incremental gain from including the original query is unresolved. The direct paired difference between retrievers also spans 0.
 
-以1490条查询为共同分母：
+The common denominator is 1490 queries:
 
-- CodeBERT有害频率：Top1 26.04% → RRF3 23.62% → RRF4 19.06%。
-- BM25有害频率：Top1 37.25% → RRF3 27.58% → RRF4 23.42%。
-- RRF3→RRF4，CodeBERT正收益量/查询 .03079309→.02195648、损失量 .04089274→.02826442；BM25正收益量 .00358844→.00215269、损失量 .00715884→.00417705。
+- CodeBERT harm frequency: Top1 26.04% → RRF3 23.62% → RRF4 19.06%.
+- BM25 harm frequency: Top1 37.25% → RRF3 27.58% → RRF4 23.42%.
+- From RRF3 to RRF4, CodeBERT positive gain per query changes from .03079309 to .02195648 and loss per query from .04089274 to .02826442. BM25 positive gain changes from .00358844 to .00215269 and loss from .00715884 to .00417705.
 
-因此原query参与融合在所测池上同时压低正收益和损失；损失量仍大于正收益量，净ΔMRR保持负点估计。正负机会都被改变，不能用“有害次数减少”代替实际净效用。
+Including the original query reduces both positive gain and loss in the measured pool. Loss magnitude remains above positive gain, so the net ΔMRR estimates remain negative. Harm frequency and net utility describe separate quantities.
 
-best3是标签辅助的单候选机会，并非融合上界。RRF3/RRF4分别在CodeBERT 54/59条、BM25 174/223条query上超过全部三条单候选RR；不计算以best3为分母的“融合收益保留率”。
+Best3 is the label-assisted opportunity from executing one candidate. Fusion constructs a different ranking. RRF3/RRF4 exceed the individual RRs of all three candidates on 54/59 CodeBERT queries and 174/223 BM25 queries. Best3 is therefore not used as a retention denominator for fusion.
 
-## 真实成本口径
+## Workload accounting
 
-|策略|每query所需唯一检索输入均值|总唯一输入数|位置生成数|
+|Policy|Only search input average for each query|Total single input|Location Generations|
 |---|---:|---:|---:|
 |NoRewrite|1.0000|1490|0|
 |ENTR Top1|1.0000|1490|9915|
 |RRF3|2.9799|4440|9915|
 |RRF4|3.9799|5930|9915|
 
-Top1独立执行不要求检索原句；若共同原句检索也计入则是2980。所有改写策略在本轮共用既有完整位置生成池。四列表共同缓存5930次唯一输入，只保证受控比较时可用证据相同，不代表线上成本相同。本轮新神经调用为0；上表是实际策略需要的输入次数，不是已测延迟、金额或token开销。
+Standalone Top1 requires only the rewritten input. Adding the common original-query retrieval gives 2980 inputs. The rewrite policies share the existing full-position generation pool. The four-list cache contains 5930 unique inputs for the controlled comparison. The rerun made 0 new neural calls. The table reports input counts per policy, which do not measure online time, monetary cost or token count.
 
-## 对既定主线和贡献的作用
+## Role in the replication
 
-主线维持：**在开发者代码搜索中，SSQR式改写的候选收益能实现多少自动采纳收益，哪些证据帮助判断是否应该采用改写？** 定位为已发表方法的外部复现与受控经验扩展。
+The study evaluates how much candidate opportunity from SSQR-style rewriting is realized by automatic execution and what evidence helps determine when to adopt a rewrite. Fusion supplies a controlled executable comparison within the external replication.
 
-|证据部分|现在可以支撑什么|不能替代什么|
+|Evidentiary component|What can we support now?|Can't replace anything.|
 |---|---|---|
-|原CoSQA冻结确认|指定CodeBERT ENTR−RAND20 best3：7718query/1963组，差−.00083652，两个95%区间位于事前±.005；支持指定重建及数据条件下的实际优势边界。|不等于忠实恢复作者权重、因查询来源而失效或全部UQ无效。|
-|第一步A同池直接对照|CoSQA/CodeBERT ENTR相对随机单选+.02793583；与best3相对效应的直接差+.02556783，校正后仍正；熵信号有可测的候选排序价值。PROB对照及精确随机3敏感性保留。|Top1/best3差距本身已有原文；本轮差异同时涉及预算与max聚合，不是纯UQ机制因果。|
-|第二步B同动作采用|固定ENTR Top1和同监督四头对照，未建立生成置信的额外采用收益；CodeBERT固定296采用时完整头相对共同特征仅+.00002276，有害53→81。|不证明所有UQ没有价值，不用A显著/B不显著证明阶段交互；不能忽略旧1536四seed阳性。|
-|本轮同池RRF3/4|补上无需新UQ/监督头的多候选执行对照，展示强制Top1的部分损害可被融合减轻，但此设置未建立对NoRewrite的正收益。|不再把选择器表现完全归因于固定单选；也不将有限基线外推为所有自动利用不可能。|
+|Original frozen CoSQA confirmation|The specified CodeBERT ENTR−RAND20 best3 contrast used 7718 queries in 1963 groups. The difference was −.00083652 and both 95% intervals fell within the prespecified ±.005 margin. This bounds the advantage for the designated reconstruction and setting.|The contrast does not recover the authors' weights, isolate a causal effect of query source, or establish general ineffectiveness of UQ.|
+|Step 1 A Direct comparison with pool|CoSQA/CodeBERT ENTR Relative random stand-alone +.02793583; Direct deviation from best3 relative effects +.02556783, corrected to be positive; Entropy signals have measurable candidate ranking values. PROB Contrast and precise random 3 Sensitivity retention.|Top1/best3 The gap itself is already in the original language; The difference in this round involves both budget and max aggregation, not pure UQ mechanism causality.|
+|Step B, fixed-action adoption|For fixed ENTR Top1 and four equally supervised heads, incremental adoption gain from generation confidence was not established. With 296 adoptions in CodeBERT, the full head improves on the common features by only +.00002276 and increases harm from 53 to 81.|This leaves broader UQ utility unresolved, does not establish a stage interaction, and retains the historical positive result on 1536 queries with four seeds in its own scope.|
+|Same-pool RRF3/4|The executable multiple-candidate control uses no additional UQ or supervised head. Fusion can mitigate some losses from forced Top1. Positive gain over NoRewrite was not established.|The controlled fusion baseline expands the evaluated use of candidates. Other automatic use policies remain outside the comparison.|
 
-**数据已足以支撑上述限定的复现与扩展结论；尚不足以将“泛化的候选—自动收益差距”独立包装为新贡献，或宣称整篇论文已经满足RENE录用标准。** 原SSQR表5已报告Top1与Top3差异，QueryRoute及QPP近邻也已覆盖通用选择差距。最有价值的主结果应是指定原主张的新数据检验，以及同池、明确预算/评价口径的直接对照。完整近邻差异见`PRIOR_WORK_COMPARISON.md`。
+The evidence supports the specified replication and controlled extension. SSQR Table 5 already reports Top1 versus Top3, and QueryRoute and query performance prediction studies address the general gap between candidate opportunity and selection. This experiment's contribution concerns the direct same-pool contrast under the stated selected counts and evaluation contracts. See `PRIOR_WORK_COMPARISON.md` for related work.
 
-风险证书不是这篇外部复现与受控扩展的必要产物。本轮没有风险门，故不能把负点估计完全归因于风险回退；正式`risk_certified=false`保持。
+The fusion comparison had no risk gate. The negative point estimates therefore cannot be explained by risk fallback in this comparison. `risk_certified=false`.
 
-## 还缺什么、下一步如何收敛
+## Historical follow-up and delivery decisions
 
-1. **形成论文级贡献验收。** 把旧冻结确认、A、B及本轮结果组织为同一问题的主表和有限结论；将近邻已覆盖的通用oracle/采纳叙事移出“首次”主张。重点解释SSQR指定比较在何种预算、评价口径与检索器下成立，不再单纯累计相似负结果。
-2. **闭合准备使用的跨权重证据。** t5-base两域摘要已有，但先前执行未持久化排名/逐query RR，尚不能独立重放。若正文要用“不同T5权重均复现”作为主要广度证据，必须补齐该证据并审计；否则将其移出核心表。补此项不等于需要重新训练。
-3. **按实际主张补证，而非统一追加数据。** 只有保留“查询来源导致变化”的解释才需要同目标同语料的用户query/docstring对照C，且仍非纯措辞因果；只有要宣布新策略在新数据上已验证有效才需新的合格确认池、组功效和单一冻结策略。CoSQA D/H已消费，不能刷新为新确认。当前已有确认及透明后验扩展仍可使用。
-4. **投稿交付范围验收。** 已通过的隔离目录复算和本轮数值审计保留；投稿包需包含本轮新增代码、动作、统计、来源与依赖许可的可获取入口。效率主张若保留，补实际运行测量；当前次数表不冒充延迟结果。
+1. The planned report would align the frozen confirmation, analyses A and B, and the fusion comparison with the specific SSQR contract and retrievers. The general gap between candidate opportunity and adoption had already been studied.
+2. The two t5-base summaries existed, while the rankings and per-query RR had yet to be retained for independent replay. Use as strong breadth evidence depended on filling and auditing that gap. The later two-weight reports document its status.
+3. A query-source explanation would require a matched target and corpus with user queries and docstrings, and would still not isolate phrasing. Confirmation of a new policy would require eligible new groups, precision planning and a single frozen policy. Previously used CoSQA D/H remain in their recorded roles.
+4. Delivery would include the verified clean-directory replay, experiment code, actions, statistics, provenance and dependency notices. An efficiency claim about latency would require timing measurements beyond the recorded input counts.
 
-作者T5 checkpoint不可得、本地CQC/解码及原生产聚合恢复程度仍由`paper/rene2027/implementation_fidelity.md`限定。本轮不改正式模块，不重开H，不继续扫RRF权重或选择阈值，也不自动启动C或新的确认。
+See the historical `paper/rene2027/implementation_fidelity.md` for the unavailable author T5 checkpoint and the limits of local CQC training, decoding and original production-aggregation recovery. This run did not reopen H or retune the policies.
 
-## 独立复核
+## Independent verification
 
-- 8项科学契约测试全部通过。
-- 独立审计器不导入生产排名、去重或指标模块，以Fraction重算5960条完整融合Top100，全部一致。
-- 独立核对14900个RR、29800个逐query效应、23项标量对照及146个区间字段；RR/效应误差为0，区间最大差9.71e−17。
-- 37项冻结输入/源码/保护文件和2份封存动作哈希一致；旧A/B、H确认及五个正式指针均未改变。
-- `FINAL_ACCEPTANCE.json`为PASS；本轮角色为`consumed_development_post_hoc_extension`，不是新确认。
+- All 8 evaluation-contract tests passed.
+- An independent audit without production ranking, deduplication or metric modules recomputed all 5960 fused Top100 lists with `Fraction`. All rankings matched.
+- Independent checks covered 14900 RRs, 29800 per-query effects, 23 scalar contrasts and 146 interval fields. RR and effect discrepancies were 0. The maximum interval discrepancy was 9.71e−17.
+- Hashes matched for 37 frozen inputs, source and protected files, and 2 sealed action files. Earlier analyses A/B, the H confirmation and the five recorded pointers were retained.
+- `FINAL_ACCEPTANCE.json` records PASS. The role was `consumed_development_post_hoc_extension`.
 
-数表：`READOUT.md`、`RESULTS.json`；协议：`PROTOCOL.json`；独立证据：`AUDIT.json`、`FINAL_ACCEPTANCE.json`；复算入口：`experiments/rene_multicandidate_fusion_20261020/README.md`。
+Tables: `READOUT.md` and `RESULTS.json`. Protocol: `PROTOCOL.json`. Independent evidence: `AUDIT.json` and `FINAL_ACCEPTANCE.json`. Replay: `experiments/rene_multicandidate_fusion_20261020/README.md`.

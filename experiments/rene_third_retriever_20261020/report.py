@@ -47,58 +47,58 @@ def main():
         for ret, records in data['paired_differences'].items():
             all_effects += [{'domain': domain, 'system_comparison': NAME + '_minus_' + ret, 'contrast': c, **s} for c, s in records.items()]
     export_csv(OUT / 'ALL_EFFECTS.csv', all_effects)
-    lines = ['# 第三个检索器：UniXcoder 固定候选扩展', '',
-        '本轮检验数量分量B、聚合分量G如何迁移到一个额外的代码检索系统，并直接比较与CodeBERT、BM25的分量差。',
-        '采用作者公开的UniXcoder-base零样本检索权重和官方code256/nl128、encoder-only、归一化均值池化。没有本地训练或新增T5候选。', '',
-        '## 主要比较', '',
-        'B为ENTR相对精确随机的优势从单候选mean到三候选mean的减少量；G为三候选mean到标签辅助best3的进一步减少量。正值表示所测相对优势减弱，负值表示反向。',
-        '两个场景各自包含新模型的B/G，以及新模型分别减CodeBERT/BM25的B/G，共12项，统一Bonferroni校正；以下两套区间同时用于方向判断。', '',
-        '|场景|比较|分量|估计|校正cluster-t区间|校正bootstrap区间|方向|',
+    lines = ['# Third Retrieval: UniXcoder Fixed candidate extension', '',
+        "How this round ' s mass weight B, polymer mass G is moved to an additional code retrieval system and directly compares the difference between the amount of CodeBERT and BM25.",
+        "Use the author ' s publicly available UniXcoder-base zero sample search weight and official code256/nl128, encoder-only, and normalized average values. No local training or new T5 candidate.", '',
+        '## Main comparisons', '',
+        'B is a reduction in the relative precision and random advantage of ENTR from single candidates mean to three candidates mean; G further reductions for three candidates mean to label aids best3. Positive values indicate a weakening of the measured comparative advantage and negative values represent reverses.',
+        'Two scenarios each containing B/G of the new model and B/G of the new model subtracted from CodeBERT/BM25, for a total of 12 items, harmonized Bonferroni correction; The following two sets are used for both directional determinations.', '',
+        'Zero-scale calibration cluster-t Inter-sectional calibration bootstrap',
         '|---|---|---|---:|---|---|---|']
     for r in primary:
         lines.append(f"|{r['domain']}|{r['system_comparison']}|{'B' if '_B_' in r['contrast'] else 'G'}|{r['mean']:+.8f}|{ci_text(r['family12_ci_cluster_t'])}|{ci_text(r['family12_ci_group_bootstrap'])}|{r['direction']}|")
-    lines += ['', '## 同预算选择优势与原查询参照', '',
-        '下表为描述性点估计，逐项95%区间见ALL_EFFECTS.csv/RESULTS.json。best3依赖相关标签，不是可执行部署收益。', '',
-        '|场景|检索器|ENTR−随机：1 mean|3 mean|3 best3|Top1−原查询|best3−原查询|',
+    lines += ['', '## Reference to budget selection advantages and original queries', '',
+        'The table below is a descriptive point estimate, item by item 95% See All_EFFECTS.csv/ RESULTS.json. best3 Reliance on relevant labels is not an enforceable deployment gain.', '',
+        'Scene Viewer ENTR -At random: 1  mean| 3  mean| 3 best3 | Top1− Original | best3− Original |',
         '|---|---|---:|---:|---:|---:|---:|']
     for domain, data in result['domains'].items():
         for ret, view in data['views'].items():
             s = view['summaries']
             vals = [s[c]['mean'] for c in ('S_ENTR_k1_mean', 'S_ENTR_k3_mean', 'S_ENTR_k3_max', 'delta_ENTR_k1_mean', 'delta_ENTR_k3_max')]
             lines.append('|'+domain+'|'+ret+'|'+'|'.join(f'{v:+.8f}' for v in vals)+'|')
-    lines += ['', '## 对主线的作用和范围', '']
+    lines += ['', '## Role and scope of the main line', '']
     for domain, data in result['domains'].items():
         s = data['views'][NAME]['summaries']
         directions = [s[c]['direction'] for c in COMPONENTS]
         if directions == ['positive', 'positive']:
-            message = 'B/G两项均在校正后正向，支持所测数量、聚合分解扩展到这一UniXcoder检索条件。'
+            message = 'B/G Both are in a positive direction at school, supporting the expansion of measured quantities and aggregate decomposition to this UniXcoder search condition.'
         elif any(d == 'negative' for d in directions):
-            message = '至少一个分量在校正后反向，为所测分解的检索条件边界提供证据；按表中各项分别解释。'
+            message = 'At least one of the points is positive and reverse in school, providing evidence on the boundaries of the decomposed search conditions; explained separately by the table.'
         elif any(d == 'positive' for d in directions):
-            message = '部分分量在校正后正向；其余仍未决，不能写成两项均已推广。'
+            message = 'Some of the weights are positive and positive; the rest is still pending, and it cannot be written that both have been replicated.'
         else:
-            message = 'B/G两项在本比较族下均未决；不把区间跨零解释为无影响、等效或成功推广。'
+            message = 'B/G Both remain open under this comparator; no inter-territory Zero is interpreted as non-impact, equivalent or successful replication.'
         lines.append(f'- {domain}：{message}')
     lines += ['',
-        '相对旧检索器的分量差须依据同查询配对区间，而不是比较各自显著与否。分量差不是检索器整体性能排名。PROB和ENTR−PROB为描述对照，不以B/G大小宣称某种分数总体更优。',
-        '本研究固定同一改写池、代码文本和标签，比较完整检索系统。模型训练、池化、归一化和官方输入长度共同变化；不宣称单独的架构因果。UniXcoder仍是RoBERTa架构，本轮未扩展改写器家族。',
-        'CoSQA和StaQC均已消费；这是新检索器效果前固定的模型扩展，不是新独立样本确认，也未做外部预注册。CoSQA为1490查询/512组；StaQC为13312查询/13312组。固定现有全样本，不根据效果扩样；功效仅有旧模型方差情景，不保证新模型精度。',
-        'UniXcoder使用CodeSearchNet的NL-PL预训练，未知预训练暴露和语义克隆仍有边界。StaQC的单已知正例标签与Bing/函数场景不同。新增一个模型不建立所有检索器或所有自动采纳政策的普遍结论。', '',
-        '## 复核与复算', '',
-        '9项契约测试、官方例子/独立实际模型前向、完整向量→Top100审计先于新效果；随后用Fraction RR、独立CDF随机期望及配对统计复算。具体计数与误差见PREOPEN_AUDIT.json和FINAL_ACCEPTANCE.json。',
-        'MODEL_PROVENANCE.json记录上游commit、Git/LFS哈希、许可及镜像传输；DESIGN.json绑定输入、代码、权重和保护状态。',
-        '完整重放入口：python -m experiments.rene_third_retriever_20261020.audit --after；需要本地绑定数据/排名。新推理使用run模块，已完成效果不会再次开结果。',
-        'risk_certified=false；本轮不改原确认或生产配置。', '']
+        'The difference in weight between older searchers must be based on a pairing of the same query, rather than comparing each other significantly. The difference in weight is not a total searcher performance ranking. PROB and ENTR−PROB are contrasted, not claiming some sort of overall better score by B/G size.',
+        'The study fixes the same rewrite pool, code text and labels and provides a more complete retrieval system. Joint changes in the length of model training, pooling, regularization and official input; No individual structural causes or consequences are claimed. UniXcoder remains the structure of RoBERTa, which does not extend to the rewrite family in this round.',
+        'CoSQA and StaQC have been consumed; This is a fixed model extension before the effect of the new searcher, and it is not an independent sample confirmation or external pre-registration. CoSQA is a group of 1490 queries/512; StaQC is 13312 Query/13312 group. (a) To fix the existing whole sample and not to expand it on the basis of its effects; The effectiveness is limited to the old model differential scenarios, which do not guarantee the accuracy of the new model.',
+        'UniXcoder uses the CodeSearchNet NL-PL pre-training, unknown pre-training exposure and semantic cloning still have borders. StaQC The single known formal label differs from the Bing/functional scene. The addition of a model does not create all searchers or all the general conclusions that automatically adopt policies.', '',
+        '## Review and recosting', '',
+        '9 Contract tests, official examples/independent physical models forward, complete vectors Top100 audits ahead of new effects; Then with Fraction RR, independent CDF randomly expected and paired statistical recalculations. Details and errors PREOPEN_AUDIT.json and FINAL_ACCEPTANCE.json.',
+        'MODEL_PROVENANCE... json Records upstream commit, Git/LFS Hash, permission and mirror transmission; DESIGN...json Tie input, code, weight and state of protection.',
+        'Full replay entry: python - m experiments.rene_third_retriever_20261020.audit  --after; Local binding of data/ranking is required. The new reasoning uses the run module, and the completed effects will not be repeated.',
+        'risk_certified = false; this round does not change the original confirmation or production configuration.', '']
     (OUT / 'FINDINGS.md').write_text('\n'.join(lines), encoding='utf-8')
-    method = ['# 第三检索器扩展结果', '',
-        '我们固定CoSQA开发样本及StaQC既有样本的改写池、标签和代码语料，将检索系统扩展为公开UniXcoder-base的官方零样本代码检索配置。采用encoder-only前缀、code256/nl128截断、非padding均值池化和单位范数点积。该扩展没有新增训练或T5生成。', '',
-        '主要比较为两场景中的B/G和相对CodeBERT、BM25的同查询分量差，共12项统一Bonferroni校正，报告组bootstrap与cluster-t区间。数据已用于前期实验，因此本轮属于事前指定比较的模型扩展，不称新样本确认。', '',
-        '|场景|UniXcoder分量|估计|校正cluster-t区间|校正bootstrap区间|', '|---|---|---:|---|---|']
+    method = ['# 3rd Retrieval Extension', '',
+        'We fixed CoSQA development of samples and StaQC rewrite ponds, labels and code language for existing samples, expanding the retrieval system to an open UniXcoder-base official zero sample code search configuration. Use encoder-only prefixes, code256/nl128 cut-off, nonpadding mean gestation and unit model points accumulation. This extension does not contain any new training or T5 generation.', '',
+        'The main comparisons are B/G and relative CodeBERT, BM25 of the two scenes with a difference in the same search mass, for a total of 12 items harmonized Bonferroni correction, reporting groups bootstrap and cluster-t. The data have been used in previous experiments, so this round is a model extension for pre-specified comparisons and does not refer to the confirmation of new samples.', '',
+        'UniXcoder Mass | correction cluster-t Inter-section correction bootstrap', '|---|---|---:|---|---|']
     for r in primary:
         if r['system_comparison'] == NAME:
             method.append(f"|{r['domain']}|{'B' if '_B_' in r['contrast'] else 'G'}|{r['mean']:+.8f}|{ci_text(r['family12_ci_cluster_t'])}|{ci_text(r['family12_ci_group_bootstrap'])}|")
-    method += ['', '各分量与跨检索器直接差按完整报告解释。best3保持标签辅助机会指标身份，不能据此推断部署增益、ENTR独有机制或全部模型普遍性。',
-               '完整结果及验收：results/rene_third_retriever_20261020/；公式、方向、范围见FINDINGS.md。', '']
+    method += ['', 'The difference between weights and cross-researchers is explained by the full report. best3 Maintaining tag-aided opportunity indicator identity from which deployment gains cannot be inferred, and ENTR unique mechanisms or full model prevalence.',
+               'Full result and acceptance: results/rene_third_retriever_20261020 /; Formula, direction, range FINDINGS.md.', '']
     paper_path = ROOT / 'paper/rene2027/third_retriever_results.md'
     require(not paper_path.exists(), 'Supplement already exists')
     paper_path.write_text('\n'.join(method), encoding='utf-8')

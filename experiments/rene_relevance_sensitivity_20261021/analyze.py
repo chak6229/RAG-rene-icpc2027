@@ -91,10 +91,10 @@ def summarize(records):
 
 
 def report(result):
-    lines = ['# 相关性敏感性：现有人工标签预览' if result['phase'] == 'existing_labels_preview' else '# 相关性敏感性：补判后分析', '',
-             '本分析使用原128查询/120组、原八层权重及固定动作。扩充集合保留原qrels正例及池内相同文本，再加入人工判相关代码。数值是RR@1或RR@3的政策−原查询差，与原MRR@100不混用。未知面板和unknown逐文本共享状态，以下范围为样本可识别界，不是置信区间。', '',
-             f"合并Top-3共{result['coverage']['total_pool_panels']}个代码面板，已有{result['coverage']['inherited_panels']}个，需两人各补{result['coverage']['new_panels_per_reviewer']}个。当前新人工标签数：{result['new_labels_received']}。", '',
-             '|审阅者|阈值|截断|政策|原qrels差|扩充差范围|差值改变量范围|可定查询|',
+    lines = ['# Relevance sensitivity: preview of existing manual labels' if result['phase'] == 'existing_labels_preview' else '# Relevance sensitivity: post-retroactivity analysis', '',
+             "This analysis uses the original 128 Query/120 group, the original eight-layer weights and fixed actions. Expand the pool to retain the original qrels text, as well as the same text in the pool, and add manual determination of the relevant code. Value is RR@ 1 or RR@ 3 Policy - original query error with original MRR@ 100 It's not a mix. Unknown panel and unknown text-by-text sharing status, with the following ranges being sample identifiable boundaries, not confidence compartments.", '',
+             f"Merge Top-3{result['coverage']['total_pool_panels']}A code panel, already available{result['coverage']['inherited_panels']}I’ll need two men to do it.{result['coverage']['new_panels_per_reviewer']}individual. Current number of new manual tags:{result['new_labels_received']}。", '',
+             "A reviewer's threshold qrels margin extension range of qrels is open to query.",
              '|---|---:|---:|---|---:|---|---|---:|']
     for r in result['summary']:
         if r['threshold'] != 2 or r['policy'] not in ('ENTR_top1', 'RIDGE_verified', 'RIDGE_risk'):
@@ -102,9 +102,9 @@ def report(result):
         def interval(pair):
             return '[' + ', '.join(f'{v:+.6f}' for v in pair) + ']'
         lines.append(f"|{r['reviewer']}|{r['threshold']}|{r['cutoff']}|{r['policy']}|{r['weighted_original_qrels_delta']:+.6f}|{interval(r['weighted_expanded_delta_identification_bounds'])}|{interval(r['weighted_change_from_original_delta_bounds'])}|{r['point_identified_queries']}/128|")
-    lines += ['', '全部48项组合在RESULTS.json。两位审阅者、两个阈值分别保留，无共识投票。安全best3机会仅为标签辅助参照。阈值2、RIDGE_verified、RR@3为主要诊断端点。', '',
-              '现有标签预览是事后敏感性；补判就绪不等于已收到判断。加权界反映样本未知相关性，不含抽样误差或评审误差，不能据此声称总体显著增益或原因解释百分比。', '',
-              '运行：python -m experiments.rene_relevance_sensitivity_20261021.collect --reviewer A --input <完整JSON>；B同理。两份导入后运行analyze --phase completed。']
+    lines += ['', 'All 48 Item grouping in RESULTS.json. Two reviewers and two thresholds were retained, respectively, without a consensus vote. Security best3 opportunities are used only for tag-aid references. Threshold 2, RIDGE_verified, RR @ 3 To the main diagnostic endpoint.', '',
+              'The existing tab preview is ex post sensitive; The completion of the sentence does not amount to having received a judgement. The weighted community reflects the unknown relevance of the sample and does not include a sampling error or an evaluation error, which cannot be used to claim a significant gain overall or a percentage explanation for the cause.', '',
+              'Run: python - m experiments.rene_relevance_sensitivity_20261021.collect  --reviewer  A  --input < Complete JSON >; B Same thing. Run after two imports analyze --phase  completed.']
     return '\n'.join(lines)+'\n'
 
 

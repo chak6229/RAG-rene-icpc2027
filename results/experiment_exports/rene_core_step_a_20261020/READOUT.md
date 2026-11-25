@@ -1,98 +1,98 @@
-# 第一步验证：生成置信在单选与三候选契约中的作用
+# Step A: generation confidence under single-selection and three-candidate contracts
 
-日期：2026-10-20。**已按方案A执行，计算与独立复核通过。**本轮只复用冻结缓存，不生成/训练/检索；未读取H排名或qrels，不改正式组件及旧确认。该分析使用已消费开发/源数据，是事后机制诊断，不是新的独立确认。
+Date: 2026-10-20. The specified analysis A and its independent numerical checks passed. It uses frozen caches and adds no generation, training or retrieval. H rankings and qrels remained closed, and existing components and prior confirmation were retained. This is a post-hoc mechanism diagnostic on previously used development and source data.
 
-## 主要发现
+## Main findings
 
-**CoSQA＋CodeBERT上，ENTR相对随机的收益在单候选预算下显著大于三候选机会契约下；这个差异经四项比较校正仍为正。**与此同时，PROB也有相近现象，ENTR没有已证实的独特优势；两个BM25条件和源CodeBERT条件未建立同样可靠的ENTR契约差异。强制ENTR Top1在四个条件下均低于原查询。
+**In CoSQA/CodeBERT, the measured ENTR advantage over random selection is larger under the single-candidate contract than under the three-candidate opportunity contract. The paired difference remains positive after the four-comparison correction.** PROB follows a similar pattern, and an ENTR-specific advantage was not established. The corresponding ENTR contract differences remain unresolved for both BM25 conditions and source CodeBERT. Forced ENTR Top1 yields lower MRR than the original query in all four settings.
 
-这为论文提供一项具体的受控诊断：**同一个生成置信信号的作用，取决于候选预算、聚合评价和检索器。**它不是新UQ方法有效或自动采纳已获益的证明，也不是新颖性的独立证明。
+In this controlled diagnostic, the measured utility of the same generation-confidence signal depends on selected count, aggregation and retriever. The result does not establish a positive automatic-adoption gain or validate a new UQ method.
 
-## 实验口径
+## Evaluation contract
 
-- 源AdvTest桥接：2048查询/594仓库，完整19210函数语料；CoSQA开发D：1490查询/512关联组，6267文档。
-- 两个检索器：冻结CodeBERT、BM25；同一个本地CQC T5的greedy20_source、位置1…n、全词表teacher-forcing熵。T5-base汇总结果未纳入。
-- ENTR、PROB、RAND共用全部位置的候选及排名。每种预算内部公平比较，重复文本保留原位置概率质量。
-- 单选随机RR按所有位置精确求期望；三选主对照沿用原20个固定随机次序的best3均值。best3不含原查询，只是相关性标签辅助的候选机会。
-- 每条query计算`a=ENTR Top1−随机单选`、`b=ENTR best3−RAND20 best3`、`j=a−b`，再估计查询加权均值；按原仓库/关联组聚类，10000次共同组bootstrap及cluster-t区间。
-- 区间通常为点式95%描述区间；四个ENTR j的附加校正使用Bonferroni，每项98.75%区间。不将D跨零的b宣布为等效，也不把旧H指定等效追溯改成此次j的确认。
+- The source AdvTest bridge uses 2048 queries in 594 repositories and the full 19210-function corpus. CoSQA development D uses 1490 queries in 512 linked groups and 6267 documents.
+- The same local CQC T5 and `greedy20_source` profile serve frozen CodeBERT and BM25, using positions 1…n and full-vocabulary teacher-forced entropy. The T5-base summaries were excluded.
+- ENTR, PROB and RAND share candidates and rankings at every position. Within each selected count the comparison uses the same pool. Duplicate texts retain the probability mass of their positions.
+- The exact single-selection expectation averages RRs over positions. The main three-candidate comparator reuses the mean best3 of the original 20 random orders. Best3 measures relevance-label-assisted opportunity without including the original query.
+- Compute `a=ENTR Top1−random single selection`, `b=ENTR best3−RAND20 best3` and `j=a−b` per query and take query-weighted averages. The intervals use repository or linked-group clustering, with 10000 shared group bootstrap draws and cluster-t intervals.
+- Pointwise 95% intervals are descriptive. The four ENTR j contrasts also use Bonferroni correction, with a 98.75% interval for each. An interval for b spanning zero in D leaves the direction unresolved. The existing H equivalence test remains specific to its designated contrast.
 
-## 同样本直接对照
+## Direct matched-sample contrasts
 
-下表区间为组bootstrap95%。每一行的a、b、j均来自同一批query。
+The following are 95% group bootstrap intervals. Each row uses the same queries for a, b and j.
 
-| 数据/检索器 | a：熵单选−随机单选 | b：熵best3−RAND20 | j：两种契约的效应差 | j的95%区间 |
+| Data/researcher | a: Entropy stand-alone - random stand-alone | b: Nebest3-RAND20 | j: differential effect of two contracts | j 95% |
 |---|---:|---:|---:|---|
 | CoSQA / CodeBERT | +.02793583 | +.00236800 | **+.02556783** | **[+.01660135, +.03437975]** |
 | CoSQA / BM25 | −.00169972 | −.00194770 | +.00024798 | [−.00443244, +.00478773] |
-| 源AdvTest / CodeBERT | +.00083866 | −.00435302 | +.00519168 | [−.00016682, +.01020699] |
-| 源AdvTest / BM25 | −.00216420 | −.00133742 | −.00082678 | [−.00371686, +.00190719] |
+| Source AdvTest/ CodeBERT | +.00083866 | −.00435302 | +.00519168 | [−.00016682, +.01020699] |
+| Source AdvTest/ BM25 | −.00216420 | −.00133742 | −.00082678 | [−.00371686, +.00190719] |
 
-CoSQA/CodeBERT的a区间`[+.01922302,+.03670910]`；b区间`[−.00348469,+.00831373]`，没有被此次D结果排除的有意义正差，不能写成“b等于0”。j则是**直接的配对估计**，不是通过两个p值不同推断。
+For CoSQA/CodeBERT, the interval for a is `[+.01922302,+.03670910]`, and for b it is `[−.00348469,+.00831373]`. The latter leaves meaningful positive differences possible. The estimate of j is the direct paired contrast.
 
-四项ENTR j的Bonferroni区间：
+Bonferroni intervals for the four ENTR j contrasts:
 
-| 数据/检索器 | 校正组bootstrap区间 | 校正cluster-t区间 |
+| Data/researcher | Correction Group bootstrap | Correction cluster-t |
 |---|---|---|
 | CoSQA / CodeBERT | **[+.01416754, +.03661756]** | **[+.01426053, +.03687514]** |
 | CoSQA / BM25 | [−.00586250, +.00587435] | [−.00570029, +.00619625] |
-| 源AdvTest / CodeBERT | [−.00154743, +.01167464] | [−.00141297, +.01179634] |
-| 源AdvTest / BM25 | [−.00447948, +.00263736] | [−.00443103, +.00277747] |
+| Source AdvTest/ CodeBERT | [−.00154743, +.01167464] | [−.00141297, +.01179634] |
+| Source AdvTest/ BM25 | [−.00447948, +.00263736] | [−.00443103, +.00277747] |
 
-CoSQA同query跨检索器的直接差`j_CodeBERT−j_BM25=+.02531986`，描述性组bootstrap95%`[+.01588118,+.03467845]`。源侧对应差`+.00601846`，bootstrap区间跨0。检索器依赖判断使用直接效应差，非“一边显著一边不显著”。
+The direct same-query retriever difference for CoSQA is `j_CodeBERT−j_BM25=+.02531986`, with a descriptive 95% group bootstrap interval of `[+.01588118,+.03467845]`. The corresponding source difference is `+.00601846`, with a bootstrap interval spanning 0. The retriever comparison uses these paired estimates.
 
-## 是否为熵独有优势
+## Evidence on an entropy-specific advantage
 
 CoSQA/CodeBERT：
 
-| 比较 | 均值 | 组bootstrap95% |
+| Comparison | Mean | Group bootstrap95% |
 |---|---:|---|
-| PROB单选−随机单选 | +.02582259 | [+.01733916, +.03380518] |
+| PROB Single-random single selection | +.02582259 | [+.01733916, +.03380518] |
 | PROB best3−RAND20 best3 | +.00141586 | [−.00411222, +.00715333] |
-| PROB契约差j | +.02440674 | [+.01622558, +.03236417] |
-| ENTR−PROB单选 | +.00211324 | [−.00419867, +.00878305] |
+| PROB Contract difference j | +.02440674 | [+.01622558, +.03236417] |
+| ENTR - PROB Select | +.00211324 | [−.00419867, +.00878305] |
 | ENTR−PROB best3 | +.00095215 | [−.00303516, +.00501679] |
 | ENTR j−PROB j | +.00116109 | [−.00553739, +.00804653] |
 
-因此本轮可讨论**生成置信信号**的作用，不能称ENTR已超越PROB、二者已等效，或新UQ独立增益成立。四个条件下ENTR−PROB的单选及best3区间均跨零。
+The results support discussion of generation confidence under the tested contracts. Across all four settings, the ENTR−PROB intervals for single selection and best3 span zero. Superiority, equivalence and independent benefit from a new UQ method remain unestablished.
 
-## 相对原查询的实际效用
+## Net utility relative to the original query
 
-| 数据/检索器 | NoRewrite MRR@100 | ENTR Top1 MRR@100 | ΔMRR | 组bootstrap95% |
+| Data/researcher | NoRewrite MRR@100 | ENTR Top1 MRR@100 | ΔMRR | Group bootstrap95% |
 |---|---:|---:|---:|---|
 | CoSQA / CodeBERT | .51890040 | .50524189 | −.01365851 | [−.02269701, −.00478947] |
 | CoSQA / BM25 | .22412467 | .20377371 | −.02035096 | [−.02571306, −.01522141] |
-| 源AdvTest / CodeBERT | .30874417 | .28464340 | −.02410077 | [−.03044502, −.01761638] |
-| 源AdvTest / BM25 | .21275343 | .19905240 | −.01370103 | [−.01698839, −.01049453] |
+| Source AdvTest/ CodeBERT | .30874417 | .28464340 | −.02410077 | [−.03044502, −.01761638] |
+| Source AdvTest/ BM25 | .21275343 | .19905240 | −.01370103 | [−.01698839, −.01049453] |
 
-CoSQA/CodeBERT共同参照记账：随机单选−原句`−.04159434`，ENTR相对随机追回`+.02793583`，最终`−.01365851`。这个等式描述所测政策，不是生成质量与排序质量的独立因果分离。
+Using the shared CoSQA/CodeBERT reference, random single selection minus the original query is `−.04159434`. ENTR recovers `+.02793583` relative to random, leaving `−.01365851` relative to the original query. This arithmetic describes the measured policy and does not isolate generation quality from ranking quality causally.
 
-## 排除固定20次随机波动
+## Sensitivity to the 20 random replays
 
-额外精确积分均匀无放回三位置的最大RR：将位置RR升序排列，最大值位于第i个位置的概率为`C(i, k−1)/C(n, k)`（i从0起）。真实候选不足时取`k=min(3,n)`，重复文本的不同位置保留概率质量。
+An additional calculation integrates the maximum RR of three positions drawn uniformly without replacement. Sort the position RRs in ascending order. The probability that the maximum is at position i is `C(i, k−1)/C(n, k)` with i starting at 0. Use `k=min(3,n)` when the pool is smaller. Positions with duplicate text retain their probability mass.
 
-| 数据/检索器 | RAND20−精确随机best3 | 精确随机下的ENTR j | j的组bootstrap95% |
+| Data/researcher | RAND20− Accurate Random best3 | Accurate randomly placed ENTR j | j Group bootstrap95% |
 |---|---:|---:|---|
 | CoSQA / CodeBERT | +.00041141 | **+.02515642** | **[+.01626819, +.03382412]** |
 | CoSQA / BM25 | +.00081058 | −.00056260 | [−.00522946, +.00392198] |
-| 源AdvTest / CodeBERT | −.00000347 | +.00519515 | [−.00000739, +.01017433] |
-| 源AdvTest / BM25 | −.00002053 | −.00080625 | [−.00360604, +.00185966] |
+| Source AdvTest/ CodeBERT | −.00000347 | +.00519515 | [−.00000739, +.01017433] |
+| Source AdvTest/ BM25 | −.00002053 | −.00080625 | [−.00360604, +.00185966] |
 
-CoSQA/CodeBERT发现不是由20次随机基线的抽样波动造成。精确积分作为敏感性，不替换原主分析或旧确认。
+The CoSQA/CodeBERT result persists under the exact random expectation. This sensitivity leaves the original primary analysis and confirmation as reported.
 
-## 对核心贡献的判定
+## Interpretation and next study
 
-1. **新增了有判别力的机制证据。** 同池、同query、两个预算契约及PROB对照，直接支持CoSQA/CodeBERT下的契约差异；比重复Top1负/best3正更具体。
-2. **仍需检验原查询参照。** 此次没有训练采用头，也没有证明某种可部署政策能兑现正收益。第二步B继续固定ENTR Top1动作，比较生成置信与原查询参照对采用的条件增量，保留同采用数量和NoRewrite绝对参照。
-3. **预算与最大值聚合共同变化。** 本轮j不是把同一决策免费换成另一指标，更不能定位某种认知/偶然不确定性因果机制。较大的三选机会与较小随机差也可能体现候选覆盖和max聚合的饱和；结果按明确预算解释。
-4. **论文新颖性需全文对照。** 本轮是实证支持，不自动证明RENE充分性；需核SSQR/QueryRoute及查询采纳近邻，不能将契约差异本身宣布首创。原H指定ENTR−RAND20等效结论保留，当前D三选差不另判等效。
+1. Matched pools and queries, two selection contracts and the PROB control provide direct evidence of a contract difference in CoSQA/CodeBERT. The comparison quantifies what the signs of Top1 and best3 alone cannot resolve.
+2. This analysis did not fit an adoption head or establish positive executable utility. Step B fixes the ENTR Top1 rewrite and measures the conditional contributions of generation confidence and the original-query reference under matched adoption counts and relative to NoRewrite.
+3. The selected count and maximum aggregation both change in j. The contrast is specific to the two evaluation contracts and does not identify epistemic or aleatoric effects. Candidate coverage and saturation under maximum aggregation are also consistent with larger candidate opportunity and a smaller advantage over random selection.
+4. The historical analysis called for checking the full related work on SSQR, QueryRoute and query adoption. The original H equivalence remains specific to ENTR−RAND20. No equivalence decision was made for the present D three-candidate contrast.
 
-## 验证与交付
+## Verification and delivery
 
-- 5项科学口径测试通过：随机max精确积分对拍穷举含同值/短池、RR深度边界、配对j消除、查询加权组SE。
-- 全部3538查询的原ENTR/PROB/RAND20位置选择重现，两个检索器共94216排名文本身份/Top100/排序及tie契约通过。
-- 独立程序未导入主计算模块，以Fraction重新算RR和对比；7076个query×检索器记录、122914次RR值、134444次效应值与320个区间/汇总字段通过。最大效应误差`2.22e−16`、区间/汇总误差`1.11e−16`。
-- 原bridge逐query主指标最大差`2.22e−16`；32项源码/输入/保护文件哈希通过。五正式指针、旧H确认保持；risk_certified=false、无新政策升级。
-- 本轮主计算约9.21秒，独立审计另外执行；不是重新跑神经推理的时间。
+- All 5 evaluation-contract tests passed, covering exact random maximum versus enumeration with ties and short pools, RR cutoffs, paired j cancellation and query-weighted group standard errors.
+- All 3538 Query Original ENTR/ PROB / RAND20 Location selected for recurrence with two searchers 94216 Ranked text identity/Top100/Sortting and tie contract passed.
+- The independent program did not import the master computing module to recalculate Fraction RR and compare; 7076 query xResearcher records, 122914 Second RR value, 134444 Sub-effect values and 320 The inter-area/summary fields were adopted. Maximum Effect Error `2.22e−16 `, inter-sectional/aggregated error `1.11e−16 `.
+- Biggest difference in the original Bridge-by-Queary master indicator `2.22e−16 `； 32 The source code/input/protect file is passed by Hashi. Five official points, old H confirmed to be maintained; risk_certified = false, no new policy upgrade.
+- This round master calculates approximately 9.21 seconds and independent audits are carried out separately; it is not the time to rerun the neurodrive.
 
-协议：`PROTOCOL.json`。逐query：`per_query.jsonl`。完整区间：`RESULTS.json`。独立复核：`AUDIT.json`。入口：`experiments/rene_core_step_a_20261020/README.md`。
+Agreement:`PROTOCOL.json `query:`per_query.jsonl `. Full space:`RESULTS.json `Independent review:`AUDIT.json `Access:`experiments/rene_core_step_a_20261020/README.md `.

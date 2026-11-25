@@ -25,34 +25,34 @@ def main():
     fields=list(dict.fromkeys(k for x in export for k in x))
     with (OUT/'PRIMARY_AND_SECONDARY.csv').open('x',encoding='utf-8',newline='') as h:
         w=csv.DictWriter(h,fieldnames=fields);w.writeheader();w.writerows(export)
-    lines=['# 新样本资格、功效与B/G冻结确认','',
-       f'完成时间：{now()}。本轮是新StaQC单代码答案场景的预先冻结确认，不是重用CoSQA的确认。原H比较及正式组件保持。','',
-       '## 样本与精度','',
-       '- 原始CodeSearchNet valid/test经严格已知重叠排除后420查询/103关联组，未通过0.005分辨率规划，因此未计算其新方法效果。',
-       f'- StaQC作者原件固定commit；单代码答案子集审查后{elig["eligible_primary_pairs"]}条/{elig["groups"]}关联组。',
-       f'- 按哈希抽取每关联组一条，共{d["queries"]}查询/{d["groups"]}组；固定{d["corpus_documents"]}代码片段语料，额外语料来自其他独立关联组。',
-       '- 预开效果前独立复核发现最初规划的组内多查询方差与新抽样不匹配；已撤销该功效数值，保留初版封存与无标签候选，改用匹配单查询方差/敏感性上界后重新封存。最终功效及样本以本表为准。',
-       '- 两个主比较：每项双侧alpha=.025，目标边际功效90%；在方差可迁移假设下，两项同时检出的功效下界80%。不是用新样本效果反选规模。','',
-       '|主比较|所需组数（0.005）|实际规划功效|估计|校正cluster-t区间|校正组bootstrap区间|判断|',
+    lines=['# New sample qualification, efficacy and B/G freeze confirmation','',
+       f'_Other Organiser{now()}。 This round is pre-frozen confirmation of the new StaQC single code answer scenario, not re-use CoSQA. Original H Comparison and formal component maintenance.','',
+       '## Sample & Precision','',
+       '- The original CodeSearchNet Valid/test, which excluded 420 queries/103 linked groups after strictly known overlaps, was not planned at 0.005 resolution and therefore did not calculate the effect of its new methodology.',
+       f'- StaQC Original author fixed commit; single code subset reviewed{elig["eligible_primary_pairs"]}Article/{elig["groups"]}Associated groups.',
+       f'- Take one in each group, by Hashi.{d["queries"]}Query{d["groups"]}groups;fixed{d["corpus_documents"]}Snippets, additional language from other independent associated groups.',
+       '- An independent review prior to pre-emptive results found that the multiple search margin in the group initially planned did not match the new sample; The efficacy value has been withdrawn, the initial sealing and unlabeled candidate are retained, and resealed after matching a single query error/sensitive upper bounds. The final efficacy and sample is determined by this table.',
+       "- Two main comparisons: each side alpha =. 025, target marginality 90%; Under the variable transportable scenario, two simultaneous detections of lower endpoints 80%. It's not a new sample to invert the scale.",'',
+       'Main comparison (0.005) | Physical planning effectiveness estimated | correction of cluster-t inter-column calibration group Bootstrap |',
        '|---|---:|---:|---:|---|---|---|']
     for c in CONTRASTS:
         v=r['views']['CodeBERT']['summaries'][c];p=plan['exact_sample_precision']['contrasts'][c]
         lines.append(f'|{c}|{p["required_groups_005"]}|{p["planned_power_at_005"]:.3%}|{v["mean"]:+.8f}|{interval(v["family2_ci95_cluster_t"])}|{interval(v["family2_ci95_group_bootstrap"])}|{v["direction"]}|')
-    lines += ['', '## 次比较与实际采纳参照','', '|检索器|ENTR Top1−原句|ENTR best3−原句|ENTR Top1−精确随机|ENTR best3−精确随机|', '|---|---:|---:|---:|---:|']
+    lines += ['', '## Subcomparison and actual adoption reference','', '|Researcher ENTR Top1− Original sentence ENTR best3− Original sentence ENTR Top1− Accurate randomly ENTR best3− Accurate randomly', '|---|---:|---:|---:|---:|']
     for ret in ('CodeBERT','BM25'):
         s=r['views'][ret]['summaries'];keys=['delta_ENTR_k1_mean','delta_ENTR_k3_max','S_ENTR_k1_mean','S_ENTR_k3_max']
         lines.append('|'+ret+'|'+'|'.join(f'{s[k]["mean"]:+.8f}' for k in keys)+'|')
-    lines += ['', '次比较只作描述估计，PROB、ENTR−PROB、BM25和直接检索器差区间见RESULTS.json。best3使用相关标签，不是可执行采用收益。', '',
-       '## 对论文贡献的作用与范围','',
-       '这次直接检验位置选择相对优势在候选数量及聚合契约改变时的变化。判断按两个预定分量的校正区间，而不是只看Top1负/best3正。',
-       '两个分量若均正，支持两项发现迁移到此新场景；只有一项为正，仅确认该分量；跨零按未决报告。不能以事后新解释改变确认主比较。',
-       'StaQC是经过挖掘的Stack Overflow问题标题和accepted-answer代码片段，单目标RR不同于完整函数语料及Bing查询。它补充新场景证据，不替代原CoSQA冻结确认，也不证明真实查询来源因果、熵独有机制或新UQ有效。',
-       '审查覆盖已知训练/开发/确认、原始与规范化查询/代码/URL/函数/仓库。基础模型预训练暴露及语义克隆无法完全排除。单代码来源只有一个已知正例，不把其他未标注片段称为人工负例。',
-       '原始标签在来源审查时可见；确认冻结的是新方法预测和效果。仅本地时间戳/哈希封存，external_preregistration=false。', '',
-       '## 复核','',
-       '- 预开效果前全量核对查询、源答案映射、关联组、已知重叠、候选位置、选择与导出排名结构。',
-       '- 独立Fraction RR、另一CDF组合公式及校正区间复算；真实T5再生成/FP64熵和CodeBERT向量抽查。具体数量和误差见各审计收据，不把抽查写成全量模型复算。',
-       '- 旧正式指针、原H确认、两个开发因素/训练对照验收哈希保持。risk_certified=false，无新训练、扩seed或策略调参。','']
+    lines += ['', 'The next comparison is only a descriptive estimate. PROB, ENTR − PROB BM25 and the direct searcher gap see RSULTS.json. best3 Use relevant labels and not enforceable adoption proceeds.', '',
+       '## Role and scope of contributions to papers','',
+       'This direct test of location selection changes in terms of the number of candidates and the change in the Convergence Compact. The judgement is based on two calibrated blocks of predefined weights, instead of looking only at Top1 negative/best3 positive.',
+       'If the two points are equal, support is given to both discoveries of migration to this new scene; Only one is positive and only the weight is confirmed; Zero as outstanding reports. The main comparison cannot be confirmed by a new subsequent interpretation.',
+       'StaQC is excavated Stack Overflow question title and accepted-answer code segment, single target RR different from the full function medium and Bing query. It adds new scene evidence, does not replace the original CoSQA freeze confirmation, does not prove the cause or effect of a true search, the unique mechanism of entropy or the new UQ is effective.',
+       'The review covered known training/development/confirmation, original and normative queries/codes/URL/functions/storage. The exposure of basic models for pre-training and semantic cloning cannot be completely ruled out. There is only one known example of a single code source and other unmarked clips are not referred to as artificial negatives.',
+       'Original labels are available at source review; The freezing is confirmed by the predictions and effects of new methods. Only local time stamp/ Hash seal, external_preregistration = false.', '',
+       '## Review','',
+       '- Full check query before pre-envelope effect, source answer mapping, associated group, known overlaps, candidate position, selection and export ranking structure.',
+       '- Independent Fraction RR, another CDF combination formula and recalibration between correction zones; Real T5 regenerated/FP64 entropy and CodeBERT vector random checks. The specific quantities and errors are reflected in the audit receipts, which do not include spot checks as full volume models.',
+       '- Old formal pointer, original H recognition, two development factors/training to be maintained against acceptance and inspection of Hashi. risk_certified = false, no new training, expansion seed or strategic engagement.','']
     with (OUT/'FINDINGS.md').open('x',encoding='utf-8') as h:h.write('\n'.join(lines))
     artifacts=[OUT/n for n in ('DESIGN.json','SAMPLE_PLAN.json','PRECISION_PLAN.json','LOCAL_ELIGIBILITY.json','STAQC_ELIGIBILITY.json',
           'OUTCOME_OPENING.json','RESULTS.json','per_query.jsonl','PRIMARY_AND_SECONDARY.csv','FINDINGS.md',

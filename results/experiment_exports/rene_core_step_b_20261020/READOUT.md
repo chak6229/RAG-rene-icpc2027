@@ -1,18 +1,18 @@
-# 第二步B：固定改写动作的生成置信与原查询参照检验
+# Step B: generation confidence and the original-query reference for a fixed rewrite
 
-本实验只问：同一个ENTR Top1改写是否值得替代原查询，原检索参照R和生成置信T各增加了多少决策价值？
+The experiment fixes the ENTR Top1 rewrite and examines the additional decision utility of original-query retrieval evidence R and generation confidence T when deciding whether to replace the original query.
 
-CoSQA已消费开发集1490条查询/512关联组，双检索器，沿用5折组隔离OOF。固定候选、标签、学习器和训练折；40个StandardScaler+Ridge(alpha=1, SVD)小模型，无调参。标准化仅拟合训练折，原查询与改写Top100完整排名之间回退。
+The analysis uses 1490 previously used CoSQA development queries in 512 linked groups, both retrievers and the same 5 group-separated out-of-fold splits. The candidate, labels, learner and folds were fixed. It fits 40 StandardScaler + Ridge (alpha=1, SVD) models without tuning. Scaling is fitted only on the training folds, and a decision switches between the complete original and rewritten Top100 lists.
 
-M0为27项共同文本/候选检索/词汇覆盖特征；MT加10项生成置信，MR加34项原查询参照，MRT为71项。token长度属于共同特征；T是单次teacher-forcing概率/熵及ENTR3池内统计，未解耦认知/偶然不确定性。R无qrels、目标ID或真实正确排名。
+M0 has 27 shared text, candidate retrieval and lexical-coverage features. MT adds 10 generation-confidence features, MR adds 34 original-query reference features, and MRT uses 71 features. Token length is shared. T comprises single-pass teacher-forcing probabilities and entropies with ENTR3 pool statistics. It does not separate epistemic and aleatoric uncertainty. R uses no qrels, target IDs or known target ranks.
 
-所有头共享可观测的非恒等、Top100排序改变门，M0/MT学习器没有原检索输入，但也使用此共同结构门。固定20%在各评估折内采用floor(可用动作数/5)，同分按query ID，允许负预测。它是批次预算诊断。零阈值则预测ΔRR>0时采用。风险认证未加入本次机制对照。
+All heads share the observable requirements of a changed text and a changed Top100 ranking. M0/MT apply the same eligibility rule while their predictors do not receive original-query retrieval features. Fixed20 adopts the top 20% of eligible actions in each evaluation fold using floor(eligible actions/5), breaking ties by query ID and allowing negative predicted gain. It is a fixed-batch diagnostic. The zero-threshold rule adopts only when predicted ΔRR>0. This comparison did not include risk certification.
 
 ## CodeBERT
 
-可用动作1490/1490；原文恒等0；完整排序相同0。NoRewrite MRR=0.51890040。强制ENTR Top1 ΔMRR=-0.01365851。
+Eligible actions: 1490/1490. Identical texts: 0. Identical full ranks: 0. NoRewrite MRR=0.51890040. Forced ENTR Top1 ΔMRR=-0.01365851.
 
-|规则|模型|采用数|覆盖率|ΔMRR|描述性组bootstrap95%|有害/采用|每查询损失量|正收益量保留|
+|Rule|Model|Number used|Coverage|ΔMRR|Descriptive group bootstrap95%|Harmful/used|Losses per query|Retention of positive proceeds|
 |---|---|---:|---:|---:|---|---:|---:|---:|
 |positive|M0|515|34.56%|-0.00031563|[-0.00468573, +0.00398034]|101/515|0.00841560|26.89%|
 |positive|MT|526|35.30%|-0.00147678|[-0.00584448, +0.00286956]|111/526|0.00990507|27.98%|
@@ -23,16 +23,16 @@ M0为27项共同文本/候选检索/词汇覆盖特征；MT加10项生成置信�
 |fixed20|MR|296|19.87%|+0.00107971|[-0.00249419, +0.00470514]|75/296|0.00522456|20.93%|
 |fixed20|MRT|296|19.87%|+0.00136336|[-0.00207056, +0.00499405]|81/296|0.00496309|21.01%|
 
-主条件增量：MRT−MT检验加入原查询参照；MRT−MR检验加入生成置信。八项家族包含两个检索器和两条采用规则。
+The primary conditional increments are MRT−MT for the original-query reference and MRT−MR for generation confidence. The family has eight contrasts across two retrievers and two adoption rules.
 
-|规则|比较|ΔMRR差|点式bootstrap95%|八项Bonferroni家族95%区间|
+|Rule|Comparison|Δ MRR|Points bootstrap95%|Eight items Bonferroni Family 95%|
 |---|---|---:|---|---|
 |positive|MRT-MT|+0.00412798|[-0.00011372, +0.00842415]|[-0.00200575, +0.01025486]|
 |positive|MRT-MR|-0.00015599|[-0.00234377, +0.00206902]|[-0.00315262, +0.00291544]|
 |fixed20|MRT-MT|+0.00203078|[-0.00089554, +0.00500454]|[-0.00193256, +0.00631901]|
 |fixed20|MRT-MR|+0.00028365|[-0.00150208, +0.00219259]|[-0.00214964, +0.00299282]|
 
-|预测质量|M0|MT|MR|MRT|
+|Quality of projections|M0|MT|MR|MRT|
 |---|---:|---:|---:|---:|
 |mse|0.03298345|0.03344376|0.03204865|0.03257074|
 |mae|0.09002880|0.09185681|0.09491220|0.09682515|
@@ -40,13 +40,13 @@ M0为27项共同文本/候选检索/词汇覆盖特征；MT加10项生成置信�
 |bias|0.00064597|0.00090310|0.00092527|0.00123468|
 |mean_absolute_quintile_calibration_gap|0.01372439|0.01958198|0.02065428|0.02421493|
 
-每折收益、实际有害率/损失幅度、五分位校准明细、次要MR−M0与MT−M0比较均在RESULTS.json；逐查询固定动作、预测、采用与真实RR在per_query.jsonl。
+`RESULTS.json` contains fold-specific gains, observed harm rates and loss magnitudes, quintile calibration and secondary MR−M0 and MT−M0 contrasts. `per_query.jsonl` records fixed actions, predictions, decisions and observed RRs.
 
 ## BM25
 
-可用动作1382/1490；原文恒等0；完整排序相同108。NoRewrite MRR=0.22412467。强制ENTR Top1 ΔMRR=-0.02035096。
+Eligible actions: 1382/1490. Identical texts: 0. Identical full ranks: 108. NoRewrite MRR=0.22412467. Forced ENTR Top1 ΔMRR=-0.02035096.
 
-|规则|模型|采用数|覆盖率|ΔMRR|描述性组bootstrap95%|有害/采用|每查询损失量|正收益量保留|
+|Rule|Model|Number used|Coverage|ΔMRR|Descriptive group bootstrap95%|Harmful/used|Losses per query|Retention of positive proceeds|
 |---|---|---:|---:|---:|---|---:|---:|---:|
 |positive|M0|241|16.17%|-0.00082091|[-0.00139271, -0.00029974]|77/241|0.00101927|4.47%|
 |positive|MT|253|16.98%|-0.00103303|[-0.00167126, -0.00044556]|84/253|0.00124170|4.70%|
@@ -57,16 +57,16 @@ M0为27项共同文本/候选检索/词汇覆盖特征；MT加10项生成置信�
 |fixed20|MR|274|18.39%|-0.00190590|[-0.00314008, -0.00094161]|92/274|0.00200333|2.19%|
 |fixed20|MRT|274|18.39%|-0.00225271|[-0.00354231, -0.00122280]|96/274|0.00235014|2.19%|
 
-主条件增量：MRT−MT检验加入原查询参照；MRT−MR检验加入生成置信。八项家族包含两个检索器和两条采用规则。
+The primary conditional increments are MRT−MT for the original-query reference and MRT−MR for generation confidence. The family has eight contrasts across two retrievers and two adoption rules.
 
-|规则|比较|ΔMRR差|点式bootstrap95%|八项Bonferroni家族95%区间|
+|Rule|Comparison|Δ MRR|Points bootstrap95%|Eight items Bonferroni Family 95%|
 |---|---|---:|---|---|
 |positive|MRT-MT|-0.00199406|[-0.00361088, -0.00070823]|[-0.00443257, -0.00034870]|
 |positive|MRT-MR|-0.00007599|[-0.00042029, +0.00028668]|[-0.00055360, +0.00047407]|
 |fixed20|MRT-MT|-0.00107388|[-0.00230078, -0.00010401]|[-0.00291996, +0.00018168]|
 |fixed20|MRT-MR|-0.00034681|[-0.00073597, -0.00002147]|[-0.00090410, +0.00008002]|
 
-|预测质量|M0|MT|MR|MRT|
+|Quality of projections|M0|MT|MR|MRT|
 |---|---:|---:|---:|---:|
 |mse|0.00984201|0.00992259|0.00982960|0.00991348|
 |mae|0.04256433|0.04317866|0.04373810|0.04454257|
@@ -74,12 +74,12 @@ M0为27项共同文本/候选检索/词汇覆盖特征；MT加10项生成置信�
 |bias|-0.00024255|-0.00011845|-0.00013622|-0.00005253|
 |mean_absolute_quintile_calibration_gap|0.00779409|0.00886196|0.01243896|0.01442166|
 
-每折收益、实际有害率/损失幅度、五分位校准明细、次要MR−M0与MT−M0比较均在RESULTS.json；逐查询固定动作、预测、采用与真实RR在per_query.jsonl。
+`RESULTS.json` contains fold-specific gains, observed harm rates and loss magnitudes, quintile calibration and secondary MR−M0 and MT−M0 contrasts. `per_query.jsonl` records fixed actions, predictions, decisions and observed RRs.
 
-## 解释范围与验收
+## Interpretation and acceptance
 
-正的MRT−MT只说明这套固定动作Ridge模型加入可观测原参照后改善所测采用，不证明独特算法或所有检索器泛化。MRT−MR若区间跨零，不能将T写成已验证的额外决策收益，也不能反向宣称全部UQ无效。预测误差改善与实际采用收益分别判定；改善有害Top1不等于胜过NoRewrite。未设置开发集等效阈值。
+A positive MRT−MT increment means that adding the observable original-query reference improved the measured adoption results for these fixed-action Ridge heads. It does not establish a distinct algorithm or an effect across all retrievers. An MRT−MR interval spanning zero leaves the incremental utility of T unresolved and does not establish that UQ is ineffective. Prediction error and adoption gains are assessed separately. Improvement over forced harmful Top1 may still be below NoRewrite. The development comparison has no equivalence margin.
 
-区间对既有OOF预测按关联组重采样，保留query加权与配对；未在每次抽样内重训，也未重排固定预算，故为条件于固定OOF输出的描述性精度，不是学习算法泛化置信区间。开发集已用于提出方案；本次冻结在新拟合前，但不是新独立确认。
+The intervals resample paired linked groups with query weighting using the existing out-of-fold predictions. Each resample retains the fixed models and quotas. This yields descriptive precision conditional on the OOF outputs. The development set had already been used for design, and the present comparison was fixed before the new fits.
 
-独立审计结果见AUDIT.json，验收见FINAL_ACCEPTANCE.json：独立Fraction RR、线性代数重拟合、外折标签投毒、独立特征复算/配额/指标区间复放及哈希检查。保持原H确认、正式配置和NoRewrite部署；risk_certified=false。
+See `AUDIT.json` and `FINAL_ACCEPTANCE.json` for the independent Fraction RR, linear-algebra refits, held-out-label perturbation, independent feature calculation, quota and interval replay, and hash checks. The original H confirmation, study configuration and NoRewrite policy were retained. `risk_certified=false`.

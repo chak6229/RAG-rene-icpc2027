@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""检查并按 CODEnn 原始顺序准备 SSQR CQC 训练及固定验证数据。"""
+'Check and prepare CODEnn SSQR CQC training and fix validation data in the original order.'
 from __future__ import annotations
 
 import argparse

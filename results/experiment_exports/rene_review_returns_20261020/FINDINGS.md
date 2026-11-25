@@ -1,104 +1,104 @@
-# 双份评审返回：一致性、加权比例与分歧
+# Double review returns: consistency, weighting and disagreement
 
-本报告分析两位审阅者所提交的最终返回稿。用户确认已完成人工审查。当前一致性对应最终返回标签；未核对复核前的原始独立标签，因此本报告不估计原始独立判断的一致性。
+This report analyses the final returns submitted by both reviewers. User confirmed completion of manual review. Current consistency corresponds to the final return label; The original independent label prior to the review has not been reconciled and, therefore, the consistency of the original independent judgement is not estimated in this report.
 
-本次保留原目录、原zip和逐项标签，只统计返回结果，没有执行附件HTML或待审代码。
+This time keep the original directory, original zip and item-by-item labels, only return results, without implementing attachments HTML or pending code.
 
-## 完整性与证据角色
+## Integrity and the role of evidence
 
-两份返回均覆盖同一预定128查询/120组、每人383条不同改写及327个代码面板。packet、A/B身份、条目集合、标签组合、理由长度及阶段顺序校验通过；各自最终文件内嵌的语义记录与独立第一阶段JSON一致。B附带两页HTML与原包相同。
+Both returns overwhelm the same scheduled 128 query/ 120 group, with different changes to each 383 article and 327 code panel. packet, A/B Identity, collection of entries, label combinations, justification length and sequence approval; The semantic records embedded in each final document are consistent with the first phase of independence JSON. B With two pages HTML identical to the original package.
 
-这些标签补充错误类型和机制解释；统计不能将语义、相关性和收益学习因素分离为收益缺口的互斥因果来源。
+These labels supplement the type of error and mechanism interpretation; Statistics cannot separate semantics, relevance and profit-learning factors as a source of cross-resortment causes and consequences of income gaps.
 
-## 一致性与判断分布
+## Consistency and judgement distribution
 
-| 判断 | 项数/覆盖 | 精确一致率 | Cohen κ |
+| Judgement. | Number of items/overrided | Accuracy Consistency Rate | Cohen κ |
 |---|---:|---:|---:|
-| 改写含义，4类 | 383 | 76.5% | 0.525 |
-| 代码相关性，含无法判断 | 327 | 53.8% | 0.371 |
-| 双方均可判的代码，0/1/2 | 260/327（79.5%） | 66.9% | 0.569（线性加权） |
-| 原查询明确程度 | 128 | 72.7% | 0.029 |
+| Rewrite meaning, 4 Class | 383 | 76.5% | 0.525 |
+| The code is relevant and incomprehensible. | 327 | 53.8% | 0.371 |
+| Codes that can be determined by both parties, 0 / 1 / 2 | 260/327（79.5%） | 66.9% | 0.569 (linear weight) |
+| Level of clarity of original query | 128 | 72.7% | 0.029 |
 
-一致性按展示条目计算，未把同文本的多个位置重复计数；它不代表8530总体的加权一致性。保留全部无法判断，不以可判子集较高的κ取代全体结果。
+Consistency is calculated on the basis of presentation entries and multiple locations of the same text are not counted; It does not represent 8530 overall weighted consistency. The reservation is entirely unjudgeable and does not replace the whole result with a hundred that can be judged higher.
 
-| 改写标签 | A | B |
+| Rewrite Tab | A | B |
 |---|---:|---:|
-| 含义保持 | 235 | 275 |
-| 含义偏移 | 129 | 73 |
-| 不可读 | 19 | 3 |
-| 无法判断 | 0 | 32 |
+| meaning preserved | 235 | 275 |
+| meaning drift | 129 | 73 |
+| Unreadable | 19 | 3 |
+| cannot determine | 0 | 32 |
 
-| 代码标签 | A | B |
+| Code Label | A | B |
 |---|---:|---:|
-| 满足 | 96 | 34 |
-| 部分满足 | 151 | 102 |
-| 不满足 | 78 | 124 |
-| 无法判断 | 2 | 67 |
+| Satisfied | 96 | 34 |
+| Partially satisfied | 151 | 102 |
+| Unsatisfactory | 78 | 124 |
+| cannot determine | 2 | 67 |
 
-语义标签90项不同；连同错误类型不同，共106条改写待讨论，其中16条双方均认为偏移但类型不同。代码151项不同，65项涉及一方无法判断、另一方可判。双方可判的代码中，B比A评分更低82项、更高4项。另有35条原查询明确度分歧；A认为124条明确，B只认为94条明确。总共122/128查询存在至少一种分歧。没有自动裁决或删除分歧项。
+Semantic labels 90 are different; Article 106 is rewritten to be discussed, with different types of errors, where 16 is considered by both parties as being biased but not the same type. The code 151 is different, and subparagraph 65 relates to a party that cannot be judged by the other party. B of the code available to both parties has a lower rating than A 82, higher 4. There was also a disagreement on the clarity of the original article 35; Article 124 was considered clear by A and article 94 only by B. There is at least one difference between the total 122/128 query. There was no automatic award or deletion of the disagreement.
 
-## 按原抽样权重汇总
+## Summary by weight of original sample
 
-以下分母为固定CodeBERT H总体8530查询，指标是“查询包含某种评审标记/事件”，不是逐候选错误率。每个原层抽16条，使用N_h/n_h加权；不能把128条的裸比例当总体比例。区间按原方案对每个指标内部八层作Bonferroni超几何反演后加权，是保守有限总体95%区间；不声称全部指标同时95%覆盖。区间仅反映抽样误差，不包括标签判断误差或返回版本差异。
+The following denominator is a fixed CodeBERT H general 8530 query, with the indicator " Query contains an evaluation mark/event " and not a candidate error rate. Every one of them. 16 Article, with N_h/n_h weights; Can't treat the nudity ratio of 128 as an overall ratio. (a) Inter-situational over-geometric inverse weighting of eight layers within each indicator according to the original scheme Bonferroni is a conservatively limited total area 95%; Not all indicators are claimed to be covered at the same time 95%. The interval reflects only sample error, excluding label error judgement or return version difference.
 
-| 查询级指标（允许重叠） | 加权估计 | 保守95%区间 |
+| Query level indicator (allowing overlap) | Weighted estimate | Conservative 95% |
 |---|---:|---|
-| 至少一条改写被双方均标为偏移/不可读 | 35.0% | [9.9%, 69.6%] |
-| 至少一条改写有任一方未标为含义保持 | 75.5% | [39.6%, 95.4%] |
-| 至少一条改写有一方标为无法判断 | 26.9% | [5.6%, 62.6%] |
-| 核验后实际采用的改写被双方均标为语义问题 | 4.2% | [0.1%, 36.6%] |
-| 核验后有RR损失、采用改写被双方均标含义保持 | 12.9% | [7.6%, 40.3%] |
-| 存在未充分实现、且双方均标含义保持的最佳正机会 | 14.3% | [4.3%, 45.9%] |
-| 至少一个非既有目标的展示代码被双方均判满足 | 12.0% | [1.3%, 46.2%] |
-| 至少一个既有目标展示代码被双方均判部分/不满足 | 45.1% | [15.7%, 77.6%] |
-| A标出至少一条偏移/不可读 | 75.4% | [39.6%, 95.4%] |
-| B标出至少一条偏移/不可读 | 37.6% | [10.9%, 72.0%] |
+| At least one rewrite has been marked as bias/not readable by both sides | 35.0% | [9.9%, 69.6%] |
+| At least one rewrite that either side does not maintain | 75.5% | [39.6%, 95.4%] |
+| At least one rewrite is marked as unjudgeable. | 26.9% | [5.6%, 62.6%] |
+| The modification actually applied after verification was marked as a semantic issue by both parties | 4.2% | [0.1%, 36.6%] |
+| Upon verification, RR losses were sustained by rewriting the meaning of both parties. | 12.9% | [7.6%, 40.3%] |
+| The existence of the best positive opportunity for both parties not fully realized and maintained | 14.3% | [4.3%, 45.9%] |
+| At least one non-existent target display code was found to be met by both parties. | 12.0% | [1.3%, 46.2%] |
+| At least one of the existing target display codes was partially/unsatisfactory on both sides | 45.1% | [15.7%, 77.6%] |
+| A Mark at least one offset/not readable | 75.4% | [39.6%, 95.4%] |
+| B Mark at least one offset/not readable | 37.6% | [10.9%, 72.0%] |
 
-“双方均标问题”的35.0%与“任一未判保持”的75.5%采用不同定义，后者包含无法判断和分歧，二者不是同一真实错误率的统计上下界。这也显示对“约束改变”的判断标准会实质影响结果。
+35.0% of the “equal issue” and 75.5% of the “any unreserved” use different definitions, which contain incalculable and divergent statistical boundaries that are not the same true error rate. It also shows that the test of “restrictive change” will materially affect the outcome.
 
-| 同一改写的错误类型被双方均标出 | 加权查询比例 | 保守95%区间 |
+| The same type of error was marked by both parties | Weighted Query Ratio | Conservative 95% |
 |---|---:|---|
-| 无依据新增限制 | 20.8% | [4.6%, 54.9%] |
-| 丢失原有限制 | 0.0% | [0.0%, 30.0%] |
-| 改变操作 | 4.6% | [0.2%, 36.8%] |
-| 改变对象/API | 1.5% | [0.0%, 32.3%] |
-| 改变否定极性 | 0.0% | [0.0%, 30.0%] |
-| 不可读/不连贯 | 0.7% | [0.0%, 31.1%] |
+| Add a new limit without basis | 20.8% | [4.6%, 54.9%] |
+| Loss of original limit | 0.0% | [0.0%, 30.0%] |
+| Change Operation | 4.6% | [0.2%, 36.8%] |
+| Change object/ API | 1.5% | [0.0%, 32.3%] |
+| Change the negative polarity | 0.0% | [0.0%, 30.0%] |
+| Unreadable/incoherent | 0.7% | [0.0%, 31.1%] |
 
-类型按查询内至少一条统计，彼此可以重叠，不能相加成100%。零观测也不能推断总体没有该类；例如两类零点估计的保守上界仍为30.0%。
+The type is counted in at least one article of the query, which overlaps and cannot be added to 100%. Zero observations cannot be inferred from the overall absence of this category; For example, the conservative upper bounds of two zero-point estimates remain 30.0%.
 
-为明确事件分母，另列三个条件比例；区间由无条件分子保守界除以已知事件总数，故可较宽并截断至[0,1]：
+(a) For the purpose of determining the denominator of events, a separate three-conditional ratio; The zone is divided by unconditional molecular conservatism by the total number of known incidents, so that it can be more wide and cut to [0, 1 ]:
 
-| 事件子总体 | 已知总体数 | 标记事件比例 | 保守95%区间 |
+| Event Total | Total known | Mark Event Ratio | Conservative 95% |
 |---|---:|---:|---|
-| 核验后采用改写的查询中，双方均标语义问题 | 5890 | 6.0% | [0.1%, 53.0%] |
-| 核验后有RR损失的查询中，双方均标采用改写保持 | 1280 | 86.0% | [50.8%, 100.0%] |
-| 有正候选机会的查询中，存在未充分实现的双方保持最佳机会 | 3092 | 39.4% | [11.8%, 100.0%] |
+| In a rewritten query once verified, the issue of spelling is shared by both parties | 5890 | 6.0% | [0.1%, 53.0%] |
+| RR Upon verification, both sides used rewriting to maintain | 1280 | 86.0% | [50.8%, 100.0%] |
+| In inquiries where there is a positive candidate, the best opportunity exists for both parties that have not been fully realized | 3092 | 39.4% | [11.8%, 100.0%] |
 
-核验有损查询中的“双方均标保持”点估计86.0%（保守区间50.8%–100%）：它提示不能将所有RR损失直接等同于语义漂移，也不识别检索、qrels或学习误差的各自贡献。展示代码中的非目标相关线索同样只能指向需复核的标注覆盖，不能推出整个语料的标注错误率。
+Validation of the “both sides maintain” point estimate in the query 86.0% (Conservative compartments) 50.8% – 100% It suggests that all RR losses cannot be directly equated with semantic drift or recognize the respective contribution of search, qrels or learning errors. The non-target-related threads in the display code can also only point to a reference coverage for review and cannot introduce an error rate for the entire text.
 
-## 分歧为什么发生
+## Why are the differences happening?
 
-1. **默认语境与新增限制。** `set python request headers`→`set python http request headers`：A认为新增HTTP限制，B认为只是明确常见请求头语境。47条改写是A偏移/B保持，反向只有7条。人工复核需按“动作、对象、限制是否导致所需答案改变”判断，不能仅凭出现新词认定漂移。
-2. **不可读与无法判断的边界。** 16条A不可读/B无法判断涉及未知或破坏性插入（包括UNK）。两者通常都未确认含义保持，但分入不同类，影响类型比例。应保留两类及原判，明确“无法形成需求”和“存在多个合理需求”的边界。
-3. **功能片段与上下文缺失。** 对调用`self.with_header`等未展示实现的代码，A按接口意图判满足，B更常保留无法判断。65个代码分歧是可判/无法判断差异；不能单靠多数投票把它当确定的相关性错误。
-4. **满足需求与局部相关。** `get index of an item in list`的一个函数遇到整数直接返回参数，其余才调用`lst.index`。A判满足，B指出不能一般性查整数元素；返回代码确有该分支。另例`repeat sequence`的片段明确重复每个元素（0,0,1,1），与重复整段序列（0,1,0,1）不同。这些是有实质功能依据的分歧，不应仅当评分风格差异。
-5. **类型名称不互斥。** `parse mysql get list...`可被A归为新增限制、B归为改变操作。两份允许多标签，但A所有项只用单主标签。应在保留原判后讨论主/多类型规则，不直接把全部类型差异解释为是否存在问题的分歧。
+1. **Default context and new limit.** `set python request headers `→`set python http request headers `: A Considers the addition of HTTP restrictions, B considers it only to clarify the common context in which requests are made. Article 47 has been reworded to A offset/B maintain, with only article 7 in reverse. Manual review is to be judged by “actions, objects, whether or not the restrictions result in a change of answer required”, and cannot be determined by new terms alone.
+2. **Unreadable borders with incalculable boundaries.** 16 Article A Non-readable/B cannot be judged to involve unknown or destructive penetration (including UNK). Neither is usually confirmed, but is divided into different categories and affects the proportion of types. Two categories and originals should be retained, clearly identifying the boundaries of “unable to create demand” and “the existence of multiple legitimate needs”.
+3. **Function Snippet and context are missing.** Callback `self.with_header `When the code is not displayed, A is satisfied according to the intent of the interface, and B is more often left undecided. 65 Code differences are legible/unable to judge differences; It cannot be considered an error in relevance by a majority vote alone.
+4. **The satisfaction of needs is partly related.** `get index of an item in list `a function returns the parameter directly with an integer before the rest is called `lst.index `. A Judgement satisfaction, B indicates that integer elements cannot be generally checked; the return code does indeed have that branch.`repeat sequence `The fragments clearly repeat each element (0, 0, 1, 1, as distinct from the whole sequence (0, 1, 0, 1). These differences, on which the substantive function is based, should not be treated solely as differences in scoring style.
+5. **Type names are not mutually exclusive.** `parse mysql get list...`Can be classified by A as an additional limit, and B as a change operation. Two multiple labels are allowed, but A all items are only single master tags. The main/multi-type rule should be discussed after the original judgement had been retained, and not all types of difference should be interpreted directly as differences on whether or not there was a problem.
 
-上述为研究者核对原文字段与静态代码后的讨论议题，不是第三位独立专家标签。原始逐项理由与未决项保存在`item_labels.jsonl`和`DISAGREEMENTS.jsonl`。
+The researcher identified these topics by checking original wording and static code. They do not constitute a third independent set of judgments. The original rationales and unresolved items are recorded in `item_labels.jsonl` and `DISAGREEMENTS.jsonl`.
 
-## 对当前论文主线的作用与下一步
+## Role of the current paper main line and next steps
 
-这批返回补充了“候选机会未全部转为自动收益”的探索性线索：存在双方标出的语义改变，也存在双方标保持时的RR损失与未充分实现的正机会。它们不将语义漂移、相关性覆盖和收益学习误差分离为互斥机制，也不说明某原因解释了多少收益损失。
+These returns complement the exploratory thread of “not all candidate opportunities turned into automatic gains”: there are semantic changes on both sides, as well as RR losses sustained by both parties and positive opportunities for incomplete realization. They do not separate semantic drift, relevance coverage and benefit learning error into cross-repeated mechanisms or explain how much loss of earnings is explained for one reason.
 
-两份最终返回稿已完成统计。若正文报告复核前的独立评审一致性，需要对应原始版本重新计算；当前应标明“最终返回稿的一致性”。接下来讨论106条改写、151项代码及35条明确度分歧，保留原判，协商结果另存，不用协商后的一致率覆盖当前统计。
+Two final returns were completed. If there is consistency in the independent evaluation prior to review of the body report, recalculations will be required for the original version; For the time being, it should be indicated that there is a “conformity of final returns”. The discussion then proceeded to discuss the differences in clarity between 106 rewriting, 151 items and 35, retaining the original decision and saving the results of the consultations without covering the current statistics without a consistent rate of consultation.
 
-论文可将当前结果作为指定有限总体上的事后评审诊断，支持错误线索与机制讨论；不写作唯一机制识别或新的独立效果确认。
+The paper could use the current results as a diagnostic for the designation of a limited overall ex post evaluation exercise to support the discussion of fault lines and mechanisms; Do not write for a unique mechanism to identify or new independent confirmation of effects.
 
-## 文件与核验
+## File & Verify
 
-- `RESULTS.json`：完整来源、分布、混淆表、一致性、加权查询/类型比例及条件分母。
-- `DISAGREEMENTS.jsonl`：106改写、151代码、35明确度分歧，全部未裁决；`item_labels.jsonl`保存全部710个双评条目。
-- `weighted_query_rates.csv`：十项加权查询标记；`query_flags.jsonl`保留128条查询事件映射。
-- `received/`及`RECEIPT_MANIFEST.json`：原文件字节副本与来源；`INPUT_VALIDATION.json`记录格式校验与最终返回稿的统计版本。
-- `VALIDATION.json`：309项独立κ/加权/超几何区间核对通过，旧正式指针/确认与前轮交付保持。
+- `RESULTS.json `: Full source, distribution, confusion table, consistency, weighted query/type ratio and denominator of conditions.
+- `DISAGREEMENTS.jsonl `: 106 Rewriting, 151 code, 35 clarity difference, all undecided;`item_labels.jsonl `Saves all 710 double-review entries.
+- `weighted_query_rates.csv `: ten weighted search marks;`query_flags.jsonl `Keeps the 128 query event map.
+- `received/`and `RECEIPT_MANIFEST.json `: original byte copy and source;`INPUT_VALIDATION.json `The record format validates the statistical version of the final draft.
+- `VALIDATION.json `309 Independent hundred/weight/supergeometric cross-checks are passed and the old formal pointer/confirmation is maintained with the previous round of delivery.

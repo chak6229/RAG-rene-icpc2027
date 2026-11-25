@@ -1,12 +1,12 @@
-# 候选机会到自动收益：阶段诊断与双人盲审
+# From candidate opportunity to realized gain: stage accounting and independent human review
 
-**缓存阶段复算已完成；双人独立人工标签尚未返回，语义/相关性机制结论待定。**
+**The cached stage analysis was complete. The two independent sets of judgments were pending when this report was recorded.**
 
-本轮使用已消费CoSQA H8530/1963组；是事后诊断，不产生新的确认性效果结论。
+This post-hoc diagnostic uses the previously evaluated CoSQA H8530 queries in 1963 groups. It adds no confirmatory comparison.
 
-## 完整总体的可核对记账
+## Complete overall reconciliation of accounts
 
-|检索器/阶段|净ΔMRR|正收益|损失幅度|机会漏选量|正收益保留|实际采用|有害|
+|Retriever/stage|Slurpium MRR|Positive proceeds|Scope of loss|Opportunities Leaked|Retention of positive proceeds|Actual use|Harmful|
 |---|---:|---:|---:|---:|---:|---:|---:|
 |CodeBERT/ENTR_top1|-0.02110467|0.02810167|0.04920633|0.03799099|42.52%|8530|2328|
 |CodeBERT/HGB_gain_control|-0.00287610|0.01785652|0.02073262|0.04823614|27.02%|5305|1277|
@@ -19,36 +19,36 @@
 |BM25/RIDGE_verified|-0.00171681|0.00085910|0.00257590|0.01855408|4.43%|2926|906|
 |BM25/RIDGE_risk|+0.00000000|0.00000000|0.00000000|0.01941318|0.00%|0|0|
 
-每查询U=max(0,ENTR池候选ΔRR)，D=P−H；U−D=(U−P)+H。机会漏选量为U−P，包含排序与采用的经验损失，不能直接解释为语义漂移或学习误差的因果份额。
+Every query U = max (0 ENTR Pool candidate RR, D = P−H; U−D=(U−P)+H. The opportunity leakage amount is U−P, which includes loss of experience in ranking and adoption and cannot be directly interpreted as the causal share of semantic drift or learning error.
 
-- CodeBERT：安全候选机会+0.06609266；核验分配2132条，RR改善158、变差139（包括未核验的全总体分母）；分配中已知目标进入证据1470条。
-- CodeBERT门拒绝：正1090、负1220、零2574；移除正收益0.01558429、避免损失0.01455946。目标覆盖只是可观察线索，不证明证据充分或不足。
-- BM25：安全候选机会+0.01941318；核验分配2132条，RR改善308、变差205（包括未核验的全总体分母）；分配中已知目标进入证据491条。
-- BM25门拒绝：正78、负906、零1942；移除正收益0.00085910、避免损失0.00257590。目标覆盖只是可观察线索，不证明证据充分或不足。
+- CodeBERT safe candidate opportunity: +0.06609266. Verification was allocated to 2132 queries. Across the full denominator, including queries without verification, RR improved for 158 and worsened for 139. The verification evidence included the known target for 1470 allocated queries.
+- The CodeBERT gate rejected 1090 positive, 1220 negative and 2574 zero-gain actions. It removed positive gain of 0.01558429 and avoided loss of 0.01455946. Known-target coverage is an observable diagnostic cue and does not determine whether the evidence was sufficient.
+- BM25 safe candidate opportunity: +0.01941318. Verification was allocated to 2132 queries. Across the full denominator, including queries without verification, RR improved for 308 and worsened for 205. The verification evidence included the known target for 491 allocated queries.
+- The BM25 gate rejected 78 positive, 906 negative and 1942 zero-gain actions. It removed positive gain of 0.00085910 and avoided loss of 0.00257590. Known-target coverage is an observable diagnostic cue and does not determine whether the evidence was sufficient.
 
-## 人工审阅准备
+## Manual review preparation
 
-|层|完整总体条数|固定抽样|每条权重|
+|Layer|Full total number of articles|Fixed sample|Each weight|
 |---|---:|---:|---:|
-|门拒正收益|1090|16|68.1250|
-|门拒负收益|1220|16|76.2500|
-|最终正收益|55|16|3.4375|
-|最终负收益|60|16|3.7500|
-|门拒零收益|2574|16|160.8750|
-|其余仍有正机会|931|16|58.1875|
-|其余零收益但排名改变|849|16|53.0625|
-|其余无正机会且未采用|1751|16|109.4375|
+|It's not the right thing to do.|1090|16|68.1250|
+|Door refusals and negative returns|1220|16|76.2500|
+|Final positive gain.|55|16|3.4375|
+|Final negative gain|60|16|3.7500|
+|Door denial zeroes.|2574|16|160.8750|
+|There's still a good chance.|931|16|58.1875|
+|The rest is zero, but the ranking changes.|849|16|53.0625|
+|The remaining opportunities were not positive and had not been implemented|1751|16|109.4375|
 
-共128条查询/120关联组；每人383条不同改写判断、327份代码判断。分层等量抽样，不能将样本裸比例当总体比例。
+A total of 128 Article queries/120 associated groups; Each 383 rule is rewritten differently, and 327 code judgement. Scrolls of the same size cannot be considered as a whole.
 
-两位审阅者分别领取审阅者A.zip和审阅者B.zip。先完成01语义页，保存完整导出；再在02代码页导入该语义记录。仅将各自包交给对应审阅者；private目录、当前报告及统计结果不交给审阅者。
+Two examiners received the reviewer A.zip and the examiner B.zip. Finish the syntax page 01 first, save full export; Imports the semantic record again on the 02 code page. Only the respective packages will be handed over to the corresponding examiner; private Catalogues, current reports and statistical results are not submitted to reviewers.
 
-代码按官方原格式恢复，全部6267条与实际tokenized代码身份一致；显示的人工阅读信息不等同于模型可见特征。
+The code is restored in the official original format, and all 6267 entries correspond to the actual tokenized code identity; Artificial reading information is not the same as a model visible feature.
 
-## 目前能回答与等待的判断
+## So far, we've been able to answer and wait for judgment.
 
-阶段记账可定位候选机会在哪些动作上未被选取，以及核验/回退改变了多少正收益和损失。语义是否偏移、目标是否真正满足原需求、未标注代码是否相关，需要两位独立判断返回。收益预测错误的统计记录仍不能唯一分离训练、特征、模型和标注原因。
+Phased accounting allows for the identification of actions on which candidates are not selected, as well as verification/retroactivity changes in positive gains and losses. Whether semantics are transposed, whether the target really meets the original demand, and whether the unmarked code is relevant requires two independent judgments on return. The incorrect statistical record of revenue projections still cannot be the only reason for separating training, features, models and indications.
 
-回收入口：python -m experiments.rene_mechanism_review_20261020.collect --a <A的第二阶段完整JSON> --b <B的第二阶段完整JSON> --out <新输出目录>。校验不完整/串包/重复项后拒绝统计。所有讨论在独立提交后开展，原判保留。
+Recycling portal: python - m experiments.rene_mechanism_review_20261020 collect - a < A Complete Phase II JSON -- b < B Complete Phase II JSON > --out New Output Directory. Incomplete/strings/repeated items were verified and the statistics rejected. All discussions were held after the independent submission, with the original reservation.
 
-协议/抽样/匿名映射均留存；原确认和正式五指针保持。
+The protocol/sampling/anonymous mapping is retained; original confirmation and official five pointers are maintained.

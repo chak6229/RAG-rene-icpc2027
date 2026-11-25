@@ -144,11 +144,11 @@ def evaluate():
             "primary_H_modified":False,"original_paper_production_aggregation_recovered":False,
             "no_profile_promoted":True}
     write(OUT/"RESULTS.json",result)
-    lines=["# SSQR三候选聚合与公开评估器核对","",
-           "公开JSON生成路径按同一URL写出多条改写；公开评估器把预测存为URL→answers的dict，后行覆盖前行。直接执行经Git blob校验的作者评估器，3条同URL合成例结果0，逐query best3为1；这证明接口行为，不证明作者当年生产表格采用该错误路径。","",
-           "论文5.1写选前三条并报告最高MRR；公开评估链未明确实现逐query最大RR或三个位置的整体MRR取最大。故将以下三口径作为有限补充诊断同时报告，不回写已冻结CoSQA主比较。","",
-           "所有数据均已消费的源数据/CoSQA D，新增桥接效果打开前冻结。要求原query至少3词，使所有profile都具有真实三位置；少于3的查询不补零、不补原句，主实验全分母保持原样。本补充子集数量在PROTOCOL列清。","",
-           "| 检索器 | 数据/主桥接查询 | 逐query best3: E−R | 三个rank-wise MRR取最好: E−R | 公开reader末行口径: E−R |",
+    lines=['# SSQR Checking of the Triple Convergence with Open Evaluator',"",
+           "Public JSON generation path with multiple rewrites by the same URL; The public evaluator saves the projections as URLs' dict, backline covers the front line. Directly execute the author assessor verified by Git blob, 3 Coding URL Synthetic results 0,PV query best3 1; This proves the behaviour of the interface and does not prove that the wrong path was used in the author ' s production form for the year.","",
+           'Papers 5.1 Write first three articles and report highest MRR; The open assessment chain does not explicitly achieve query maximum RR or total of three positions MRR to maximize. The following three calibres are therefore reported as a limited additional diagnosis and do not respond to the main comparison of frozen CoSQA.',"",
+           'All data have been consumed for source data/CoSQA D and new bridge effects are frozen before opening. Requires the original query at least 3 words to give all profile three real positions; Query less than 3 does not add zero and no sentence, and the master test full denominator remains as it is. The number of subsets of this supplement is specified in PROTOCOL.',"",
+           '| Retrieval Data/Major Bridge Query Best3: E-R | Three runk-wise MRRs Best available: E-R | Public Reader End caliber: E-R |',
            "|---|---|---:|---:|---:|"]
     for row in results:
         if row["scope"]!="main":continue
@@ -157,9 +157,9 @@ def evaluate():
         b=modes["best_of_three_rankwise_MRRs"]["ENTR_minus_RAND"]
         c=modes["last_selected_row"]["ENTR_minus_RAND"]["mean"]
         lines.append(f'| {row["retriever"]} | {row["domain"]}/{row["queries"]} | {a:+.8f} | {b:+.8f} | {c:+.8f} |')
-    lines += ["","三个rank-wise均值的最大值是非光滑统计量，未把看标签选出的最佳位置当固定政策来计算普通配对区间；RESULTS提供66个policy×rank均值同时Bonferroni cluster-t近似界传播后的保守对比区间。其余两种口径按查询配对做组区间。全部为诊断，不增加确认性检验。","",
-              "论文应表述为‘本文明确采用逐查询最大RR的三候选机会指标’，并登记公开聚合路径未恢复。不能把public evaluator末行行为当作原论文真实生产流程，也不能声称原作者结果已被该合成反例推翻。","",
-              "原公开evaluator blob: `a75b4944ca9d656641ed6214ce14c2709dca946e`；本轮源码、协议及合成执行证据均保留。完整六profile和PROB结果见RESULTS.json。",""]
+    lines += ["",'The maximum values of the three rank-wise averages are non-sliding statistics, and the best position selected for viewing labels is not used as a fixed policy to calculate normal pair ranges; RESULTS Provide 66 policy x rank Mean values are simultaneously Bonferroni cluster-t Conservative contrast ranges after transmission of the approximation boundary. The remaining two calibres are paired into groups. All for diagnosis, no additional confirmation tests.',"",
+              "The paper should be presented as `This document explicitly uses the three candidate indicators of maximum search-by-search RR' and registers that open convergence paths have not been restored. The final act public evaluator cannot be considered as a real production process for the original paper, nor can it be claimed that the result of the original author was overturned by the synthesis.","",
+              'Original public evaluator blob: `a75b4944ca9d656641ed6214ce14c2709dca946e`; The current round of source codes, protocols and synthetic evidence of execution are retained. Full six profile and PROB results at RESULTS.json.',""]
     (OUT/"READOUT.md").write_text("\n".join(lines),encoding="utf-8")
     write(OUT/"FINAL_ACCEPTANCE.json",{"passed":True,"views":len(results),"author_evaluator_reexecuted":True,
           "same_cached_selection_and_ranking":True,"no_new_T5_or_model_fit":True,"protocol_sha256":sha(OUT/"PROTOCOL.json"),

@@ -1,65 +1,65 @@
-# RENE 独立确认 精度与完整阶段验收
+# RENE independent confirmation: precision and full-stage verification
 
-原四项共同主比较需要2475组；计入原D/H组大小敏感性需3662组，不能以现有1963组完成该设计。本轮明确替换确认设计，保留旧规划。
+The original design with four primary comparisons required 2475 groups, or 3662 groups under the D/H group-size sensitivity. The available 1963 groups could not meet these targets. The confirmation design was revised and the prior plan was retained.
 
-回到原统一方案的CodeBERT ENTR−RAND主问题；全1963关联组均保留，每组至多16条查询，按预定SHA256顺序选取7718条。指标仍是样本内常规查询加权MRR；目标人群为这一冻结抽样设计，不冒称全8530查询等功效。
+The revised primary comparison returns to CodeBERT ENTR−RAND in the unified plan. It retains all 1963 linked groups and selects 7718 queries in the fixed SHA256 order, capping each group at 16. The metric remains query-weighted MRR in the frozen sample. The precision calculation applies to that design.
 
-组内上限依据D方差可行性选择：预列4/8/12/16/全部，选择满足保守组需求不超过容量95%的最大上限。没有使用H预测或标签，也没有按D收益正负挑选。全部8530结果另作事前指定敏感性。
+The within-group cap was selected by feasibility under D variances. The prespecified options were 4/8/12/16/all. The largest cap whose conservative group requirement stayed within 95% of capacity was chosen. This used neither H predictions or labels nor the sign of the D effects. The full 8530-query analysis was specified in advance as a sensitivity analysis.
 
-目标差仍为.005，双侧alpha=.05，功效80%。D方差10000次组bootstrap的95%上界为0.0055310118；组大小敏感性乘数1.055852。保守需要1836组，容量1963组，规划功效82.58%，80%最小可检差0.004834。
+The target effect remained .005, with two-sided alpha=.05 and 80% power. The 95% upper bound on D variance from 10000 group bootstrap resamples was 0.0055310118. The group-size sensitivity multiplier was 1.055852. The conservative requirement was 1836 groups compared with capacity of 1963 groups. Planned power was 82.58%, and the minimum detectable difference at 80% power was 0.004834.
 
-该规划依赖D到H条件方差可迁移及组独立假设；不是对未知H方差的数学保证。不开后验功效替代实际区间。
+The precision plan assumes transferable conditional variance from D to H and independent groups. Unobserved H variance remains uncertain. Actual intervals are reported for the observed effects.
 
-实际主比较ΔMRR=-0.00083652；t95%区间[-0.0032099252076455208, 0.00153688292345661]；组bootstrap95%区间[-0.0032547866853966396, 0.0015414627313371035]；变化组1500。
+The primary ΔMRR was -0.00083652. The t 95% interval was [-0.0032099252076455208, 0.00153688292345661], and the group bootstrap 95% interval was [-0.0032547866853966396, 0.0015414627313371035]. There were 1500 nonzero groups.
 
-按冻结规则判读：`{'direction': 'difference from zero unresolved', 'practical_equivalence_within_prespecified_plusminus005': True, 'advantage_above005_excluded': True, 'does_not_imply_all_UQ_is_ineffective': True}`。
+Interpret by freezing rules:`{'direction': 'difference from zero unresolved', 'practical_equivalence_within_prespecified_plusminus005': True, 'advantage_above005_excluded': True, 'does_not_imply_all_UQ_is_ineffective': True}`.
 
-区间跨0只表示方向未确定；实质等效要求两个95%区间均完全位于±.005且至少20变化组。该规则只约束指定负熵候选位置比较，不推广为全部UQ结论。
+An interval spanning 0 leaves the effect direction unresolved. Practical equivalence requires both 95% intervals to lie wholly within ±.005 and at least 20 nonzero groups. The rule applies to the specified negative-entropy position-selection comparison.
 
-全8530条查询、1963关联组；每个检索器使用同ENTR三候选（不足时min(3,N)）与已冻结策略。下列阶段及效应区间均为事前指定描述估计。
+The full analysis comprises 8530 queries in 1963 linked groups. Both retrievers use the same three ENTR candidates, or min(3,N) when the pool is smaller, and the frozen policy. The stage results and their intervals below were specified in advance as descriptive estimates.
 
-| 检索器 | 阶段 | ΔMRR@100 | 采用/有害 | 采用内有害率 | 正收益保留 | CE对数 |
+| retriever | Phase | ΔMRR@100 | Use/harmful | Use of internal harmful rates | Retention of positive proceeds | CE logarithm |
 |---|---|---:|---:|---:|---:|---:|
-| CodeBERT | ENTR候选安全oracle | +0.06609266 | — | — | 100% | 0 |
+| CodeBERT | ENTR Candidate security oracle | +0.06609266 | — | — | 100% | 0 |
 | CodeBERT | ENTR_top1 | -0.02110467 | 8530/2328 | 27.29% | 42.52% | 0 |
 | CodeBERT | HGB_gain_control | -0.00287610 | 5305/1277 | 24.07% | 27.02% | 0 |
 | CodeBERT | RIDGE_gain | +0.00007864 | 6034/1317 | 21.83% | 23.04% | 0 |
 | CodeBERT | RIDGE_verified | +0.00084705 | 5890/1280 | 21.73% | 24.35% | 17056 |
 | CodeBERT | RIDGE_risk | -0.00017777 | 1006/60 | 5.96% | 0.77% | 17056 |
 
-CodeBERT门前+0.00084705 − 误拒正收益0.01558429 + 避免损失0.01455946 = 门后-0.00017777。恒等式误差1.65e-18。
+CodeBERT before fallback: +0.00084705 − forgone positive gain 0.01558429 + avoided loss 0.01455946 = after fallback -0.00017777. The identity error was 1.65e-18.
 
-CodeBERT阶段配对95%描述区间：
+CodeBERT stage contrasts, paired descriptive 95% intervals:
 - RIDGE_gain_minus_NoRewrite：+0.00007864，[-0.002245257024612571, 0.0024101501576805177]。
 - RIDGE_verified_minus_RIDGE_gain：+0.00076841，[-0.00013923283332923714, 0.001697267782023984]。
 - RIDGE_risk_minus_RIDGE_verified：-0.00102482，[-0.0033672545992514858, 0.0013354596622335685]。
 - RIDGE_risk_minus_NoRewrite：-0.00017777，[-0.0005510607141544759, 0.00019457275126158517]。
 - RIDGE_gain_minus_HGB_gain_control：+0.00295474，[0.00029360745847181486, 0.005618695994944198]。
 
-| BM25 | ENTR候选安全oracle | +0.01941318 | — | — | 100% | 0 |
+| BM25 | ENTR Candidate security oracle | +0.01941318 | — | — | 100% | 0 |
 | BM25 | ENTR_top1 | -0.01443510 | 7955/2929 | 36.82% | 39.10% | 0 |
 | BM25 | HGB_gain_control | -0.00271496 | 2615/853 | 32.62% | 11.80% | 0 |
 | BM25 | RIDGE_gain | -0.00207943 | 3559/1072 | 30.12% | 5.63% | 0 |
 | BM25 | RIDGE_verified | -0.00171681 | 2926/906 | 30.96% | 4.43% | 17056 |
-| BM25 | RIDGE_risk | +0.00000000 | 0/0 | 未定义 | 0.00% | 17056 |
+| BM25 | RIDGE_risk | +0.00000000 | 0/0 | Undefined | 0.00% | 17056 |
 
-BM25门前-0.00171681 − 误拒正收益0.00085910 + 避免损失0.00257590 = 门后+0.00000000。恒等式误差4.34e-19。
+BM25 before fallback: -0.00171681 − forgone positive gain 0.00085910 + avoided loss 0.00257590 = after fallback +0.00000000. The identity error was 4.34e-19.
 
-BM25阶段配对95%描述区间：
+BM25 stage contrasts, paired descriptive 95% intervals:
 - RIDGE_gain_minus_NoRewrite：-0.00207943，[-0.002771194646960858, -0.001403062954189902]。
 - RIDGE_verified_minus_RIDGE_gain：+0.00036263，[-0.00017839013976350904, 0.0009198235114857065]。
 - RIDGE_risk_minus_RIDGE_verified：+0.00171681，[0.0011538519600744273, 0.0022813407795633494]。
 - RIDGE_risk_minus_NoRewrite：+0.00000000，[0.0, 0.0]。
 - RIDGE_gain_minus_HGB_gain_control：+0.00063553，[-0.0006226355950279119, 0.0018789390581726744]。
 
-正收益保留率以同查询安全oracle正收益总量为分母；不以接近零的净收益作比例。核验可能改变动作，单独报告其阶段差；风险记账只比较已固定的核验后动作。
+Positive-gain retention uses the total available positive gain from the same-query safe oracle as its denominator, avoiding division by near-zero net gain. Verification can change the selected action and is reported separately. Risk accounting holds the verified actions fixed.
 
-采用内有害频率按关联组bootstrap给区间；不把组内依赖查询当独立Bernoulli发风险证书。risk_certified=false，正式部署仍为NoRewrite。
+The interval for harm among adopted actions uses a linked-group bootstrap. Within-group dependence prevents treating the query-level outcomes as independent Bernoulli trials for risk certification. `risk_certified=false`. The recorded deployment decision remains NoRewrite.
 
-CE输入token、物理唯一对与每条策略的已付成本见INFERENCE_LEDGER.json和metrics/*_full_H.json。
+See `INFERENCE_LEDGER.json` and `metrics/*_full_H.json` for CE input tokens, distinct physical pairs and sunk costs by policy.
 
-独立检查：119420项模型决策重载；249102项Fraction RR复算；最大数值差2.22e-16。
+Independent checks verified 119420 reloaded model decisions and 249102 Fraction RR calculations. The largest numerical discrepancy was 2.22e-16.
 
-干净目录验收是缓存排名/决策到主表的独立数值重建，不冒称重新训练神经模型。真实T5全词表FP64、检索排名、CE与模型推理另经前审计核对。
+The clean-directory replay reconstructed the main tables from cached rankings and decisions. The pre-opening audit separately checked T5 full-vocabulary FP64 calculations, retrieved ranks, CE and model inference.
 
-完整单一策略见STEP1_POLICY_FREEZE.md；精度见STEP2_PRECISION.md；阶段分解见STEP3_STAGE_RESULTS.md。
+See `STEP1_POLICY_FREEZE.md` for the frozen policy, `STEP2_PRECISION.md` for precision, and `STEP3_STAGE_RESULTS.md` for the stage breakdown.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""用 SSQR 的 CQC 目标继续预训练 T5，并提供可复现验证和完整断点恢复。"""
+'Continue pre-training with CQC targets of SSQR T5 and provide recoverable validation and complete breakpoint restoration.'
 from __future__ import annotations
 
 import argparse

@@ -176,28 +176,28 @@ def evaluate():
 
 
 def report(views, cross):
-    lines = ["# 同池多候选融合：可执行基线实验", "",
-             "CoSQA D1490查询/512关联组，CodeBERT/BM25，同一冻结本地T5的ENTR三候选。比较NoRewrite、ENTRTop1、RRF3（三候选）与RRF4（原查询+三候选），ENTRBest3仅作标签机会指标。",
-             "", "RRF常数60、输入Top100、按完全相同输入文本去重、等权、精确有理分数排序、文档ID确定并列、输出并集Top100。动作无qrels，构造后封存再评测。没有新生成、训练、检索、CE或风险门，没有扫参数。", ""]
+    lines = ['# Multi-candidacy integration: implementable baseline experiment', "",
+             'CoSQA D1490 Query/ 512 Associated group, CodeBERT/BM25, the same ENTR candidate for freezing local T5. Compare NoRewrite, ENTRTop1, RRF3 (three candidates) with RRF4 (original query + three candidates), ENTRBest3 only as a labeled opportunity indicator.',
+             "", 'RRF Constant 60, enter Top100 to reweight the text by exactly the same input, equal, precise fractional sorting, document ID determine parallel rows, output and set Top100. No action qrels, reassembly after construction. No new generation, training, retrieval, CE or risk doors, no sweep parameters.', ""]
     for retriever, v in views.items():
-        lines += [f"## {retriever}", "", "|方案|MRR|ΔMRR|组bootstrap95%|四主要效应校正区间|有益/有害查询|每查询损失量|", "|---|---:|---:|---|---|---:|---:|"]
+        lines += [f"## {retriever}", "", 'Programme MRR |Δ MRR Group bootstrap95%', "|---|---:|---:|---|---|---:|---:|"]
         for p, u in v["policies"].items():
             name = f"{p}-NoRewrite"
             e = v["estimates"].get(name)
             ci = e["ci95_group_bootstrap"] if e else [0.,0.]
             fci = e.get("four_effect_family95_bonferroni_group_bootstrap") if e else None
             lines.append(f"|{p}|{u['mrr']:.8f}|{u['delta_mrr']:+.8f}|[{ci[0]:+.8f}, {ci[1]:+.8f}]|" + (f"[{fci[0]:+.8f}, {fci[1]:+.8f}]" if fci else "—") + f"|{u['beneficial_queries']}/{u['harmful_queries']}|{u['harm_mass_per_query']:.8f}|")
-        lines += ["", "|次要配对比较|ΔMRR差|组bootstrap95%|", "|---|---:|---|"]
+        lines += ["", 'Secondary pair comparison MRR Gap group bootstrap95%', "|---|---:|---|"]
         for name in ("RRF4-RRF3", "RRF3-ENTRTop1", "RRF4-ENTRTop1"):
             e=v["estimates"][name]; ci=e["ci95_group_bootstrap"]
             lines.append(f"|{name}|{e['mean']:+.8f}|[{ci[0]:+.8f}, {ci[1]:+.8f}]|")
-        lines += ["", "|在线策略所需唯一检索输入|总数|每query均值|位置生成数（共用同池）|", "|---|---:|---:|---:|"]
+        lines += ["", 'The only search required for the online strategy is | query averaged | position generation (shared pool) |', "|---|---:|---:|---:|"]
         for p, c in v["costs"].items():
             lines.append(f"|{p}|{c['standalone_unique_retrieval_inputs_total']}|{c['standalone_unique_retrieval_inputs_mean']:.4f}|{c['position_generations_for_this_policy']}|")
-        lines += ["", f"受控比较中四列表共同可用的总检索输入为{v['common_four_list_available_cache_budget_total']}；原query+Top1为{v['original_plus_top1_budget_total']}。这不是策略在线成本相同的证明。原实验实际采用批量/缓存执行，表中是每query所需唯一输入次数；不把次数当延迟、token或金额。", ""]
-    lines += ["## 解释边界", "", "融合产生新排名，可能超过best3，best3不能作融合上界或收益保留率分母。RRF4含原查询不意味着保证无损；有害查询和损失幅度均报告。三候选仍由原生熵筛选，故本实验是无需额外UQ预测头的融合，不是消除全部熵信息的对照。",
-              "", "数据已消费，协议只在此次新融合效果计算前冻结。组区间描述该开发集上的差异，不构成新独立确认；四项主要效应提供Bonferroni敏感性。跨检索器直接配对差在RESULTS.json，未通过一边显著一边不显著推断差异。标准RRF不是本文新算法；主线作用与近邻差异见FINDINGS.md和PRIOR_WORK_COMPARISON.md。",
-              "", "独立验收见AUDIT.json、FINAL_ACCEPTANCE.json，涵盖Fraction全排序、去重、动作/成本、逐queryRR、指标区间及冻结哈希。旧A/B、旧H确认及正式五指针不改。"]
+        lines += ["", f"The total search input common to the four lists in the controlled comparison is:{v['common_four_list_available_cache_budget_total']};originally query+Top1 with{v['original_plus_top1_budget_total']}。 This is not proof of the same cost of strategy online. The original experiment was actually carried out in bulk/cachel and the table is the only input required per query; Do not delay, token or amount.", ""]
+    lines += ['## Interpretation of the boundary', "", 'Integration produces new rankings, which may exceed best3 and best3 cannot be the denominator of integration upward or yield retention rates. RRF4 The inclusion of original queries does not mean that the guarantees are intact; Harmful inquiries and loss ranges are reported. The three candidates are still screened for primary entropy, so the experiment does not require any extra UQ integration of the predictor head, rather than eliminating all the cross-references to entropy information.',
+              "", 'The data have been consumed and the agreement has been frozen only before this new integration effect is calculated. (b) Inter-group descriptions of the differences in the development and do not constitute new independent confirmations; Four main effects provide Bonferroni sensitivity. Cross-retrieval is directly modulated at RESULTS.json, and no significant inferences are made by the obvious side. Standard RRF is not a new algorithm; See FINDINGINGS.md and PRIOR_WORK_COMPARISON.md.',
+              "", 'Independent acceptance and inspection AUDIT.json, FINAL_ACCEPTANCE json, covering full sorting of Fraction, weighting, action/cost, by queryRR, indicator ranges and freezing of Hashi. Old A/B, old H confirmation and official five pointers.']
     with (OUT / "READOUT.md").open("x", encoding="utf-8") as handle:
         handle.write("\n".join(lines)+"\n")
 

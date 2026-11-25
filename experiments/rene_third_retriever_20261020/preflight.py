@@ -50,7 +50,7 @@ def main():
     codes = ['def f(a,b): if a>b: return a else return b',
              'def f(a,b): if a<b: return a else return b',
              ' '.join(['def repeated_function ( value ) : return value'] * 70)]
-    queries = ['return maximum value', '', 'Python 列表 naïve unicode', ' '.join(['token'] * 300)]
+    queries = ['return maximum value', '', 'Python List naï ve unicode', ' '.join(['token'] * 300)]
     cv, _, _ = encode(model, tokenizer, codes, 256)
     qv, _, _ = encode(model, tokenizer, queries, 128)
     # A fresh load and the archived author wrapper serve as the reference.

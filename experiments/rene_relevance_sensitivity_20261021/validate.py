@@ -48,7 +48,7 @@ def main():
                 require(all(label == p['prior_labels'] for label in old), 'original_labels', q['query_id'])
     packets = read(OUT / 'private/reviewer_keys.json')
     for reviewer, packet in packets.items():
-        path = OUT / f'reviewer_{reviewer}/代码相关性补充审阅.html'
+        path = OUT / f'reviewer_{reviewer}Supplementary review of code relevance. html'
         html = path.read_text(encoding='utf-8')
         payload = json.loads(re.search(r'<script id="packet" type="application/json">(.*?)</script>', html, re.S).group(1))
         require(payload['packet_id'] == packet['packet_id'], 'packet_identity', reviewer)
@@ -69,9 +69,9 @@ def main():
                 new_panels.add((query['query_id'], panel_id))
         expected = {(q['query_id'], p['id']) for q in queries for p in q['panels'] if p['prior_labels'] is None}
         require(new_panels == expected, 'packet_coverage', reviewer)
-        with zipfile.ZipFile(OUT / f'相关性补判_审阅者{reviewer}.zip') as archive:
+        with zipfile.ZipFile(OUT / f'Rendering to relevance _{reviewer}.zip') as archive:
             require(len(archive.namelist()) == 2 and all('/' not in n for n in archive.namelist()), 'zip_scope', reviewer)
-            require(archive.read('代码相关性补充审阅.html') == path.read_bytes(), 'zip_content', reviewer)
+            require(archive.read('Additional review of code relevance. html') == path.read_bytes(), 'zip_content', reviewer)
         script = re.search(r'<script>(.*?)</script>', html, re.S).group(1)
         with tempfile.TemporaryDirectory(prefix='rene-relevance-js-') as temp:
             js_path = Path(temp) / 'page.js'

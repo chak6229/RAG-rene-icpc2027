@@ -73,7 +73,7 @@ class Contracts(unittest.TestCase):
         packet = {'packet_id': 'p', 'cases': [{'case_id': 'c', 'query_id': 'q', 'document_map': {'C1': 'panel'}}]}
         payload = {'schema_version': 1, 'phase': 'relevance_supplement', 'reviewer': 'A', 'packet_id': 'p',
                    'complete': True, 'independence_confirmed': True,
-                   'answers': {'c': {'documents': {'C1': {'relevance': 'u', 'note': '需要额外调用语境'}}}}}
+                   'answers': {'c': {'documents': {'C1': {'relevance': 'u', 'note': 'Need for additional terminologies'}}}}}
         self.assertEqual(len(validate_return(payload, 'A', packet)), 1)
         payload['answers']['c']['documents'] = {}
         with self.assertRaises(ValueError):

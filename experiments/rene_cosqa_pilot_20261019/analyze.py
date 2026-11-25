@@ -86,27 +86,27 @@ def main():
              "confirmation_started": False, "sample_size_frozen": False,
              "next": "bind confirmation size and full adoption policy before any confirmation effects" if eligible_all else "expand development precision or revisit confirmation breadth before opening reserved pool"}
     write(OUT / "POWER_PLAN.json", power, immutable=True)
-    report = ["# CoSQA 开发小样本：SSQR 位置评分双检索器试跑", "", f'完成时间：{now()}。开发查询 {protocol["queries"]}，连通组 {protocol["groups"]}，语料6,267文档。',
-              "本批永久为开发数据；确认池未运行方法效果。主设置、角色、四主比较均在生成前冻结。", "",
-              "| 检索器 | NoRewrite MRR@100 | ENTR best3 Δ | PROB best3 Δ | RAND20均值 best3 Δ | ENTR Top1 Δ | PROB Top1 Δ |", "|---|---:|---:|---:|---:|---:|---:|"]
+    report = ['# CoSQA Development of small samples: SSQR Position Rating Double Retrieval Test', "", f'_Other Organiser{now()}. Develop queries {protocol["queries"]}Connect team. {protocol["groups"]}, the medium 6,267 document.',
+              'This batch is permanently used to develop data; confirm that the pool does not run its method effects. The main settings, roles, and four comparisons are frozen before they are generated.', "",
+              '| Retrieval NoRewrite MRR@100 ENTR best3 | PROB best3 Δ RAND20 Mean value best3 Δ ENTR Top1 Δ PROB Top1 Δ', "|---|---:|---:|---:|---:|---:|---:|"]
     for retriever, metric in metrics.items():
         best = metric["candidate_set_quality"]
         top = metric["automatic_top1"]
         report.append(f'| {retriever} | {metric["NoRewrite_mrr"]:.8f} | {best["ENTR"]["delta_vs_NoRewrite"]["mean"]:+.8f} | {best["PROB"]["delta_vs_NoRewrite"]["mean"]:+.8f} | {best["RAND"]["delta_vs_NoRewrite"]["mean"]:+.8f} | {top["ENTR"]["delta_vs_NoRewrite"]["mean"]:+.8f} | {top["PROB"]["delta_vs_NoRewrite"]["mean"]:+.8f} |')
-    report += ["", "best3 是使用相关性标签得到的候选集上限，不能当成自动采纳收益。Top1 按显式 selected_rank 选择；RAND 从同一位置池做20次缓存抽样。", "",
-               "| 主比较 | 配对 ΔMRR | 95%组bootstrap区间 | 四比较同时98.75%区间 | Holm p（开发诊断） | 变化组 |", "|---|---:|---|---|---:|---:|"]
+    report += ["", 'best3 is the upper limit of the pool obtained using a relevant label and cannot be considered an automatic adoption gain. Top1 Select by visible selected_rank; RAND A subcache sample of 20 from the same position pool.', "",
+               'Z Main comparison | Match MRR 95% Group bootstrap 98.75% Intersections Holm p', "|---|---:|---|---|---:|---:|"]
     for key in protocol["main_contrasts"]:
         retriever, contrast = key.split(":")
         item = metrics[retriever]["paired_contrasts"][contrast]
         report.append(f'| {key} | {item["mean"]:+.8f} | {item["ci95_cluster"]} | {item["ci98_75_four_contrast_family"]} | {family[key]["p_holm"]:.6g} | {item["changed_groups"]} |')
-    report += ["", "冻结的是源码主导重建：1…n插入位置、显式greedy、19新token、局部T5 best92000；论文0…n、采样m10、原checkpoint及未公开PROB实现的差异已在PROTOCOL列明，不称精确恢复原作者运行。", "",
-               "评估器31项有效/反例测试通过；先封存动作与排名，开结果前独立复算全部排名、BM25公式及真实候选FP64熵；开结果后Fraction RR/MRR独立复算通过。所有方法分母相同。", "",
-               f'预留确认池：{len(roles["confirmation_pool_query_ids"])}查询/{available}连通组，其中官方test500的396关联组完整保留。已知代码与仓库不跨角色；未知仓库身份仍未知。', "",
-               "| 功效规划比较（目标Δ=.005、80%、四比较校正） | 保守所需组 | 可用组容量够 | 变化事件足够估方差 |", "|---|---:|---|---|"]
+    report += ["", 'Freezing is source code leading reconstruction: 1 n insert position, visible greedy, 19 new token, local T5 best92000; Papers 0...n, sample m10, original checkpoint and undisclosed PROB the differences realized are listed in PROTOCOL and do not mean to accurately resume the operation of the author.', "",
+               'Valid/reverse test for evaluation unit 31 passed; Store action and ranking first, independently recalculating all rankings before results, BM25 formulae and real candidates FP64 entropy; After result Fraction RR / MRR Independent recalculation passed. All methods have the same denominator.', "",
+               f'Retention confirmation pool:{len(roles["confirmation_pool_query_ids"])}Query{available}Connecting group, where the official test500 associated group 396 is fully maintained. Known codes do not fit in with repositories; The identity of the unknown repository remains unknown.', "",
+               'Comparison of effectiveness planning (target =...) 005, 80%,4comparison correction) | Conservative group | Available group capacity enough | Change event enough to estimate the difference |', "|---|---:|---|---|"]
     for item in primary_rows:
         report.append(f'| {item["contrast"]} | {item["conservative_required_groups"]} | {item["available_group_capacity_sufficient"]} | {item["planning_eligible"]} |')
-    report += ["", "功效是基于开发组分布的规划近似；不足20变化组时不据此冻结确认规模。全零/稀疏结果不直接宣称等效。未执行确认、采纳模型训练或风险认证，正式部署保持原状态。", "",
-               "证据：PROTOCOL.json、ROLE_MANIFEST.json、TEST_RESULTS.json、CANDIDATES_SEALED.json、DECISIONS_SEALED.json、PREOUTCOME_AUDIT.json、POSTOUTCOME_AUDIT.json、RQ1_PILOT.json、POWER_PLAN.json。", ""]
+    report += ["", 'Effectiveness is based on the planning approximation of the distribution of development teams; Not enough 20 change group does not freeze the confirmed size accordingly. Full zero/shrimp results do not directly claim equivalence. The validation, adoption of model training or risk certification was not carried out and the formal deployment remained in place.', "",
+               'Evidence: PROTOCOL.json, ROLE_MANIFEST.json, TEST_RESULTS.json, CANDIDATES_SEALED.json, DECISIONS_SEALED.json, PREOUTCOME_AUDIT.json, POSTOUTCOME_AUDIT.json, RQ1_PILOT.json, POWER_PLAN.json.', ""]
     with (OUT / "REPORT.md").open("x", encoding="utf-8") as handle:
         handle.write("\n".join(report))
     print({"analysis_complete": True, "confirmation_started": False, "all_power_plans_supported": eligible_all}, flush=True)

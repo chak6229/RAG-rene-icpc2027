@@ -1,45 +1,45 @@
-# CoSQA 开发小样本：SSQR 位置评分双检索器试跑
+# CoSQA Development of small samples: SSQR Position Rating Double Retrieval Test
 
-完成时间：2026-10-19T08:45:14.065374+00:00。开发查询 256，连通组 86，语料6,267文档。
-本批永久为开发数据；确认池未运行方法效果。主设置、角色、四主比较均在生成前冻结。
+Completion time: 2026 - 10 - 19 T08: 45: 14.065374 + 00: 00. Develop queries 256, connect groups 86, syntax 6,267 documents.
+This batch is permanently used to develop data; confirm that the pool does not run its method effects. The main settings, roles, and four comparisons are frozen before they are generated.
 
-| 检索器 | NoRewrite MRR@100 | ENTR best3 Δ | PROB best3 Δ | RAND20均值 best3 Δ | ENTR Top1 Δ | PROB Top1 Δ |
+| retriever | NoRewrite MRR@100 | ENTR best3 Δ | PROB best3 Δ | RAND20 Mean value best3 | ENTR Top1 Δ | PROB Top1 Δ |
 |---|---:|---:|---:|---:|---:|---:|
 | CodeBERT | 0.49695906 | +0.07054904 | +0.07100508 | +0.06523072 | -0.02201640 | -0.01840287 |
 | BM25 | 0.19238386 | +0.02120211 | +0.02036177 | +0.01638454 | -0.02485738 | -0.02048444 |
 
-best3 是使用相关性标签得到的候选集上限，不能当成自动采纳收益。Top1 按显式 selected_rank 选择；RAND 从同一位置池做20次缓存抽样。
+best3 is the upper limit of the pool obtained using a relevant label and cannot be considered an automatic adoption gain. Top1 Select by visible selected_rank; RAND A subcache sample of 20 from the same position pool.
 
-| 主比较 | 配对 ΔMRR | 95%组bootstrap区间 | 四比较同时98.75%区间 | Holm p（开发诊断） | 变化组 |
+| Main comparison | Matches Δ MRR | 95% Group bootstrap | Four compares with 98.75% of the area. | Holm p (development of diagnostics) | Change Group |
 |---|---:|---|---|---:|---:|
 | CodeBERT:ENTR_minus_RAND_best3 | +0.00531832 | [-0.007711749754408486, 0.018561619688993114] | [-0.011302681457875696, 0.022231747263962827] | 1 | 58 |
 | CodeBERT:ENTR_minus_PROB_best3 | -0.00045604 | [-0.01018419463632538, 0.008557311074196921] | [-0.013485399632706608, 0.011443686279712127] | 1 | 20 |
 | BM25:ENTR_minus_RAND_best3 | +0.00481757 | [-0.0026380017662490695, 0.012907991335171256] | [-0.004737096601127205, 0.015491210631924521] | 0.890902 | 50 |
 | BM25:ENTR_minus_PROB_best3 | +0.00084034 | [-0.002408861339108449, 0.005663237262122122] | [-0.0029748712348980234, 0.007189033053738892] | 1 | 14 |
 
-冻结的是源码主导重建：1…n插入位置、显式greedy、19新token、局部T5 best92000；论文0…n、采样m10、原checkpoint及未公开PROB实现的差异已在PROTOCOL列明，不称精确恢复原作者运行。
+Freezing is source code leading reconstruction: 1 n insert position, visible greedy, 19 new token, local T5 best92000; Papers 0...n, sample m10, original checkpoint and undisclosed PROB the differences realized are listed in PROTOCOL and do not mean to accurately resume the operation of the author.
 
-评估器31项有效/反例测试通过；先封存动作与排名，开结果前独立复算全部排名、BM25公式及真实候选FP64熵；开结果后Fraction RR/MRR独立复算通过。所有方法分母相同。
+Valid/reverse test for evaluation unit 31 passed; Store action and ranking first, independently recalculating all rankings before results, BM25 formulae and real candidates FP64 entropy; After result Fraction RR / MRR Independent recalculation passed. All methods have the same denominator.
 
-预留确认池：8530查询/1963连通组，其中官方test500的396关联组完整保留。已知代码与仓库不跨角色；未知仓库身份仍未知。
+Retain confirmation pool: 8530 Query/1963 Connecting group, where the official test500 396 association group is fully retained. Known codes do not fit in with repositories; The identity of the unknown repository remains unknown.
 
-| 功效规划比较（目标Δ=.005、80%、四比较校正） | 保守所需组 | 可用组容量够 | 变化事件足够估方差 |
+| Power-planning contrast (target Δ=.005, 80% power, four-comparison correction) | Conservative group requirement | Available group capacity meets requirement | Sufficient nonzero groups to estimate variance |
 |---|---:|---|---|
 | CodeBERT:ENTR_minus_RAND_best3 | 2448 | False | True |
 | CodeBERT:ENTR_minus_PROB_best3 | 1617 | True | True |
 | BM25:ENTR_minus_RAND_best3 | 1059 | True | True |
 | BM25:ENTR_minus_PROB_best3 | 433 | True | False |
 
-功效是基于开发组分布的规划近似；不足20变化组时不据此冻结确认规模。全零/稀疏结果不直接宣称等效。未执行确认、采纳模型训练或风险认证，正式部署保持原状态。
+Power is a planning approximation based on the development-group distribution. The confirmation sample size was not fixed using fewer than 20 nonzero groups. All-zero or sparse estimates do not establish equivalence. This pilot did not run confirmation, train adoption models or certify risk. The recorded deployment decision was retained.
 
-证据：PROTOCOL.json、ROLE_MANIFEST.json、TEST_RESULTS.json、CANDIDATES_SEALED.json、DECISIONS_SEALED.json、PREOUTCOME_AUDIT.json、POSTOUTCOME_AUDIT.json、RQ1_PILOT.json、POWER_PLAN.json。
+Evidence: PROTOCOL.json, ROLE_MANIFEST.json, TEST_RESULTS.json, CANDIDATES_SEALED.json, DECISIONS_SEALED.json, PREOUTCOME_AUDIT.json, POSTOUTCOME_AUDIT.json, RQ1_PILOT.json, POWER_PLAN.json.
 
-## 本轮判断与下一步
+## This round of judgment and next steps
 
-- 本轮生成1,734个位置候选，实际1990个动作/检索器（256原查询+1734候选），1981种唯一查询文本；生成47.66秒、CodeBERT排名116.4秒、BM25排名0.7秒。RAND20只重选缓存位置，没有增加生成次数。
-- 候选集的标签上限为正，直接Top1却为负，损失已发生在自动选择阶段。该现象不能单独当首次发现；本项目主比较仍为新查询上的ENTR−RAND及ENTR−PROB。
-- 四项主比较的95%及四项同时区间均跨零，不能宣称负熵相对随机/概率评分有稳定额外收益，也不能据本小样本宣称等效或无效。ENTR/PROB有149/256查询Top3集合相同、211/256查询Top1相同，是需要保留PROB对照的直接理由。
-- 开结果前审计PASS：3980动作排名复算、dense点积误差0、BM25独立公式误差0；16个真实开发候选独立FP64熵误差最大5.475e-7。开结果后3072个RR字段独立有理数复算，最大误差1.11e-16。后继规范化查询检查确认D/H文本交集0。
-- 目标差值.005、80%功效、四比较校正下，CodeBERT ENTR−RAND普通规划1662组、方差不确定性保守规划2448组；现有确认池1963组，保守目标尚未满足。BM25 ENTR−PROB仅14变化组，未达事前20组的方差规划条件。不能承诺官方500查询足够。
-- 下一应先使用已永久归D、尚未运行的426个开发组补足方差/变化事件证据，保持主设置不变；同时把同候选的直接收益选择作为RQ2基线开发。确认池及其采样顺序保留，等功效与完整采纳策略都锁定后再一次评估。本轮没有启动该后续扩大开发或确认。
-- 全部CoSQA正查询仍是单已知相关目标；新查询外部复现不等于上游未见代码。角色隔离针对已恢复的连通组，未知仓库身份仍未知，延续前期数据审查范围。
+- This round generates 1,734 place candidates, actual 1990 actions/researchers (256 original query +1734 candidate, 1981 unique search text; Generate 47.66 seconds, CodeBERT ranking 116.4 seconds, BM25 ranking 0.7 seconds. RAND20 Select only the cache position, without increasing the number of times generated.
+- The maximum label of the candidate group is positive, while the direct Top1 is negative and the loss has occurred at the automatic selection stage. The phenomenon cannot be detected for the first time alone; The main comparison of this item remains on the new query ENTR−RAND and ENTR− PROB.
+- The 95% intervals for the four primary comparisons, including their simultaneous intervals, all span zero. This pilot does not establish a stable incremental benefit of negative entropy over random or probability scoring, nor does it establish equivalence or a null effect. ENTR and PROB select the same Top3 set for 149/256 queries and the same Top1 for 211/256, motivating the PROB control.
+- Audit before outcome PASS: 3980 Recalculate action ranking, dense point error 0, BM25 Independent formula error 0; 16 A true development candidate for independence FP64 has the greatest error in entropy 5.475e-7. After the results, 3072 individual RR field independently rationalized, maximum error 1.11e-16. Subsequent normative query confirmation D/H text intersection 0.
+- Target margin.005, 80% Effect, four-comparison correction, CodeBERT ENTR - RAND General planning 1662 Group, Conservative planning for variance uncertainty 2448 Groups; Existing confirmation pool 1963 group, conservative targets have not been met. BM25  ENTR - PROB Only 14 Change group, before we get there. 20 The group's differential planning conditions. Cannot commit to official 500 inquiries enough.
+- The following shall be used to supplement the evidence of variance/change events with evidence of 426 development teams that have been permanently returned to D and are not yet operational, keeping their main settings unchanged; At the same time, direct benefit options for candidates are used as RQ2 baseline development. Confirms that the pool and its sampling sequence are maintained, and assesses once again the efficacy and complete adoption strategy have been locked in. This round did not initiate the subsequent expansion or confirmation.
+- All CoSQA on-going queries remain single known related targets; The external recurrence of new queries does not amount to an upstream lack of code. Role segregation is targeted at restored connectivity groups, with unknown repository identities still unknown and extending the scope of prior data review.

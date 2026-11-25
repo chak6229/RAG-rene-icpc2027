@@ -1,20 +1,20 @@
-# SSQR三候选聚合与公开评估器核对
+# SSQR three-candidate aggregation and the public evaluator
 
-公开JSON生成路径按同一URL写出多条改写；公开评估器把预测存为URL→answers的dict，后行覆盖前行。直接执行经Git blob校验的作者评估器，3条同URL合成例结果0，逐query best3为1；这证明接口行为，不证明作者当年生产表格采用该错误路径。
+The public JSON generation path writes multiple rewrites under the same URL. The public evaluator stores predictions as a URL-to-answers dictionary, so later rows overwrite earlier rows. When the public evaluator was run from the verified author Git blob, a synthetic example with 3 rewrites for one URL scored 0. Per-query best3 gave 1. The example demonstrates the public interface behavior and leaves the original production procedure unresolved.
 
-论文5.1写选前三条并报告最高MRR；公开评估链未明确实现逐query最大RR或三个位置的整体MRR取最大。故将以下三口径作为有限补充诊断同时报告，不回写已冻结CoSQA主比较。
+Section 5.1 of the original paper describes selecting the top three and reporting the highest MRR. The public evaluation chain does not explicitly implement a per-query maximum RR or a maximum over the three position-wise MRRs. The three interpretations below are bounded diagnostics. The frozen main CoSQA comparison is retained.
 
-所有数据均已消费的源数据/CoSQA D，新增桥接效果打开前冻结。要求原query至少3词，使所有profile都具有真实三位置；少于3的查询不补零、不补原句，主实验全分母保持原样。本补充子集数量在PROTOCOL列清。
+The source and CoSQA D data had already been used. The diagnostics were frozen before opening new bridge effects. Queries with at least 3 words ensure that each profile has three actual positions. Shorter queries were excluded only from this supplementary subset, without padding with a zero or the original query. The main-experiment denominator is retained. See `PROTOCOL` for the subset counts.
 
-| 检索器 | 数据/主桥接查询 | 逐query best3: E−R | 三个rank-wise MRR取最好: E−R | 公开reader末行口径: E−R |
+| retriever | Data/Mainbridge queries | PVQary best 3: E-R | Three rank-wise MRR Take best: E−R | Open reader Last line caliber: E−R |
 |---|---|---:|---:|---:|
 | CodeBERT | source/2048 | -0.00435302 | +0.00156252 | +0.00172419 |
 | BM25 | source/2048 | -0.00133742 | +0.00110986 | +0.00171944 |
 | CodeBERT | cosqa/1490 | +0.00236800 | +0.02294983 | -0.00046317 |
 | BM25 | cosqa/1490 | -0.00194770 | +0.00369643 | -0.00682315 |
 
-三个rank-wise均值的最大值是非光滑统计量，未把看标签选出的最佳位置当固定政策来计算普通配对区间；RESULTS提供66个policy×rank均值同时Bonferroni cluster-t近似界传播后的保守对比区间。其余两种口径按查询配对做组区间。全部为诊断，不增加确认性检验。
+The maximum of three rank-wise means is a non-smooth statistic. Selecting the best position using labels and treating it as a fixed policy would invalidate an ordinary paired interval. `RESULTS` gives a conservative contrast interval propagated from simultaneous Bonferroni cluster-t approximate bounds on 66 policy-by-rank means. Group intervals for the other two interpretations pair the queries. All three are diagnostics.
 
-论文应表述为‘本文明确采用逐查询最大RR的三候选机会指标’，并登记公开聚合路径未恢复。不能把public evaluator末行行为当作原论文真实生产流程，也不能声称原作者结果已被该合成反例推翻。
+The reconstruction uses a per-query maximum RR as the three-candidate opportunity measure and records that the production aggregation path was not recovered. The last-row behavior in the public evaluator does not identify the original production pipeline. The synthetic diagnostic does not refute the original results.
 
-原公开evaluator blob: `a75b4944ca9d656641ed6214ce14c2709dca946e`；本轮源码、协议及合成执行证据均保留。完整六profile和PROB结果见RESULTS.json。
+Public evaluator blob: `a75b4944ca9d656641ed6214ce14c2709dca946e`. The source, protocol and synthetic execution evidence were retained. `RESULTS.json` provides the six profiles and PROB results.

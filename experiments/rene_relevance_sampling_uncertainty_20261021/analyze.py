@@ -146,17 +146,17 @@ def main():
     }
     (OUT / "RESULTS.json").write_text(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     selected = [x for x in outputs if x["policy"] == PRIMARY["policy"] and x["cutoff"] == PRIMARY["cutoff"]]
-    lines = ["# 人工相关性敏感性：抽样不确定性补充", "",
-             "沿用原八层、每层16查询的不放回设计和原权重。主方法对RR完整离散支持上的层内CDF计数反演单侧超几何分布，以Bonferroni同时覆盖两端点、八层及全部阈值，再合成分层均值界。这是设计解释下保守的有限样本95%包络；另列带有限总体修正的Neyman方差/t近似作为精度参照，不将其当作精确覆盖。两者都不包含评审判断误差。", "",
-             "主要政策为RIDGE_verified，RR@3。以下每组合主包络覆盖H8530识别区间的两个总体端点；A/B和阈值分别报告。另在RESULTS.json提供这四组合的同时95%包络，不声称全部48组合同时95%。这是已见旧结果后的诊断，不是新效应确认。", "",
-             "|阈值|审阅者|样本识别界|保守有限框95%包络|分层t近似95%包络|", "|---:|---|---|---|---|"]
+    lines = ['# Sensitivity of manual relevance: sample uncertainty supplements', "",
+             'Follows the original eight-storey, each 16 query without returning design and original weight. The main method corresponds to RR full-segregation support over a layer of CDF array inverse hypergeometric distribution at Bonferroni simultaneously covering both ends, eight layers and all thresholds, and synthesizing the stratification average. This is a conservative and limited sample 95% package under the design explanation; A separate column with a limited overall correction of Neyman variance/t approximates as a precision reference and is not considered to be accurately covered. Neither contains evaluation error of judgement.', "",
+             'The main policy is RIDGE_verified, RR@3. Each of the following combinations covers two overall endpoints between H8530 identification areas; A/B and thresholds are reported separately. And while RESULTS.json provides these four combinations, 95% The envelope, not all of it. 48 Grouping at the same time 95%. This is a diagnosis of the old results, not confirmation of new effects.', "",
+             "Thrust threshold and reviewer's sample recognition domain is conservative and limited 95% Conservative layer t Approximation 95%", "|---:|---|---|---|---|"]
     for row in selected:
         lo, hi = row["sample_identification_range"]
         ci = row["exact_conservative_envelope"]["interval"]
         approx = row["confidence_envelope"]["interval"]
         lines.append(f"|{row['threshold']}|{row['reviewer']}|[{lo:+.6f}, {hi:+.6f}]|[{ci[0]:+.6f}, {ci[1]:+.6f}]|[{approx[0]:+.6f}, {approx[1]:+.6f}]|")
-    lines += ["", "样本正向识别界不会自动成为总体正效用结论。主要两位审阅者、两阈值的精确保守包络和t近似都跨零；总体正方向未建立，也不能据跨零声称无效或等效。原样本、严格未加权结果、unknown和原qrels保持。", "",
-              "完整分层超几何CDF计数界、方差、自由度、有限总体修正及48组合见RESULTS.json；四组合同时95%主包络亦均跨零。输入为results/rene_review_completion_20261021/query_bounds.jsonl。"]
+    lines += ["", 'Samples are moving to the identification community and do not automatically form an overall positive utility conclusion. The two main reviewers, the precise conservative envelope of the two thresholds and t are close to zero; The overall positive direction has not been established and cannot be declared invalid or equivalent on the basis of zero. Original samples, strictly unweighted results, unknown and original qrels maintained.', "",
+              'Full layer supergeometric CDF array, variance, freedom, limited overall correction and 48 See RESULTS.json; The four combinations of 95% and the main envelope also span zero. Enter as results/rene_review_completion_20261021/query_bounds.jsonl.']
     (OUT / "FINDINGS.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(json.dumps({"result_dir": str(OUT), "primary": [{"reviewer": x["reviewer"], "threshold": x["threshold"], "sample_identification_range": x["sample_identification_range"], "envelope": x["confidence_envelope"]["interval"], "se": [x["lower_endpoint_sampling"]["standard_error"], x["upper_endpoint_sampling"]["standard_error"]], "df": [x["lower_endpoint_sampling"]["welch_satterthwaite_df"], x["upper_endpoint_sampling"]["welch_satterthwaite_df"]]} for x in selected]}, ensure_ascii=False, indent=2))
 

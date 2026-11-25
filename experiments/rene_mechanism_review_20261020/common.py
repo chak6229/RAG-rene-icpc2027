@@ -16,8 +16,8 @@ RAW_SOURCE = ROOT / 'imports/CodeXGLUE-main/Text-Code/NL-code-search-WebQuery/Co
 POLICIES = ('ENTR_top1', 'HGB_gain_control', 'RIDGE_gain', 'RIDGE_verified', 'RIDGE_risk')
 STRATA = ('gate_reject_positive', 'gate_reject_negative', 'final_positive', 'final_negative',
           'gate_reject_zero', 'remaining_opportunity', 'remaining_neutral_changed', 'remaining_no_opportunity')
-STRATUM_ZH = ('门拒正收益', '门拒负收益', '最终正收益', '最终负收益', '门拒零收益',
-              '其余仍有正机会', '其余零收益但排名改变', '其余无正机会且未采用')
+STRATUM_ZH = ("It's not the right thing to do.", 'Door refusals and negative returns', 'Final positive gain.', 'Final negative gain', 'Door denial zeroes.',
+              "There's still a good chance.", 'The rest is zero, but the ranking changes.', 'The remaining opportunities were not positive and had not been implemented')
 PER_STRATUM = 16
 SALT = 'rene-mechanism-review-20261020-v1'
 FIDELITY = ('preserved', 'drift', 'malformed', 'uncertain')

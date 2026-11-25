@@ -22,12 +22,12 @@ for domain, rewriter, name in FILES:
         rows.append((domain, rewriter, json.load(handle)))
 
 lines = []
-lines.append("# 多 rewriter 包络（512-query sensitivity subset）")
+lines.append('# Multiple rewriter Package (512 - query sensitivity subset)')
 lines.append("")
-lines.append("日期：2026-10-20。本地 CQC T5 与 t5-base 在同一批查询、同一插入位置、同一 greedy 设置、"
-             "同一全词表 teacher-forcing 熵、同一 CodeBERT pooler 检索器下比较。")
+lines.append('Date: 2026 - 10 - 20. Local CQC T5 with t5-base batch query, insert in the same position, greedy settings,'
+             'A comparison under the same full-word list teacher-forcing entropy, the same CodeBERT pooler searcher.')
 lines.append("")
-lines.append("| 数据 | ReWriter | 查询 | NoRewrite | ENTR Top-1 | ENTR best3 | Oracle-all | Δ Top-1 | Δ best3 | Δ Oracle | Spearman(ENTR,RR) |")
+lines.append('| Data ReWriter| Query NoRewrite| ENTR  Top- 1  |  ENTR  best3 | Oracle-all | Δ Top- 1  | Δ best3 | Δ Oracle | Spearman(ENTR, RR) |')
 lines.append("|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|")
 missing = []
 for domain, rewriter, data in rows:
@@ -42,16 +42,16 @@ for domain, rewriter, data in rows:
         f"{d['oracle']:+.4f} | {data['spearman_entropy']:+.3f} |"
     )
 lines.append("")
-lines.append("**读法**：")
-lines.append("- 如果两个 rewriter 都出现 `Top-1 < NoRewrite`、`best3 > NoRewrite`、`Oracle >> NoRewrite`，"
-             "说明失败在选择信号，不是某一个 T5 的偶然。")
-lines.append("- Spearman 为负表示“熵越低、RR 越高”，方向与 SSQR 一致；量级反映信号强弱，不是单调可用性的证明。")
-lines.append("- Oracle-all 是读数上界，不是可部署方法；Top-1 是单选择，best3 是候选集指标。")
+lines.append('**Read:**')
+lines.append('- If both rewriter appear `Top-1 < NoRewrite`, `best3 > NoRewrite`, `Oracle >> NoRewrite`,'
+             'This indicates that the failure in selecting a signal is not an accident of one T5.')
+lines.append('- Spearman is the negative expression "the lower the entropy, the higher the RR" and in the same direction as SSQR; Quantities reflect a strong signal and are not proof of monotonous usability.')
+lines.append('- Oracle-all is the upper margin of reading and not a deployable method; Top-1 is a single choice, best3 is a candidate set of indicators.')
 lines.append("")
 if missing:
-    lines.append(f"未完成：{', '.join(missing)}。")
+    lines.append(f"Not completed:{', '.join(missing)}。")
     lines.append("")
-lines.append("## 复现")
+lines.append('## Revert')
 lines.append("")
 lines.append("```text")
 lines.append("cd experiments/rene_ssqr_rewriter_envelope_20261020")

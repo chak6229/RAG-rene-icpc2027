@@ -37,39 +37,39 @@ def deliver():
                         'ci95_bootstrap_lower':x['ci95_bootstrap'][0],'ci95_bootstrap_upper':x['ci95_bootstrap'][1]})
     with (OUT/'COMPLETE_CURVES.csv').open('x',encoding='utf-8-sig',newline='') as h:
         w=csv.DictWriter(h,fieldnames=list(curves[0]));w.writeheader();w.writerows(curves)
-    lines=['# 两套T5权重下B/G新样本配对确认','',
-        f'独立新查询/连接组：{r["queries"]:,}；固定代码语料：{r["corpus_documents"]:,}。',
-        '本实验的资格、样本量、模型、完整生成/检索配置和六项统计族在新生成与效果前本地封存。不是外部预注册。',
-        '', '## 全部六项事前比较','',
-        '|比较|点估计|六项校正t区间|六项校正组bootstrap区间|预定方向判定|非零组|',
+    lines=['# Two sets of T5 weights B/G New sample pair confirmation','',
+        f'Independent new query/connection group:{r["queries"]:,};fixed code language:{r["corpus_documents"]:,}。',
+        'Qualifications, sample volumes, models, complete generation/retrievation configuration and local storage of the six statistical communities prior to new generation and effects. Not external pre-registration.',
+        '', '## Six prespecified comparisons','',
+        'A comparison of the six corrections t and six correction units bootstrap.',
         '|---|---:|---|---|---|---:|']
-    chinese={'positive':'正','negative':'负','unresolved':'未决'}
+    chinese={'positive':'positive','negative':'negative','unresolved':'unresolved'}
     for name in PRIMARY:
         x=primary[name];lines.append(f'|{name}|{x["mean"]:+.6f}|{interval(x["family6_ci_t"])}|{interval(x["family6_ci_bootstrap"])}|{chinese[x["direction"]]}|{x["groups_with_nonzero"]:,}|')
     directions=[primary[f'{w}::ENTR_{c}']['direction'] for w in WEIGHTS for c in ('B','G')]
     if all(v=='positive' for v in directions):
-        interpretation='四个ENTR分量均通过预定的六项校正和双区间方向规则：在这批新StaQC查询、固定CodeBERT和指定完整生成契约下，两套T5权重的B/G正方向得到配对确认。这直接增强第二贡献的权重条件证据。'
+        interpretation='Each of the four ENTR fractions is confirmed by a predefined six correction and double-domain directional rule: under this new StaQC series of queries, fixed CodeBERT and assigned full generation contracts, two sets of T5 weights B/G are matched. This directly reinforces the evidence of weighting conditions for secondary contributions.'
     else:
         resolved=sum(v=='positive' for v in directions)
-        interpretation=f'四个ENTR分量中{resolved}项确认正方向；未满足“四项均正”的事前规则，因此不能声称两套权重下B/G方向整体稳定延续。各分量及配对权重差保留表中完整结果；该实验把权重条件的成立范围具体化，不能用合并均值替代未决或反向项。'
+        interpretation=f'Four ENTR points medium{resolved}(a) Confirm the positive direction of the item; The pre-event rule of “four positives” is not satisfied and therefore cannot be claimed to have continued stable overall in the direction of two sets of weights B/G. (a) The full results of the tables on weights and rationing differences; The experiment concretized the scope of establishment of weighting conditions and could not replace outstanding or reverse items with a combined average.'
     lines+=['',interpretation,'',
-       '配对权重差为逐查询base减local。显著差值表示完整权重条件的差异，不隔离CQC训练本身；未决差值不表示等效。本实验没有设定或检验效果等效界。',
-       '', '## 比较对象和效应量','',
-       'B=S(1,mean)−S(3,mean)，G=S(3,mean)−S(3,best3)，S为ENTR相对本权重自身完整位置池精确随机的RR@100优势。正值表示沿指定契约步骤相对随机的优势减弱；不是自动执行的收益，不是生成调用预算，也不是唯一因果归因。',
-       '', '|权重|S(1,mean)|S(3,mean)|S(3,best3)|NoRewrite MRR@100|','|---|---:|---:|---:|---:|']
+       'The ratio weight difference is base minus local. A significant margin indicates a difference in the full weight condition and does not isolate CQC training itself; The outstanding margin is not equivalent. This experiment does not set or test the equivalent of effects.',
+       '', '## Compare objects and effects','',
+       'B=S(1,mean)−S(3,mean),G=S(3,mean)−S(3 best3, S is ENTR precise random position pool relative to its own weight RR@ 100 Strengths. The positive value represents a weakening of the relative randomity of steps along the designated contract; It is not the proceeds of automatic execution, it is not the generation of a transfer budget and it is not the sole cause or consequence.',
+       '', '|(1,mean)|S(3,mean)|S(3,best3)|Norewrite MRR@100|','|---|---:|---:|---:|---:|']
     for w in WEIGHTS:
         v=r['views'][w];lines.append('|'+w+'|'+'|'.join(f'{v["contrasts"][key]["mean"]:+.6f}' for key in ('S_ENTR_k1_mean','S_ENTR_k3_mean','S_ENTR_k3_max'))+f'|{v["values"]["NoRewrite"]["mean"]:.6f}|')
-    lines+=['','PROB、ENTR−PROB及完整k1/2/3×mean/best-k作为事前指定描述性结果，见COMPLETE_CURVES.csv和RESULTS.json；未追加确认性拒绝声明。',
-       '', '## 资格与规划','',
-       f'- 原历史参考排除后有84,618个StaQC单目标连接组；再排除旧完整语料、查询、历史生成及规范化暴露，剩{eligibility["remaining_groups"]:,}个合格组件。每组件固定哈希取一条、固定哈希选查询和干扰语料；新旧完整语料组件无交集。',
-       f'- 只用已消费两域匹配缓存及较大local结果规划：.005 RR分辨率、每方向95%功效目标；25,600组下四方向联合规划下界为{plan["four_directions_joint_power_lower_bound"]:.4f}。这是方差可迁移假设下对.005效应的规划，不保证更小真实效应显著。',
-       '- 两项权重差的校正规划半宽不超过.005；此处.005为测量精度目标，不是等效容忍界。无中途看效果停样、无加种子、无模型拟合或政策升级。',
-       '- accepted single-code标题/代码是一种固定检索条件，其他代码未被全面人工判为不相关。未知基础模型预训练暴露、语义克隆和未记录历史暴露不在本地资格保证内。',
-       '', '## 与既有证据的关系','',
-       '旧每域512条匹配分析及其24项族保持原样；旧StaQC 13,312组/16,384代码的两项族同样不变。这批25,600组是另一个新组件样本和新固定语料，六项族不回溯改变原结论。新结果不证明跨模型家族、跨所有检索器或历史全量训练归因。',
-       '', '## 验收与复核','',
-       '14项契约测试；两权重旧查询360位置span及完整ENTR/PROB排序复现；全查询/语料来源、组独立性、旧暴露、候选/动作/排名覆盖审查；独立有理数/CDF公式重算完整B/G；六项t和20,000次共同组bootstrap独立数值复放；32查询和32代码实际检索器重载与完整语料排名复放。',
-       '', '核验文件：DESIGN.json、ELIGIBILITY.json、PRECISION_PLAN.json、PREOPEN_AUDIT.json、NUMERICAL_AUDIT.json、MODEL_AUDIT.json、FINAL_ACCEPTANCE.json。']
+    lines+=['','PROB, ENTR - PROB and complete k1 / 2 / 3 x mean/best-k as a pre-defined descriptive result, see COMPLETE_CURVES.csv and RESULTS.json; No additional confirmation declaration of rejection.',
+       '', '## Eligibility and planning','',
+       f'- Existing historical references excluding 84,618 StaQC single target connectors; And exclude the full text, queries, historical generation and normative exposures.{eligibility["remaining_groups"]:,}Each component takes a fixed Hashi, a fixed Hashi selection and jamming medium; there is no interlocking of the full old and new language components.',
+       f'- Only the consumption of two domains matching caches and larger local results are planned:. 005 RR Resolution, each direction 95% Objectives of effectiveness; 25,600 Under the group, the Quartet plans for the next line of action.{plan["four_directions_joint_power_lower_bound"]:.4f}. This is the planning of... 005 effects under the variance transportable assumption, and does not guarantee that smaller real effects are significant.',
+       '- (b) The correction plan for the two weight differentials shall not exceed half a width... 005; Here. 005 For the purpose of measuring accuracy, it is not an equivalent tolerance community. No stopover, no seed, no modeling or policy upgrading.',
+       '- accepted single-code Title/code is a fixed search condition and other codes are not fully artificially irrelevant. Unknown basic model pre-training exposure, semantic cloning and unrecorded historical exposure are not covered by local qualification guarantees.',
+       '', '## Relation to existing evidence','',
+       '(a) The old locale 512 match analysis and its 24 family remains the same; The same applies to the two groups of the old StaQC 13,312 group/16,384 code. The 25,600 group is another sample of new components and new fixed language, with six communities not retroactively changing the original conclusion. The new results do not support the attribution of cross-model family, cross-retrieve or full historical training.',
+       '', '## Acceptance and review','',
+       '14 Contract tests; Double-weighted old queries 360 Revert position span and complete ENTR/PROB sorting; Full query/speech source, group independence, old exposure, candidate/action/rank coverage review; Recosting of the stand-alone reasoned/ CDF formulae B/G; Six t and 20,000 sub-groups bootstrap stand-alone values; 32 Query and 32 code physical searcher reloading and reselling the full text.',
+       '', 'Authentication documents: DESIGN.json, ELIGIBILITY.json, PRECISION_PLAN.json, PREOPEN_AUDIT.json, NUMERICAL_AUDIT.json, MODEL_AUDIT.json, FINAL_ACCEPTANCE.json.']
     (OUT/'REPORT.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     english=['# Prospective paired T5-weight confirmation of B/G','',
       f'A separately frozen study uses {r["queries"]:,} previously unused connected StaQC components and a fixed {r["corpus_documents"]:,}-snippet corpus. Both T5 weight conditions are paired on queries, targets, corpus and the fixed CodeBERT retriever, with their own complete insertion-position pools. No retraining or parameter search is performed. The old 512-query analyses and their original 24-comparison family remain unchanged.',

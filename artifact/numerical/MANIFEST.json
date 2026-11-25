@@ -83,9 +83,9 @@
       "sha256": "ed6c9c3aed349bd529fd38972a1606b28839bfa0fcefd4d1258c5ecb256a6353"
     },
     {
-      "path": "README_CN.md",
-      "bytes": 2266,
-      "sha256": "4a4ac26caa4595a9d6863a2c6302c96dc68fbb9cdc59fb0c5f1e45c27404054d"
+      "path": "HISTORICAL_REPLAY_GUIDE.md",
+      "bytes": 2861,
+      "sha256": "af9167964ec82073f85bd5b279ff8dbf429c82343583e08b2f91af22b4753f92"
     },
     {
       "path": "reference_tables/new_weight_confirmation_COMPLETE_CURVES.csv",
