@@ -9,8 +9,7 @@
   "historical_annotations_preserved": true,
   "paper_in_artifact": false,
   "current_repository": "https://github.com/chak6229/RAG-rene-icpc2027",
-  "disclosure_update": {
-    "statement": "docs/AI_USE_DISCLOSURE.md",
+  "manuscript_update": {
     "main_pdf_pages": 12,
     "main_text_pages": 10,
     "reference_pages": [

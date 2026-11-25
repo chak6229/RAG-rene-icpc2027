@@ -1,6 +1,6 @@
 # Reference corrections — 8 November 2026
 
-The current English manuscript retains 37 reference numbers. Only the bibliographic entries [8], [9], [13], and [22] were corrected in Word and LaTeX. Both manuscript PDFs retain 10 main-text pages and two separate reference pages. Scientific text, in-text citations, equations, tables, figures, results, and the approved AI disclosure are unchanged.
+The current English manuscript retains 37 reference numbers. Only the bibliographic entries [8], [9], [13], and [22] were corrected in Word and LaTeX. Both manuscript PDFs retain 10 main-text pages and two separate reference pages. Scientific text, in-text citations, equations, tables, figures, and results are unchanged.
 
 | Reference | Correction | DOI / verification record |
 |---|---|---|
@@ -23,4 +23,4 @@ These fields were checked against the live Crossref records on 8 November 2026. 
 
 ## Artifact alignment
 
-The artifact contains no duplicate of these four bibliography entries in its current supplementary documents. This update adds the correction record and refreshes navigation, manuscript identity, release status, inventory, and checksums. Study code, cached data, original human labels, supplementary tables S1–S25, statistical results, and model binaries are byte-identical to the preceding disclosure release. The manuscript and its LaTeX source are supplied separately.
+The artifact contains no duplicate of these four bibliography entries in its current supplementary documents. This update adds the correction record and refreshes navigation, manuscript identity, release status, inventory, and checksums. Study code, cached data, original human labels, supplementary tables S1–S25, statistical results, and model binaries are byte-identical to the preceding release. The manuscript and its LaTeX source are supplied separately.

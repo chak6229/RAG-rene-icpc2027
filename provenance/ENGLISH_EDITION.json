@@ -184,7 +184,7 @@
     "experiments/rene_ssqr_alignment_20261019/acceptance.py": {
       "source_sha256": "90424712b778bc0bc4fb2a1a83268e6ca37b8a363b8fcc27ca50ac9223831ef3",
       "english_file": "experiments/rene_ssqr_alignment_20261019/acceptance.py",
-      "english_sha256": "8289e96638ce16c0ff4ff4c42b17cc6cd87c56c608410794cf00bab73213139b"
+      "english_sha256": "fd57250921a27bfc19f9ab91dd57e3ee3f43a9f618806572f75de896fc2ab884"
     },
     "experiments/rene_ssqr_rewriter_envelope_20261020/make_envelope_report.py": {
       "source_sha256": "bc286dac76db03fc94d42ae353135f0f89e757413d790c6f30300ede7b1e02f9",
@@ -496,5 +496,6 @@
       "english_file": "train_t5_cqc.py",
       "english_sha256": "4c36a756fc4f8902f95be1a14f7c1cc91dd2513480872c6f1ef7b6ea9fbb62e0"
     }
-  }
+  },
+  "packaging_revision": "2026-11-26"
 }

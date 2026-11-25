@@ -24,7 +24,7 @@
     },
     {
       "path": "README.md",
-      "bytes": 5416
+      "bytes": 5256
     },
     {
       "path": "REVIEW_ONLY_NOTICE.md",
@@ -227,16 +227,16 @@
       "bytes": 55154
     },
     {
-      "path": "docs/AI_USE_DISCLOSURE.md",
-      "bytes": 1013
-    },
-    {
       "path": "docs/APPENDIX_INDEX.md",
       "bytes": 2315
     },
     {
       "path": "docs/ARTIFACT_SCOPE.md",
       "bytes": 1664
+    },
+    {
+      "path": "docs/AUTHOR_DISCLOSURES.md",
+      "bytes": 1013
     },
     {
       "path": "docs/CHANGELOG_20261108.md",
@@ -280,7 +280,7 @@
     },
     {
       "path": "docs/REFERENCE_CORRECTIONS_20261108.md",
-      "bytes": 3222
+      "bytes": 3183
     },
     {
       "path": "docs/RENE_REQUIREMENTS.md",
@@ -952,7 +952,7 @@
     },
     {
       "path": "experiments/rene_ssqr_alignment_20261019/acceptance.py",
-      "bytes": 17450
+      "bytes": 15879
     },
     {
       "path": "experiments/rene_ssqr_alignment_20261019/common.py",
@@ -1272,7 +1272,7 @@
     },
     {
       "path": "provenance/ENGLISH_EDITION.json",
-      "bytes": 33450
+      "bytes": 33488
     },
     {
       "path": "provenance/EXPERIMENT_FILE_INDEX.json",
@@ -1284,7 +1284,7 @@
     },
     {
       "path": "provenance/MANUSCRIPT_ALIGNMENT_20261108.json",
-      "bytes": 2239
+      "bytes": 2136
     },
     {
       "path": "provenance/README.md",
@@ -1996,7 +1996,7 @@
     },
     {
       "path": "supplementary/README.md",
-      "bytes": 1659
+      "bytes": 1376
     },
     {
       "path": "supplementary/SSQR_Supplementary_S1-S25_EN.docx",

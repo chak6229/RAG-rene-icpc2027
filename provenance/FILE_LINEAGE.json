@@ -476,7 +476,7 @@
     "source": "experiments/rene_ssqr_alignment_20261019/acceptance.py",
     "source_sha256": "e7550502fc8907063d0fdd0c6efbb45784c8ca40fe97072a4a2d174a93b70acb",
     "delivered": "experiments/rene_ssqr_alignment_20261019/acceptance.py",
-    "delivered_sha256": "8289e96638ce16c0ff4ff4c42b17cc6cd87c56c608410794cf00bab73213139b",
+    "delivered_sha256": "fd57250921a27bfc19f9ab91dd57e3ee3f43a9f618806572f75de896fc2ab884",
     "local_paths_normalized": true
   },
   {
@@ -2586,7 +2586,7 @@
     "source": "experiments/rene_github_package_20261027/template/README.md",
     "source_sha256": "a6b72a61eb57130013ee92f86e7e8404eb815a38cdc0a1ac703b8dbb46f16590",
     "delivered": "README.md",
-    "delivered_sha256": "334192aaa6ba6da451d7719a2af296ad4f596727aa5bb173bb826f2c1347279b",
+    "delivered_sha256": "87323465dee453487a3b7ee1fe833be45a1620c8cad0a99c123c9707e60b3d63",
     "local_paths_normalized": false,
     "delivery_adapter_changed": true
   },
@@ -2815,7 +2815,7 @@
   {
     "source": "English edition validation, 2026-11-25",
     "delivered": "provenance/ENGLISH_EDITION.json",
-    "delivered_sha256": "4f4bc6a7c03bf308ee1e540565dec9b829c421dcf6c87edbb291a44d197d990b"
+    "delivered_sha256": "e953d80f80a3ee3772c66519dfefc5541869bf43a64239b54abf34e8948a254b"
   },
   {
     "source": "English edition validation, 2026-11-25",

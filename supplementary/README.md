@@ -6,10 +6,6 @@ Use [SSQR_Supplementary_S1-S25_EN.pdf](SSQR_Supplementary_S1-S25_EN.pdf) for rea
 
 See the [English appendix index](../docs/APPENDIX_INDEX.md) for reports referenced in the main paper and the [source path map](../docs/RESULT_PATH_MAP.md) for historical workspace identifiers. Original source manifests retain historical hashes; the release SHA256SUMS.json records the delivered versions.
 
-## AI use disclosure
-
-The manuscript acknowledgment covers assistance with these materials. The approved statement is available in [AI use disclosure](../docs/AI_USE_DISCLOSURE.md). The S1–S25 documents and their scientific content are unchanged by this documentation update.
-
 ## Manuscript reference corrections
 
 See the [reference correction record](../docs/REFERENCE_CORRECTIONS_20261108.md) for entries [8], [9], [13], and [22]. The supplementary scientific documents are unchanged.

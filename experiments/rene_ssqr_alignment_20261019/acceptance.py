@@ -170,17 +170,6 @@ def finish():
               "best_weights": file_contract(MODEL_OUTPUT / "best/model.safetensors")}
     write_json(OUT / "FINAL_ACCEPTANCE.json", result, immutable=True)
     report("complete", result)
-    local = datetime.now().strftime("%Y-%m-%d")
-    daily = ROOT / f"ResearchVault/Logs/{local}.md"
-    entry = (f"\n\n## SSQR Three complete retrained acceptances (ZX0]{datetime.now().strftime('%H:%M')}）\n\n"
-             f"- Independent pooler/raw-dot / Full batch CE Retrieval two rounds 15740 The steps have been completed; Final weight SHA256 {training['final_weights_sha256']}。\n"
-             '- The final weight corresponds to the author vector/loss, independently reloading and synthesizing input end-to-end acceptance PASS; Two input/entropy repairs have been validated, and the old weight is unchanged from the five protections.\n'
-             '- Outcome results/rene_ssqr_alignment_20261019/FINAL_ACCEPTANCE.json; CoSQA Effect not calculated, risk_certified = false, NoRewrite. The next test run will be developed after freezing the new data roles/agreements as originally planned.\n')
-    with daily.open("a", encoding="utf-8") as handle:
-        handle.write(entry)
-    agent = ROOT / f"ResearchVault/Logs/Agent/{local}-codex.md"
-    with agent.open("a", encoding="utf-8") as handle:
-        handle.write('\n\n## SSQR Alignment of receiving and inspection backstage complete\n\n- acceptance The portal confirms that the final two-wheel weights, consistency of authors, reloading and synthesis rankings are all passed; No CoSQA impact assessment performed.\n- Restore Handoffs / RENE - SSQR Three completed repairs -20261019 md and results / rene_ssqr_alignment_20261019 / FINAL_ACCEPTANCE.json; The role and comparison are still frozen.\n')
     return result
 
 

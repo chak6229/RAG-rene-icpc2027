@@ -16,8 +16,6 @@ The package supports the paper's documented reconstruction, same-pool position-s
 4. Consult [environment and settings](docs/ENVIRONMENT.md), [data access](docs/DATA_AVAILABILITY.md), [model attachments](docs/MODEL_ASSETS.md) and [CODEnn reconstruction](docs/CODENN_RECONSTRUCTION.md).
 5. Read the [human-review guide](human_review/README.md), [ethics and consent statement](docs/ETHICS_AND_CONSENT.md), and [current status and historical records](docs/CURRENT_STATUS.md).
 
-The [AI use disclosure](docs/AI_USE_DISCLOSURE.md) matches the manuscript acknowledgment. The author-verified disclosure is retained in the current materials.
-
 The [reference correction record](docs/REFERENCE_CORRECTIONS_20261108.md) documents four bibliography corrections in the separately supplied manuscript. The corrected bibliography is retained in the current manuscript.
 
 ## Reproduce the statistical evidence
