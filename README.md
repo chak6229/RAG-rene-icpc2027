@@ -4,7 +4,7 @@ English review materials for **Position Selection Advantage and Executable Utili
 
 Repository: https://github.com/chak6229/RAG-rene-icpc2027
 
-[Download the English artifact ZIP](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261125-english). W1 and W3 are in the [original model release](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261108). W5 is in the [10 November model release](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261110-paper).
+[Download the English submission materials](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261125-english). The release includes the replication ZIP, seven experiment data archives and their index, and the W1, W3, and W5 model weights.
 
 The package supports the paper's documented reconstruction, same-pool position-selection comparisons, automatic-execution analyses and independent human-review diagnostics. This release reorganizes existing evidence and recomputes descriptive S7 accounting from the same frozen outcomes; it adds no new model evaluation. The [artifact scope](docs/ARTIFACT_SCOPE.md) explains the current study contents and excluded historical branches.
 

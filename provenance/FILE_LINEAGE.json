@@ -2586,7 +2586,7 @@
     "source": "experiments/rene_github_package_20261027/template/README.md",
     "source_sha256": "a6b72a61eb57130013ee92f86e7e8404eb815a38cdc0a1ac703b8dbb46f16590",
     "delivered": "README.md",
-    "delivered_sha256": "87323465dee453487a3b7ee1fe833be45a1620c8cad0a99c123c9707e60b3d63",
+    "delivered_sha256": "0e0bf6b13556e3ff98a43deba402eba729df006a5e10df872f5935787949d865",
     "local_paths_normalized": false,
     "delivery_adapter_changed": true
   },

@@ -9,29 +9,28 @@
   "model_assets": [
     {
       "name": "SSQR_RENE_W1_CQC_T5_20261031.zip",
-      "id": 723554799,
+      "id": 793621071,
       "bytes": 895679380,
       "sha256": "c30b796808b512a1d7ebf4d8e6babfab6756878f95a5ce827dd0b29b3f37b097",
-      "url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261108/SSQR_RENE_W1_CQC_T5_20261031.zip"
+      "url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261125-english/SSQR_RENE_W1_CQC_T5_20261031.zip"
     },
     {
       "name": "SSQR_RENE_W5_CrossEncoder_20261110.zip",
       "bytes": 500010714,
       "sha256": "5d81db145dd1b973e73638123e118ae768cc0943061795d68c197e4397c7d462",
-      "url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261110-paper/SSQR_RENE_W5_CrossEncoder_20261110.zip",
-      "id": 730792823
+      "url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261125-english/SSQR_RENE_W5_CrossEncoder_20261110.zip",
+      "id": 793621055
     },
     {
       "name": "SSQR_RENE_W3_CodeBERT_20261031.zip",
-      "id": 723576958,
+      "id": 793621078,
       "bytes": 503428077,
       "sha256": "b2e696ea88b54e916eedc20349fc536da82d29e37ceeefbe6b21a0d1e6bf76bd",
-      "url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261108/SSQR_RENE_W3_CodeBERT_20261031.zip"
+      "url": "https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261125-english/SSQR_RENE_W3_CodeBERT_20261031.zip"
     }
   ],
   "paper_uploaded": false,
   "verification": "Scientific replay and language-edition checks are recorded in provenance/validation/RELEASE_VALIDATION.json. GitHub verification is in the author delivery receipt.",
-  "previous_release_tag": "rene-review-20261110-paper",
   "manuscript_version": "2026.11.10",
   "edition": "English review edition",
   "previous_source_commit": "3fb7179239576a0493fe349c84e35e2bae4222a4"

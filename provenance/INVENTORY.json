@@ -24,7 +24,7 @@
     },
     {
       "path": "README.md",
-      "bytes": 5256
+      "bytes": 5135
     },
     {
       "path": "REVIEW_ONLY_NOTICE.md",
@@ -272,11 +272,11 @@
     },
     {
       "path": "docs/MODEL_ASSETS.md",
-      "bytes": 3044
+      "bytes": 2934
     },
     {
       "path": "docs/PUBLICATION.md",
-      "bytes": 1179
+      "bytes": 783
     },
     {
       "path": "docs/REFERENCE_CORRECTIONS_20261108.md",
@@ -304,7 +304,7 @@
     },
     {
       "path": "docs/assets/STUDY_ASSETS.json",
-      "bytes": 7145
+      "bytes": 7003
     },
     {
       "path": "docs/licenses/C-UDA-1.0.md",
@@ -1292,7 +1292,7 @@
     },
     {
       "path": "provenance/RELEASE_STATUS.json",
-      "bytes": 1812
+      "bytes": 1774
     },
     {
       "path": "provenance/SETTINGS_SOURCE_INDEX.json",
