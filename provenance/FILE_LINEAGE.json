@@ -2586,7 +2586,7 @@
     "source": "experiments/rene_github_package_20261027/template/README.md",
     "source_sha256": "a6b72a61eb57130013ee92f86e7e8404eb815a38cdc0a1ac703b8dbb46f16590",
     "delivered": "README.md",
-    "delivered_sha256": "0e0bf6b13556e3ff98a43deba402eba729df006a5e10df872f5935787949d865",
+    "delivered_sha256": "76e15c2a57b3aa7802088d4069e409a2035864ccf93a3f868c4814bac76658ac",
     "local_paths_normalized": false,
     "delivery_adapter_changed": true
   },
@@ -2608,7 +2608,7 @@
     "source": "experiments/rene_github_package_20261027/template/docs/DATA_AVAILABILITY.md",
     "source_sha256": "a13bde24270d01aee169b8e177c631fa988f66730336f9fc0e7279ad3869574d",
     "delivered": "docs/DATA_AVAILABILITY.md",
-    "delivered_sha256": "80ffc1bb18c7f1daf00f722919b31b93a3ae69cb6d1cbe41625104c6372dfef8",
+    "delivered_sha256": "a0da07a7638e891ced21ae3eae9caf929c11f4519da3ce9452bdbf1602051101",
     "local_paths_normalized": false,
     "delivery_adapter_changed": true
   },
@@ -2821,5 +2821,12 @@
     "source": "English edition validation, 2026-11-25",
     "delivered": "provenance/validation/RELEASE_VALIDATION.json",
     "delivered_sha256": "a9e374f2c18f9d128c65bed6a962988c07057c3ae1887c8247020a57262fb18c"
+  },
+  {
+    "source": "results/rene_ssqr_bridge_20261019/implementation_sensitivity.png",
+    "source_sha256": "6ceaa1721f0ab5da40a3d3104c0d442a3e1630cbaf57f48568889765398649c3",
+    "delivered": "results/experiment_exports/rene_ssqr_bridge_20261019/implementation_sensitivity.png",
+    "delivered_sha256": "6ceaa1721f0ab5da40a3d3104c0d442a3e1630cbaf57f48568889765398649c3",
+    "local_paths_normalized": false
   }
 ]

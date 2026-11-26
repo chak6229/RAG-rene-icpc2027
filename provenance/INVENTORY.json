@@ -1,7 +1,7 @@
 {
   "version": "2026.11.25",
   "manuscript_version": "2026.11.10",
-  "files_excluding_inventory_and_checksum": 518,
+  "files_excluding_inventory_and_checksum": 519,
   "includes_paper": false,
   "standalone_old_uq_modules": 0,
   "current_s7": "Full-H opportunity-loss and verification accounting",
@@ -232,7 +232,7 @@
     },
     {
       "path": "docs/ARTIFACT_SCOPE.md",
-      "bytes": 1664
+      "bytes": 1717
     },
     {
       "path": "docs/AUTHOR_DISCLOSURES.md",
@@ -248,11 +248,11 @@
     },
     {
       "path": "docs/CURRENT_STATUS.md",
-      "bytes": 2171
+      "bytes": 2231
     },
     {
       "path": "docs/DATA_AVAILABILITY.md",
-      "bytes": 5244
+      "bytes": 5868
     },
     {
       "path": "docs/ENVIRONMENT.md",
@@ -1280,7 +1280,7 @@
     },
     {
       "path": "provenance/FILE_LINEAGE.json",
-      "bytes": 157101
+      "bytes": 157513
     },
     {
       "path": "provenance/MANUSCRIPT_ALIGNMENT_20261108.json",
@@ -1817,6 +1817,10 @@
     {
       "path": "results/experiment_exports/rene_ssqr_bridge_20261019/READOUT.md",
       "bytes": 10372
+    },
+    {
+      "path": "results/experiment_exports/rene_ssqr_bridge_20261019/implementation_sensitivity.png",
+      "bytes": 108210
     },
     {
       "path": "results/experiment_exports/rene_t5_weight_factors_20261020/DESIGN.json",

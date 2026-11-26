@@ -2,7 +2,11 @@
 
 ## Included evidence
 
-The package includes all integrated S1–S15 aggregate results, the separate paired-weight confirmation, source protocols/reports, core anonymous per-query ranks/outcomes for 14 replay units, and the authorized human review labels/rationales plus numeric panels and sample design needed by its replay. Full intermediate model vectors, raw corpora/qrels, model binaries and original review attachments are not copied into this small Git repository. The exact W1/W3/W5 study weights are supplied as separately hashed private release/review attachments. See [model acquisition and installation](MODEL_ASSETS.md) and [STUDY_ASSETS.json](assets/STUDY_ASSETS.json).
+The replication ZIP includes the English supplementary tables S1–S25, the paired-weight confirmation, source protocols and reports, anonymous per-query ranks and outcomes for 14 replay units, and the authorized human-review labels, rationales, numerical panels and sampling design.
+
+The [English submission release](https://github.com/chak6229/RAG-rene-icpc2027/releases/tag/rene-review-20261125-english) also provides seven archives of frozen candidate records, ordered Top100 rankings and scores, matrices, vectors and execution outputs. Benchmark text is represented by SHA-256 identifiers. Obtain the original corpora and relevance judgments through the upstream routes below. The [experiment data guide](https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261125-english/EXPERIMENT_RUN_DATA_README.md) maps the archives to the research questions. The [per-file manifest](https://github.com/chak6229/RAG-rene-icpc2027/releases/download/rene-review-20261125-english/RUN_DATA_REVIEW_MANIFEST.json) records file identities and text-field transformations.
+
+The same release provides the W1/W3/W5 study weights. See [model acquisition and installation](MODEL_ASSETS.md) and the [weight manifest](assets/STUDY_ASSETS.json) for hashes and installation paths.
 
 ## Upstream artifacts
 

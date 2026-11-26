@@ -1,6 +1,6 @@
 # Artifact scope
 
-This release follows the English manuscript dated 10 November 2026 and contains the current three-RQ studies: SSQR reconstruction and fidelity checks, selected-count/aggregation analyses, tested retriever and T5-weight conditions, fixed-action adoption, fusion, complete-H execution, limited training sensitivity, and the original and supplemental human-review diagnostics.
+This release supports the 25 November 2026 English manuscript for the frozen study cited as version 2026.11.10. The studies for the three research questions cover SSQR reconstruction and fidelity checks, selected-count/aggregation analyses, tested retriever and T5-weight conditions, fixed-action adoption, fusion, complete-H execution, limited training sensitivity, and the original and supplemental human-review diagnostics.
 
 Table S7 is a descriptive accounting of the three frozen Ridge stages, using the same complete-H query records as Table S5. All other result-table rows, cached numerical inputs, human judgments and checkpoint tensors retain their original values. The selected verification-model training functions are supplied separately in experiments/rene_verifier_training/; their original function bodies are preserved.
 

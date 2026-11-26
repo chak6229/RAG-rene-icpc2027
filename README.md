@@ -1,6 +1,6 @@
 # SSQR external replication artifact
 
-English review materials for **Position Selection Advantage and Executable Utility: An External Replication of SSQR for Code Search**. The materials follow the three research questions and the study version **2026.11.10** cited in the manuscript. This English review edition is dated 25 November 2026. The manuscript is delivered separately.
+English review materials for **Position-Selection Advantage and Executable Utility: An External Replication of SSQR for Code Search**. The materials follow the three research questions and the study version **2026.11.10** cited in the manuscript. This English review edition is dated 25 November 2026. The manuscript is delivered separately.
 
 Repository: https://github.com/chak6229/RAG-rene-icpc2027
 

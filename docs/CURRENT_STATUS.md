@@ -1,13 +1,13 @@
 # Current evidence and historical records
 
-This release follows the English manuscript dated 10 November 2026. Its scientific results remain those recorded in the frozen experiments. Repackaging and translation do not create a new confirmation or change comparison families.
+This release supports the 25 November 2026 English manuscript, which cites the frozen study as version 2026.11.10. The [earlier manuscript alignment record](../provenance/MANUSCRIPT_ALIGNMENT_20261108.json) documents the November 10 edition. The main manuscript PDF is supplied separately.
 
 | Historical statement or record | Current interpretation and evidence |
 |---|---|
 | Two-weight complete B/G analysis pending in early fusion findings | Completed in S11 on the historical matched samples; the separate new 25,600-group confirmation appears in main Table II and the paired-weight report |
 | Supplementary human judgments pending in early diagnostic reports | Completed: 344 additional code panels per reviewer; original and supplemental labels remain separate |
 | Positive sample identification bounds | Retained, alongside finite-frame envelopes that cross zero; positive full-H utility is not established |
-| Model files described only by historical paths | Exact W1/W3/W5 attachments are available through the model releases listed in MODEL_ASSETS.md |
+| Model files described only by historical paths | The [model guide](MODEL_ASSETS.md) links the W1/W3/W5 weights in the English submission release |
 | Previous repository publication receipts | Historical receipts only; current publication status is in provenance/RELEASE_STATUS.json |
 
 Artifact packaging was cleaned on 10 November 2026; see [the scope record](ARTIFACT_SCOPE.md). Author-side obsolete draft generators, duplicate guides and publication/delivery tools were archived outside the review bundle. `results/experiment_exports/`, scientific `provenance/` records and retained historical source comments preserve the state at the recorded time. Their older plans, pending tasks and workspace paths must not be read as the current delivery status. The English appendix index points to the final reports. No historical observation or independent reviewer label has been rewritten to conceal this chronology.
